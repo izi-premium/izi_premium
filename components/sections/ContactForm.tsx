@@ -47,7 +47,7 @@ export default function ContactForm() {
           <form action={formAction} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
+                <Label htmlFor="name">Name <span className="text-destructive">*</span></Label>
                 <Input
                   id="name"
                   name="name"
@@ -62,7 +62,7 @@ export default function ContactForm() {
                 )}
               </div>
               <div className="space-y-2">
-                <Label htmlFor="surname">Surname</Label>
+                <Label htmlFor="surname">Surname <span className="text-destructive">*</span></Label>
                 <Input
                   id="surname"
                   name="surname"
@@ -78,7 +78,7 @@ export default function ContactForm() {
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Email <span className="text-destructive">*</span></Label>
               <Input
                 id="email"
                 name="email"
@@ -109,7 +109,7 @@ export default function ContactForm() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="message">Message</Label>
+              <Label htmlFor="message">Message <span className="text-destructive">*</span></Label>
               <Textarea
                 id="message"
                 name="message"
