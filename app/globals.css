@@ -1,0 +1,387 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@layer base {
+  :root {
+    --font-general-sans: "General Sans", sans-serif;
+    --font-inter: "Inter", sans-serif;
+  }
+
+  body {
+    font-family: var(--font-inter);
+  }
+}
+
+@media (pointer: coarse) {
+  *:hover {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-size: 62.5%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@utility container-wrapper {
+  @apply px-[clamp(10rem,17.5vw,1000rem)] w-full min-w-full 3xl:px-[clamp(10rem,25vw,1000rem)];
+}
+@utility px-mobile {
+  @apply px-[2.4rem];
+}
+
+@utility px-tablet {
+  @apply px-[6.4rem];
+}
+
+@utility px-desktop {
+  @apply px-[10rem];
+}
+
+@utility h1-xxl {
+  @apply font-medium text-[10.1rem] leading-[98%] tracking-[-1.71px];
+  font-family: var(--font-general-sans);
+  @media (min-width: 1920px) {
+    @apply text-[clamp(10.1rem,5.2604vw,52.1rem)];
+  }
+}
+@utility h1-big {
+  @apply font-medium text-[9.6rem] leading-[105%] tracking-[-1.075px];
+  font-family: var(--font-general-sans);
+  @media (min-width: 1920px) {
+    @apply text-[clamp(9.6rem,5vw,32.3rem)];
+  }
+}
+
+@utility h1-small {
+  @apply font-medium text-[5.7rem] leading-[115%] tracking-[-1.075px];
+  font-family: var(--font-general-sans);
+  @media (min-width: 1920px) {
+    @apply text-[clamp(5.7rem,2.96875vw,12.3rem)];
+  }
+}
+
+@utility h2-medium {
+  @apply font-medium text-[4.3rem] leading-[110%] tracking-[-1.075px];
+  font-family: var(--font-general-sans);
+  @media (min-width: 1920px) {
+    @apply text-[clamp(4.3rem,2.24vw,12.3rem)];
+  }
+}
+
+@utility h2-normal {
+  @apply font-normal text-[4.3rem] leading-[110%] tracking-[-1.075px];
+  font-family: var(--font-general-sans);
+  @media (min-width: 1920px) {
+    @apply text-[clamp(4.3rem,2.24vw,12.3rem)];
+  }
+}
+
+@utility subtitle-semibold {
+  @apply font-semibold text-[3.2rem] leading-[130%] tracking-[-0.8px];
+  font-family: var(--font-general-sans);
+  @media (min-width: 1920px) {
+    @apply text-[clamp(3.2rem,1.666vw,7.6rem)];
+  }
+}
+
+@utility subtitle-medium {
+  @apply font-medium text-[3.2rem] leading-[130%] tracking-[-0.48px];
+  font-family: var(--font-general-sans);
+  @media (min-width: 1920px) {
+    @apply text-[clamp(3.2rem,1.666vw,7.6rem)];
+  }
+}
+
+@utility subtitle-normal {
+  @apply font-normal text-[3.2rem] leading-[130%] tracking-[-0.8px];
+  font-family: var(--font-general-sans);
+  @media (min-width: 1920px) {
+    @apply text-[clamp(3.2rem,1.666vw,7.6rem)];
+  }
+}
+
+@utility paragraph-24-semibold {
+  @apply font-semibold text-[2.4rem] leading-[140%] tracking-[-0.48px] font-[inter];
+  @media (min-width: 1920px) {
+    @apply text-[clamp(2.4rem,1.25vw,4.7rem)];
+  }
+}
+
+@utility paragraph-24-medium {
+  @apply font-medium text-[2.4rem] leading-[140%] tracking-[-0.48px] font-[inter];
+  @media (min-width: 1920px) {
+    @apply text-[clamp(2.4rem,1.25vw,4.7rem)];
+  }
+}
+
+@utility paragraph-24-normal {
+  @apply font-normal text-[2.4rem] leading-[140%] tracking-[-0.48px] font-[inter];
+  @media (min-width: 1920px) {
+    @apply text-[clamp(2.4rem,1.25vw,4.7rem)];
+  }
+}
+
+@utility paragraph-18-semibold {
+  @apply font-semibold text-[1.8rem] leading-[150%] tracking-[-0.36px] font-[inter];
+  @media (min-width: 1920px) {
+    @apply text-[clamp(1.8rem,0.9375vw,2.9rem)];
+  }
+}
+
+@utility paragraph-18-medium {
+  @apply font-medium text-[1.8rem] leading-[150%] tracking-[-0.36px] font-[inter];
+  @media (min-width: 1920px) {
+    @apply text-[clamp(1.8rem,0.9375vw,2.9rem)];
+  }
+}
+
+@utility paragraph-18-normal {
+  @apply font-normal text-[1.8rem] leading-[150%] tracking-[-0.36px] font-[inter];
+  @media (min-width: 1920px) {
+    @apply text-[clamp(1.8rem,0.9375vw,2.9rem)];
+  }
+}
+
+@utility paragraph-14 {
+  @apply font-normal text-[1.4rem] leading-[150%] tracking-[-0.48px] font-[inter];
+  @media (min-width: 1920px) {
+    @apply text-[clamp(1.4rem,0.729166vw,1.8rem)];
+  }
+}
+
+@utility paragraph-10 {
+  @apply font-normal text-[1.0rem] leading-[150%] tracking-[-0.27px] font-[inter];
+  @media (min-width: 1920px) {
+    @apply text-[clamp(1.0rem,0.52083vw,1.4rem)];
+  }
+}
+
+@utility flex-center {
+  @apply flex flex-row justify-center items-center;
+}
+
+@utility flex-start {
+  @apply flex flex-row justify-start items-start;
+}
+
+@utility flex-center-col {
+  @apply flex justify-center items-center flex-col;
+}
+
+@utility flex-start-col {
+  @apply flex justify-center items-start flex-col;
+}
+
+@utility flex-begin-col {
+  @apply flex justify-start items-start flex-col;
+}
+
+@utility flex-between {
+  @apply flex flex-row justify-between items-center;
+}
+
+@utility flex-around {
+  @apply flex justify-around flex-row items-center;
+}
+
+@utility flex-between-col {
+  @apply flex flex-col justify-between items-center;
+}
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Media Queries */
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-special: 1280px;
+  --breakpoint-xl: 1920px;
+  --breakpoint-2xl: 3000px;
+  --breakpoint-3xl: 4800px;
+
+  /* Border Radius */
+  --radius-4: 0.4rem;
+  --radius-8: 0.8rem;
+  --radius-12: 1.2rem;
+  --radius-16: 1.6rem;
+  --radius-20: 2rem;
+  --radius-24: 2.4rem;
+  --radius-32: 3.2rem;
+  --radius-full: 50rem;
+
+  /* Line Heights */
+  --leading-98: 98%;
+  --leading-105: 105%;
+  --leading-100: 100%;
+  --leading-110: 110%;
+  --leading-115: 115%;
+  --leading-130: 130%;
+  --leading-140: 140%;
+  --leading-150: 150%;
+
+  /* Letter Spacing */
+  --tracking-xs: -0.027rem;
+  --tracking-sm: -0.036rem;
+  --tracking-base: -0.048rem;
+  --tracking-md: -0.064rem;
+  --tracking-l: -0.08rem;
+  --tracking-xl: -0.1075rem;
+  --tracking-2xl: -0.171rem;
+
+  /* Font Sizes */
+  --text-10: 1rem; /* 10px */
+  --text-14: 1.4rem; /* 14px */
+  --text-18: 1.8rem; /* 18px */
+  --text-24: 2.4rem; /* 24px */
+  --text-32: 3.2rem; /* 32px */
+  --text-43: 4.3rem; /* 43px */
+  --text-57: 5.7rem; /* 57px */
+  --text-96: 9.6rem; /* 96px */
+  --text-101: 10.1rem; /* 101px */
+
+  /* color */
+  --color-primary-50: oklch(97.04% 0.01 276.34);
+  --color-primary-100: oklch(89.84% 0.05 276.34);
+  --color-primary-200: oklch(82.98% 0.08 276.34);
+  --color-primary-300: oklch(75.78% 0.11 276.34);
+  --color-primary-400: oklch(67.33% 0.15 276.34);
+  --color-primary-500: oklch(57.33% 0.2 276.34);
+  --color-primary-600: oklch(49.84% 0.22 276.34);
+  --color-primary-700: oklch(38.92% 0.2 276.34);
+  --color-primary-800: oklch(28.75% 0.17 276.34);
+  --color-primary-900: oklch(18.92% 0.13 276.34);
+
+  --color-secondary-50: oklch(97.04% 0.01 330.02);
+  --color-secondary-100: oklch(91.82% 0.05 330.02);
+  --color-secondary-200: oklch(86.48% 0.09 330.02);
+  --color-secondary-300: oklch(80.39% 0.12 330.02);
+  --color-secondary-400: oklch(74.14% 0.14 330.02);
+  --color-secondary-500: oklch(68.11% 0.16 330.02);
+  --color-secondary-600: oklch(56.92% 0.19 330.02);
+  --color-secondary-700: oklch(42.99% 0.22 330.02);
+  --color-secondary-800: oklch(29.14% 0.21 330.02);
+  --color-secondary-900: oklch(14.97% 0.18 330.02);
+
+  --color-accent-50: oklch(95.99% 0.03 200.01);
+  --color-accent-100: oklch(91.68% 0.08 200.01);
+  --color-accent-200: oklch(86.78% 0.13 200.01);
+  --color-accent-300: oklch(80.33% 0.18 200.01);
+  --color-accent-400: oklch(74.31% 0.22 200.01);
+  --color-accent-500: oklch(68.37% 0.24 200.01);
+  --color-accent-600: oklch(58.02% 0.22 200.01);
+  --color-accent-700: oklch(43.91% 0.19 200.01);
+  --color-accent-800: oklch(29.19% 0.15 200.01);
+  --color-accent-900: oklch(14.82% 0.09 200.01);
+
+  --color-white-50: oklch(99.25% 0 180);
+  --color-white-100: oklch(99.25% 0 180);
+  --color-white-200: oklch(99.25% 0 180);
+  --color-white-300: oklch(98.65% 0 180);
+  --color-white-400: oklch(97.92% 0 180);
+  --color-white-500: oklch(96.92% 0 180);
+  --color-white-600: oklch(96.92% 0 180);
+  --color-white-700: oklch(94.75% 0 180);
+  --color-white-800: oklch(95.01% 0 180);
+  --color-white-900: oklch(93.92% 0 180);
+  --color-white-950: oklch(94.25% 0 180);
+
+  --color-black-50: oklch(96.92% 0.02 255);
+  --color-black-100: oklch(82.35% 0.03 255);
+  --color-black-200: oklch(69.8% 0.04 255);
+  --color-black-300: oklch(56.47% 0.05 255);
+  --color-black-400: oklch(42.35% 0.06 255);
+  --color-black-500: oklch(32.16% 0 255);
+  --color-black-600: oklch(24.71% 0 255);
+  --color-black-700: oklch(8.63% 0 255);
+  --color-black-800: oklch(3.92% 0 255);
+  --color-black-900: oklch(0% 0 255);
+
+  --shadow-purple:
+    inset 8px 8px 100px 2px rgba(102, 0, 214, 0.05),
+    88px 113px 40px 0px rgba(0, 0, 0, 0),
+    56px 72px 37px 0px rgba(0, 0, 0, 0.01),
+    32px 41px 31px 0px rgba(0, 0, 0, 0.03),
+    14px 18px 23px 0px rgba(0, 0, 0, 0.04), 4px 5px 13px 0px rgba(0, 0, 0, 0.05);
+
+}
+
+/* Hide scrollbars while keeping functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+*,
+*:before,
+*:after {
+  list-style: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(91.68% 0.08 200.01) oklch(97.92% 0 180);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: oklch(97.92% 0 180);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: oklch(91.68% 0.08 200.01);
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: oklch(91.68% 0.08 200.01);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1280px) {
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(91.68% 0.08 200.01) oklch(97.92% 0 180);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: oklch(97.92% 0 180);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    background: oklch(91.68% 0.08 200.01);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    transition: all 0.3s ease-out;
+    background: oklch(91.68% 0.08 200.01);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
+  }
+}
