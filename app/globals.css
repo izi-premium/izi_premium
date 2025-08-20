@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
+@import "tw-animate-css";
 
 @layer base {
   :root {
@@ -149,7 +149,7 @@ body {
   }
 }
 
-@utility paragraph-14 {
+@utility paragraph-14-normal {
   @apply font-[inter] text-[1.4rem] leading-[150%] font-normal tracking-[-0.48px];
   @media (min-width: 1920px) {
     @apply text-[clamp(1.4rem,0.729166vw,1.8rem)];

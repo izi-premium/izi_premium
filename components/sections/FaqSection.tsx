@@ -21,7 +21,7 @@ const faqs = [
     answer:
       "Yes, the boilerplate is highly customizable. You can easily change the theme, add or remove components, and configure it to fit your project's specific needs. The code is well-documented to guide you.",
   },
-    {
+  {
     question: "How do I deploy a site built with this boilerplate?",
     answer:
       "You can deploy your site to any platform that supports Next.js, such as Vercel, Netlify, or your own server. Vercel is the recommended platform for optimal performance and ease of use.",
@@ -30,22 +30,34 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section id="features" className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container px-4 md:px-6 mx-auto">
+    <section
+      id="features"
+      className="px-mobile md:px-tablet lg:px-desktop w-full max-w-[160rem] py-12 md:py-24 lg:py-32"
+    >
+      <div className="w-full">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="h2-bold">Frequently Asked Questions</h2>
-            <p className="max-w-[900px] text-muted-foreground p-large">
-              Find answers to common questions about our boilerplate and its features.
+            <h2 className="h2-medium text-black-800">
+              Frequently Asked Questions
+            </h2>
+            <p className="paragraph-24-normal text-black-600 3xl:max-w-[220rem] max-w-[120rem] 2xl:max-w-[160rem]">
+              Find answers to common questions about our boilerplate and its
+              features.
             </p>
           </div>
         </div>
-        <div className="mx-auto max-w-3xl mt-12">
-          <Accordion type="single" collapsible className="w-full">
+        <div className="flex-center-col mx-auto mt-12">
+          <Accordion
+            type="single"
+            collapsible
+            className="3xl:max-w-[220rem] w-full max-w-[90rem] 2xl:max-w-[160rem]"
+          >
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="p-base">{faq.question}</AccordionTrigger>
-                <AccordionContent className="p-base text-muted-foreground">
+                <AccordionTrigger className="paragraph-24-normal text-black-700 3xl:py-10 transition-all duration-300 ease-in-out hover:cursor-pointer xl:py-6 2xl:py-8">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="paragraph-18-normal text-black-500">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -55,4 +67,4 @@ export default function FaqSection() {
       </div>
     </section>
   );
-} 
+}

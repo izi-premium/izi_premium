@@ -14,7 +14,11 @@ import { cn } from "@/lib/utils";
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full">
+    <Button
+      type="submit"
+      disabled={pending}
+      className="paragraph-24-medium text-black-700 h-fit w-full max-w-[90rem] py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
+    >
       {pending ? "Sending..." : "Send Message"}
     </Button>
   );
@@ -35,34 +39,56 @@ export default function ContactForm() {
   const [state, formAction] = useActionState(sendEmail, initialState);
 
   return (
-    <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
-      <div className="container px-4 md:px-6 mx-auto">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <h2 className="h2-bold">Contact Us</h2>
-          <p className="max-w-[900px] text-muted-foreground p-large">
+    <section
+      id="contact"
+      className="px-mobile md:px-tablet lg:px-desktop w-full max-w-[160rem] py-12 md:py-24 lg:py-32"
+    >
+      <div className="flex-center-col w-full">
+        <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
+          <h2 className="h2-medium text-black-800">Contact Us</h2>
+          <p className="paragraph-24-normal text-black-600 3xl:max-w-[220rem] max-w-[120rem] 2xl:max-w-[160rem]">
             Have a question or want to work with us? Drop us a message.
           </p>
         </div>
-        <div className="mx-auto max-w-3xl">
+        <div className="3xl:max-w-[120rem] w-full max-w-[70rem] 2xl:max-w-[90rem]">
           <form action={formAction} className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="name">Name <span className="text-destructive">*</span></Label>
+                <Label
+                  htmlFor="name"
+                  className="paragraph-134-normal text-black-700"
+                >
+                  Name{" "}
+                  <span className="text-destructive paragraph-14-normal text-red-600">
+                    *
+                  </span>
+                </Label>
                 <Input
                   id="name"
                   name="name"
                   placeholder="John"
                   defaultValue={state.fieldValues?.name}
-                  className={cn(state.errors?.name && "border-destructive")}
+                  className={cn(
+                    state.errors?.name &&
+                      "border-destructive paragraph-18-normal"
+                  )}
                 />
                 {state.errors?.name && (
-                  <p className="text-sm font-medium text-destructive">
+                  <p className="text-destructive paragraph-14-normal font-medium text-red-700">
                     {state.errors.name[0]}
                   </p>
                 )}
               </div>
               <div className="space-y-2">
-                <Label htmlFor="surname">Surname <span className="text-destructive">*</span></Label>
+                <Label
+                  htmlFor="surname"
+                  className="paragraph-14-normal text-black-700"
+                >
+                  Surname{" "}
+                  <span className="text-destructive paragraph-14-normal text-red-600">
+                    *
+                  </span>
+                </Label>
                 <Input
                   id="surname"
                   name="surname"
@@ -71,14 +97,22 @@ export default function ContactForm() {
                   className={cn(state.errors?.surname && "border-destructive")}
                 />
                 {state.errors?.surname && (
-                  <p className="text-sm font-medium text-destructive">
+                  <p className="text-destructive paragraph-14-normal font-medium text-red-700">
                     {state.errors.surname[0]}
                   </p>
                 )}
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email <span className="text-destructive">*</span></Label>
+              <Label
+                htmlFor="email"
+                className="paragraph-14-normal text-black-700"
+              >
+                Email{" "}
+                <span className="text-destructive paragraph-14-normal text-red-600">
+                  *
+                </span>
+              </Label>
               <Input
                 id="email"
                 name="email"
@@ -88,13 +122,18 @@ export default function ContactForm() {
                 className={cn(state.errors?.email && "border-destructive")}
               />
               {state.errors?.email && (
-                <p className="text-sm font-medium text-destructive">
+                <p className="text-destructive paragraph-14-normal font-medium text-red-700">
                   {state.errors.email[0]}
                 </p>
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="phone">Phone Number (Optional)</Label>
+              <Label
+                htmlFor="phone"
+                className="paragraph-14-normal text-black-700"
+              >
+                Phone Number (Optional)
+              </Label>
               <Input
                 id="phone"
                 name="phone"
@@ -103,37 +142,47 @@ export default function ContactForm() {
                 className={cn(state.errors?.phone && "border-destructive")}
               />
               {state.errors?.phone && (
-                <p className="text-sm font-medium text-destructive">
+                <p className="text-destructive paragraph-14-normal font-medium text-red-700">
                   {state.errors.phone[0]}
                 </p>
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="message">Message <span className="text-destructive">*</span></Label>
+              <Label
+                htmlFor="message"
+                className="paragraph-14-normal text-black-700"
+              >
+                Message{" "}
+                <span className="text-destructive paragraph-14-normal text-red-600">
+                  *
+                </span>
+              </Label>
               <Textarea
                 id="message"
                 name="message"
                 placeholder="Your message..."
                 defaultValue={state.fieldValues?.message}
-                className={cn(state.errors?.message && "border-destructive")}
+                className={cn(
+                  state.errors?.message &&
+                    "border-destructive paragraph-18-normal"
+                )}
               />
               {state.errors?.message && (
-                <p className="text-sm font-medium text-destructive">
+                <p className="text-destructive paragraph-14-normal font-medium text-red-700">
                   {state.errors.message[0]}
                 </p>
               )}
             </div>
             <SubmitButton />
-            {state.message &&
-              !state.errors && (
-                <p className="text-sm font-medium text-green-600 mt-2">
-                  {state.message}
-                </p>
-              )}
+            {state.message && !state.errors && (
+              <p className="paragraph-14-medium mt-2 text-green-600">
+                {state.message}
+              </p>
+            )}
             {state.message &&
               state.errors &&
               Object.keys(state.errors).length > 0 && (
-                <p className="text-sm font-medium text-destructive mt-2">
+                <p className="text-destructive paragraph-14-medium mt-2 text-red-700">
                   {state.message}
                 </p>
               )}
@@ -142,4 +191,4 @@ export default function ContactForm() {
       </div>
     </section>
   );
-} 
+}

@@ -52,7 +52,7 @@ export default function CarouselSection() {
       <div className="w-full">
         <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
           <h2 className="h2-medium text-black-700">Core Features</h2>
-          <p className="paragraph-24-normal text-black-600 max-w-[900px]">
+          <p className="paragraph-24-normal text-black-600 3xl:max-w-[220rem] max-w-[120rem] 2xl:max-w-[160rem]">
             This boilerplate comes packed with features to get you started.
           </p>
         </div>

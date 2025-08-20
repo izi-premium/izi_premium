@@ -13,7 +13,7 @@ export default function FeatureCard({
   description,
 }: FeatureCardProps) {
   return (
-    <Card className="h-full w-fit">
+    <Card className="h-full w-full">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="paragraph-24-medium text-black-600">
           {title}

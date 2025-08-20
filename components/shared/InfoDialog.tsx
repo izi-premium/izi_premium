@@ -14,37 +14,40 @@ export default function InfoDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Learn More</Button>
+        <Button
+          variant="outline"
+          className="paragraph-18-medium text-black-700 hover:cursor-pointer"
+        >
+          Learn More
+        </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="bg-white sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>About This Boilerplate</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="paragraph-24-medium text-black-800">
+            About This Boilerplate
+          </DialogTitle>
+          <DialogDescription className="paragraph-18-normal text-black-700">
             This is a Next.js boilerplate built with performance and developer
             experience in mind.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <p>It includes:</p>
-          <ul className="list-disc list-inside space-y-2">
-            <li>Next.js 15 & React 19</li>
-            <li>TypeScript</li>
-            <li>Tailwind CSS</li>
-            <li>Shadcn UI</li>
-            <li>Server Components</li>
+          <p className="paragraph-18-normal text-black-700">
+            <b>It includes:</b>
+          </p>
+          <ul className="list-inside list-disc space-y-2">
+            <li className="paragraph-18-normal text-black-700">
+              Next.js 15 & React 19
+            </li>
+            <li className="paragraph-18-normal text-black-700">TypeScript</li>
+            <li className="paragraph-18-normal text-black-700">Tailwind CSS</li>
+            <li className="paragraph-18-normal text-black-700">Shadcn UI</li>
+            <li className="paragraph-18-normal text-black-700">
+              Server Components
+            </li>
           </ul>
         </div>
-        <DialogClose asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-4 top-4 w-11 h-11"
-          >
-            <X className="h-6 w-6" />
-            <span className="sr-only">Close</span>
-          </Button>
-        </DialogClose>
       </DialogContent>
     </Dialog>
   );
-} 
+}

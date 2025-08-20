@@ -9,11 +9,11 @@ import TextWithImageSection from "@/components/sections/TextWithImageSection";
 export default function Home() {
   return (
     <div className="flex-center-col bg-white-50 px-mobile md:px-tablet lg:px-desktop min-h-screen w-full gap-[3.4rem]">
-      <section className="w-full max-w-[160rem] py-12 md:py-24 lg:py-32">
+      <section className="3xl:max-w-[220rem] w-full max-w-[160rem] py-12 md:py-24 lg:py-32">
         <div className="px-4 md:px-6">
           <div className="flex flex-col items-center gap-4 text-center">
             <h1 className="h1-big text-black-800">Next.js 15 Boilerplate</h1>
-            <p className="subtitle-normal text-black-600 max-w-[90rem]">
+            <p className="subtitle-normal text-black-600 3xl:max-w-[220rem] max-w-[120rem] 2xl:max-w-[160rem]">
               A powerful and modern boilerplate to kickstart your next project.
               Built with the latest technologies and best practices.
             </p>
