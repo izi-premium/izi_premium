@@ -15,12 +15,14 @@ const features = [
   {
     icon: Zap,
     title: "Blazing Fast",
-    description: "Optimized for performance with Next.js 15 and Server Components.",
+    description:
+      "Optimized for performance with Next.js 15 and Server Components.",
   },
   {
     icon: ShieldCheck,
     title: "Type-Safe",
-    description: "Fully written in TypeScript for robust and maintainable code.",
+    description:
+      "Fully written in TypeScript for robust and maintainable code.",
   },
   {
     icon: Code,
@@ -46,11 +48,11 @@ const features = [
 
 export default function CarouselSection() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container px-4 md:px-6 mx-auto">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <h2 className="h2-bold">Core Features</h2>
-          <p className="max-w-[900px] text-muted-foreground p-large">
+    <section className="px-mobile md:px-tablet lg:px-desktop w-full max-w-[160rem] py-12 md:py-24 lg:py-32">
+      <div className="w-full">
+        <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
+          <h2 className="h2-medium text-black-700">Core Features</h2>
+          <p className="paragraph-24-normal text-black-600 max-w-[900px]">
             This boilerplate comes packed with features to get you started.
           </p>
         </div>
@@ -63,17 +65,20 @@ export default function CarouselSection() {
         >
           <CarouselContent className="-ml-4">
             {features.map((feature, index) => (
-              <CarouselItem key={index} className="pl-4 basis-full md:basis-[40%] lg:basis-[28.5%]">
-                <div className="p-1 h-full">
+              <CarouselItem
+                key={index}
+                className="basis-full pl-4 md:basis-[40%] lg:basis-[28.5%]"
+              >
+                <div className="h-full p-1">
                   <FeatureCard {...feature} />
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2 fill-black" />
-          <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2 fill-black" />
+          <CarouselPrevious className="absolute top-1/2 left-[-50px] -translate-y-1/2 fill-black" />
+          <CarouselNext className="absolute top-1/2 right-[-50px] -translate-y-1/2 fill-black" />
         </Carousel>
       </div>
     </section>
   );
-} 
+}

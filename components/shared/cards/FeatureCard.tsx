@@ -7,16 +7,22 @@ interface FeatureCardProps {
   description: string;
 }
 
-export default function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
+export default function FeatureCard({
+  icon: Icon,
+  title,
+  description,
+}: FeatureCardProps) {
   return (
-    <Card>
+    <Card className="h-full w-fit">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="p-base font-semibold">{title}</CardTitle>
-        <Icon className="h-6 w-6 text-muted-foreground" />
+        <CardTitle className="paragraph-24-medium text-black-600">
+          {title}
+        </CardTitle>
+        <Icon className="text-black-500 h-6 w-6" />
       </CardHeader>
       <CardContent>
-        <p className="p-small text-muted-foreground">{description}</p>
+        <p className="paragraph-18-normal text-black-500">{description}</p>
       </CardContent>
     </Card>
   );
-} 
+}

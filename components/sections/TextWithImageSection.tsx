@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { AspectRatio } from "../ui/aspect-ratio";
 
 interface TextWithImageSectionProps {
   title: string;
@@ -23,39 +24,38 @@ export default function TextWithImageSection({
   reverse = false,
 }: TextWithImageSectionProps) {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-10 md:grid-cols-2 md:gap-16 items-center">
+    <section className="px-mobile md:px-tablet lg:px-desktop w-full max-w-[160rem] py-12 md:py-24 lg:py-32">
+      <div className="w-full">
+        <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div
             className={cn(
               "flex flex-col items-start space-y-6",
               reverse && "md:order-2"
             )}
           >
-            <h2 className="h2-bold">{title}</h2>
-            <p className="p-large text-muted-foreground">{description}</p>
+            <h2 className="h2-medium text-black-800">{title}</h2>
+            <p className="paragraph-18-normal text-black-600">{description}</p>
             {ctaText && ctaLink && (
               <Button asChild className="mt-4">
                 <Link href={ctaLink}>{ctaText}</Link>
               </Button>
             )}
           </div>
-          <div
-            className={cn(
-              "flex justify-center",
-              reverse && "md:order-1"
-            )}
-          >
-            <Image
-              src={imageUrl}
-              alt={imageAlt}
-              width={600}
-              height={400}
-              className="rounded-lg object-cover w-full aspect-[3/2] shadow-lg"
-            />
+          <div className={cn("flex justify-center", reverse && "md:order-1")}>
+            <AspectRatio
+              ratio={3 / 2}
+              className="overflow-hidden rounded-lg shadow-lg"
+            >
+              <Image
+                src={imageUrl}
+                alt={imageAlt}
+                fill
+                className="object-cover object-center"
+              />
+            </AspectRatio>
           </div>
         </div>
       </div>
     </section>
   );
-} 
+}

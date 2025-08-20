@@ -36,16 +36,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://your-domain.com", // Remember to change this to your domain
     title: "Next.js Boilerplate | Ready-to-Use and Optimized",
-    description:
-      "A performant and developer-friendly Next.js 15 boilerplate.",
+    description: "A performant and developer-friendly Next.js 15 boilerplate.",
     siteName: "Next.js Boilerplate",
     images: "/opengraph-image.png", // Add your own opengraph image
   },
   twitter: {
     card: "summary_large_image",
     title: "Next.js Boilerplate | Ready-to-Use and Optimized",
-    description:
-      "A performant and developer-friendly Next.js 15 boilerplate.",
+    description: "A performant and developer-friendly Next.js 15 boilerplate.",
     images: "/twitter-image.png", // Add your own twitter image
   },
   robots: {
@@ -78,15 +76,17 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "bg-background min-h-screen font-sans antialiased",
           generalSans.variable
         )}
       >
         <Header />
-        <main className="flex-1 flex flex-col">{children}</main>
+        <main className="flex-center-col relative min-h-screen w-screen bg-white pt-[66px]">
+          {children}
+        </main>
         <Footer />
         <SpeedInsights />
       </body>
     </html>
   );
-} 
+}

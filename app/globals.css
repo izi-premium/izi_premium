@@ -30,7 +30,7 @@ body {
 }
 
 @utility container-wrapper {
-  @apply px-[clamp(10rem,17.5vw,1000rem)] w-full min-w-full 3xl:px-[clamp(10rem,25vw,1000rem)];
+  @apply 3xl:px-[clamp(10rem,25vw,1000rem)] w-full min-w-full px-[clamp(10rem,17.5vw,1000rem)];
 }
 @utility px-mobile {
   @apply px-[2.4rem];
@@ -45,14 +45,14 @@ body {
 }
 
 @utility h1-xxl {
-  @apply font-medium text-[10.1rem] leading-[98%] tracking-[-1.71px];
+  @apply text-[10.1rem] leading-[98%] font-medium tracking-[-1.71px];
   font-family: var(--font-general-sans);
   @media (min-width: 1920px) {
     @apply text-[clamp(10.1rem,5.2604vw,52.1rem)];
   }
 }
 @utility h1-big {
-  @apply font-medium text-[9.6rem] leading-[105%] tracking-[-1.075px];
+  @apply text-[9.6rem] leading-[105%] font-medium tracking-[-1.075px];
   font-family: var(--font-general-sans);
   @media (min-width: 1920px) {
     @apply text-[clamp(9.6rem,5vw,32.3rem)];
@@ -60,7 +60,7 @@ body {
 }
 
 @utility h1-small {
-  @apply font-medium text-[5.7rem] leading-[115%] tracking-[-1.075px];
+  @apply text-[5.7rem] leading-[115%] font-medium tracking-[-1.075px];
   font-family: var(--font-general-sans);
   @media (min-width: 1920px) {
     @apply text-[clamp(5.7rem,2.96875vw,12.3rem)];
@@ -68,7 +68,7 @@ body {
 }
 
 @utility h2-medium {
-  @apply font-medium text-[4.3rem] leading-[110%] tracking-[-1.075px];
+  @apply text-[4.3rem] leading-[110%] font-medium tracking-[-1.075px];
   font-family: var(--font-general-sans);
   @media (min-width: 1920px) {
     @apply text-[clamp(4.3rem,2.24vw,12.3rem)];
@@ -76,7 +76,7 @@ body {
 }
 
 @utility h2-normal {
-  @apply font-normal text-[4.3rem] leading-[110%] tracking-[-1.075px];
+  @apply text-[4.3rem] leading-[110%] font-normal tracking-[-1.075px];
   font-family: var(--font-general-sans);
   @media (min-width: 1920px) {
     @apply text-[clamp(4.3rem,2.24vw,12.3rem)];
@@ -84,7 +84,7 @@ body {
 }
 
 @utility subtitle-semibold {
-  @apply font-semibold text-[3.2rem] leading-[130%] tracking-[-0.8px];
+  @apply text-[3.2rem] leading-[130%] font-semibold tracking-[-0.8px];
   font-family: var(--font-general-sans);
   @media (min-width: 1920px) {
     @apply text-[clamp(3.2rem,1.666vw,7.6rem)];
@@ -92,7 +92,7 @@ body {
 }
 
 @utility subtitle-medium {
-  @apply font-medium text-[3.2rem] leading-[130%] tracking-[-0.48px];
+  @apply text-[3.2rem] leading-[130%] font-medium tracking-[-0.48px];
   font-family: var(--font-general-sans);
   @media (min-width: 1920px) {
     @apply text-[clamp(3.2rem,1.666vw,7.6rem)];
@@ -100,7 +100,7 @@ body {
 }
 
 @utility subtitle-normal {
-  @apply font-normal text-[3.2rem] leading-[130%] tracking-[-0.8px];
+  @apply text-[3.2rem] leading-[130%] font-normal tracking-[-0.8px];
   font-family: var(--font-general-sans);
   @media (min-width: 1920px) {
     @apply text-[clamp(3.2rem,1.666vw,7.6rem)];
@@ -108,91 +108,91 @@ body {
 }
 
 @utility paragraph-24-semibold {
-  @apply font-semibold text-[2.4rem] leading-[140%] tracking-[-0.48px] font-[inter];
+  @apply font-[inter] text-[2.4rem] leading-[140%] font-semibold tracking-[-0.48px];
   @media (min-width: 1920px) {
     @apply text-[clamp(2.4rem,1.25vw,4.7rem)];
   }
 }
 
 @utility paragraph-24-medium {
-  @apply font-medium text-[2.4rem] leading-[140%] tracking-[-0.48px] font-[inter];
+  @apply font-[inter] text-[2.4rem] leading-[140%] font-medium tracking-[-0.48px];
   @media (min-width: 1920px) {
     @apply text-[clamp(2.4rem,1.25vw,4.7rem)];
   }
 }
 
 @utility paragraph-24-normal {
-  @apply font-normal text-[2.4rem] leading-[140%] tracking-[-0.48px] font-[inter];
+  @apply font-[inter] text-[2.4rem] leading-[140%] font-normal tracking-[-0.48px];
   @media (min-width: 1920px) {
     @apply text-[clamp(2.4rem,1.25vw,4.7rem)];
   }
 }
 
 @utility paragraph-18-semibold {
-  @apply font-semibold text-[1.8rem] leading-[150%] tracking-[-0.36px] font-[inter];
+  @apply font-[inter] text-[1.8rem] leading-[150%] font-semibold tracking-[-0.36px];
   @media (min-width: 1920px) {
     @apply text-[clamp(1.8rem,0.9375vw,2.9rem)];
   }
 }
 
 @utility paragraph-18-medium {
-  @apply font-medium text-[1.8rem] leading-[150%] tracking-[-0.36px] font-[inter];
+  @apply font-[inter] text-[1.8rem] leading-[150%] font-medium tracking-[-0.36px];
   @media (min-width: 1920px) {
     @apply text-[clamp(1.8rem,0.9375vw,2.9rem)];
   }
 }
 
 @utility paragraph-18-normal {
-  @apply font-normal text-[1.8rem] leading-[150%] tracking-[-0.36px] font-[inter];
+  @apply font-[inter] text-[1.8rem] leading-[150%] font-normal tracking-[-0.36px];
   @media (min-width: 1920px) {
     @apply text-[clamp(1.8rem,0.9375vw,2.9rem)];
   }
 }
 
 @utility paragraph-14 {
-  @apply font-normal text-[1.4rem] leading-[150%] tracking-[-0.48px] font-[inter];
+  @apply font-[inter] text-[1.4rem] leading-[150%] font-normal tracking-[-0.48px];
   @media (min-width: 1920px) {
     @apply text-[clamp(1.4rem,0.729166vw,1.8rem)];
   }
 }
 
 @utility paragraph-10 {
-  @apply font-normal text-[1.0rem] leading-[150%] tracking-[-0.27px] font-[inter];
+  @apply font-[inter] text-[1.0rem] leading-[150%] font-normal tracking-[-0.27px];
   @media (min-width: 1920px) {
     @apply text-[clamp(1.0rem,0.52083vw,1.4rem)];
   }
 }
 
 @utility flex-center {
-  @apply flex flex-row justify-center items-center;
+  @apply flex flex-row items-center justify-center;
 }
 
 @utility flex-start {
-  @apply flex flex-row justify-start items-start;
+  @apply flex flex-row items-start justify-start;
 }
 
 @utility flex-center-col {
-  @apply flex justify-center items-center flex-col;
+  @apply flex flex-col items-center justify-center;
 }
 
 @utility flex-start-col {
-  @apply flex justify-center items-start flex-col;
+  @apply flex flex-col items-start justify-center;
 }
 
 @utility flex-begin-col {
-  @apply flex justify-start items-start flex-col;
+  @apply flex flex-col items-start justify-start;
 }
 
 @utility flex-between {
-  @apply flex flex-row justify-between items-center;
+  @apply flex flex-row items-center justify-between;
 }
 
 @utility flex-around {
-  @apply flex justify-around flex-row items-center;
+  @apply flex flex-row items-center justify-around;
 }
 
 @utility flex-between-col {
-  @apply flex flex-col justify-between items-center;
+  @apply flex flex-col items-center justify-between;
 }
 
 @theme {
@@ -226,6 +226,31 @@ body {
   --leading-130: 130%;
   --leading-140: 140%;
   --leading-150: 150%;
+
+  /* spacing variables (1rem = 10px with html { font-size: 62.5% }) */
+  --spacing-2: 0.8rem; /*  8px */
+  --spacing-3: 1.2rem; /* 12px */
+  --spacing-4: 1.6rem; /* 16px */
+  --spacing-5: 2rem; /* 20px */
+  --spacing-6: 2.4rem; /* 24px */
+  --spacing-7: 2.8rem; /* 28px */
+  --spacing-8: 3.2rem; /* 32px */
+  --spacing-9: 3.6rem; /* 36px */
+  --spacing-10: 4rem; /* 40px */
+  --spacing-11: 4.4rem; /* 44px */
+  --spacing-12: 4.8rem; /* 48px */
+  --spacing-13: 5.2rem; /* 52px */
+  --spacing-14: 5.6rem; /* 56px */
+  --spacing-15: 6rem; /* 60px */
+  --spacing-16: 6.4rem; /* 64px */
+  --spacing-17: 6.8rem; /* 68px */
+  --spacing-18: 7.2rem; /* 72px */
+  --spacing-19: 7.6rem; /* 76px */
+  --spacing-20: 8rem; /* 80px */
+  --spacing-21: 8.4rem; /* 84px */
+  --spacing-22: 8.8rem; /* 88px */
+  --spacing-23: 9.2rem; /* 92px */
+  --spacing-24: 9.6rem; /* 96px */
 
   /* Letter Spacing */
   --tracking-xs: -0.027rem;
@@ -310,7 +335,6 @@ body {
     56px 72px 37px 0px rgba(0, 0, 0, 0.01),
     32px 41px 31px 0px rgba(0, 0, 0, 0.03),
     14px 18px 23px 0px rgba(0, 0, 0, 0.04), 4px 5px 13px 0px rgba(0, 0, 0, 0.05);
-
 }
 
 /* Hide scrollbars while keeping functionality */
