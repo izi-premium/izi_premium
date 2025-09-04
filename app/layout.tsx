@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 
-const generalSans = localFont({
-  src: "../public/fonts/GeneralSans-Variable.woff2",
-  variable: "--font-general-sans",
+const switzer = localFont({
+  src: "../public/fonts/Switzer-Variable.woff2",
+  variable: "--font-switzer",
   display: "swap",
   preload: true,
 });
@@ -16,34 +16,35 @@ const generalSans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://your-domain.com"), // Remember to change this to your domain
   title: {
-    default: "Next.js Boilerplate | Ready-to-Use and Optimized",
-    template: "%s | Next.js Boilerplate",
+    default: "Home | I.Z.I Premium",
+    template: "%s | I.Z.I Premium",
   },
   description:
-    "A performant and developer-friendly Next.js 15 boilerplate with Shadcn UI, Tailwind CSS, and Server Components.",
+    "A companionship app that cares about your mental health and helps you improve and get better everyday.",
   keywords: [
-    "Next.js boilerplate",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Shadcn UI",
-    "Server Components",
+    "Mental health",
+    "Companionship",
+    "Personal diary",
+    "Daily advise",
+    "Anonymous chat with strangers",
   ],
-  authors: [{ name: "Your Name" }], // Change this to your name
-  creator: "Your Name", // Change this to your name
+  authors: [{ name: "Esteban Santiago" }],
+  creator: "Esteban Santiago",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://your-domain.com", // Remember to change this to your domain
-    title: "Next.js Boilerplate | Ready-to-Use and Optimized",
-    description: "A performant and developer-friendly Next.js 15 boilerplate.",
-    siteName: "Next.js Boilerplate",
+    title: "Home | I.Z.I Premium",
+    description:
+      "A companionship app that cares about your mental health and helps you improve and get better everyday.",
+    siteName: "I.Z.I Premium",
     images: "/opengraph-image.png", // Add your own opengraph image
   },
   twitter: {
     card: "summary_large_image",
-    title: "Next.js Boilerplate | Ready-to-Use and Optimized",
-    description: "A performant and developer-friendly Next.js 15 boilerplate.",
+    title: "Home | I.Z.I Premium",
+    description:
+      "A companionship app that cares about your mental health and helps you improve and get better everyday.",
     images: "/twitter-image.png", // Add your own twitter image
   },
   robots: {
@@ -77,7 +78,7 @@ export default function RootLayout({
       <body
         className={cn(
           "bg-background min-h-screen font-sans antialiased",
-          generalSans.variable
+          switzer.variable
         )}
       >
         <Header />
