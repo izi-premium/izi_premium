@@ -49,17 +49,17 @@ export const metadata: Metadata = {
       "A companionship app that cares about your mental health and helps you improve and get better everyday.",
     images: "/twitter-image.png", // Add your own twitter image
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  // robots: {
+  //   index: true,
+  //   follow: true,
+  //   googleBot: {
+  //     index: true,
+  //     follow: true,
+  //     "max-video-preview": -1,
+  //     "max-image-preview": "large",
+  //     "max-snippet": -1,
+  //   },
+  // },
 };
 
 export default async function RootLayout({
