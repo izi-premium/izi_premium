@@ -1,0 +1,16 @@
+{
+  "Navigation": {
+    "chat": "Chat",
+    "diary": "Diary",
+    "cookies": "Fortune Cookies",
+    "register": "Register",
+    "cta": "Get Premium Access",
+    "toggle": "Toggle navigation menu"
+  },
+  "Hero": {
+    "title": "Welcome to Our Amazing Platform",
+    "subtitle": "Transform your business with our innovative solutions",
+    "cta": "Get Started",
+    "secondaryCta": "Learn More"
+  }
+}

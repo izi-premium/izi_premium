@@ -5,6 +5,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 const switzer = localFont({
   src: "../public/fonts/Switzer-Variable.woff2",
@@ -60,13 +62,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         {/* Preconnect to external sites if any */}
         {/* <link
@@ -77,15 +82,17 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "bg-background min-h-screen font-sans antialiased",
+          "bg-secondary-text-50 min-h-screen font-sans antialiased",
           switzer.variable
         )}
       >
-        <Header />
-        <main className="flex-center-col relative min-h-screen w-screen bg-white pt-[66px]">
-          {children}
-        </main>
-        <Footer />
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <main className="flex-center-col bg-secondary-text-50 relative min-h-screen w-screen">
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
         <SpeedInsights />
       </body>
     </html>
