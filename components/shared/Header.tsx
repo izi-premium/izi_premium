@@ -40,7 +40,7 @@ export default function Header() {
                   src={imageData["izi-logo"]}
                   alt="I.Z.I logo"
                   fill
-                  sizes="(max-width: 1024px) 16rem, 20.45rem"
+                  sizes="(max-width: 1024px) 3.2rem, 4rem"
                   className="bg-no-repeat object-contain xl:object-cover"
                 />
               </div>
@@ -70,7 +70,15 @@ export default function Header() {
                     href="#"
                     className="flex-center w-fit gap-2 text-lg font-semibold md:text-base"
                   >
-                    <Package2 className="h-5 w-5" />
+                    <div className="flex-center relative size-[3.2rem]">
+                      <Image
+                        src={imageData["izi-logo"]}
+                        alt="I.Z.I logo"
+                        fill
+                        sizes="(max-width: 1024px) 3.2rem, 4rem"
+                        className="bg-no-repeat object-contain xl:object-cover"
+                      />
+                    </div>
                     <span className="paragraph-24-medium text-primary-text-600 w-fit text-nowrap">
                       I.Z.I Premium
                     </span>
