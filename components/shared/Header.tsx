@@ -79,20 +79,25 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <LanguageSwitcher />
 
             {/* CTA Buttons */}
             <div className="flex-center gap-4">
               <Link
                 href="#"
-                className="paragraph-18-medium text-secondary-text-950 bg-secondary-text-50 border-secondary-text-950 hover:bg-secondary-text-200 hover:shadow-hover-inner rounded-[0.8rem] border border-solid px-6 py-2 transition-all duration-300 ease-in-out"
+                className="bg-secondary-text-50 border-secondary-text-950 hover:bg-secondary-text-200 hover:shadow-hover-inner shadow-cta-header rounded-[0.8rem] border border-solid px-6 py-2 transition-all duration-300 ease-in-out"
               >
-                {tNav("register")}
+                <span className="paragraph-18-medium text-secondary-text-950">
+                  {tNav("register")}
+                </span>
               </Link>
               <Link
                 href="#"
-                className="paragraph-18-medium text-secondary-text-500 bg-accent-900 hover:bg-accent-600 rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
+                className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
               >
-                {tNav("cta")}
+                <span className="paragraph-18-medium text-secondary-text-500">
+                  {tNav("cta")}
+                </span>
               </Link>
             </div>
           </div>

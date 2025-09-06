@@ -9,19 +9,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Globe } from "lucide-react";
 import Image from "next/image";
+import imageData from "@/data/uploadedImages.json";
 
 const languages = [
   {
     code: "en",
     name: "English",
-    flagUrl: "https://your-blob-storage.vercel-storage.com/flags/us-flag.svg",
+    flagUrl: `${imageData["usa-flag"]}`,
   },
   {
     code: "es",
     name: "Español",
-    flagUrl: "https://your-blob-storage.vercel-storage.com/flags/es-flag.svg",
+    flagUrl: `${imageData["spain-flag"]}`,
   },
 ];
 
@@ -41,33 +41,41 @@ export function LanguageSwitcher() {
 
   return (
     <Select value={locale} onValueChange={handleLanguageChange}>
-      <SelectTrigger className="w-[140px]">
-        <div className="flex items-center gap-2">
-          <Globe className="h-4 w-4" />
-          <div className="flex items-center gap-2">
+      <SelectTrigger className="flex-center group w-fit gap-1 border-none hover:cursor-pointer">
+        <div className="flex-center gap-1">
+          <div className="flex-center gap-2">
+            <span className="text-primary-text-600 paragraph-18-normal group-hover:underline">
+              {currentLanguage?.name || languages[0].name}
+            </span>
             <Image
               src={currentLanguage?.flagUrl || languages[0].flagUrl}
               alt={`${currentLanguage?.name || languages[0].name} flag`}
-              width={16}
-              height={12}
-              className="rounded-sm"
+              width={18}
+              height={18}
+              className="bg-no-repeat object-contain xl:object-cover"
             />
-            <span>{currentLanguage?.name || languages[0].name}</span>
           </div>
         </div>
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="bg-elevated-surfaces-50">
         {languages.map((lang) => (
-          <SelectItem key={lang.code} value={lang.code}>
-            <div className="flex items-center gap-2">
-              <Image
-                src={lang.flagUrl}
-                alt={`${lang.name} flag`}
-                width={16}
-                height={12}
-                className="rounded-sm"
-              />
-              <span>{lang.name}</span>
+          <SelectItem
+            key={lang.code}
+            value={lang.code}
+            className="group hover:cursor-pointer"
+          >
+            <div className="flex-center gap-2">
+              <span className="text-primary-text-600 paragraph-18-normal group-hover:underline">
+                {lang.name}
+              </span>
+              <div className="flex-center relative h-[1.8rem] w-[1.8rem]">
+                <Image
+                  src={lang.flagUrl}
+                  alt={`${lang.name} flag`}
+                  fill
+                  className="bg-no-repeat object-contain xl:object-cover"
+                />
+              </div>
             </div>
           </SelectItem>
         ))}
