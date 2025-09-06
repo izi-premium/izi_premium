@@ -14,6 +14,8 @@ import {
 
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/language/LanguageSwitcher";
+import Image from "next/image";
+import imageData from "@/data/uploadedImages.json";
 
 export default function Header() {
   const tNav = useTranslations("Navigation");
@@ -33,8 +35,16 @@ export default function Header() {
               href="#"
               className="flex-center w-fit gap-2 text-lg font-semibold md:text-base"
             >
-              <Package2 className="h-5 w-5" />
-              <span className="paragraph-18-medium text-primary-text-600 w-fit text-nowrap">
+              <div className="flex-center relative size-[3.2rem] lg:size-[4rem]">
+                <Image
+                  src={imageData["izi-logo"]}
+                  alt="I.Z.I logo"
+                  fill
+                  sizes="(max-width: 1024px) 16rem, 20.45rem"
+                  className="bg-no-repeat object-contain xl:object-cover"
+                />
+              </div>
+              <span className="paragraph-18-medium text-primary-text-600 lg:paragraph-24-medium w-fit text-nowrap">
                 I.Z.I Premium
               </span>
             </Link>
@@ -115,7 +125,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="paragraph-18-normal text-primary-text-600 hover:underline"
+                className="paragraph-18-normal text-primary-text-600 lg:paragraph-24-medium hover:underline"
               >
                 {link.label}
               </Link>
@@ -128,7 +138,7 @@ export default function Header() {
                 href="#"
                 className="bg-secondary-text-50 border-secondary-text-950 hover:bg-secondary-text-200 hover:shadow-hover-inner shadow-cta-header rounded-[0.8rem] border border-solid px-6 py-2 transition-all duration-300 ease-in-out"
               >
-                <span className="paragraph-18-medium text-secondary-text-950">
+                <span className="paragraph-18-medium text-secondary-text-950 lg:paragraph-24-medium">
                   {tNav("register")}
                 </span>
               </Link>
@@ -136,7 +146,7 @@ export default function Header() {
                 href="#"
                 className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
               >
-                <span className="paragraph-18-medium text-secondary-text-500">
+                <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">
                   {tNav("cta")}
                 </span>
               </Link>
