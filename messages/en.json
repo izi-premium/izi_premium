@@ -12,5 +12,22 @@
     "subtitle": "With I.Z.I you can have meaningful conversations, connect with others, and discover daily wisdom that guides your growth.",
     "cta": "Start Your Journey Today",
     "people": "Have already joined I.Z.I"
+  },
+  "Features": {
+    "title": "Main Features",
+    "cards": [
+      {
+        "subtitle": "Anonymous Chats with Anyone",
+        "text": "Find people who are also looking to share. Have true, meaningful and anonymous conversations without any judgement."
+      },
+      {
+        "subtitle": "Private Diary for Yourself",
+        "text": "Write, talk and share your daily thoughts in a digital diary that gets to know you better every day."
+      },
+      {
+        "subtitle": "Daily Fortune Cookies",
+        "text": "Get daily messages that give you advice, support or motivation. Every message is unique and tailored to your situation."
+      }
+    ]
   }
 }
