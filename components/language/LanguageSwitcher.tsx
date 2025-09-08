@@ -59,7 +59,7 @@ export function LanguageSwitcher() {
               {currentDisplay.shortName}
             </span>
             {/* Desktop: Show full name (English/Español) */}
-            <span className="text-primary-text-600 paragraph-18-normal hidden group-hover:underline md:block">
+            <span className="text-primary-text-600 paragraph-18-normal lg:paragraph-24-medium hidden group-hover:underline md:block">
               {currentDisplay.fullName}
             </span>
             <Image

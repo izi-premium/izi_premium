@@ -74,11 +74,15 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <head>
         {/* Preconnect to external sites if any */}
-        {/* <link
+        <link
           rel="preconnect"
-          href="https://your-external-site.com"
+          href="https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com"
           crossOrigin="anonymous"
-        /> */}
+        />
+        <link
+          rel="dns-prefetch"
+          href="https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com"
+        />
       </head>
       <body
         className={cn(

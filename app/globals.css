@@ -29,7 +29,7 @@ body {
 }
 
 @utility container-wrapper {
-  @apply 3xl:px-[clamp(10rem,25vw,1000rem)] w-full max-w-[160rem] min-w-full px-[clamp(10rem,17.5vw,1000rem)];
+  @apply px-[clamp(2rem,5.208vw,100px)] 2xl:px-[max(100px,5.208vw)];
 }
 @utility px-mobile {
   @apply px-[2.4rem];

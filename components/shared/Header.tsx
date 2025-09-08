@@ -1,9 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Package2 } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
 import {
   Sheet,
   SheetClose,
@@ -27,7 +25,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="px-mobile md:px-tablet lg:px-desktop lg:container-wrapper sticky top-0 z-50 flex h-fit w-full items-center bg-transparent pt-6">
+    <header className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper sticky top-0 z-50 flex h-fit w-full items-center bg-transparent pt-6">
       <div className="from-elevated-surfaces-600 border-opacity-50 shadow-header w-full rounded-[1.6rem] border border-solid border-[#C4C6AA] bg-gradient-to-b to-[#303129]/25 p-[1px]">
         <div className="bg-elevated-surfaces-500 flex w-full items-center justify-between rounded-[1.6rem] px-4 py-3 md:pl-8">
           <nav className="flex flex-row items-center gap-6 text-lg font-medium md:gap-5 md:text-sm lg:gap-6">
@@ -35,7 +33,7 @@ export default function Header() {
               href="#"
               className="flex-center w-fit gap-2 text-lg font-semibold md:text-base"
             >
-              <div className="flex-center relative size-[3.2rem] lg:size-[4rem]">
+              <div className="flex-center relative size-[3.2rem] lg:size-[4rem] 2xl:size-[5.6rem]">
                 <Image
                   src={imageData["izi-logo"]}
                   alt="I.Z.I logo"
