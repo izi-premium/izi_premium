@@ -18,15 +18,27 @@
     "cards": [
       {
         "subtitle": "Anonymous Chats with Anyone",
-        "text": "Find people who are also looking to share. Have true, meaningful and anonymous conversations without any judgement."
+        "text": "Find people who are also looking to share. Have true, meaningful and anonymous conversations without any judgement.",
+        "image": {
+          "src": "Group 1",
+          "alt": "Anonymous Chat Image"
+        }
       },
       {
         "subtitle": "Private Diary for Yourself",
-        "text": "Write, talk and share your daily thoughts in a digital diary that gets to know you better every day."
+        "text": "Write, talk and share your daily thoughts in a digital diary that gets to know you better every day.",
+        "image": {
+          "src": "Group 1",
+          "alt": "Anonymous Chat Image"
+        }
       },
       {
         "subtitle": "Daily Fortune Cookies",
-        "text": "Get daily messages that give you advice, support or motivation. Every message is unique and tailored to your situation."
+        "text": "Get daily messages that give you advice, support or motivation. Every message is unique and tailored to your situation.",
+        "image": {
+          "src": "Group 1",
+          "alt": "Anonymous Chat Image"
+        }
       }
     ]
   }

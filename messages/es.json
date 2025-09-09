@@ -18,15 +18,27 @@
     "cards": [
       {
         "subtitle": "Chats Anónimo con Cualquiera",
-        "text": "Encuentra personas que también buscan compartir contigo. Ten conversaciones reales y valiosas, de forma totalmente anónima, y sin ningún tipo de prejuicio."
+        "text": "Encuentra personas que también buscan compartir contigo. Ten conversaciones reales y valiosas, de forma totalmente anónima, y sin ningún tipo de prejuicio.",
+        "image": {
+          "src": "Group 1",
+          "alt": "Imagen de chat anónimo"
+        }
       },
       {
         "subtitle": "Tu Propio diario Privado",
-        "text": "Escribe, habla y comparte tus pensamientos del día a día en un diario digital que te conoce cada vez más."
+        "text": "Escribe, habla y comparte tus pensamientos del día a día en un diario digital que te conoce cada vez más.",
+        "image": {
+          "src": "Group 1",
+          "alt": "Imagen de chat anónimo"
+        }
       },
       {
         "subtitle": "Recibe Galletas de la Fortuna a Diario",
-        "text": "Obtén nuevos mensajes todos los días con consejos, apoyo o motivación. Cada mensaje es único y está adaptado especialmente a tu situación actual."
+        "text": "Obtén nuevos mensajes todos los días con consejos, apoyo o motivación. Cada mensaje es único y está adaptado especialmente a tu situación actual.",
+        "image": {
+          "src": "Group 1",
+          "alt": "Imagen de chat anónimo"
+        }
       }
     ]
   }

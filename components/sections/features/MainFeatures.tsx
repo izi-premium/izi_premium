@@ -6,8 +6,10 @@ const MainFeatures = () => {
   const tFeatures = useTranslations("Features");
   return (
     <section className="flex-start-col px-mobile md:px-tablet lg:px-desktop w-full gap-[6.4rem] py-[8rem] md:flex-row lg:py-[10rem]">
-      <div className="flex-center-col h-auto w-full gap-10">
-        <h2>{tFeatures("title")}</h2>
+      <div className="flex-center-col h-auto w-full gap-10 rounded-[2rem] bg-white px-6 pt-10 pb-0 md:px-10">
+        <h2 className="h2-medium text-primary-text-700 text-center">
+          {tFeatures("title")}
+        </h2>
         <FeaturesCards />
       </div>
     </section>
