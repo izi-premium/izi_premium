@@ -6,7 +6,7 @@ const Hero = () => {
   const tHero = useTranslations("Hero");
 
   return (
-    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop w-full justify-between gap-[6.4rem] py-[8rem] lg:flex-row lg:justify-between lg:py-[10rem]">
+    <section className="flex-center-col w-full justify-between gap-[6.4rem] py-[8rem] lg:flex-row lg:justify-between lg:py-[10rem]">
       <div className="flex w-full flex-col items-start justify-start gap-10 py-10">
         <div className="flex w-full flex-col items-start justify-start gap-4">
           <h1
@@ -15,14 +15,14 @@ const Hero = () => {
               __html: tHero("title"),
             }}
           ></h1>
-          <p className="paragraph-normal md:paragraph-24-normal lg:subtitle-normal text-secondary-text-900 w-full text-left">
+          <p className="paragraph-18-normal md:paragraph-24-normal lg:subtitle-normal text-secondary-text-900 w-full text-left">
             {tHero("subtitle")}
           </p>
         </div>
-        <div className="flex w-full flex-col items-start justify-start">
+        <div className="flex w-full flex-col items-center justify-start gap-4 md:items-start">
           <div className="flex w-full flex-col items-start justify-start gap-1">
             <div className="flex-start gap-[-1.75rem]">#Set of images</div>
-            <div className="flex-start w-hug gap-1 text-nowrap">
+            <div className="flex-start w-hug w-full gap-1 text-nowrap">
               <span className="paragraph-18-medium text-primary-text-700 text-nowrap">
                 + # de clientes viene de DB.
               </span>

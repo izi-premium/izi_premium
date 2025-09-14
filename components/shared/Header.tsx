@@ -49,7 +49,7 @@ export default function Header() {
           </nav>
 
           {/* Mobile */}
-          <div className="flex-center gap-3 md:hidden">
+          <div className="flex-center gap-3 xl:hidden">
             <LanguageSwitcher />
 
             <Sheet>
@@ -126,7 +126,7 @@ export default function Header() {
           </div>
 
           {/* Links */}
-          <div className="hidden w-fit gap-4 md:ml-auto md:flex md:items-center md:justify-end md:gap-2 lg:gap-6">
+          <div className="hidden w-fit gap-4 lg:gap-6 xl:ml-auto xl:flex xl:items-center xl:justify-end">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

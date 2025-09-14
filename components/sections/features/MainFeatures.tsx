@@ -5,9 +5,9 @@ import { useTranslations } from "next-intl";
 const MainFeatures = () => {
   const tFeatures = useTranslations("Features");
   return (
-    <section className="flex-start-col px-mobile md:px-tablet lg:px-desktop w-full gap-[6.4rem] py-[8rem] md:flex-row lg:py-[10rem]">
-      <div className="flex-center-col h-auto w-full gap-10 rounded-[2rem] bg-white px-6 pt-10 pb-0 md:px-10">
-        <h2 className="h2-medium text-primary-text-700 text-center">
+    <section className="flex-start-col w-full gap-[6.4rem] py-[8rem] lg:py-[10rem]">
+      <div className="flex-center-col h-fit w-full gap-10 rounded-[2rem] bg-white px-6 pt-10 pb-0 md:px-10 xl:h-[clamp(50rem,26.04vw,100rem)]">
+        <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">
           {tFeatures("title")}
         </h2>
         <FeaturesCards />

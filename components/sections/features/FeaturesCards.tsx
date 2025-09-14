@@ -17,33 +17,33 @@ const FeaturesCards = () => {
   const tFeatures = useTranslations("Features");
   const cards = tFeatures.raw("cards") as FeatureCard[];
   return (
-    <div className="flex-center-col w-full gap-10 md:flex-row xl:justify-between">
+    <div className="flex-center-col h-fit w-full min-w-full items-stretch gap-10 xl:flex-row">
       {cards.map((card, index) => (
         <div
           key={index}
-          className="flex-center-col border-primary-text-500 bg-elevated-surfaces-500 h-full min-h-[36rem] w-full rounded-t-[0.8rem] border border-solid px-4 pt-4 pb-0 md:max-w-[36rem] md:border-b-0 xl:max-w-[44rem] 2xl:max-w-[50rem]"
+          className="border-primary-text-500 bg-elevated-surfaces-500 flex w-full flex-col items-start justify-between gap-6 rounded-t-[0.8rem] border border-solid px-4 pt-4 pb-0 lg:gap-[clamp(2.4rem,1.25vw)] xl:border-b-0"
         >
           <div className="flex-start-col gap-2">
             <p className="paragraph-24-medium text-primary-text-700 w-full text-left">
               {card.subtitle}
             </p>
-            <p className="paragraph-18-normal text-primary-text-500 w-full text-left">
-              {card.text}
-            </p>
+            <p
+              className="paragraph-18-normal text-primary-text-500 w-full text-left"
+              dangerouslySetInnerHTML={{
+                __html: `${card.text}`,
+              }}
+            ></p>
           </div>
-          <div className="border-primary-text-700 relative flex h-[14rem] w-full min-w-full items-end justify-end rounded-tl-[0.4rem] rounded-tr-[0.4rem] border border-solid bg-white md:border-b-0">
-            <AspectRatio ratio={4 / 3} className="h-full w-full">
+          <div className="border-primary-text-700 relative flex h-[16rem] w-full min-w-full items-end justify-end rounded-tl-[0.4rem] rounded-tr-[0.4rem] border border-solid bg-white md:h-[24rem] lg:h-full lg:min-h-[2rem] xl:border-b-0">
+            <div className="relative h-[16rem] w-full md:h-[24rem] lg:h-full lg:min-h-[2rem]">
               <Image
-                src={
-                  imageData[card.image.src as keyof typeof imageData] ||
-                  "/placeholder-icon.svg"
-                }
+                src={imageData[card.image.src as keyof typeof imageData]}
                 alt={card.image.alt}
                 fill
-                sizes="(max-width: 1024px) 33rem, 40rem"
-                className="bg-no-repeat object-contain xl:object-cover"
+                sizes="(max-width: 1024px) 70vw, 25vw"
+                className="bg-bottom bg-no-repeat object-contain xl:object-cover"
               />
-            </AspectRatio>
+            </div>
           </div>
         </div>
       ))}
