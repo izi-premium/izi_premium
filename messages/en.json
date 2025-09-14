@@ -49,7 +49,14 @@
     "li1-text": "Save conversations to go back to them anytime",
     "li2-text": "Have your own nickname",
     "li3-text": "P2P secured encryption for your chats",
-    "note-text": "Free for all users starting on 10/01/2025",
-    "alt": "Image of the anonymous chat from the I.Z.I app"
+    "note-text": "<b>Free</b> for all users starting on 10/01/2025",
+    "note-chats": "<b>Note:</b> Inactive chats are erased after 7 days of inactivity",
+    "alt": "Image of the anonymous chat from the I.Z.I app",
+    "free-chat-title": "Free Chat Version",
+    "free-li1": "Save up to 5 different conversations",
+    "free-li2": "Both people must agree to save a chat",
+    "premium-chat-title": "Premium Chat Version",
+    "premium-li1": "There’s no limits! Save as many conversations as you want",
+    "premium-li2": "Both people must agree to save a chat"
   }
 }

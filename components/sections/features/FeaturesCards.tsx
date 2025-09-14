@@ -20,7 +20,7 @@ const FeaturesCards = () => {
       {cards.map((card, index) => (
         <div
           key={index}
-          className="border-primary-text-500 bg-elevated-surfaces-500 flex h-full w-full flex-col items-start justify-between gap-6 rounded-t-[0.8rem] border border-solid px-4 pt-4 pb-0 md:max-w-[44rem] lg:gap-[clamp(2.4rem,1.25vw)] xl:max-w-[90rem] xl:items-stretch xl:border-b-0 2xl:gap-12"
+          className="border-primary-text-500 bg-elevated-surfaces-500 flex h-full w-full flex-col items-start justify-between gap-6 rounded-t-[0.8rem] border border-solid px-4 pt-4 pb-0 md:max-w-[44rem] lg:gap-[clamp(2.4rem,1.25vw)] xl:min-h-full xl:max-w-[90rem] xl:items-stretch xl:border-b-0 2xl:gap-12"
         >
           <div className="flex-start-col gap-2">
             <p className="paragraph-24-medium text-primary-text-700 w-full text-left">

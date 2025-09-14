@@ -49,7 +49,14 @@
     "li1-text": "Guarda conversaciones para regresar a ellas cuando quieras",
     "li2-text": "Ten tu propio nombre de usuario",
     "li3-text": "Encriptación P2P para mantener tus chats seguros",
-    "note-text": "Gratis para todos los usuario desde el 01/10/2025",
-    "alt": "Imagen del chat anónimo en la aplicación de I.Z.I"
+    "note-chats": "<b>Nota:</b> Los chats inactivos serán borrados luego de 7 días de inactividad",
+    "note-text": "<b>Gratis</b> para todos los usuario desde el 01/10/2025",
+    "alt": "Imagen del chat anónimo en la aplicación de I.Z.I",
+    "free-chat-title": "Versión Gratuita del Chat",
+    "free-li1": "Guarda hasta 5 conversaciones diferentes",
+    "free-li2": "Ambas personas deben estar de acuerdo para guardas el chat",
+    "premium-chat-title": "Version Premium del Chat",
+    "premium-li1": "¡No hay límites! Guarda tantas conversaciones como desees",
+    "premium-li2": "Ambas personas deben estar de acuerdo para guardas el chat"
   }
 }
