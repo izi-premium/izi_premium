@@ -41,5 +41,15 @@
         }
       }
     ]
+  },
+  "Chat": {
+    "title": "Anonymous Chat",
+    "subtitle": "Because being alone does not mean having no one to talk to",
+    "text1": "Share experiences and connect with people who also want to talk to you. Express freely, safely and in an anonymous space.",
+    "li1-text": "Save conversations to go back to them anytime",
+    "li2-text": "Have your own nickname",
+    "li3-text": "P2P secured encryption for your chats",
+    "note-text": "Free for all users starting on 10/01/2025",
+    "alt": "Image of the anonymous chat from the I.Z.I app"
   }
 }

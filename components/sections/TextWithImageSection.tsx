@@ -50,7 +50,7 @@ export default function TextWithImageSection({
           </div>
           <div className={cn("flex justify-center", reverse && "md:order-1")}>
             <AspectRatio
-              ratio={3 / 2}
+              ratio={5 / 6}
               className="overflow-hidden rounded-lg shadow-lg"
             >
               <Image

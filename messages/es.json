@@ -41,5 +41,15 @@
         }
       }
     ]
+  },
+  "Chat": {
+    "title": "Chat Anónimo",
+    "subtitle": "Porque estar solo no significa no tener con quién hablar",
+    "text1": "Comparte experiencias y conecta con personas que también quieren hablar contigo. Exprésate de forma libre, segura y en un espacio totalmente anónimo.",
+    "li1-text": "Guarda conversaciones para regresar a ellas cuando quieras",
+    "li2-text": "Ten tu propio nombre de usuario",
+    "li3-text": "Encriptación P2P para mantener tus chats seguros",
+    "note-text": "Gratis para todos los usuario desde el 01/10/2025",
+    "alt": "Imagen del chat anónimo en la aplicación de I.Z.I"
   }
 }

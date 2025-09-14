@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import imageData from "@/data/uploadedImages.json";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 
 interface FeatureCard {
   subtitle: string;
@@ -32,7 +31,7 @@ const FeaturesCards = () => {
               dangerouslySetInnerHTML={{
                 __html: `${card.text}`,
               }}
-            ></p>
+            />
           </div>
           <div className="border-primary-text-700 relative flex h-[16rem] w-full min-w-full items-end justify-end rounded-tl-[0.4rem] rounded-tr-[0.4rem] border border-b-0 border-solid bg-white md:h-[24rem] xl:h-[clamp(20rem,10.4vw,60rem)]">
             <div className="relative h-[16rem] w-full md:h-[24rem] xl:h-[clamp(20rem,10.4vw,60rem)]">

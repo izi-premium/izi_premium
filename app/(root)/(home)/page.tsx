@@ -7,12 +7,14 @@ import ContactForm from "@/components/sections/ContactForm";
 import TextWithImageSection from "@/components/sections/TextWithImageSection";
 import Hero from "@/components/sections/hero/Hero";
 import MainFeatures from "@/components/sections/features/MainFeatures";
+import { AnonymousChat } from "../../../components/sections/chat/AnonymousChat";
 
 export default function Home() {
   return (
     <div className="flex-center-col bg-white-50 px-mobile md:px-tablet lg:px-desktop xl:container-wrapper min-h-screen w-full gap-[3.4rem]">
       <Hero />
       <MainFeatures />
+      <AnonymousChat />
 
       <TextWithImageSection
         title="Build Faster Than Ever"
