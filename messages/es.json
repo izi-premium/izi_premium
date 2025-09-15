@@ -58,5 +58,12 @@
     "premium-chat-title": "Version Premium del Chat",
     "premium-li1": "¡No hay límites! Guarda tantas conversaciones como desees",
     "premium-li2": "Ambas personas deben estar de acuerdo para guardas el chat"
+  },
+  "Diary": {
+    "title": "Diario Privado",
+    "phrase1": "“Escribe lo que sientes. Sin filtros”",
+    "phrase2": "“Tu espacio íntimo. Sólo para tí”",
+    "phrase3": "“Porque ponerlo en palabras ayuda a soltar”",
+    "text": "Con I.Z.I, tienes un diario privado y seguro. Escribe libremente y atesora recuerdos para tu yo del futuro"
   }
 }

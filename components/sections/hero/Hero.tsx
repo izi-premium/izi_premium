@@ -33,14 +33,14 @@ const Hero = () => {
           </div>
           <Link
             href="#"
-            className="hover:shadow-header bg-primary-action-900 flex-center relative rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer"
+            className="hover:shadow-header bg-primary-action-900 relative flex items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer"
           >
             <span className="bg-primary-action-100 absolute right-[63px] bottom-[-17px] h-[5rem] w-[12rem] rounded-full blur-[80px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
             <span className="bg-primary-action-100 absolute bottom-[-26px] left-[52px] h-[5rem] w-[12rem] rounded-full blur-[80px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
             <div className="border-elevated-surfaces-500 relative rounded-[0.4rem] border border-solid px-8 py-3 xl:px-[clamp(32px,1.66vw)] xl:py-[clamp(12px,0.625vw)]">
-              <span className="paragraph-24-medium text-secondary-text-500">
+              <p className="paragraph-24-medium text-secondary-text-500 w-full text-center">
                 {tHero("cta")}
-              </span>
+              </p>
             </div>
           </Link>
         </div>

@@ -7,7 +7,8 @@ import ContactForm from "@/components/sections/ContactForm";
 import TextWithImageSection from "@/components/sections/TextWithImageSection";
 import Hero from "@/components/sections/hero/Hero";
 import MainFeatures from "@/components/sections/features/MainFeatures";
-import { AnonymousChat } from "../../../components/sections/chat/AnonymousChat";
+import { AnonymousChat } from "@/components/sections/chat/AnonymousChat";
+import { DiaryWrapper } from "@/components/sections/diary/DiaryWrapper";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <MainFeatures />
       <AnonymousChat />
+      <DiaryWrapper />
 
       <TextWithImageSection
         title="Build Faster Than Ever"
