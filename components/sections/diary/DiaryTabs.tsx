@@ -12,8 +12,8 @@ import {
 const DiaryTabs = () => {
   return (
     <section className="flex-begin-col w-full gap-10">
-      <Tabs defaultValue="design" className="mx-auto w-full">
-        <TabsList className="grid h-auto w-full grid-cols-2 md:grid-cols-4">
+      <Tabs defaultValue="free" className="w-full">
+        <TabsList className="grid h-auto w-full grid-cols-2">
           <TabsTrigger
             value="free"
             className="paragraph-18-medium text-black-800 flex-center data-[state=inactive]:bg-white-400 text-center hover:cursor-pointer"

@@ -64,7 +64,9 @@
     "phrase1": "“Write what You Feel. Unfiltered”",
     "phrase2": "“Your intimate space. Only for You”",
     "phrase3": "“Because putting it into words, helps to let go”",
-    "text": "With I.Z.I you have a private and safe diary. Write freely and save memories for your future self"
+    "text": "With I.Z.I you have a private and safe diary. Write freely and save memories for your future self",
+    "image": "diary-eng",
+    "alt": "diary with handwritten content"
   },
   "Diary-Tabs": {
     "tab1-title": "Free Diary",
@@ -74,14 +76,14 @@
     "tab2-li1": "More space to write your thoughts.",
     "tab2-li2": "More freedom.",
     "tab2-li3": "More Yours.",
-    "tab1-image": "",
+    "tab1-image": "diary-eng",
     "tab1-alt": "image of the IZI free diary",
-    "tab2-red": "",
-    "tab2-blue": "",
-    "tab2-black": "",
-    "tab2-purple": "",
-    "tab2-green": "",
-    "tab2-brown": "",
+    "tab2-red": "diary-red-eng",
+    "tab2-blue": "diary-blue-eng",
+    "tab2-black": "diary-black-eng",
+    "tab2-purple": "diary-purple-eng",
+    "tab2-green": "diary-green-eng",
+    "tab2-brown": "diary-brown-eng",
     "tab2-alt": "premium diary image"
   }
 }

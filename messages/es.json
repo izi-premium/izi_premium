@@ -64,7 +64,9 @@
     "phrase1": "“Escribe lo que sientes. Sin filtros”",
     "phrase2": "“Tu espacio íntimo. Sólo para tí”",
     "phrase3": "“Porque ponerlo en palabras ayuda a soltar”",
-    "text": "Con I.Z.I, tienes un diario privado y seguro. Escribe libremente y atesora recuerdos para tu yo del futuro"
+    "text": "Con I.Z.I, tienes un diario privado y seguro. Escribe libremente y atesora recuerdos para tu yo del futuro",
+    "image": "diary-esp",
+    "alt": "diario con contenido escrito a mano"
   },
   "Diary-Tabs": {
     "tab1-title": "Diario Gratuito",
@@ -74,14 +76,14 @@
     "tab2-li1": "Más espacio para escribir tus pensamientos.",
     "tab2-li2": "Más libertad.",
     "tab2-li3": "Más tuyo.",
-    "tab1-image": "",
+    "tab1-image": "diary-esp",
     "tab1-alt": "imagen del diario gratuito de IZI",
-    "tab2-red": "",
-    "tab2-blue": "",
-    "tab2-black": "",
-    "tab2-purple": "",
-    "tab2-green": "",
-    "tab2-brown": "",
+    "tab2-red": "diary-red-esp",
+    "tab2-blue": "diary-blue-esp",
+    "tab2-black": "diary-black-esp",
+    "tab2-purple": "diary-purple-esp",
+    "tab2-green": "diary-green-esp",
+    "tab2-brown": "diary-brown-esp",
     "tab2-alt": "imagen del diario Premium de IZI"
   }
 }
