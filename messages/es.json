@@ -65,5 +65,23 @@
     "phrase2": "“Tu espacio íntimo. Sólo para tí”",
     "phrase3": "“Porque ponerlo en palabras ayuda a soltar”",
     "text": "Con I.Z.I, tienes un diario privado y seguro. Escribe libremente y atesora recuerdos para tu yo del futuro"
+  },
+  "Diary-Tabs": {
+    "tab1-title": "Diario Gratuito",
+    "tab2-title": "Diario Premium",
+    "tab1-text": "Escribe todos los días. Anota tus pensamientos, sentimientos y secretos sin preocupaciones. <br /><br /> Todo está guardado de forma segura y encriptado en la nube. Nadie más que tú puede leet lo que escribes en el diario. <br /><br /> Recibe sugerencias y recomenadaciones de ZANA. Una IA que te conoce poco a poco, y te ayuda a seguir adelante.",
+    "tab2-text": "Con I.Z.I Premium puedes elegir entre distintos estilos visuales y tipografías para poder plasmar mejor tu personalidad en el diario. <br /><br /> Obtén acceso a todo lo de la versión gratuita además de:",
+    "tab2-li1": "Más espacio para escribir tus pensamientos.",
+    "tab2-li2": "Más libertad.",
+    "tab2-li3": "Más tuyo.",
+    "tab1-image": "",
+    "tab1-alt": "imagen del diario gratuito de IZI",
+    "tab2-red": "",
+    "tab2-blue": "",
+    "tab2-black": "",
+    "tab2-purple": "",
+    "tab2-green": "",
+    "tab2-brown": "",
+    "tab2-alt": "imagen del diario Premium de IZI"
   }
 }

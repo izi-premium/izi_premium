@@ -65,5 +65,23 @@
     "phrase2": "“Your intimate space. Only for You”",
     "phrase3": "“Because putting it into words, helps to let go”",
     "text": "With I.Z.I you have a private and safe diary. Write freely and save memories for your future self"
+  },
+  "Diary-Tabs": {
+    "tab1-title": "Free Diary",
+    "tab2-title": "Premium Diary",
+    "tab1-text": "Write every day. Annotate your thoughts, feelings and secrets without worries. <br /><br /> Everything is safely saved and encrypted in the cloud. No one but you can read what you write on the diary. <br /><br /> Get suggestions and recommendations from ZANA. An AI helper that gets to know you better, and helps you keep going.",
+    "tab2-text": "With I.Z.I Premium you get to choose from different visual styles and fonts to better reflect your personality to your diary.  <br /><br /> Get everything from the free version plus:",
+    "tab2-li1": "More space to write your thoughts.",
+    "tab2-li2": "More freedom.",
+    "tab2-li3": "More Yours.",
+    "tab1-image": "",
+    "tab1-alt": "image of the IZI free diary",
+    "tab2-red": "",
+    "tab2-blue": "",
+    "tab2-black": "",
+    "tab2-purple": "",
+    "tab2-green": "",
+    "tab2-brown": "",
+    "tab2-alt": "premium diary image"
   }
 }
