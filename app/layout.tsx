@@ -102,7 +102,7 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="flex-center-col bg-secondary-text-50 relative min-h-screen w-screen">
+          <main className="flex-center-col bg-secondary-text-50 relative min-h-screen w-screen pt-24">
             {children}
           </main>
           <Footer />
