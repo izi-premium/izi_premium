@@ -5,11 +5,13 @@ import React, { useState, useEffect, useRef } from "react";
 interface RotatoryTextProps {
   phrases: string[];
   className?: string;
+  textClassName?: string;
 }
 
 export const RotatoryText: React.FC<RotatoryTextProps> = ({
   phrases,
   className = "",
+  textClassName = "",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -83,7 +85,7 @@ export const RotatoryText: React.FC<RotatoryTextProps> = ({
             : "translate-y-0 opacity-100"
         }`}
       >
-        <span className="paragraph-24-normal md:paragraph-24-medium lg:subtitle-medium text-primary-text-600 text-center">
+        <span className={`text-center ${textClassName}`}>
           {phrases[currentIndex]}
         </span>
       </div>
@@ -96,7 +98,7 @@ export const RotatoryText: React.FC<RotatoryTextProps> = ({
             animation: "slideDownIn 500ms ease-in-out forwards",
           }}
         >
-          <span className="paragraph-24-normal md:paragraph-24-medium lg:subtitle-medium text-primary-text-600 text-center">
+          <span className={`text-center ${textClassName}`}>
             {phrases[nextIndex]}
           </span>
         </div>

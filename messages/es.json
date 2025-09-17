@@ -84,6 +84,20 @@
     "tab2-purple": "diary-purple-esp",
     "tab2-green": "diary-green-esp",
     "tab2-brown": "diary-brown-esp",
-    "tab2-alt": "imagen del diario Premium de IZI"
+    "tab2-alt": "imagen del diario premium color"
+  },
+  "Cookies": {
+    "title": "Galletas de la Fortuna Diarias",
+    "phrase1": "“Ona frase puede marcar tú día”",
+    "phrase2": "“El mensaje corrrecto en el momento perfecto”",
+    "phrase3": "“Pequeños recordatorios para ayudarte a seguir adelante”",
+    "card1-title": "Acceso Gratuito a las Galletas de la Fortuna",
+    "card1-text": "Recibe mensajes diarios personalizados exclisvamente para tí. Ya sean consejos o frases motivacionales, puedes decidir guardar estos mensajes en tu diario privado para que puedas acceder a ellas en todo momento.",
+    "card1-image": "src",
+    "card1-alt": "galleta de la fortuna gratuita con mensaje motivacional",
+    "card2-title": "Galletas de la Fortuna en su Versión Premium",
+    "card2-text": "Recibe másn mensajes para trabajar en tí mismo y poder mejorar. <br /><br /> Con I.Z.I Premium desbloqueas galletas extra todos los días, incluyendo galletas doradas con mensajes exclusivos y desafíos para potenciar tu crecimiento y desarrollo personal",
+    "card2-image": "src",
+    "card2-alt": "galleta de la foruna premium con un mensaje motivacional"
   }
 }

@@ -15,6 +15,15 @@ const switzer = localFont({
   preload: true,
 });
 
+const parisienne = localFont({
+  src: "../public/fonts/Parisienne-Regular.ttf",
+  variable: "--font-parisienne",
+  display: "swap",
+  preload: false,
+  weight: "400",
+  style: "normal",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://your-domain.com"), // Remember to change this to your domain
   title: {
@@ -87,7 +96,8 @@ export default async function RootLayout({
       <body
         className={cn(
           "bg-secondary-text-50 min-h-screen font-sans antialiased",
-          switzer.variable
+          switzer.variable,
+          parisienne.variable
         )}
       >
         <NextIntlClientProvider messages={messages}>

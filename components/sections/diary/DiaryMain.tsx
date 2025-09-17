@@ -15,7 +15,10 @@ const DiaryMain = () => {
           {tDiary("title")}
         </h2>
         <div className="flex-center-col special:min-h-[52.8rem] h-full w-full gap-10">
-          <RotatoryText phrases={phrases} />
+          <RotatoryText
+            phrases={phrases}
+            textClassName="paragraph-24-normal md:paragraph-24-medium lg:subtitle-medium text-primary-text-600"
+          />
           <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal text-center">
             {tDiary("text")}
           </p>

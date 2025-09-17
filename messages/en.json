@@ -84,6 +84,20 @@
     "tab2-purple": "diary-purple-eng",
     "tab2-green": "diary-green-eng",
     "tab2-brown": "diary-brown-eng",
-    "tab2-alt": "premium diary image"
+    "tab2-alt": "premium diary image color"
+  },
+  "Cookies": {
+    "title": "Daily Fortune Cookies",
+    "phrase1": "“One quote can make your day”",
+    "phrase2": "“The right message at the perfect moment”",
+    "phrase3": "“Small reminders to keep moving forwards”",
+    "card1-title": "Free Access to Fortune Cookies",
+    "card1-text": "Receive daily messages tailored for you. Pieces of advise or motivation that you can choose to keep in your private diary for easy access and to act as reminders.",
+    "card1-image": "src",
+    "card1-alt": "free fortune cookie with motivational message",
+    "card2-title": "Premium Fortune Cookies",
+    "card2-text": "Get more messages to improve yourself. <br /><br /> With I.Z.I Premium you unlock new extra cookies every day, including golden cookies with exclusive messages and new challenges to drive your growth",
+    "card2-image": "src",
+    "card2-alt": "premium fortune cookie with motivational message"
   }
 }

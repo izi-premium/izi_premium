@@ -1,151 +1,305 @@
 "use client";
 
+import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
 import imageData from "@/data/uploadedImages.json";
 import Image from "next/image";
-import { AspectRatio } from "../../ui/aspect-ratio";
+import { RotatoryText } from "../../shared/RotatoryText";
 
 const DiaryTabs = () => {
   const tTabs = useTranslations("Diary-Tabs");
+
+  const colorOptions = [
+    {
+      id: "blue",
+      color: "#06335C",
+      imageKey: tTabs("tab2-blue"),
+      name: "Blue",
+    },
+    {
+      id: "black",
+      color: "#1C1C1C",
+      imageKey: tTabs("tab2-black"),
+      name: "Black",
+    },
+    {
+      id: "red",
+      color: "#5E2029",
+      imageKey: tTabs("tab2-red"),
+      name: "Red",
+    },
+    {
+      id: "brown",
+      color: "#562611",
+      imageKey: tTabs("tab2-brown"),
+      name: "Brown",
+    },
+    {
+      id: "purple",
+      color: "#4B2246",
+      imageKey: tTabs("tab2-purple"),
+      name: "Purple",
+    },
+    {
+      id: "green",
+      color: "#043C21",
+      imageKey: tTabs("tab2-green"),
+      name: "Green",
+    },
+  ];
+
+  const phrases = [
+    "Zana",
+    "Lucas",
+    "Melanie",
+    "Gabriel",
+    "Lucy",
+    "Amanda",
+    "Michael",
+    "Fabrizio",
+    "Emma",
+  ];
+
+  const [selectedColor, setSelectedColor] = useState(colorOptions[0]);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [activeTab, setActiveTab] = useState("free");
+  const [isTabTransitioning, setIsTabTransitioning] = useState(false);
+
+  const handleColorChange = (colorOption: (typeof colorOptions)[0]) => {
+    if (colorOption.id === selectedColor.id) return;
+
+    setIsTransitioning(true);
+
+    // Increased delay to account for Vercel Blob loading time
+    setTimeout(() => {
+      setSelectedColor(colorOption);
+      setIsTransitioning(false);
+    }, 400); // Increased from 150ms to 400ms
+  };
+
+  const handleTabChange = (value: string) => {
+    if (value === activeTab) return;
+
+    setIsTabTransitioning(true);
+
+    // Short delay for smooth transition
+    setTimeout(() => {
+      setActiveTab(value);
+      setTimeout(() => {
+        setIsTabTransitioning(false);
+      }, 50); // Quick delay to ensure new content is ready
+    }, 200);
+  };
+
   return (
     <section className="flex-begin-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-10 bg-white py-[10rem]">
-      <Tabs defaultValue="free" className="w-full">
+      <Tabs
+        defaultValue="free"
+        value={activeTab}
+        onValueChange={handleTabChange}
+        className="w-full"
+      >
         <TabsList className="grid h-auto w-full grid-cols-2 gap-2 rounded-[0.8rem] bg-[#D7D7D7] px-[0.4rem] py-1">
           <TabsTrigger
             value="free"
-            className="paragraph-18-medium text-primary-text-700 flex-center md:paragraph-24-medium lg:subtitle-medium data-[state=inactive]:bg-secondary-text-100 data-[state=active]:bg-base-400 data-[state=inactive]:hover:shadow-hover-inner w-full rounded-[0.4rem] px-4 py-3 text-center hover:cursor-pointer"
+            className="paragraph-18-medium text-primary-text-700 flex-center md:paragraph-24-medium lg:subtitle-medium data-[state=inactive]:bg-secondary-text-100 data-[state=active]:bg-base-400 data-[state=inactive]:hover:shadow-hover-inner w-full rounded-[0.4rem] px-4 py-3 text-center transition-all duration-200 hover:cursor-pointer"
           >
             {tTabs("tab1-title")}
           </TabsTrigger>
           <TabsTrigger
             value="premium"
-            className="paragraph-18-medium text-primary-text-700 flex-center md:paragraph-24-medium lg:subtitle-medium data-[state=inactive]:bg-secondary-text-100 data-[state=active]:bg-base-400 data-[state=inactive]:hover:shadow-hover-inner w-full rounded-[0.4rem] px-4 py-3 text-center hover:cursor-pointer"
+            className="paragraph-18-medium text-primary-text-700 flex-center md:paragraph-24-medium lg:subtitle-medium data-[state=inactive]:bg-secondary-text-100 data-[state=active]:bg-base-400 data-[state=inactive]:hover:shadow-hover-inner w-full rounded-[0.4rem] px-4 py-3 text-center transition-all duration-200 hover:cursor-pointer"
           >
             {tTabs("tab2-title")}
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="free" className="border-0">
-          <Card className="border-0 shadow-none">
-            <CardContent className="flex-center-col special:px-12 gap-10 px-4 py-6 md:flex-row xl:gap-[clamp(16rem,8.33vw,32rem)]">
-              <div className="flex-begin-col special:max-w-[47.5vw] w-full gap-6 lg:max-w-[52.5vw] xl:max-w-[clamp(62rem,32.29vw,124rem)]">
-                <CardTitle className="h1-small lg:h1-big text-base-700 text-left">
-                  {tTabs("tab1-title")}
-                </CardTitle>
-                <p
-                  className="paragraph-18-normal text-primary-text-500 lg:paragraph-24-normal text-left"
-                  dangerouslySetInnerHTML={{
-                    __html: tTabs("tab1-text"),
-                  }}
-                />
-              </div>
-              <div className="relative flex aspect-[378/520] min-h-[42rem] w-full min-w-[28rem] items-center justify-center overflow-hidden rounded-[1.6rem] shadow-lg lg:h-[clamp(52rem,27vw,104rem)] lg:w-[clamp(37.8rem,19.6vw,75.6rem)] xl:max-w-[33vw]">
-                <Image
-                  src={imageData["diary-bg"]}
-                  alt="image background with paper texture"
-                  fill
-                  sizes="(max-width: 768px) 80vw, (max-width: 2240px): 75vw, 25vw"
-                  className="size-full object-cover object-center"
-                />
 
-                <div className="relative aspect-[300/400] w-[clamp(24rem,12.5vw,48rem)] xl:w-[clamp(30rem,15.6vw,60rem)]">
-                  <Image
-                    src={
-                      imageData[tTabs("tab1-image") as keyof typeof imageData]
-                    }
-                    alt={tTabs("tab1-alt")}
-                    fill
-                    sizes="(max-width: 768px) 85vw, (max-width: 1980px) 70vw, (max-width: 2240px) 33vw, 15vw"
-                    className="object-contain"
+        <div className="relative overflow-hidden">
+          <TabsContent
+            value="free"
+            className={`border-0 transition-all duration-500 ease-in-out ${
+              isTabTransitioning && activeTab === "free"
+                ? "translate-x-4 opacity-0"
+                : isTabTransitioning && activeTab !== "free"
+                  ? "-translate-x-4 opacity-0"
+                  : "translate-x-0 opacity-100"
+            }`}
+          >
+            <Card className="border-0 shadow-none">
+              <CardContent className="flex-center-col special:px-12 gap-10 px-4 py-6 md:flex-row xl:gap-[clamp(16rem,8.33vw,32rem)]">
+                <div className="flex-begin-col special:max-w-[47.5vw] w-full gap-6 lg:max-w-[52.5vw] xl:max-w-[clamp(62rem,32.29vw,124rem)]">
+                  <CardTitle className="h1-small lg:h1-big text-base-700 text-left">
+                    {tTabs("tab1-title")}
+                  </CardTitle>
+                  <p
+                    className="paragraph-18-normal text-primary-text-500 lg:paragraph-24-normal text-left"
+                    dangerouslySetInnerHTML={{
+                      __html: tTabs("tab1-text"),
+                    }}
                   />
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="premium" className="border-0">
-          <Card className="border-0 shadow-none">
-            <CardContent className="flex-center-col special:px-12 gap-10 px-4 py-6 md:flex-row xl:gap-[clamp(16rem,8.33vw,32rem)]">
-              <div className="flex-begin-col special:max-w-[47.5vw] w-full gap-6 lg:max-w-[52.5vw] xl:max-w-[clamp(66rem,34.3vw,132rem)]">
-                <CardTitle className="h1-small lg:h1-big text-base-700 text-left">
-                  {tTabs("tab2-title")}
-                </CardTitle>
-                <p
-                  className="paragraph-18-normal text-primary-text-500 lg:paragraph-24-normal text-left"
-                  dangerouslySetInnerHTML={{
-                    __html: tTabs("tab2-text"),
-                  }}
-                />
-                <ul className="flex-start-col gap-6 px-4">
-                  <li className="flex-start w-full items-center gap-2">
-                    <Image
-                      src={imageData["notebook-premium"]}
-                      alt="icon of a notebook with a pen"
-                      width={32}
-                      height={32}
-                      className="2xl:size-[4rem]"
-                    />
-                    <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal">
-                      {tTabs("tab2-li1")}
-                    </p>
-                  </li>
-                  <li className="flex-start w-full items-center gap-2">
-                    <Image
-                      src={imageData["rocket-premium"]}
-                      alt="rocket icon"
-                      width={32}
-                      height={32}
-                      className="2xl:size-[4rem]"
-                    />
-                    <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal">
-                      {tTabs("tab2-li2")}
-                    </p>
-                  </li>
-                  <li className="flex-start w-full items-center gap-2">
-                    <Image
-                      src={imageData["signature-premium"]}
-                      alt="personalized signature icon"
-                      width={32}
-                      height={32}
-                      className="2xl:size-[4rem]"
-                    />
-                    <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal">
-                      {tTabs("tab2-li3")}
-                    </p>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative flex aspect-[378/520] min-h-[42rem] w-full min-w-[28rem] items-center justify-center overflow-hidden rounded-[1.6rem] shadow-lg lg:h-[clamp(52rem,27vw,104rem)] lg:w-[clamp(37.8rem,19.6vw,75.6rem)] xl:max-w-[33vw]">
-                <Image
-                  src={imageData["diary-bg"]}
-                  alt="image background with paper texture"
-                  fill
-                  sizes="(max-width: 768px) 80vw, (max-width: 2240px): 75vw, 25vw"
-                  className="size-full object-cover object-center"
-                />
-
-                <div className="relative aspect-[300/400] w-[clamp(24rem,12.5vw,48rem)] xl:w-[clamp(30rem,15.6vw,60rem)]">
+                <div className="relative flex aspect-[378/520] min-h-[42rem] w-full min-w-[28rem] items-center justify-center overflow-hidden rounded-[1.6rem] shadow-lg lg:h-[clamp(52rem,27vw,104rem)] lg:w-[clamp(37.8rem,19.6vw,75.6rem)] xl:max-w-[33vw]">
                   <Image
-                    src={
-                      imageData[tTabs("tab1-image") as keyof typeof imageData]
-                    }
-                    alt={tTabs("tab1-alt")}
+                    src={imageData["diary-bg"]}
+                    alt="image background with paper texture"
                     fill
-                    sizes="(max-width: 768px) 85vw, (max-width: 1980px) 70vw, (max-width: 2240px) 33vw, 15vw"
-                    className="object-contain"
+                    sizes="(max-width: 768px) 80vw, (max-width: 2240px): 75vw, 25vw"
+                    className="size-full object-cover object-center"
                   />
+
+                  <div className="relative aspect-[300/400] w-[clamp(24rem,12.5vw,48rem)] xl:w-[clamp(30rem,15.6vw,60rem)]">
+                    <Image
+                      src={
+                        imageData[tTabs("tab1-image") as keyof typeof imageData]
+                      }
+                      alt={tTabs("tab1-alt")}
+                      fill
+                      sizes="(max-width: 768px) 85vw, (max-width: 1980px) 70vw, (max-width: 2240px) 33vw, 15vw"
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Premium tab content */}
+          <TabsContent
+            value="premium"
+            className={`border-0 transition-all duration-500 ease-in-out ${
+              isTabTransitioning && activeTab === "premium"
+                ? "translate-x-4 opacity-0"
+                : isTabTransitioning && activeTab !== "premium"
+                  ? "-translate-x-4 opacity-0"
+                  : "translate-x-0 opacity-100"
+            }`}
+          >
+            <Card className="border-0 shadow-none">
+              <CardContent className="flex-center-col special:px-12 gap-10 px-4 py-6 md:flex-row xl:gap-[clamp(16rem,8.33vw,32rem)]">
+                <div className="flex-begin-col special:max-w-[47.5vw] w-full gap-6 lg:max-w-[52.5vw] xl:max-w-[clamp(66rem,34.3vw,132rem)]">
+                  <CardTitle className="h1-small lg:h1-big text-base-700 text-left">
+                    {tTabs("tab2-title")}
+                  </CardTitle>
+                  <p
+                    className="paragraph-18-normal text-primary-text-500 lg:paragraph-24-normal text-left"
+                    dangerouslySetInnerHTML={{
+                      __html: tTabs("tab2-text"),
+                    }}
+                  />
+                  <ul className="flex-start-col gap-6 px-4">
+                    <li className="flex-start w-full items-center gap-2">
+                      <Image
+                        src={imageData["notebook-premium"]}
+                        alt="icon of a notebook with a pen"
+                        width={32}
+                        height={32}
+                        className="2xl:size-[4rem]"
+                      />
+                      <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal">
+                        {tTabs("tab2-li1")}
+                      </p>
+                    </li>
+                    <li className="flex-start w-full items-center gap-2">
+                      <Image
+                        src={imageData["rocket-premium"]}
+                        alt="rocket icon"
+                        width={32}
+                        height={32}
+                        className="2xl:size-[4rem]"
+                      />
+                      <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal">
+                        {tTabs("tab2-li2")}
+                      </p>
+                    </li>
+                    <li className="flex-start w-full items-center gap-2">
+                      <Image
+                        src={imageData["signature-premium"]}
+                        alt="personalized signature icon"
+                        width={32}
+                        height={32}
+                        className="2xl:size-[4rem]"
+                      />
+                      <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal">
+                        {tTabs("tab2-li3")}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Image Container with Color Selector */}
+                <div className="flex flex-col items-center gap-6">
+                  {/* Main Image Container */}
+                  <div className="relative flex aspect-[378/520] min-h-[42rem] w-full min-w-[28rem] items-center justify-center overflow-hidden rounded-[1.6rem] shadow-lg lg:h-[clamp(52rem,27vw,104rem)] lg:w-[clamp(37.8rem,19.6vw,75.6rem)] xl:max-w-[33vw]">
+                    {/* Background Image (Static) */}
+                    <Image
+                      src={imageData["diary-bg"]}
+                      alt="image background with paper texture"
+                      fill
+                      sizes="(max-width: 768px) 80vw, (max-width: 2240px): 75vw, 25vw"
+                      className="size-full object-cover object-center"
+                    />
+
+                    {/* Diary Image with Transition */}
+                    <div className="relative aspect-[300/400] w-[clamp(24rem,12.5vw,48rem)] xl:w-[clamp(30rem,15.6vw,60rem)]">
+                      <RotatoryText
+                        phrases={phrases}
+                        className={`absolute top-1/2 left-1/2 z-5 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out ${
+                          isTransitioning
+                            ? "scale-95 opacity-0"
+                            : "scale-100 opacity-100"
+                        }`}
+                        textClassName="handwritten-18 lg:handwritten-24 text-[#D18E34]"
+                      />
+                      <Image
+                        src={
+                          imageData[
+                            selectedColor.imageKey as keyof typeof imageData
+                          ]
+                        }
+                        alt={`${tTabs("tab2-alt")} ${selectedColor.name}`}
+                        fill
+                        sizes="(max-width: 768px) 85vw, (max-width: 1980px) 70vw, (max-width: 2240px) 33vw, 15vw"
+                        className={`object-contain transition-all duration-500 ease-in-out ${
+                          isTransitioning
+                            ? "scale-95 opacity-0"
+                            : "scale-100 opacity-100"
+                        }`}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Color Selector */}
+                  <div className="flex items-center gap-3">
+                    {colorOptions.map((colorOption) => (
+                      <button
+                        key={colorOption.id}
+                        onClick={() => handleColorChange(colorOption)}
+                        className={`relative h-12 w-12 rounded-lg border-2 transition-all duration-200 hover:scale-110 hover:shadow-md ${
+                          selectedColor.id === colorOption.id
+                            ? "border-accent-200 scale-105 shadow-lg"
+                            : "border-gray-300 hover:border-gray-400"
+                        }`}
+                        style={{ backgroundColor: colorOption.color }}
+                        aria-label={`Select ${colorOption.name} diary`}
+                        disabled={isTransitioning}
+                      >
+                        {/* Inner highlight for selected state */}
+                        {selectedColor.id === colorOption.id && (
+                          <div
+                            className="bg-opacity-20 absolute inset-1 rounded-md"
+                            style={{ backgroundColor: colorOption.color }}
+                          ></div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </div>
       </Tabs>
     </section>
   );

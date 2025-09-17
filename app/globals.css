@@ -4,6 +4,7 @@
 @layer base {
   :root {
     --font-switzer: "Switzer", sans;
+    --font-parisienne: "Parisienne", sans;
   }
 
   body {
@@ -159,6 +160,19 @@ body {
   @apply font-[switzer] text-[1.0rem] leading-[150%] font-normal tracking-[-0.27px];
   @media (min-width: 1920px) {
     @apply text-[clamp(1.0rem,0.52083vw,1.4rem)];
+  }
+}
+
+@utility handwritten-18 {
+  @apply font-[parisienne] text-[1.8rem] leading-[150%] font-normal;
+  @media (min-width: 1920px) {
+    @apply text-[clamp(1.8rem,0.9375vw,2.9rem)];
+  }
+}
+@utility handwritten-24 {
+  @apply font-[parisienne] text-[2.4rem] leading-[150%] font-normal;
+  @media (min-width: 1920px) {
+    @apply text-[clamp(2.4rem,1.25vw,4.7rem)];
   }
 }
 
