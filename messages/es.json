@@ -99,5 +99,10 @@
     "card2-text": "Recibe másn mensajes para trabajar en tí mismo y poder mejorar. <br /><br /> Con I.Z.I Premium desbloqueas galletas extra todos los días, incluyendo galletas doradas con mensajes exclusivos y desafíos para potenciar tu crecimiento y desarrollo personal",
     "card2-image": "src",
     "card2-alt": "galleta de la foruna premium con un mensaje motivacional"
+  },
+  "Newsletter": {
+    "title": "Mantente al día con I.Z.I",
+    "text": "Recibe sugerencias, consejos y tips sobre cómo usar la aplicación al máximo. Entérate de las últimas novedades y actualizaciones para futuras versiones de I.Z.I.",
+    "cta": "Únete a nuestra Newsletter"
   }
 }

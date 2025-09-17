@@ -15,7 +15,7 @@ const AnonymousChat = () => {
               <h2 className="subtitle-medium md:h2-medium text-primary-text-700">
                 {tChat("title")}
               </h2>
-              <p className="paragraph-24-normal md:subtitle-normal text-primary-500">
+              <p className="paragraph-24-normal md:subtitle-normal text-primary-text-500">
                 {tChat("subtitle")}
               </p>
             </div>

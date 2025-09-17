@@ -10,6 +10,7 @@ import MainFeatures from "@/components/sections/features/MainFeatures";
 import { AnonymousChat } from "@/components/sections/chat/AnonymousChat";
 import { DiaryWrapper } from "@/components/sections/diary/DiaryWrapper";
 import { FortuneCookies } from "@/components/sections/fortune-cookies/FortuneCookies";
+import Newsletter from "../../../components/sections/newsletter/Newsletter";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <AnonymousChat />
       <DiaryWrapper />
       <FortuneCookies />
+      <Newsletter />
 
       <TextWithImageSection
         title="Build Faster Than Ever"

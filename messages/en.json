@@ -99,5 +99,10 @@
     "card2-text": "Get more messages to improve yourself. <br /><br /> With I.Z.I Premium you unlock new extra cookies every day, including golden cookies with exclusive messages and new challenges to drive your growth",
     "card2-image": "src",
     "card2-alt": "premium fortune cookie with motivational message"
+  },
+  "Newsletter": {
+    "title": "Be up to date with I.Z.I",
+    "text": "Receive advice, tips on how to use the app, and get the latest news about future versions of I.Z.I.",
+    "cta": "Join our Newsletter"
   }
 }
