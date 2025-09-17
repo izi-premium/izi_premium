@@ -6,7 +6,7 @@ const Hero = () => {
   const tHero = useTranslations("Hero");
 
   return (
-    <section className="flex-center-col w-full justify-between gap-[6.4rem] py-[8rem] lg:flex-row lg:justify-between lg:py-[10rem]">
+    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full justify-between gap-[6.4rem] py-[8rem] lg:flex-row lg:justify-between lg:py-[10rem]">
       <div className="flex w-full flex-col items-start justify-start gap-10 py-10">
         <div className="flex w-full flex-col items-start justify-start gap-4">
           <h1

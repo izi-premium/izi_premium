@@ -12,7 +12,7 @@ import { DiaryWrapper } from "@/components/sections/diary/DiaryWrapper";
 
 export default function Home() {
   return (
-    <div className="flex-center-col bg-white-50 px-mobile md:px-tablet lg:px-desktop xl:container-wrapper min-h-screen w-full gap-[3.4rem]">
+    <div className="flex-center-col bg-white-50 min-h-screen w-full gap-[3.4rem]">
       <Hero />
       <MainFeatures />
       <AnonymousChat />

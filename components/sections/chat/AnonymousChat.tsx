@@ -7,7 +7,7 @@ import Image from "next/image";
 const AnonymousChat = () => {
   const tChat = useTranslations("Chat");
   return (
-    <section className="flex-start-col w-full gap-[6.4rem] py-[8rem] lg:py-[10rem]">
+    <section className="flex-start-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-[6.4rem] py-[8rem] lg:py-[10rem]">
       <div className="w-full">
         <div className="special:grid-cols-2 grid items-start gap-10 md:gap-16">
           <div className="flex flex-col items-start justify-start gap-10 xl:gap-16">
