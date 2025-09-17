@@ -9,7 +9,7 @@
   },
   "Hero": {
     "title": "Tú Salud Mental, Tú Privaccidad,<br />Tú Paz",
-    "subtitle": "Junto a I.Z.I puedes tener conversaciones valiosas, conectar con otras personas, y encontrar sabiduría que te guíe hacia tu mejor versión.",
+    "subtitle": "Junto a I.Z.I tendrás conversaciones valiosas y encontrarás sabiduría que te guíe hacia tu mejor versión.",
     "cta": "Empieza Tu Viaje Hoy",
     "people": "Ya se unieron a I.Z.I"
   },
@@ -102,7 +102,7 @@
   },
   "Newsletter": {
     "title": "Mantente al día con I.Z.I",
-    "text": "Recibe sugerencias, consejos y tips sobre cómo usar la aplicación al máximo. Entérate de las últimas novedades y actualizaciones para futuras versiones de I.Z.I.",
-    "cta": "Únete a nuestra Newsletter"
+    "text": "Recibe tips sobre cómo usar la aplicación al máximo. Entérate de las últimas novedades y actualizaciones en I.Z.I.",
+    "cta": "Únete a la Newsletter"
   }
 }

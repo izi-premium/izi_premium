@@ -11,11 +11,11 @@ const AnonymousChat = () => {
       <div className="w-full">
         <div className="special:grid-cols-2 grid items-start gap-10 md:gap-16">
           <div className="flex flex-col items-start justify-start gap-10 xl:gap-16">
-            <div className="flex flex-col items-start gap-2">
+            <div className="flex flex-col items-center gap-2 md:items-start">
               <h2 className="subtitle-medium md:h2-medium text-primary-text-700">
                 {tChat("title")}
               </h2>
-              <p className="paragraph-24-normal md:subtitle-normal text-primary-text-500">
+              <p className="paragraph-24-normal md:subtitle-normal text-primary-text-500 text-center md:text-left">
                 {tChat("subtitle")}
               </p>
             </div>
@@ -31,7 +31,7 @@ const AnonymousChat = () => {
                     alt="save icon"
                     width={32}
                     height={32}
-                    className="2xl:size-[4rem]"
+                    className="size-[2.4rem] md:size-[3.2rem] 2xl:size-[4rem]"
                   />
                   <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal">
                     {tChat("li1-text")}
@@ -43,7 +43,7 @@ const AnonymousChat = () => {
                     alt="nickname icon"
                     width={32}
                     height={32}
-                    className="2xl:size-[4rem]"
+                    className="size-[2.4rem] md:size-[3.2rem] 2xl:size-[4rem]"
                   />
                   <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal">
                     {tChat("li2-text")}
@@ -55,7 +55,7 @@ const AnonymousChat = () => {
                     alt="globe with a security lock icon"
                     width={32}
                     height={32}
-                    className="2xl:size-[4rem]"
+                    className="size-[2.4rem] md:size-[3.2rem] 2xl:size-[4rem]"
                   />
                   <p className="paragraph-18-normal text-primary-text-500 md:paragraph-24-normal">
                     {tChat("li3-text")}
