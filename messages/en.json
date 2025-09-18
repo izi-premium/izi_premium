@@ -84,7 +84,13 @@
     "tab2-purple": "diary-purple-eng",
     "tab2-green": "diary-green-eng",
     "tab2-brown": "diary-brown-eng",
-    "tab2-alt": "premium diary image color"
+    "tab2-alt": "premium diary image color",
+    "tab2-plain-blue": "diary-plain-blue-eng",
+    "tab2-plain-green": "diary-plain-green-eng",
+    "tab2-plain-black": "diary-plain-black-eng",
+    "tab2-plain-brown": "diary-plain-brown-eng",
+    "diary-version-t1": "Plain Diary",
+    "diary-version-t2": "Realistic Diary"
   },
   "Cookies": {
     "title": "Daily Fortune Cookies",

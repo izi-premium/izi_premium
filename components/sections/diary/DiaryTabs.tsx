@@ -11,7 +11,34 @@ import { RotatoryText } from "../../shared/RotatoryText";
 const DiaryTabs = () => {
   const tTabs = useTranslations("Diary-Tabs");
 
-  const colorOptions = [
+  const plainColorOptions = [
+    {
+      id: "blue",
+      color: "#1E2F4D",
+      imageKey: tTabs("tab2-plain-blue"),
+      name: "Blue",
+    },
+    {
+      id: "black",
+      color: "#1C1C1C",
+      imageKey: tTabs("tab2-plain-black"),
+      name: "Black",
+    },
+    {
+      id: "green",
+      color: "#264029",
+      imageKey: tTabs("tab2-plain-green"),
+      name: "Green",
+    },
+    {
+      id: "brown",
+      color: "#6E4B3A",
+      imageKey: tTabs("tab2-plain-brown"),
+      name: "Brown",
+    },
+  ];
+
+  const realisticColorOptions = [
     {
       id: "blue",
       color: "#06335C",
@@ -62,12 +89,21 @@ const DiaryTabs = () => {
     "Emma",
   ];
 
-  const [selectedColor, setSelectedColor] = useState(colorOptions[0]);
+  const [selectedColor, setSelectedColor] = useState(plainColorOptions[0]);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [activeTab, setActiveTab] = useState("free");
   const [isTabTransitioning, setIsTabTransitioning] = useState(false);
+  const [diaryVersion, setDiaryVersion] = useState("plain");
+  const [isDiaryVersionTransitioning, setIsDiaryVersionTransitioning] =
+    useState(false);
+  const [isPremiumTabLoading, setIsPremiumTabLoading] = useState(false);
 
-  const handleColorChange = (colorOption: (typeof colorOptions)[0]) => {
+  // Get current color options based on diary version
+  const getCurrentColorOptions = () => {
+    return diaryVersion === "plain" ? plainColorOptions : realisticColorOptions;
+  };
+
+  const handleColorChange = (colorOption: (typeof plainColorOptions)[0]) => {
     if (colorOption.id === selectedColor.id) return;
 
     setIsTransitioning(true);
@@ -76,7 +112,7 @@ const DiaryTabs = () => {
     setTimeout(() => {
       setSelectedColor(colorOption);
       setIsTransitioning(false);
-    }, 400); // Increased from 150ms to 400ms
+    }, 400);
   };
 
   const handleTabChange = (value: string) => {
@@ -84,12 +120,42 @@ const DiaryTabs = () => {
 
     setIsTabTransitioning(true);
 
+    // If switching to premium, set loading state for text delay
+    if (value === "premium") {
+      setIsPremiumTabLoading(true);
+    }
+
     // Short delay for smooth transition
     setTimeout(() => {
       setActiveTab(value);
       setTimeout(() => {
         setIsTabTransitioning(false);
-      }, 50); // Quick delay to ensure new content is ready
+
+        // Add delay for premium tab text to sync with image loading
+        if (value === "premium") {
+          setTimeout(() => {
+            setIsPremiumTabLoading(false);
+          }, 300); // 300ms delay to match image loading time
+        }
+      }, 50);
+    }, 200);
+  };
+
+  const handleDiaryVersionChange = (version: string) => {
+    if (version === diaryVersion) return;
+
+    setIsDiaryVersionTransitioning(true);
+
+    setTimeout(() => {
+      setDiaryVersion(version);
+      // Reset to first color of the new version
+      const newColorOptions =
+        version === "plain" ? plainColorOptions : realisticColorOptions;
+      setSelectedColor(newColorOptions[0]);
+
+      setTimeout(() => {
+        setIsDiaryVersionTransitioning(false);
+      }, 50);
     }, 200);
   };
 
@@ -230,6 +296,32 @@ const DiaryTabs = () => {
 
                 {/* Image Container with Color Selector */}
                 <div className="flex flex-col items-center gap-6">
+                  {/* Diary Version Selector - Above Image */}
+                  <div className="flex w-full items-center gap-2 rounded-[0.8rem] bg-[#D7D7D7] p-[0.4rem]">
+                    <button
+                      onClick={() => handleDiaryVersionChange("plain")}
+                      className={`paragraph-16-medium text-primary-text-700 flex-center lg:paragraph-18-medium w-full rounded-[0.4rem] px-4 py-2 transition-all duration-200 ${
+                        diaryVersion === "plain"
+                          ? "bg-base-400 shadow-sm"
+                          : "bg-secondary-text-100 hover:shadow-hover-inner"
+                      }`}
+                      disabled={isDiaryVersionTransitioning}
+                    >
+                      {tTabs("diary-version-t1")}
+                    </button>
+                    <button
+                      onClick={() => handleDiaryVersionChange("realistic")}
+                      className={`paragraph-16-medium text-primary-text-700 flex-center lg:paragraph-18-medium w-full rounded-[0.4rem] px-4 py-2 transition-all duration-200 ${
+                        diaryVersion === "realistic"
+                          ? "bg-base-400 shadow-sm"
+                          : "bg-secondary-text-100 hover:shadow-hover-inner"
+                      }`}
+                      disabled={isDiaryVersionTransitioning}
+                    >
+                      {tTabs("diary-version-t2")}
+                    </button>
+                  </div>
+
                   {/* Main Image Container */}
                   <div className="relative flex aspect-[378/520] min-h-[42rem] w-full min-w-[28rem] items-center justify-center overflow-hidden rounded-[1.6rem] shadow-lg lg:h-[clamp(52rem,27vw,104rem)] lg:w-[clamp(37.8rem,19.6vw,75.6rem)] xl:max-w-[33vw]">
                     {/* Background Image (Static) */}
@@ -246,7 +338,9 @@ const DiaryTabs = () => {
                       <RotatoryText
                         phrases={phrases}
                         className={`absolute top-1/2 left-1/2 z-5 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out ${
-                          isTransitioning
+                          isTransitioning ||
+                          isDiaryVersionTransitioning ||
+                          isPremiumTabLoading
                             ? "scale-95 opacity-0"
                             : "scale-100 opacity-100"
                         }`}
@@ -258,11 +352,11 @@ const DiaryTabs = () => {
                             selectedColor.imageKey as keyof typeof imageData
                           ]
                         }
-                        alt={`${tTabs("tab2-alt")} ${selectedColor.name}`}
+                        alt={`${tTabs("tab2-alt")} ${selectedColor.name} ${diaryVersion}`}
                         fill
                         sizes="(max-width: 768px) 85vw, (max-width: 1980px) 70vw, (max-width: 2240px) 33vw, 15vw"
                         className={`object-contain transition-all duration-500 ease-in-out ${
-                          isTransitioning
+                          isTransitioning || isDiaryVersionTransitioning
                             ? "scale-95 opacity-0"
                             : "scale-100 opacity-100"
                         }`}
@@ -271,8 +365,8 @@ const DiaryTabs = () => {
                   </div>
 
                   {/* Color Selector */}
-                  <div className="flex items-center gap-3">
-                    {colorOptions.map((colorOption) => (
+                  <div className="flex flex-wrap items-center justify-center gap-3">
+                    {getCurrentColorOptions().map((colorOption) => (
                       <button
                         key={colorOption.id}
                         onClick={() => handleColorChange(colorOption)}
@@ -282,8 +376,10 @@ const DiaryTabs = () => {
                             : "border-gray-300 hover:border-gray-400"
                         }`}
                         style={{ backgroundColor: colorOption.color }}
-                        aria-label={`Select ${colorOption.name} diary`}
-                        disabled={isTransitioning}
+                        aria-label={`Select ${colorOption.name} ${diaryVersion} diary`}
+                        disabled={
+                          isTransitioning || isDiaryVersionTransitioning
+                        }
                       >
                         {/* Inner highlight for selected state */}
                         {selectedColor.id === colorOption.id && (

@@ -84,7 +84,13 @@
     "tab2-purple": "diary-purple-esp",
     "tab2-green": "diary-green-esp",
     "tab2-brown": "diary-brown-esp",
-    "tab2-alt": "imagen del diario premium color"
+    "tab2-alt": "imagen del diario premium color",
+    "tab2-plain-blue": "diary-plain-blue-esp",
+    "tab2-plain-green": "diary-plain-green-esp",
+    "tab2-plain-black": "diary-plain-black-esp",
+    "tab2-plain-brown": "diary-plain-brown-esp",
+    "diary-version-t1": "Diario Plano",
+    "diary-version-t2": "Diario Realista"
   },
   "Cookies": {
     "title": "Galletas de la Fortuna Diarias",
