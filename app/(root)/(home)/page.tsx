@@ -22,7 +22,7 @@ export default function Home() {
       <FortuneCookies />
       <Newsletter />
 
-      <TextWithImageSection
+      {/* <TextWithImageSection
         title="Build Faster Than Ever"
         description="This boilerplate is designed to get you up and running in minutes. It includes everything you need to build a modern, performant, and scalable web application."
         imageUrl="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
@@ -33,27 +33,7 @@ export default function Home() {
 
       <Suspense fallback={<SkeletonLoader />}>
         <CarouselSection />
-      </Suspense>
-
-      <TextWithImageSection
-        title="Fully Customizable and Extensible"
-        description="Easily adapt the boilerplate to your needs. The modular structure and clean code make it simple to add new features, change the styling, and integrate with other services."
-        imageUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
-        imageAlt="Developer coding"
-        ctaText="Get Started"
-        ctaLink="#contact"
-        reverse={true}
-      />
-
-      <Suspense fallback={<SkeletonLoader />}>
-        <TabsSection />
-      </Suspense>
-
-      <Suspense fallback={<SkeletonLoader />}>
-        <FaqSection />
-      </Suspense>
-
-      <ContactForm />
+      </Suspense> */}
     </div>
   );
 }
