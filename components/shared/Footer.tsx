@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Package2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import imageData from "@/data/uploadedImages.json";
@@ -34,12 +33,11 @@ export default function Footer() {
 
               {/* App download buttons */}
               <div className="flex-begin-col gap-2">
-                <p
-                  className="paragraph-18-medium md:paragraph-24-medium text-primary-text-700"
-                  dangerouslySetInnerHTML={{
-                    __html: tFoot("apple"),
-                  }}
-                />
+                <p className="paragraph-18-medium md:paragraph-24-medium text-primary-text-700">
+                  {tFoot.rich("download", {
+                    u: (chunks: React.ReactNode) => <u>{chunks}</u>,
+                  })}
+                </p>
                 <div className="flex-center w-full gap-6">
                   {/* App Store */}
                   <Link

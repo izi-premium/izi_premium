@@ -127,7 +127,7 @@
     "free-li5-img": "message-square-dot",
     "free-li5-alt": "notification message icon",
     "free-li5-text": "Receive 1 daily advice from a fortune cookie",
-    "download": "Download the App for <u>Free<u/>:",
+    "download": "Download the App for <u>Free</u>:",
     "apple": "App Store",
     "apple-alt": "app store logo",
     "google": "Play Store",
@@ -161,9 +161,8 @@
     "cta": "Join our Newsletter"
   },
   "Footer": {
-    "donwload": "Download the App for Free:",
     "question": "Do you like what you see?",
-    "download": "Download the App for <u>Free<u/>:",
+    "download": "Download the App for <u>Free</u>:",
     "apple": "App Store",
     "apple-alt": "app store logo",
     "google": "Play Store",

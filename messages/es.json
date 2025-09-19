@@ -127,7 +127,7 @@
     "free-li5-img": "message-square-dot",
     "free-li5-alt": "notificacion icono",
     "free-li5-text": "Recibe 1 consejo diario de las galletas de la fortuna",
-    "download": "Descarga la App de forma <u>Gratuita<u/>:",
+    "download": "Descarga la App de forma <u>Gratuita</u>:",
     "apple": "App Store",
     "apple-alt": "app store logo",
     "google": "Play Store",
@@ -161,9 +161,8 @@
     "cta": "Únete a la Newsletter"
   },
   "Footer": {
-    "donwload": "Descarga Gratis la aplicación:",
     "question": "¿Te interesa el proyecto?",
-    "download": "Descarga la App de forma <u>Gratuita<u/>:",
+    "download": "Descarga la App de forma <u>Gratuita</u>:",
     "apple": "App Store",
     "apple-alt": "app store logo",
     "google": "Play Store",

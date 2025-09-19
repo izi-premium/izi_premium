@@ -11,6 +11,7 @@ import { AnonymousChat } from "@/components/sections/chat/AnonymousChat";
 import { DiaryWrapper } from "@/components/sections/diary/DiaryWrapper";
 import { FortuneCookies } from "@/components/sections/fortune-cookies/FortuneCookies";
 import Newsletter from "../../../components/sections/newsletter/Newsletter";
+import { PricingWrapper } from "../../../components/sections/pricing/PricingWrapper";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <DiaryWrapper />
       <FortuneCookies />
       <Newsletter />
+      <PricingWrapper />
 
       {/* <TextWithImageSection
         title="Build Faster Than Ever"
