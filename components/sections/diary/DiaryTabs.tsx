@@ -300,7 +300,7 @@ const DiaryTabs = () => {
                   <div className="flex w-full items-center gap-2 rounded-[0.8rem] bg-[#D7D7D7] p-[0.4rem]">
                     <button
                       onClick={() => handleDiaryVersionChange("plain")}
-                      className={`paragraph-16-medium text-primary-text-700 flex-center lg:paragraph-18-medium w-full rounded-[0.4rem] px-4 py-2 transition-all duration-200 ${
+                      className={`paragraph-14-normal md:paragraph-18-medium text-primary-text-700 flex-center w-full rounded-[0.4rem] px-4 py-2 font-medium transition-all duration-200 ${
                         diaryVersion === "plain"
                           ? "bg-base-400 shadow-sm"
                           : "bg-secondary-text-100 hover:shadow-hover-inner"
@@ -311,7 +311,7 @@ const DiaryTabs = () => {
                     </button>
                     <button
                       onClick={() => handleDiaryVersionChange("realistic")}
-                      className={`paragraph-16-medium text-primary-text-700 flex-center lg:paragraph-18-medium w-full rounded-[0.4rem] px-4 py-2 transition-all duration-200 ${
+                      className={`paragraph-14-normal md:paragraph-18-medium text-primary-text-700 flex-center w-full rounded-[0.4rem] px-4 py-2 font-medium transition-all duration-200 ${
                         diaryVersion === "realistic"
                           ? "bg-base-400 shadow-sm"
                           : "bg-secondary-text-100 hover:shadow-hover-inner"
