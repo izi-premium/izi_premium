@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import FaqSection from "@/components/sections/FaqSection";
-import CarouselSection from "@/components/sections/CarouselSection";
-import TabsSection from "@/components/sections/TabsSection";
+// import FaqSection from "@/components/sections/FaqSection";
+// import CarouselSection from "@/components/sections/CarouselSection";
+// import TabsSection from "@/components/sections/TabsSection";
 import SkeletonCard from "@/components/shared/cards/SkeletonCard";
-import ContactForm from "@/components/sections/ContactForm";
-import TextWithImageSection from "@/components/sections/TextWithImageSection";
+// import ContactForm from "@/components/sections/ContactForm";
+// import TextWithImageSection from "@/components/sections/TextWithImageSection";
 import Hero from "@/components/sections/hero/Hero";
 import MainFeatures from "@/components/sections/features/MainFeatures";
 import { AnonymousChat } from "@/components/sections/chat/AnonymousChat";
@@ -19,23 +19,18 @@ export default function Home() {
       <Hero />
       <MainFeatures />
       <AnonymousChat />
-      <DiaryWrapper />
-      <FortuneCookies />
-      <Newsletter />
-      <PricingWrapper />
-
-      {/* <TextWithImageSection
-        title="Build Faster Than Ever"
-        description="This boilerplate is designed to get you up and running in minutes. It includes everything you need to build a modern, performant, and scalable web application."
-        imageUrl="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
-        imageAlt="Team working on a project"
-        ctaText="Learn More"
-        ctaLink="#features"
-      />
-
       <Suspense fallback={<SkeletonLoader />}>
-        <CarouselSection />
-      </Suspense> */}
+        <DiaryWrapper />
+      </Suspense>
+      <Suspense fallback={<SkeletonLoader />}>
+        <FortuneCookies />
+      </Suspense>
+      <Suspense fallback={<SkeletonLoader />}>
+        <PricingWrapper />
+      </Suspense>
+      <Suspense fallback={<SkeletonLoader />}>
+        <Newsletter />
+      </Suspense>
     </div>
   );
 }

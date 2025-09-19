@@ -6,17 +6,17 @@ import { Card2 } from "./Card2";
 const PricingWrapper = () => {
   const tPrice = useTranslations("Pricing");
   return (
-    <section className="flex-start-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-10 py-[8rem]">
-      <div className="flex-center-col gap-4">
+    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-10 py-[8rem]">
+      <div className="flex-center-col w-fulll gap-4">
         <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">
           {tPrice("title")}
         </h2>
-        <p className="paragraph-18-normal md:subtitle-normal text-primary-text-500 max-w-[90rem] text-center">
-          {tPrice("title")}
+        <p className="paragraph-18-normal md:subtitle-normal text-primary-text-500 max-w-[clamp(90rem,50.9vw,200rem)] text-center">
+          {tPrice("subtitle")}
         </p>
       </div>
 
-      <div className="flex-center-col w-full gap-10 lg:flex-row">
+      <div className="gird-cols-1 grid h-fit w-full max-w-[clamp(124rem,64.6vw,248rem)] gap-10 lg:grid-cols-2">
         <Card1 />
         <Card2 />
       </div>

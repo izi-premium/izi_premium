@@ -7,8 +7,8 @@ import Link from "next/link";
 const Card1 = () => {
   const tPrice = useTranslations("Pricing");
   return (
-    <div className="border-base-800 h-full w-full rounded-[3.2rem] border border-solid bg-white p-2 md:p-6">
-      <div className="border-base-800 flex-begin-col gap-10 rounded-[1.6rem] border border-solid bg-linear-to-b from-white from-0% to-[#F5F5F5] to-[85%] p-4 md:gap-[6.4rem] md:p-12">
+    <div className="border-base-800 h-full w-full flex-1 rounded-[3.2rem] border border-solid bg-white p-2 md:p-6">
+      <div className="border-base-800 flex-begin-col gap-10 rounded-[1.6rem] border border-solid bg-linear-to-b from-white from-0% to-[#F5F5F5] to-[85%] p-4 md:gap-[6.4rem] md:p-12 xl:gap-[clamp(4rem,2.1vw,8rem)]">
         <div className="flex-begin-col gap-[5.6rem]">
           {/* Head */}
           <div className="flex-begin-col gap-4">
@@ -23,7 +23,7 @@ const Card1 = () => {
             </p>
           </div>
           {/* Bullet Points */}
-          <ul className="flex-begin-col w-full gap-8">
+          <ul className="flex-begin-col w-full gap-8 xl:gap-[clamp(3.2rem,1.7vw,6.4rem)]">
             <li className="flex-center w-full gap-2">
               <Image
                 src={
@@ -108,7 +108,7 @@ const Card1 = () => {
             {/* App Store */}
             <Link
               href="/"
-              className="border-primary-text-900 flex-center hover:shadow-hover-inner shadow-cta-header w-full flex-nowrap gap-2 rounded-[0.8rem] border border-solid bg-white px-6 py-3 whitespace-nowrap hover:cursor-pointer"
+              className="border-primary-text-900 flex-center hover:shadow-hover-inner shadow-cta-header w-full flex-nowrap gap-2 rounded-[0.8rem] border border-solid bg-white px-6 py-3 whitespace-nowrap hover:cursor-pointer xl:py-[clamp(1.2rem,0.625vw,2.4rem)]"
             >
               <Image
                 src={imageData["ic_baseline-apple"]}
@@ -125,7 +125,7 @@ const Card1 = () => {
             {/* Play Store */}
             <Link
               href="/"
-              className="border-primary-text-900 flex-center hover:shadow-hover-inner shadow-cta-header w-full flex-nowrap gap-2 rounded-[0.8rem] border border-solid bg-white px-6 py-3 whitespace-nowrap hover:cursor-pointer"
+              className="border-primary-text-900 flex-center hover:shadow-hover-inner shadow-cta-header w-full flex-nowrap gap-2 rounded-[0.8rem] border border-solid bg-white px-6 py-3 whitespace-nowrap hover:cursor-pointer xl:py-[clamp(1.2rem,0.625vw,2.4rem)]"
             >
               <Image
                 src={imageData["streamline_play-store"]}
