@@ -3,7 +3,7 @@ import { getAdminDb } from "@/lib/firebase-admin";
 import bcrypt from "bcryptjs";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(request: NextRequest) {
   try {
@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
     console.log("Sending OTP email..."); // Debug log
     // Send OTP email
     try {
-      if (!process.env.RESEND_API_KEY) {
+      if (!process.env.RESEND_API_KEY!) {
         console.error("RESEND_API_KEY not found");
         return NextResponse.json(
           { error: "Email service not configured. Please contact support." },
