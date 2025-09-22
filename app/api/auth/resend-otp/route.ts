@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { adminDb } from "@/lib/firebase-admin";
+import { getAdminDb } from "@/lib/firebase-admin";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user exists and is not verified
-    const userQuery = await adminDb
+    const userQuery = await getAdminDb()
       .collection("users")
       .where("email", "==", email)
       .where("emailVerified", "==", false)
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
     // Update or create OTP document
-    await adminDb.collection("otps").doc(email).set({
+    await getAdminDb().collection("otps").doc(email).set({
       otp,
       expiresAt: otpExpiry,
       userId: user.id,

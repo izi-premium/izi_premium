@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { stripe, regionalPricing, getUserRegion } from "@/lib/stripe";
-import { adminDb } from "@/lib/firebase-admin";
+import { adminDb, getAdminDb } from "@/lib/firebase-admin";
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get user data from Firestore
-    const userQuery = await adminDb
+    const userQuery = await getAdminDb()
       .collection("users")
       .where("uid", "==", session.user.id)
       .limit(1)
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
     });
 
     // Store checkout session info for reference
-    await adminDb
+    await getAdminDb()
       .collection("checkoutSessions")
       .doc(checkoutSession.id)
       .set({

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
-import { adminDb } from "@/lib/firebase-admin";
+import { getAdminDb } from "@/lib/firebase-admin";
 import Stripe from "stripe";
 
 export async function POST(request: NextRequest) {
@@ -75,7 +75,7 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
 
   try {
     // Find user in Firestore
-    const userQuery = await adminDb
+    const userQuery = await getAdminDb()
       .collection("users")
       .where("uid", "==", userId)
       .limit(1)
@@ -100,14 +100,14 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
     });
 
     // Update checkout session status
-    await adminDb.collection("checkoutSessions").doc(session.id).update({
+    await getAdminDb().collection("checkoutSessions").doc(session.id).update({
       status: "completed",
       completedAt: new Date(),
       stripeCustomerId: session.customer,
     });
 
     // Create purchase record
-    await adminDb.collection("purchases").add({
+    await getAdminDb().collection("purchases").add({
       userId: userId,
       userEmail: userEmail,
       stripeSessionId: session.id,

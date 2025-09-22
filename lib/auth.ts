@@ -1,7 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { adminDb } from "./firebase-admin";
+import { getAdminDb } from "@/lib/firebase-admin";
 import bcrypt from "bcryptjs";
 
 export const authOptions: NextAuthOptions = {
@@ -23,7 +23,7 @@ export const authOptions: NextAuthOptions = {
 
         try {
           // Get user from Firestore using email
-          const userDoc = await adminDb
+          const userDoc = await getAdminDb()
             .collection("users")
             .where("email", "==", credentials.email)
             .limit(1)
@@ -71,7 +71,7 @@ export const authOptions: NextAuthOptions = {
       if (account?.provider === "google") {
         try {
           // Check if user already exists
-          const existingUserQuery = await adminDb
+          const existingUserQuery = await getAdminDb()
             .collection("users")
             .where("email", "==", user.email)
             .limit(1)
@@ -79,7 +79,7 @@ export const authOptions: NextAuthOptions = {
 
           if (existingUserQuery.empty) {
             // Generate a unique uid for the new user
-            const newUserRef = adminDb.collection("users").doc();
+            const newUserRef = getAdminDb().collection("users").doc();
             const uid = newUserRef.id;
 
             // Create new user with your existing schema
@@ -124,7 +124,7 @@ export const authOptions: NextAuthOptions = {
 
         // Get additional user data from Firestore using uid
         try {
-          const userQuery = await adminDb
+          const userQuery = await getAdminDb()
             .collection("users")
             .where("uid", "==", token.sub)
             .limit(1)

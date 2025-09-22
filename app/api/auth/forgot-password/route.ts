@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { adminDb } from "@/lib/firebase-admin";
+import { getAdminDb } from "@/lib/firebase-admin";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user exists
-    const userQuery = await adminDb
+    const userQuery = await getAdminDb()
       .collection("users")
       .where("email", "==", email)
       .limit(1)
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     const resetExpiry = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
 
     // Store reset code
-    await adminDb.collection("passwordResets").doc(email).set({
+    await getAdminDb().collection("passwordResets").doc(email).set({
       resetCode,
       expiresAt: resetExpiry,
       userId: user.id,

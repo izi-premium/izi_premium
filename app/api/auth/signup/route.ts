@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { adminDb } from "@/lib/firebase-admin";
+import { getAdminDb } from "@/lib/firebase-admin";
 import bcrypt from "bcryptjs";
 import { Resend } from "resend";
 
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
 
     // Check if user already exists
     console.log("Checking if user exists..."); // Debug log
-    const existingUser = await adminDb
+    const existingUser = await getAdminDb()
       .collection("users")
       .where("email", "==", email)
       .limit(1)
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
 
     console.log("Creating user document..."); // Debug log
     // Create user document with your existing schema
-    const userRef = adminDb.collection("users").doc();
+    const userRef = getAdminDb().collection("users").doc();
     const uid = userRef.id; // Use the document ID as uid
 
     await userRef.set({
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
 
     console.log("User document created, storing OTP..."); // Debug log
     // Store OTP with reference to uid
-    await adminDb.collection("otps").doc(email).set({
+    await getAdminDb().collection("otps").doc(email).set({
       otp,
       expiresAt: otpExpiry,
       userId: uid, // Use uid instead of userRef.id
@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
       console.error("Error sending email:", emailError);
       // Clean up user and OTP if email fails
       await userRef.delete();
-      await adminDb.collection("otps").doc(email).delete();
+      await getAdminDb().collection("otps").doc(email).delete();
 
       return NextResponse.json(
         {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { adminDb } from "@/lib/firebase-admin";
+import { getAdminDb } from "@/lib/firebase-admin";
 import bcrypt from "bcryptjs";
 
 export async function POST(request: NextRequest) {
@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get reset code document
-    const resetDoc = await adminDb
+    const resetDoc = await getAdminDb()
       .collection("passwordResets")
       .doc(email)
       .get();
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
 
     // Check if reset code is expired
     if (new Date() > resetData.expiresAt.toDate()) {
-      await adminDb.collection("passwordResets").doc(email).delete();
+      await getAdminDb().collection("passwordResets").doc(email).delete();
       return NextResponse.json(
         { error: "Reset code has expired. Please request a new one." },
         { status: 400 }
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     const hashedPassword = await bcrypt.hash(newPassword, 12);
 
     // Update user password using uid
-    const userQuery = await adminDb
+    const userQuery = await getAdminDb()
       .collection("users")
       .where("uid", "==", resetData.userId)
       .limit(1)
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Delete the reset code
-    await adminDb.collection("passwordResets").doc(email).delete();
+    await getAdminDb().collection("passwordResets").doc(email).delete();
 
     return NextResponse.json({
       message:
