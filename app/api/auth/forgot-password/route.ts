@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdminDb } from "@/lib/firebase-admin";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
-
 export async function POST(request: NextRequest) {
   try {
     const { email } = await request.json();
@@ -29,6 +27,8 @@ export async function POST(request: NextRequest) {
 
     const user = userQuery.docs[0];
     const userData = user.data();
+
+    const resend = new Resend(process.env.RESEND_API_KEY!);
 
     // Generate 6-digit reset code
     const resetCode = Math.floor(100000 + Math.random() * 900000).toString();

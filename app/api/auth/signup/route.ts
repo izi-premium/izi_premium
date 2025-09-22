@@ -3,8 +3,6 @@ import { getAdminDb } from "@/lib/firebase-admin";
 import bcrypt from "bcryptjs";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
-
 export async function POST(request: NextRequest) {
   try {
     const { email, password, name, acceptedTerms, acceptedPrivacy } =
@@ -41,6 +39,8 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY!);
 
     // Hash password
     console.log("Hashing password..."); // Debug log
