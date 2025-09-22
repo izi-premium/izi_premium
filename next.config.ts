@@ -16,6 +16,31 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      // Google profile images
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lh4.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lh5.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lh6.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -42,16 +67,12 @@ const nextConfig: NextConfig = {
       "react-dom",
     ],
   },
-
   // Enable compression
   compress: true,
-
   // Enable React strict mode for better performance
   reactStrictMode: true,
-
   // Performance optimizations
   poweredByHeader: false,
-
   // Headers for better performance
   async headers() {
     return [

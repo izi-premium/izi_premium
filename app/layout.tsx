@@ -81,37 +81,37 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <head>
-        {/* Preconnect to external sites if any */}
-        <link
-          rel="preconnect"
-          href="https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="dns-prefetch"
-          href="https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com"
-        />
-      </head>
-      <body
-        className={cn(
-          "bg-secondary-text-50 min-h-screen font-sans antialiased",
-          switzer.variable,
-          parisienne.variable
-        )}
-      >
-        <NextIntlClientProvider messages={messages}>
-          <AuthProvider>
+    <AuthProvider>
+      <html lang={locale} suppressHydrationWarning>
+        <head>
+          {/* Preconnect to external sites if any */}
+          <link
+            rel="preconnect"
+            href="https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="dns-prefetch"
+            href="https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com"
+          />
+        </head>
+        <body
+          className={cn(
+            "bg-secondary-text-50 min-h-screen font-sans antialiased",
+            switzer.variable,
+            parisienne.variable
+          )}
+        >
+          <NextIntlClientProvider messages={messages}>
             <Header />
             <main className="flex-center-col bg-secondary-text-50 relative min-h-screen w-screen">
               {children}
             </main>
             <Footer />
-          </AuthProvider>
-        </NextIntlClientProvider>
-        <SpeedInsights />
-      </body>
-    </html>
+          </NextIntlClientProvider>
+          <SpeedInsights />
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

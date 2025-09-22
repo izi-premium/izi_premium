@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { regionalPricing, getUserRegion, getServerStripe } from "@/lib/stripe";
-import { adminDb, getAdminDb } from "@/lib/firebase-admin";
+import { getAdminDb } from "@/lib/firebase-admin";
 
 export async function POST(request: NextRequest) {
   try {
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     // Check if user is already premium
     if (userData.isPremium) {
       return NextResponse.json(
-        { error: "User already has premium access", redirectTo: "/dashboard" },
+        { error: "User already has premium access", redirectTo: "/" },
         { status: 400 }
       );
     }
@@ -45,15 +45,15 @@ export async function POST(request: NextRequest) {
     const pricingConfig = regionalPricing[userRegion];
 
     console.log(
-      "Creating checkout session for user:",
+      "Creating subscription checkout for user:",
       session.user.email,
       "Region:",
       userRegion
     );
 
-    // Create Stripe checkout session
+    // Create Stripe checkout session for subscription
     const checkoutSession = await getServerStripe().checkout.sessions.create({
-      mode: "payment",
+      mode: "subscription", // Changed from "payment" to "subscription"
       payment_method_types: ["card"],
       line_items: [
         {
@@ -74,6 +74,14 @@ export async function POST(request: NextRequest) {
       tax_id_collection: {
         enabled: true,
       },
+      // Subscription specific settings
+      subscription_data: {
+        metadata: {
+          userId: session.user.id,
+          userEmail: session.user.email,
+          region: userRegion,
+        },
+      },
     });
 
     // Store checkout session info for reference
@@ -84,9 +92,10 @@ export async function POST(request: NextRequest) {
         userId: session.user.id,
         userEmail: session.user.email,
         region: userRegion,
-        amount: pricingConfig.price * 100, // Store in cents
+        priceId: pricingConfig.priceId,
         currency: pricingConfig.currency,
         status: "pending",
+        type: "subscription",
         createdAt: new Date(),
       });
 

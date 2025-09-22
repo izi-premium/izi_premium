@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface SigninFormProps {
   redirectUrl?: string;
@@ -17,6 +17,10 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // Get redirect URL from search params or props, default to home page
+  const finalRedirectUrl = redirectUrl || searchParams.get("redirect") || "/";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -41,7 +45,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
       if (result?.error) {
         setError(result.error);
       } else if (result?.ok) {
-        router.push(redirectUrl || "/dashboard");
+        router.push(finalRedirectUrl);
       }
     } catch (err) {
       setError("An error occurred. Please try again.");
@@ -52,7 +56,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
 
   const handleGoogleSignin = () => {
     signIn("google", {
-      callbackUrl: redirectUrl || "/dashboard",
+      callbackUrl: finalRedirectUrl,
       redirect: true,
     });
   };
@@ -153,7 +157,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
         </p>
         <p className="text-sm text-gray-600">
           Don't have an account?{" "}
-          <Link href="/auth/signup" className="text-blue-600 hover:underline">
+          <Link href="/signup" className="text-blue-600 hover:underline">
             Sign up
           </Link>
         </p>

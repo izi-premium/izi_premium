@@ -1,18 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 
 interface SignupFormProps {
   onSuccess?: () => void;
-  redirectUrl?: string;
 }
 
-export default function SignupForm({
-  onSuccess,
-  redirectUrl,
-}: SignupFormProps) {
+export default function SignupForm({ onSuccess }: SignupFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,6 +23,13 @@ export default function SignupForm({
   const [verificationCode, setVerificationCode] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  // Get redirect URL from search params
+  const redirectUrl = searchParams.get("redirect");
+  const checkoutIntent = searchParams.get("checkout") === "true";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -114,12 +118,47 @@ export default function SignupForm({
 
       if (response.ok) {
         setMessage(data.message);
-        // Auto-redirect to signin or dashboard after 2 seconds
-        setTimeout(() => {
+
+        // Handle different redirect scenarios
+        setTimeout(async () => {
           if (onSuccess) {
             onSuccess();
+          } else if (checkoutIntent) {
+            // If user came from checkout flow, initiate Stripe checkout
+            try {
+              const checkoutResponse = await fetch("/api/checkout", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  countryCode: undefined,
+                  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                  currency: undefined,
+                }),
+              });
+
+              const checkoutData = await checkoutResponse.json();
+
+              if (checkoutResponse.ok) {
+                // Redirect to Stripe checkout
+                window.location.href = checkoutData.checkoutUrl;
+              } else {
+                console.error("Checkout error:", checkoutData.error);
+                // Fallback to signin if checkout fails
+                router.push("/signin");
+              }
+            } catch (error) {
+              console.error("Checkout network error:", error);
+              // Fallback to signin if checkout fails
+              router.push("/signin");
+            }
+          } else if (redirectUrl) {
+            // If specific redirect URL was provided
+            router.push(redirectUrl);
           } else {
-            window.location.href = redirectUrl || "/signin";
+            // Default: redirect to signin
+            router.push("/signin");
           }
         }, 2000);
       } else {
@@ -167,8 +206,17 @@ export default function SignupForm({
       return;
     }
 
+    // Construct callback URL based on redirect intent
+    let callbackUrl = "/";
+
+    if (checkoutIntent) {
+      callbackUrl = "/checkout";
+    } else if (redirectUrl) {
+      callbackUrl = redirectUrl;
+    }
+
     signIn("google", {
-      callbackUrl: redirectUrl || "/dashboard",
+      callbackUrl,
       redirect: true,
     });
   };
@@ -238,6 +286,13 @@ export default function SignupForm({
       <h2 className="mb-6 text-center text-2xl font-bold">
         Create Your Account
       </h2>
+
+      {checkoutIntent && (
+        <div className="mb-4 rounded border border-blue-400 bg-blue-100 p-3 text-blue-700">
+          After registration, you'll be redirected to complete your premium
+          purchase.
+        </div>
+      )}
 
       {message && (
         <div className="mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">

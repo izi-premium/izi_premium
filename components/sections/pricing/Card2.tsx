@@ -1,12 +1,54 @@
-import React from "react";
+"use client";
 
+import React from "react";
+import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import imageData from "@/data/uploadedImages.json";
-import Link from "next/link";
 
 const Card2 = () => {
   const tPrice = useTranslations("Pricing");
+  const { data: session, status } = useSession();
+
+  const handlePremiumClick = async () => {
+    if (status === "loading") return;
+
+    if (!session?.user) {
+      // User is not logged in, redirect to signup with checkout intent
+      window.location.href = "/signup?checkout=true";
+      return;
+    }
+
+    // User is logged in, create Stripe checkout session
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          countryCode: undefined, // You can implement geolocation if needed
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          currency: undefined,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Redirect to Stripe checkout
+        window.location.href = data.checkoutUrl;
+      } else {
+        console.error("Checkout error:", data.error);
+        // Handle error - could show a toast or alert
+        alert(data.error || "Failed to create checkout session");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      alert("Network error. Please try again.");
+    }
+  };
+
   return (
     <div className="border-base-800 h-full w-full flex-1 rounded-[3.2rem] border border-solid bg-white p-2 md:p-6 lg:min-h-[100%]">
       <div className="border-base-800 flex-begin-col h-full justify-between gap-10 rounded-[1.6rem] border border-solid bg-linear-to-b from-white from-0% to-[#F5F5F5] to-[85%] p-4 md:gap-[6.4rem] md:p-12 xl:gap-[clamp(4rem,2.1vw,8rem)]">
@@ -105,18 +147,23 @@ const Card2 = () => {
               u: (chunks: React.ReactNode) => <u>{chunks}</u>,
             })}
           </p>
-          <Link
-            href="#"
-            className="hover:shadow-header bg-primary-action-900 relative flex w-full items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer"
+          <button
+            onClick={handlePremiumClick}
+            disabled={status === "loading"}
+            className="hover:shadow-header bg-primary-action-900 relative flex w-full items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
           >
             <span className="bg-primary-action-100 absolute right-[63px] bottom-[-17px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
             <span className="bg-primary-action-100 absolute bottom-[-26px] left-[52px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
             <div className="border-elevated-surfaces-500 relative w-full rounded-[0.4rem] border border-solid px-8 py-3 xl:px-[clamp(32px,1.66vw)] xl:py-[clamp(1.2rem,0.625vw,2.4rem)]">
               <p className="paragraph-18-medium md:paragraph-24-medium text-secondary-text-500 w-full text-center">
-                {tPrice("premium-cta")}
+                {status === "loading"
+                  ? "Loading..."
+                  : !session?.user
+                    ? "Sign Up & Get Premium"
+                    : tPrice("premium-cta")}
               </p>
             </div>
-          </Link>
+          </button>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { useSession } from "next-auth/react";
 import {
   Sheet,
   SheetClose,
@@ -14,9 +15,11 @@ import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/language/LanguageSwitcher";
 import Image from "next/image";
 import imageData from "@/data/uploadedImages.json";
+import { UserAvatar } from "./UserAvatar";
 
 export default function Header() {
   const tNav = useTranslations("Navigation");
+  const { data: session } = useSession();
 
   const navLinks = [
     { href: "#chat", label: `${tNav("chat")}` },
@@ -51,6 +54,7 @@ export default function Header() {
           {/* Mobile */}
           <div className="flex-center gap-3 xl:hidden">
             <LanguageSwitcher />
+            {session?.user && <UserAvatar user={session.user} />}
 
             <Sheet>
               <SheetTrigger asChild className="size-[4.4rem]">
@@ -98,27 +102,42 @@ export default function Header() {
                     </div>
                     {/* CTA Buttons */}
                     <div className="flex-center-col gap-4">
-                      <SheetClose asChild>
-                        <Link
-                          href="/sign-up"
-                          className="bg-secondary-text-50 border-secondary-text-950 hover:bg-secondary-text-200 hover:shadow-hover-inner shadow-cta-header rounded-[0.8rem] border border-solid px-6 py-2 transition-all duration-300 ease-in-out"
-                        >
-                          <span className="paragraph-24-medium text-secondary-text-950">
-                            {tNav("register")}
-                          </span>
-                        </Link>
-                      </SheetClose>
+                      {!session?.user ? (
+                        <>
+                          <SheetClose asChild>
+                            <Link
+                              href="/signup?redirect=/"
+                              className="bg-secondary-text-50 border-secondary-text-950 hover:bg-secondary-text-200 hover:shadow-hover-inner shadow-cta-header rounded-[0.8rem] border border-solid px-6 py-2 transition-all duration-300 ease-in-out"
+                            >
+                              <span className="paragraph-24-medium text-secondary-text-950">
+                                {tNav("register")}
+                              </span>
+                            </Link>
+                          </SheetClose>
 
-                      <SheetClose asChild>
-                        <Link
-                          href="#"
-                          className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
-                        >
-                          <span className="paragraph-24-medium text-secondary-text-500">
-                            {tNav("cta")}
-                          </span>
-                        </Link>
-                      </SheetClose>
+                          <SheetClose asChild>
+                            <Link
+                              href="#"
+                              className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
+                            >
+                              <span className="paragraph-24-medium text-secondary-text-500">
+                                {tNav("cta")}
+                              </span>
+                            </Link>
+                          </SheetClose>
+                        </>
+                      ) : (
+                        <SheetClose asChild>
+                          <Link
+                            href="#"
+                            className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
+                          >
+                            <span className="paragraph-24-medium text-secondary-text-500">
+                              {tNav("cta")}
+                            </span>
+                          </Link>
+                        </SheetClose>
+                      )}
                     </div>
                   </div>
                 </nav>
@@ -138,26 +157,40 @@ export default function Header() {
               </Link>
             ))}
             <LanguageSwitcher />
+            {session?.user && <UserAvatar user={session.user} />}
 
             {/* CTA Buttons */}
             <div className="flex-center gap-4">
-              <Link
-                href="/signup"
-                className="bg-secondary-text-50 border-secondary-text-950 hover:bg-secondary-text-200 hover:shadow-hover-inner shadow-cta-header rounded-[0.8rem] border border-solid px-6 py-2 transition-all duration-300 ease-in-out"
-              >
-                <span className="paragraph-18-medium text-secondary-text-950 lg:paragraph-24-medium">
-                  {tNav("register")}
-                </span>
-              </Link>
+              {!session?.user ? (
+                <>
+                  <Link
+                    href="/signup?redirect=/"
+                    className="bg-secondary-text-50 border-secondary-text-950 hover:bg-secondary-text-200 hover:shadow-hover-inner shadow-cta-header rounded-[0.8rem] border border-solid px-6 py-2 transition-all duration-300 ease-in-out"
+                  >
+                    <span className="paragraph-18-medium text-secondary-text-950 lg:paragraph-24-medium">
+                      {tNav("register")}
+                    </span>
+                  </Link>
 
-              <Link
-                href="/"
-                className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
-              >
-                <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">
-                  {tNav("cta")}
-                </span>
-              </Link>
+                  <Link
+                    href="/"
+                    className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
+                  >
+                    <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">
+                      {tNav("cta")}
+                    </span>
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  href="/"
+                  className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
+                >
+                  <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">
+                    {tNav("cta")}
+                  </span>
+                </Link>
+              )}
             </div>
           </div>
         </div>

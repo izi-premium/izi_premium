@@ -93,6 +93,7 @@ export const authOptions: NextAuthOptions = {
               useApodo: false,
               useDate: false,
               emailVerified: true, // Google users are pre-verified
+              isPremium: false,
               // No password field for Google users
             });
 
@@ -150,11 +151,77 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
+    async redirect({ url, baseUrl }) {
+      console.log("🔍 REDIRECT DEBUG:");
+      console.log("- url:", url);
+      console.log("- baseUrl:", baseUrl);
+
+      // Force redirect to home page if the URL contains dashboard
+      if (url.includes("/dashboard")) {
+        console.log("🚫 Intercepting dashboard redirect, forcing to home");
+        return baseUrl + "/";
+      }
+
+      // If the URL is relative, prepend baseUrl
+      if (url.startsWith("/")) {
+        const fullUrl = `${baseUrl}${url}`;
+        console.log("- Relative URL, returning:", fullUrl);
+        return fullUrl;
+      }
+
+      // Parse the URL to check for redirect parameters
+      try {
+        const urlObj = new URL(url);
+
+        // Check for redirect parameter in the current URL
+        const redirectParam = urlObj.searchParams.get("redirect");
+        if (redirectParam) {
+          console.log("- Found redirect param:", redirectParam);
+          return redirectParam.startsWith("/")
+            ? `${baseUrl}${redirectParam}`
+            : redirectParam;
+        }
+
+        // Check for callbackUrl parameter
+        const callbackUrl = urlObj.searchParams.get("callbackUrl");
+        if (callbackUrl) {
+          console.log("- Found callbackUrl param:", callbackUrl);
+          return callbackUrl.startsWith("/")
+            ? `${baseUrl}${callbackUrl}`
+            : callbackUrl;
+        }
+
+        // If URL is from the same host, check if it's dashboard and redirect to home
+        if (url.startsWith(baseUrl)) {
+          if (url.includes("/dashboard")) {
+            console.log("🚫 Same host dashboard URL, redirecting to home");
+            return baseUrl + "/";
+          }
+          console.log("- Same host URL, allowing:", url);
+          return url;
+        }
+      } catch (error) {
+        console.error("Error parsing redirect URL:", error);
+      }
+
+      // Default redirect to home page
+      console.log("- Defaulting to home page");
+      return baseUrl + "/";
+    },
   },
   pages: {
     signIn: "/signin",
   },
   session: {
     strategy: "jwt",
+  },
+  // Explicitly set default redirect
+  events: {
+    async signIn(message) {
+      console.log("NextAuth signIn event:", message);
+    },
+    async signOut(message) {
+      console.log("NextAuth signOut event:", message);
+    },
   },
 };
