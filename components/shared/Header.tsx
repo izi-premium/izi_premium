@@ -30,7 +30,7 @@ export default function Header() {
         <div className="bg-elevated-surfaces-500 flex w-full items-center justify-between rounded-[1.6rem] px-4 py-3 md:pl-8">
           <nav className="flex flex-row items-center gap-6 text-lg font-medium md:gap-5 md:text-sm lg:gap-6">
             <Link
-              href="#"
+              href="/"
               className="flex-center w-fit gap-2 text-lg font-semibold md:text-base"
             >
               <div className="flex-center relative size-[3.2rem] lg:size-[4rem] 2xl:size-[5.6rem]">

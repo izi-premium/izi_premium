@@ -1,13 +1,17 @@
-// app/api/webhooks/stripe/route.ts - Simplified version
 import { NextRequest, NextResponse } from "next/server";
-import { stripe } from "../../../../lib/stripe";
-import { UserService } from "../../../../lib/user-service";
+import { stripe } from "@/lib/stripe";
+import { adminDb } from "@/lib/firebase-admin";
+import Stripe from "stripe";
 
-export async function POST(req: NextRequest) {
-  const body = await req.text();
-  const signature = req.headers.get("stripe-signature")!;
+export async function POST(request: NextRequest) {
+  const body = await request.text();
+  const signature = request.headers.get("stripe-signature");
 
-  let event;
+  if (!signature) {
+    return NextResponse.json({ error: "No signature found" }, { status: 400 });
+  }
+
+  let event: Stripe.Event;
 
   try {
     event = stripe.webhooks.constructEvent(
@@ -15,145 +19,158 @@ export async function POST(req: NextRequest) {
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
-  } catch (err) {
-    console.error("Webhook signature verification failed:", err);
+  } catch (error) {
+    console.error("Webhook signature verification failed:", error);
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
 
+  console.log("Received Stripe webhook:", event.type);
+
   try {
     switch (event.type) {
-      case "checkout.session.completed":
-        const session = event.data.object;
-        const clerkUserId = session.metadata?.clerkUserId;
-
-        if (clerkUserId && session.subscription) {
-          // Simply set user to premium - let Stripe handle the rest
-          // await UserService.updateSubscription(
-          //   clerkUserId,
-          //   "premium",
-          //   undefined, // No end date - Stripe manages this
-          //   session.customer as string,
-          //   session.subscription as string
-          // );
-
-          console.log("User upgraded to premium:", clerkUserId);
-        }
+      case "checkout.session.completed": {
+        const session = event.data.object as Stripe.Checkout.Session;
+        await handleSuccessfulPayment(session);
         break;
+      }
 
-      case "customer.subscription.updated":
-        const updatedSubscription = event.data.object;
-        const customer = await stripe.customers.retrieve(
-          updatedSubscription.customer as string
-        );
-
-        if (customer && !customer.deleted && customer.metadata?.clerkUserId) {
-          // Update based on subscription status only
-          const plan =
-            updatedSubscription.status === "active" ? "premium" : "free";
-
-          // await UserService.updateSubscription(
-          //   customer.metadata.clerkUserId,
-          //   plan,
-          //   undefined, // No end date needed
-          //   customer.id,
-          //   updatedSubscription.id
-          // );
-
-          console.log(
-            `User subscription updated to ${plan}:`,
-            customer.metadata.clerkUserId
-          );
-        }
+      case "payment_intent.succeeded": {
+        const paymentIntent = event.data.object as Stripe.PaymentIntent;
+        console.log("Payment succeeded:", paymentIntent.id);
         break;
+      }
 
-      case "customer.subscription.deleted":
-        const deletedSubscription = event.data.object;
-        const deletedCustomer = await stripe.customers.retrieve(
-          deletedSubscription.customer as string
-        );
-
-        if (
-          deletedCustomer &&
-          !deletedCustomer.deleted &&
-          deletedCustomer.metadata?.clerkUserId
-        ) {
-          await UserService.updateSubscription(
-            deletedCustomer.metadata.clerkUserId,
-            "free"
-          );
-
-          console.log(
-            "User subscription cancelled:",
-            deletedCustomer.metadata.clerkUserId
-          );
-        }
+      case "payment_intent.payment_failed": {
+        const paymentIntent = event.data.object as Stripe.PaymentIntent;
+        console.log("Payment failed:", paymentIntent.id);
+        await handleFailedPayment(paymentIntent);
         break;
-
-      case "invoice.payment_succeeded":
-        // Handle successful recurring payments
-        const successfulInvoice = event.data.object;
-
-        // if (successfulInvoice.subscription && successfulInvoice.customer) {
-        //   const paymentCustomer = await stripe.customers.retrieve(
-        //     successfulInvoice.customer as string
-        //   );
-
-        //   if (
-        //     paymentCustomer &&
-        //     !paymentCustomer.deleted &&
-        //     paymentCustomer.metadata?.clerkUserId
-        //   ) {
-        //     // Ensure user is set to premium on successful payment
-        //     await UserService.updateSubscription(
-        //       paymentCustomer.metadata.clerkUserId,
-        //       "premium",
-        //       undefined,
-        //       paymentCustomer.id,
-        //       successfulInvoice.subscription as string
-        //     );
-
-        //     console.log(
-        //       "Payment successful, user remains premium:",
-        //       paymentCustomer.metadata.clerkUserId
-        //     );
-        //   }
-        // }
-        break;
-
-      case "invoice.payment_failed":
-        // Handle failed payments
-        const failedInvoice = event.data.object;
-
-        if (failedInvoice.customer) {
-          const failedCustomer = await stripe.customers.retrieve(
-            failedInvoice.customer as string
-          );
-
-          if (
-            failedCustomer &&
-            !failedCustomer.deleted &&
-            failedCustomer.metadata?.clerkUserId
-          ) {
-            console.log(
-              "Payment failed for user:",
-              failedCustomer.metadata.clerkUserId
-            );
-            // Note: Don't immediately downgrade - Stripe will retry payments
-            // Only downgrade when subscription status actually changes via subscription.updated
-          }
-        }
-        break;
+      }
 
       default:
-        console.log(`Unhandled event type: ${event.type}`);
+        console.log("Unhandled event type:", event.type);
     }
+
+    return NextResponse.json({ received: true });
   } catch (error) {
-    console.error("Error handling webhook:", error);
+    console.error("Webhook handler error:", error);
     return NextResponse.json(
       { error: "Webhook handler failed" },
       { status: 500 }
     );
   }
+}
 
-  return NextResponse.json({ received: true });
+async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
+  console.log("Processing successful payment for session:", session.id);
+
+  const userId = session.metadata?.userId;
+  const userEmail = session.metadata?.userEmail;
+  const region = session.metadata?.region;
+
+  if (!userId) {
+    console.error("No userId in session metadata");
+    return;
+  }
+
+  try {
+    // Find user in Firestore
+    const userQuery = await adminDb
+      .collection("users")
+      .where("uid", "==", userId)
+      .limit(1)
+      .get();
+
+    if (userQuery.empty) {
+      console.error("User not found:", userId);
+      return;
+    }
+
+    const userDoc = userQuery.docs[0];
+
+    // Update user to premium
+    await userDoc.ref.update({
+      isPremium: true,
+      premiumActivatedAt: new Date(),
+      stripeCustomerId: session.customer,
+      stripeSessionId: session.id,
+      paymentMethod: "stripe",
+      region: region,
+      updatedAt: new Date(),
+    });
+
+    // Update checkout session status
+    await adminDb.collection("checkoutSessions").doc(session.id).update({
+      status: "completed",
+      completedAt: new Date(),
+      stripeCustomerId: session.customer,
+    });
+
+    // Create purchase record
+    await adminDb.collection("purchases").add({
+      userId: userId,
+      userEmail: userEmail,
+      stripeSessionId: session.id,
+      stripeCustomerId: session.customer,
+      amount: session.amount_total,
+      currency: session.currency,
+      region: region,
+      status: "completed",
+      purchaseType: "premium",
+      createdAt: new Date(),
+    });
+
+    console.log("Successfully updated user to premium:", userEmail);
+
+    // Optional: Send welcome email
+    await sendWelcomeEmail(userEmail!, userDoc.data().displayName);
+  } catch (error) {
+    console.error("Error updating user to premium:", error);
+  }
+}
+
+async function handleFailedPayment(paymentIntent: Stripe.PaymentIntent) {
+  console.log("Processing failed payment:", paymentIntent.id);
+
+  // You can add logic here to handle failed payments
+  // For example, sending an email to the user or updating records
+}
+
+async function sendWelcomeEmail(email: string, name: string) {
+  try {
+    const emailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+        to: email,
+        subject: "Welcome to IziWorld Premium! 🎉",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2>Welcome to IZI World Premium!</h2>
+            <p>Hi ${name},</p>
+            <p>Congratulations! Your premium subscription is now active. You now have access to all premium features in the IziWorld mobile app.</p>
+            <p>Here's what you can do now:</p>
+            <ul>
+              <li>Access all premium content in the mobile app</li>
+              <li>Enjoy an ad-free experience</li>
+              <li>Get priority customer support</li>
+            </ul>
+            <p>Download the mobile app and log in with the same email address to access your premium features.</p>
+            <p>Thank you for supporting IziWorld!</p>
+            <p>Best regards,<br>The IZI World Team</p>
+          </div>
+        `,
+      }),
+    });
+
+    if (!emailResponse.ok) {
+      console.error("Failed to send welcome email");
+    }
+  } catch (error) {
+    console.error("Error sending welcome email:", error);
+  }
 }

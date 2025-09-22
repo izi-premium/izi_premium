@@ -15,7 +15,7 @@ import { PricingWrapper } from "../../../components/sections/pricing/PricingWrap
 
 export default function Home() {
   return (
-    <div className="flex-center-col bg-white-50 min-h-screen w-full gap-[3.4rem]">
+    <div className="flex-center-col bg-white-50 min-h-screen w-full gap-[3.4rem] pt-24">
       <Hero />
       <MainFeatures />
       <AnonymousChat />

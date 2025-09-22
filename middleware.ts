@@ -9,9 +9,15 @@ export default withAuth(
   {
     callbacks: {
       authorized: ({ token, req }) => {
+        const { pathname } = req.nextUrl;
         // Protect checkout routes
         if (req.nextUrl.pathname.startsWith("/checkout")) {
           return !!token;
+        }
+
+        // Success and cancel pages don't need auth protection
+        if (pathname.startsWith("/success") || pathname.startsWith("/cancel")) {
+          return true;
         }
 
         // Allow access to other routes
