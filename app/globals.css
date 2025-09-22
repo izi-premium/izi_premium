@@ -473,26 +473,3 @@ body {
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
   }
 }
-
-/* ========================================== CLERK STYLES */
-.cl-logoImage {
-  height: 38px;
-}
-
-.cl-userButtonBox {
-  flex-direction: row-reverse;
-}
-
-.cl-userButtonOuterIdentifier {
-  font-size: 16px;
-}
-
-.cl-userButtonPopoverCard {
-  right: 4px !important;
-}
-
-.cl-formButtonPrimary:hover,
-.cl-formButtonPrimary:focus,
-.cl-formButtonPrimary:active {
-  background-color: oklch(74.68% 0.175 51.1);
-}
