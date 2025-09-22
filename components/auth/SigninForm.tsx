@@ -21,6 +21,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
 
   // Get redirect URL from search params or props, default to home page
   const finalRedirectUrl = redirectUrl || searchParams.get("redirect") || "/";
+  const checkoutIntent = searchParams.get("checkout") === "true";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -45,7 +46,37 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
       if (result?.error) {
         setError(result.error);
       } else if (result?.ok) {
-        router.push(finalRedirectUrl);
+        if (checkoutIntent) {
+          // If user came from checkout flow, initiate Stripe checkout
+          try {
+            const checkoutResponse = await fetch("/api/checkout", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                countryCode: undefined,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                currency: undefined,
+              }),
+            });
+
+            const checkoutData = await checkoutResponse.json();
+
+            if (checkoutResponse.ok) {
+              // Redirect to Stripe checkout
+              window.location.href = checkoutData.checkoutUrl;
+            } else {
+              console.error("Checkout error:", checkoutData.error);
+              router.push(finalRedirectUrl);
+            }
+          } catch (error) {
+            console.error("Checkout network error:", error);
+            router.push(finalRedirectUrl);
+          }
+        } else {
+          router.push(finalRedirectUrl);
+        }
       }
     } catch (err) {
       setError("An error occurred. Please try again.");
@@ -55,10 +86,18 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
   };
 
   const handleGoogleSignin = () => {
-    signIn("google", {
-      callbackUrl: finalRedirectUrl,
-      redirect: true,
-    });
+    if (checkoutIntent) {
+      // If user came from checkout flow, redirect to a special callback that will handle checkout
+      signIn("google", {
+        callbackUrl: `/signin-callback?checkout=true`,
+        redirect: true,
+      });
+    } else {
+      signIn("google", {
+        callbackUrl: finalRedirectUrl,
+        redirect: true,
+      });
+    }
   };
 
   return (
@@ -157,7 +196,10 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
         </p>
         <p className="text-sm text-gray-600">
           Don't have an account?{" "}
-          <Link href="/signup" className="text-blue-600 hover:underline">
+          <Link
+            href={checkoutIntent ? "/signup?checkout=true" : "/signup"}
+            className="text-blue-600 hover:underline"
+          >
             Sign up
           </Link>
         </p>

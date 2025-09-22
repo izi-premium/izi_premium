@@ -1,8 +1,54 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export default function CancelPage() {
+  const { data: session, status } = useSession();
+  const [loading, setLoading] = useState(false);
+
+  const handleTryAgain = async () => {
+    if (status === "loading") return;
+
+    if (!session?.user) {
+      // User is not logged in, redirect to signup with checkout intent
+      window.location.href = "/signup?checkout=true";
+      return;
+    }
+
+    // User is logged in, create Stripe checkout session
+    setLoading(true);
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          countryCode: undefined,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          currency: undefined,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Redirect to Stripe checkout
+        window.location.href = data.checkoutUrl;
+      } else {
+        console.error("Checkout error:", data.error);
+        alert(data.error || "Failed to create checkout session");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      alert("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
@@ -99,12 +145,13 @@ export default function CancelPage() {
 
           {/* Action Buttons */}
           <div className="space-y-3">
-            <Link
-              href="/buy-premium"
-              className="inline-block w-full rounded-lg bg-blue-600 px-4 py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700"
+            <button
+              onClick={handleTryAgain}
+              disabled={loading}
+              className="inline-block w-full rounded-lg bg-blue-600 px-4 py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Try Again
-            </Link>
+              {loading ? "Processing..." : "Try Again"}
+            </button>
 
             <Link
               href="/"

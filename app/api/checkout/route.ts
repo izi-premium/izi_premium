@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
         userEmail: session.user.email,
         region: userRegion,
       },
-      success_url: `${process.env.NEXTAUTH_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${process.env.NEXTAUTH_URL}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXTAUTH_URL}/cancel`,
       allow_promotion_codes: true,
       billing_address_collection: "auto",

@@ -466,7 +466,10 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
       <div className="mt-6 text-center">
         <p className="text-sm text-gray-600">
           Already have an account?{" "}
-          <Link href="/signin" className="text-blue-600 hover:underline">
+          <Link
+            href={checkoutIntent ? "/signin?checkout=true" : "/signin"}
+            className="text-blue-600 hover:underline"
+          >
             Sign in
           </Link>
         </p>
