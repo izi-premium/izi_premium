@@ -323,7 +323,7 @@ export default function SignupForm({
             <label className="text-sm text-gray-700">
               I agree to the{" "}
               <Link
-                href="/terms"
+                href="/terms-of-use"
                 className="text-blue-600 hover:underline"
                 target="_blank"
               >
@@ -344,7 +344,7 @@ export default function SignupForm({
             <label className="text-sm text-gray-700">
               I agree to the{" "}
               <Link
-                href="/privacy"
+                href="/privacy-policy"
                 className="text-blue-600 hover:underline"
                 target="_blank"
               >
