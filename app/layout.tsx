@@ -7,6 +7,7 @@ import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import AuthProvider from "../components/providers/AuthProvider";
 
 const switzer = localFont({
   src: "../public/fonts/Switzer-Variable.woff2",
@@ -101,11 +102,13 @@ export default async function RootLayout({
         )}
       >
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="flex-center-col bg-secondary-text-50 relative min-h-screen w-screen pt-24">
-            {children}
-          </main>
-          <Footer />
+          <AuthProvider>
+            <Header />
+            <main className="flex-center-col bg-secondary-text-50 relative min-h-screen w-screen pt-24">
+              {children}
+            </main>
+            <Footer />
+          </AuthProvider>
         </NextIntlClientProvider>
         <SpeedInsights />
       </body>

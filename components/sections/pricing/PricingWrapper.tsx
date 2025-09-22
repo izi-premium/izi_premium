@@ -6,7 +6,10 @@ import { Card2 } from "./Card2";
 const PricingWrapper = () => {
   const tPrice = useTranslations("Pricing");
   return (
-    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-10 py-[8rem]">
+    <section
+      id="pricing"
+      className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-10 py-[8rem]"
+    >
       <div className="flex-center-col w-fulll gap-4">
         <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">
           {tPrice("title")}

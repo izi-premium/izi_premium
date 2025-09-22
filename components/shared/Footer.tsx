@@ -105,7 +105,7 @@ export default function Footer() {
               <ul className="flex-begin-col gap-4">
                 <li>
                   <Link
-                    href="#id"
+                    href="#features"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("nav-1")}
@@ -113,7 +113,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#id"
+                    href="#chat"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("nav-2")}
@@ -121,7 +121,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#id"
+                    href="#diary"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("nav-3")}
@@ -129,7 +129,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#id"
+                    href="#cookies"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("nav-4")}
@@ -137,7 +137,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#id"
+                    href="/faqs"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("nav-5")}
@@ -152,7 +152,7 @@ export default function Footer() {
               <ul className="flex-begin-col gap-4">
                 <li>
                   <Link
-                    href="#id"
+                    href="/terms-of-use"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-1")}
@@ -160,7 +160,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#id"
+                    href="/privacy-policy"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-2")}
@@ -168,7 +168,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#id"
+                    href="/subcontractors"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-3")}
@@ -176,7 +176,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#id"
+                    href="/content/report"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-4")}
@@ -184,7 +184,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#id"
+                    href="/community-rules"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-5")}

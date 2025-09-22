@@ -8,7 +8,10 @@ const FortuneCookies = () => {
   const tCookie = useTranslations("Cookies");
   const phrases = [tCookie("phrase1"), tCookie("phrase2"), tCookie("phrase3")];
   return (
-    <section className="flex-start-col xl:container-wrapper w-full px-[1.2rem] py-10 md:px-[3.2rem] lg:px-[5rem] lg:py-20">
+    <section
+      id="cookies"
+      className="flex-start-col xl:container-wrapper w-full px-[1.2rem] py-10 md:px-[3.2rem] lg:px-[5rem] lg:py-20"
+    >
       <div className="flex-start-col border-primary-text-200 w-full gap-10 rounded-[2rem] border border-solid bg-white px-[1.2rem] py-10 md:px-[3.2rem] lg:px-[5rem] lg:py-20">
         <div className="flex-center-col w-full gap-4">
           <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">

@@ -100,7 +100,7 @@ export default function Header() {
                     <div className="flex-center-col gap-4">
                       <SheetClose asChild>
                         <Link
-                          href="#"
+                          href="/sign-up"
                           className="bg-secondary-text-50 border-secondary-text-950 hover:bg-secondary-text-200 hover:shadow-hover-inner shadow-cta-header rounded-[0.8rem] border border-solid px-6 py-2 transition-all duration-300 ease-in-out"
                         >
                           <span className="paragraph-24-medium text-secondary-text-950">
@@ -108,6 +108,7 @@ export default function Header() {
                           </span>
                         </Link>
                       </SheetClose>
+
                       <SheetClose asChild>
                         <Link
                           href="#"
@@ -141,15 +142,16 @@ export default function Header() {
             {/* CTA Buttons */}
             <div className="flex-center gap-4">
               <Link
-                href="#"
+                href="/signup"
                 className="bg-secondary-text-50 border-secondary-text-950 hover:bg-secondary-text-200 hover:shadow-hover-inner shadow-cta-header rounded-[0.8rem] border border-solid px-6 py-2 transition-all duration-300 ease-in-out"
               >
                 <span className="paragraph-18-medium text-secondary-text-950 lg:paragraph-24-medium">
                   {tNav("register")}
                 </span>
               </Link>
+
               <Link
-                href="#"
+                href="/"
                 className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
               >
                 <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">

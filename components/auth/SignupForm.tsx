@@ -1,0 +1,405 @@
+"use client";
+
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+
+interface SignupFormProps {
+  onSuccess?: () => void;
+  redirectUrl?: string;
+}
+
+export default function SignupForm({
+  onSuccess,
+  redirectUrl,
+}: SignupFormProps) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    acceptedTerms: false,
+    acceptedPrivacy: false,
+  });
+  const [loading, setLoading] = useState(false);
+  const [showVerification, setShowVerification] = useState(false);
+  const [verificationCode, setVerificationCode] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setMessage("");
+
+    // Validation
+    if (!formData.name || !formData.email || !formData.password) {
+      setError("Please fill in all required fields");
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    if (formData.password.length < 8) {
+      setError("Password must be at least 8 characters long");
+      return;
+    }
+
+    if (!formData.acceptedTerms || !formData.acceptedPrivacy) {
+      setError("You must accept the terms of use and privacy policy");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          acceptedTerms: formData.acceptedTerms,
+          acceptedPrivacy: formData.acceptedPrivacy,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message);
+        setShowVerification(true);
+      } else {
+        setError(data.error || "An error occurred");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVerification = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/auth/verify-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          otp: verificationCode,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message);
+        // Auto-redirect to signin or dashboard after 2 seconds
+        setTimeout(() => {
+          if (onSuccess) {
+            onSuccess();
+          } else {
+            window.location.href = redirectUrl || "/signin";
+          }
+        }, 2000);
+      } else {
+        setError(data.error || "Verification failed");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResendOTP = async () => {
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/auth/resend-otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message);
+      } else {
+        setError(data.error || "Failed to resend code");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleSignup = () => {
+    signIn("google", {
+      callbackUrl: redirectUrl || "/dashboard",
+      redirect: true,
+    });
+  };
+
+  if (showVerification) {
+    return (
+      <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
+        <h2 className="mb-6 text-center text-2xl font-bold">
+          Verify Your Email
+        </h2>
+
+        {message && (
+          <div className="mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
+            {message}
+          </div>
+        )}
+
+        {error && (
+          <div className="mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleVerification}>
+          <div className="mb-4">
+            <label className="mb-2 block text-sm font-bold text-gray-700">
+              Enter 6-digit verification code sent to {formData.email}
+            </label>
+            <input
+              type="text"
+              value={verificationCode}
+              onChange={(e) => setVerificationCode(e.target.value)}
+              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="000000"
+              maxLength={6}
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+          >
+            {loading ? "Verifying..." : "Verify Email"}
+          </button>
+        </form>
+
+        <div className="mt-4 text-center">
+          <button
+            onClick={handleResendOTP}
+            disabled={loading}
+            className="text-sm text-blue-600 hover:text-blue-800"
+          >
+            Didn't receive the code? Resend
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
+      <h2 className="mb-6 text-center text-2xl font-bold">
+        Create Your Account
+      </h2>
+
+      {message && (
+        <div className="mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
+          {message}
+        </div>
+      )}
+
+      {error && (
+        <div className="mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
+          {error}
+        </div>
+      )}
+
+      {/* Google Signup Button */}
+      <button
+        onClick={handleGoogleSignup}
+        className="mb-4 flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+      >
+        <svg className="h-5 w-5" viewBox="0 0 24 24">
+          <path
+            fill="#4285F4"
+            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+          />
+          <path
+            fill="#34A853"
+            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+          />
+          <path
+            fill="#FBBC05"
+            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+          />
+          <path
+            fill="#EA4335"
+            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+          />
+        </svg>
+        Continue with Google
+      </button>
+
+      <div className="relative mb-4">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-gray-300"></div>
+        </div>
+        <div className="relative flex justify-center text-sm">
+          <span className="bg-white px-2 text-gray-500">
+            Or continue with email
+          </span>
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="mb-2 block text-sm font-bold text-gray-700">
+            Full Name *
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="mb-2 block text-sm font-bold text-gray-700">
+            Email Address *
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="mb-2 block text-sm font-bold text-gray-700">
+            Password *
+          </label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            minLength={8}
+            required
+          />
+        </div>
+
+        <div className="mb-6">
+          <label className="mb-2 block text-sm font-bold text-gray-700">
+            Confirm Password *
+          </label>
+          <input
+            type="password"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleInputChange}
+            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required
+          />
+        </div>
+
+        {/* Consent Checkboxes */}
+        <div className="mb-4 space-y-3">
+          <div className="flex items-start">
+            <input
+              type="checkbox"
+              name="acceptedTerms"
+              checked={formData.acceptedTerms}
+              onChange={handleInputChange}
+              className="mt-1 mr-2"
+              required
+            />
+            <label className="text-sm text-gray-700">
+              I agree to the{" "}
+              <Link
+                href="/terms"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+              >
+                Terms of Use
+              </Link>
+            </label>
+          </div>
+
+          <div className="flex items-start">
+            <input
+              type="checkbox"
+              name="acceptedPrivacy"
+              checked={formData.acceptedPrivacy}
+              onChange={handleInputChange}
+              className="mt-1 mr-2"
+              required
+            />
+            <label className="text-sm text-gray-700">
+              I agree to the{" "}
+              <Link
+                href="/privacy"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+              >
+                Privacy Policy
+              </Link>
+            </label>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+        >
+          {loading ? "Creating Account..." : "Create Account"}
+        </button>
+      </form>
+
+      <div className="mt-6 text-center">
+        <p className="text-sm text-gray-600">
+          Already have an account?{" "}
+          <Link href="/signin" className="text-blue-600 hover:underline">
+            Sign in
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
+}
