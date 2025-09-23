@@ -183,5 +183,18 @@
     "legal-3": "Subcontratistas",
     "legal-4": "Reporte de Contenido (DSA)",
     "legal-5": "Reglas de la Comunidad"
+  },
+  "Cancel": {
+    "title": "Pago Cancelado",
+    "subtitle": "No te preocupes. Tu pago fue cancelado y no se te ha cobrado ningún monto.",
+    "reasons-title": "¿Por qué pasarte a Premium?",
+    "reson1": "Accede a todo el contenido exclusivo",
+    "reson2": "Uso ilimitado de tu propia IA personal",
+    "reson3": "Guarda tantos chats como desees",
+    "reson4": "Agrega personalización a tu diario privado",
+    "reson5": "Obtén consejos exclusivos diarios de parte de la versión premium de las galletas de la fortuna",
+    "retry": "Prueba de Nuevo",
+    "process": "Procesando...",
+    "home": "Regresa a la Página Princiapl"
   }
 }

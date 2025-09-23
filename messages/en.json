@@ -183,5 +183,18 @@
     "legal-3": "Subcontractors",
     "legal-4": "Content Report (DSA)",
     "legal-5": "Community Rules"
+  },
+  "Cancel": {
+    "title": "Payment Cancelled",
+    "subtitle": "No worries! Your payment was cancelled and you haven't been charged.",
+    "reasons-title": "Why upgrade to Premium?",
+    "reason1": "Access to all exclusive content",
+    "reason2": "Unlimited access to your personal AI",
+    "reason3": "Save as many chats as you want",
+    "reason4": "Add personalization to your diary",
+    "reason5": "Get daily premium advise from the fortune cookies",
+    "retry": "Try Again",
+    "process": "Processing...",
+    "home": "Return to Homepage"
   }
 }
