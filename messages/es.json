@@ -274,5 +274,10 @@
     "apple-alt": "app store logo",
     "google": "Play Store",
     "google-alt": "play store logo"
+  },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "subtitle": "Oops! La página que estabas buscando no existe. Puede ser que halla sido eliminada, o capaz pusiste la URL incorrecta.",
+    "cta": "Volver a la Página Principal"
   }
 }

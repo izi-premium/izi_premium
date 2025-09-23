@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useMemo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -216,7 +216,7 @@ const Card2 = () => {
                 {status === "loading"
                   ? "Loading..."
                   : !session?.user
-                    ? "Sign Up & Get Premium"
+                    ? tPrice("premium-cta")
                     : tPrice("premium-cta")}
               </p>
             </div>

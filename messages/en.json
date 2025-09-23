@@ -274,5 +274,10 @@
     "apple-alt": "app store logo",
     "google": "Play Store",
     "google-alt": "play store logo"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "subtitle": "Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.",
+    "cta": "Back to Homepage"
   }
 }
