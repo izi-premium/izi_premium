@@ -3,8 +3,8 @@ import { Suspense } from "react";
 
 export default function SigninPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8">
+    <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white">
+      <div className="w-full">
         <Suspense fallback={<div>Loading...</div>}>
           <SigninForm />
         </Suspense>

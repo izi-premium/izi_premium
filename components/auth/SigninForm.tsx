@@ -159,11 +159,13 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
   );
 
   return (
-    <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
-      <h2 className="mb-6 text-center text-2xl font-bold">{tIn("title")}</h2>
+    <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm">
+      <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
+        {tIn("title")}
+      </h2>
 
       {error && (
-        <div className="mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
+        <div className="paragraph-14-normal mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
           {error}
         </div>
       )}
@@ -171,7 +173,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
       {/* Google Signin Button */}
       <button
         onClick={handleGoogleSignin}
-        className="mb-4 flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        className="paragraph-14-normal 2xl:paragraph-18-medium mb-4 flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 hover:cursor-pointer hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
       >
         <svg className="h-5 w-5" viewBox="0 0 24 24">
           <path
@@ -198,14 +200,16 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gray-300"></div>
         </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="bg-white px-2 text-gray-500">{tIn("continue")}</span>
+        <div className="relative flex justify-center">
+          <span className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400 bg-white px-2">
+            {tIn("continue")}
+          </span>
         </div>
       </div>
 
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold text-gray-700">
+          <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
             {tIn("email")}
           </label>
           <input
@@ -213,13 +217,13 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             required
           />
         </div>
 
         <div className="mb-6">
-          <label className="mb-2 block text-sm font-bold text-gray-700">
+          <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
             {tIn("password")}
           </label>
           <div className="relative">
@@ -228,7 +232,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               required
             />
             <EyeIcon
@@ -241,7 +245,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+          className="paragraph-14-normal 2xl:paragraph-18-normal w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:cursor-pointer hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
         >
           {loading ? `${tIn("signing-in")}` : `${tIn("title")}`}
         </button>
@@ -250,13 +254,13 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
       <div className="mt-6 space-y-2 text-center">
         <p className="text-sm text-gray-600">
           <Link
-            href="/auth/forgot-password"
-            className="text-blue-600 hover:underline"
+            href="/forgot-password"
+            className="paragraph-14-normal 2xl:paragraph-18-normal text-blue-600 hover:underline"
           >
             {tIn("question1")}
           </Link>
         </p>
-        <p className="text-sm text-gray-600">
+        <p className="paragraph-14-normal 2xl:paragraph-18-normal text-gray-600">
           {tIn("question2")}{" "}
           <Link
             href={checkoutIntent ? "/signup?checkout=true" : "/signup"}
