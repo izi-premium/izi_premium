@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { adminDb, getAdminDb } from "@/lib/firebase-admin";
+import { getAdminDb } from "@/lib/firebase-admin";
+import { signIn } from "next-auth/react";
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,9 +27,9 @@ export async function POST(request: NextRequest) {
 
     // Check if OTP is expired
     if (new Date() > otpData.expiresAt.toDate()) {
-      await getAdminDb().collection("otps").doc(email).delete();
+      await otpDoc.ref.delete();
       return NextResponse.json(
-        { error: "Verification code has expired. Please request a new one." },
+        { error: "Verification code has expired" },
         { status: 400 }
       );
     }
@@ -41,18 +42,38 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Find and update user
+    const userQuery = await getAdminDb()
+      .collection("users")
+      .where("uid", "==", otpData.userId)
+      .limit(1)
+      .get();
+
+    if (userQuery.empty) {
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
+    }
+
+    const userDoc = userQuery.docs[0];
+    const userData = userDoc.data();
+
     // Update user as verified
-    await getAdminDb().collection("users").doc(otpData.userId).update({
+    await userDoc.ref.update({
       emailVerified: true,
-      verifiedAt: new Date(),
       updatedAt: new Date(),
     });
 
-    // Delete the OTP
-    await getAdminDb().collection("otps").doc(email).delete();
+    // Clean up OTP
+    await otpDoc.ref.delete();
 
+    // Return success with user data for auto-login
     return NextResponse.json({
-      message: "Email verified successfully. You can now sign in.",
+      message: "Email verified successfully",
+      success: true,
+      user: {
+        email: userData.email,
+        displayName: userData.displayName,
+        emailVerified: true,
+      },
     });
   } catch (error) {
     console.error("Email verification error:", error);

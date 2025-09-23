@@ -1,5 +1,3 @@
-// app/api/webhooks/stripe/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
 import { getServerStripe } from "@/lib/stripe";
 import { getAdminDb } from "@/lib/firebase-admin";
@@ -132,6 +130,7 @@ async function handleSubscriptionCheckout(session: Stripe.Checkout.Session) {
       subscriptionStatus: subscription.status,
       currentPeriodStart: new Date(currentPeriodStart * 1000),
       currentPeriodEnd: new Date(currentPeriodEnd * 1000),
+      premiumEndsAt: new Date(currentPeriodEnd * 1000), // Auto-updates every 30 days
       paymentMethod: "stripe",
       region: region,
       updatedAt: new Date(),
@@ -210,15 +209,16 @@ async function handleSuccessfulSubscriptionPayment(
     const currentPeriodStart = subscriptionItem.current_period_start;
     const currentPeriodEnd = subscriptionItem.current_period_end;
 
-    // Update subscription period
+    // Update subscription period - this automatically extends premiumEndsAt every 30 days
     await userDoc.ref.update({
       currentPeriodStart: new Date(currentPeriodStart * 1000),
       currentPeriodEnd: new Date(currentPeriodEnd * 1000),
+      premiumEndsAt: new Date(currentPeriodEnd * 1000), // Automatically extends subscription
       subscriptionStatus: subscription.status,
       updatedAt: new Date(),
     });
 
-    console.log("Updated subscription period for user");
+    console.log("Updated subscription period for user - premium extended");
   } catch (error) {
     console.error("Error handling subscription payment:", error);
   }
@@ -257,6 +257,7 @@ async function handleFailedSubscriptionPayment(
     const userData = userDoc.data();
 
     // Update user status but don't immediately remove premium
+    // premiumEndsAt stays the same - they keep access until current period ends
     await userDoc.ref.update({
       subscriptionStatus: "past_due",
       updatedAt: new Date(),
@@ -292,13 +293,16 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
     const currentPeriodStart = subscriptionItem.current_period_start;
     const currentPeriodEnd = subscriptionItem.current_period_end;
 
-    // Update subscription status
+    // Update subscription status and dates
     await userDoc.ref.update({
       subscriptionStatus: subscription.status,
       currentPeriodStart: new Date(currentPeriodStart * 1000),
       currentPeriodEnd: new Date(currentPeriodEnd * 1000),
+      premiumEndsAt: new Date(currentPeriodEnd * 1000), // Keep premium end date synced
       updatedAt: new Date(),
     });
+
+    console.log("Updated subscription status and premium end date");
   } catch (error) {
     console.error("Error handling subscription update:", error);
   }
@@ -323,11 +327,12 @@ async function handleSubscriptionCancelled(subscription: Stripe.Subscription) {
     const userDoc = userQuery.docs[0];
     const userData = userDoc.data();
 
-    // Update user status - remove premium access
+    // Update user status - remove premium access and clear end date
     await userDoc.ref.update({
       isPremium: false,
       subscriptionStatus: "cancelled",
       premiumCancelledAt: new Date(),
+      premiumEndsAt: null, // Clear the premium end date
       updatedAt: new Date(),
     });
 
@@ -364,10 +369,16 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
 
     const userDoc = userQuery.docs[0];
 
+    // For one-time payments, you might want to set a fixed premium period
+    // Example: 30 days from purchase date
+    const premiumEndDate = new Date();
+    premiumEndDate.setDate(premiumEndDate.getDate() + 30);
+
     // Update user to premium
     await userDoc.ref.update({
       isPremium: true,
       premiumActivatedAt: new Date(),
+      premiumEndsAt: premiumEndDate, // Set premium end date for one-time payment
       stripeCustomerId: session.customer,
       stripeSessionId: session.id,
       paymentMethod: "stripe",
@@ -416,7 +427,7 @@ async function sendWelcomeEmail(email: string, name: string) {
       body: JSON.stringify({
         from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
         to: email,
-        subject: "Welcome to IziWorld Premium! 🎉",
+        subject: "Welcome to IziWorld Premium!",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h2>Welcome to IZI World Premium!</h2>

@@ -133,53 +133,55 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
       if (response.ok) {
         setMessage(data.message);
 
-        // Handle different redirect scenarios
-        setTimeout(async () => {
-          if (onSuccess) {
-            onSuccess();
-          } else if (checkoutIntent) {
-            // If user came from checkout flow, initiate Stripe checkout
-            try {
-              const checkoutResponse = await fetch("/api/checkout", {
+        // Auto-login the user after successful verification
+        const signInResult = await signIn("credentials", {
+          email: formData.email,
+          password: formData.password,
+          redirect: false,
+        });
+
+        if (signInResult?.ok) {
+          // Handle different redirect scenarios after auto-login
+          setTimeout(() => {
+            if (onSuccess) {
+              onSuccess();
+            } else if (checkoutIntent) {
+              // Handle checkout flow
+              fetch("/api/checkout", {
                 method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                   countryCode: undefined,
                   timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
                   currency: undefined,
                 }),
-              });
-
-              const checkoutData = await checkoutResponse.json();
-
-              if (checkoutResponse.ok) {
-                // Redirect to Stripe checkout
-                window.location.href = checkoutData.checkoutUrl;
-              } else {
-                console.error("Checkout error:", checkoutData.error);
-                // Fallback to signin if checkout fails
-                router.push("/signin");
-              }
-            } catch (error) {
-              console.error("Checkout network error:", error);
-              // Fallback to signin if checkout fails
-              router.push("/signin");
+              })
+                .then((res) => res.json())
+                .then((checkoutData) => {
+                  if (checkoutData.checkoutUrl) {
+                    window.location.href = checkoutData.checkoutUrl;
+                  } else {
+                    router.push("/");
+                  }
+                })
+                .catch(() => router.push("/"));
+            } else if (redirectUrl) {
+              router.push(redirectUrl);
+            } else {
+              router.push("/"); // Default: redirect to homepage
             }
-          } else if (redirectUrl) {
-            // If specific redirect URL was provided
-            router.push(redirectUrl);
-          } else {
-            // Default: redirect to signin
+          }, 1500); // Small delay to show success message
+        } else {
+          // If auto-login fails, redirect to signin
+          setTimeout(() => {
             router.push("/signin");
-          }
-        }, 2000);
+          }, 2000);
+        }
       } else {
-        setError(data.error || `${tUp("verif-error")}`);
+        setError(data.error || "Verification failed");
       }
     } catch (err) {
-      setError(`${tUp("error2")}`);
+      setError("Network error. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -249,7 +251,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
     <button
       type="button"
       onClick={onClick}
-      className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+      className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:cursor-pointer hover:text-gray-600"
     >
       {isVisible ? (
         <svg
@@ -328,7 +330,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             <button
               type="submit"
               disabled={loading}
-              className="paragraph-14-normal md:paragraph-18-medium w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+              className="paragraph-14-normal md:paragraph-18-medium w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:cursor-pointer hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
             >
               {loading ? `${tUp("verif-load")}` : `${tUp("verif-email")}`}
             </button>
@@ -338,7 +340,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             <button
               onClick={handleResendOTP}
               disabled={loading}
-              className="paragraph-14-normal md:paragraph-18-medium text-sm font-medium text-blue-600 hover:text-blue-800"
+              className="paragraph-14-normal md:paragraph-18-medium text-sm font-medium text-blue-600 hover:cursor-pointer hover:text-blue-800"
             >
               {tUp("resend-msg")}
             </button>
@@ -349,7 +351,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
   }
 
   return (
-    <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 md:p-8 shadow-sm">
+    <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm md:p-8">
       <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
         {tUp("title")}
       </h2>
@@ -490,7 +492,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
         {/* Google Signup Button - Now positioned after consent checkboxes */}
         <button
           onClick={handleGoogleSignup}
-          className={`paragraph-14-normal 2xl:paragraph-18-medium mb-4 flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+          className={`paragraph-14-normal 2xl:paragraph-18-medium mb-4 flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 font-medium hover:cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none ${
             isConsentGiven
               ? "cursor-pointer border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
               : "cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400"

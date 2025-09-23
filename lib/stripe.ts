@@ -34,7 +34,7 @@ export const LAUNCH_DISCOUNT: DiscountInfo = {
   isActive: true,
   percentage: 50,
   couponId: "LAUNCH50",
-  validUntil: new Date("2025-10-15T23:59:59Z"),
+  validUntil: new Date("2025-10-31T23:59:59Z"),
 };
 
 // Regional pricing configuration based on your Excel data
