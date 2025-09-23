@@ -255,5 +255,24 @@
     "confirm-new": "Confirmar Nueva Contraseña",
     "resetting": "Restableciendo...",
     "back": "Volver a Iniciar Sesión"
+  },
+  "Thanks": {
+    "processing": "Procesando tu Subscripción...",
+    "thank": "¡Gracias por tu Compra!",
+    "greet": "¡Hola!",
+    "greetMin": "¡t",
+    "greetMay": "¡T",
+    "active": "u plan premium ya está activado!",
+    "msg": "Ahora tienes acceso a todas las ventajas exclusivas del plan premium en la app de IZI.",
+    "question": "¿Y Ahora Qué Sigue?",
+    "li1": "• Descarga la app de IZI",
+    "li2": "• Inicia sesión con el mismo correo electrónico",
+    "li3": "• ¡Disfruta!",
+    "home": "Volver a la Página Principal",
+    "download": "Descarga la App",
+    "apple": "App Store",
+    "apple-alt": "app store logo",
+    "google": "Play Store",
+    "google-alt": "play store logo"
   }
 }

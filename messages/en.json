@@ -255,5 +255,24 @@
     "confirm-new": "Confirm New Password",
     "resetting": "Resetting...",
     "back": "Back to Sign In"
+  },
+  "Thanks": {
+    "processing": "Processing your subscription...",
+    "thank": "Thank You for Your Purchase!",
+    "greet": "Hi!",
+    "greetMin": "y",
+    "greetMay": "Y",
+    "active": "our premium subscription is now active!",
+    "msg": "You now have access to all premium features in the IZI World mobile app.",
+    "question": "What's Next?",
+    "li1": "• Download the IziWorld mobile app",
+    "li2": "• Log in with the same email address",
+    "li3": "• Enjoy your premium features!",
+    "home": "Return to Homepage",
+    "download": "Download the App",
+    "apple": "App Store",
+    "apple-alt": "app store logo",
+    "google": "Play Store",
+    "google-alt": "play store logo"
   }
 }
