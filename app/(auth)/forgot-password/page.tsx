@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function ForgotPasswordPage() {
+  const tForgot = useTranslations("Forgot");
   const [step, setStep] = useState<"email" | "reset">("email");
   const [email, setEmail] = useState("");
   const [resetCode, setResetCode] = useState("");
@@ -34,7 +36,7 @@ export default function ForgotPasswordPage() {
         setError(data.error);
       }
     } catch (err) {
-      setError("Network error. Please try again.");
+      setError(`${tForgot("error2")}`);
     } finally {
       setLoading(false);
     }
@@ -45,12 +47,12 @@ export default function ForgotPasswordPage() {
     setError("");
 
     if (newPassword !== confirmPassword) {
-      setError("Passwords do not match");
+      setError(`${tForgot("pswd-mismatch")}`);
       return;
     }
 
     if (newPassword.length < 8) {
-      setError("Password must be at least 8 characters long");
+      setError(`${tForgot("pswd-len")}`);
       return;
     }
 
@@ -74,7 +76,7 @@ export default function ForgotPasswordPage() {
         setError(data.error);
       }
     } catch (err) {
-      setError("Network error. Please try again.");
+      setError(`${tForgot("error2")}`);
     } finally {
       setLoading(false);
     }
@@ -85,7 +87,7 @@ export default function ForgotPasswordPage() {
       <div className="w-full max-w-md space-y-8">
         <div className="rounded-lg bg-white p-6 shadow-md">
           <h2 className="mb-6 text-center text-2xl font-bold">
-            {step === "email" ? "Forgot Password" : "Reset Password"}
+            {step === "email" ? `${tForgot("forgot")}` : `${tForgot("reset")}`}
           </h2>
 
           {message && (
@@ -104,7 +106,7 @@ export default function ForgotPasswordPage() {
             <form onSubmit={handleSendReset}>
               <div className="mb-4">
                 <label className="mb-2 block text-sm font-bold text-gray-700">
-                  Email Address
+                  {tForgot("email")}
                 </label>
                 <input
                   type="email"
@@ -127,7 +129,7 @@ export default function ForgotPasswordPage() {
             <form onSubmit={handleResetPassword}>
               <div className="mb-4">
                 <label className="mb-2 block text-sm font-bold text-gray-700">
-                  Reset Code (sent to {email})
+                  {tForgot("reset-code")} ({tForgot("direction")} {email})
                 </label>
                 <input
                   type="text"
@@ -142,7 +144,7 @@ export default function ForgotPasswordPage() {
 
               <div className="mb-4">
                 <label className="mb-2 block text-sm font-bold text-gray-700">
-                  New Password
+                  {tForgot("new")}
                 </label>
                 <input
                   type="password"
@@ -156,7 +158,7 @@ export default function ForgotPasswordPage() {
 
               <div className="mb-6">
                 <label className="mb-2 block text-sm font-bold text-gray-700">
-                  Confirm New Password
+                  {tForgot("confirm-new")}
                 </label>
                 <input
                   type="password"
@@ -172,7 +174,7 @@ export default function ForgotPasswordPage() {
                 disabled={loading}
                 className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
               >
-                {loading ? "Resetting..." : "Reset Password"}
+                {loading ? `${tForgot("resetting")}` : `${tForgot("reset")}`}
               </button>
             </form>
           )}
@@ -182,7 +184,7 @@ export default function ForgotPasswordPage() {
               href="/signin"
               className="text-sm text-blue-600 hover:underline"
             >
-              Back to Sign In
+              {tForgot("back")}
             </Link>
           </div>
         </div>

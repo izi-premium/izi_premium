@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 interface SignupFormProps {
   onSuccess?: () => void;
 }
 
 export default function SignupForm({ onSuccess }: SignupFormProps) {
+  const tUp = useTranslations("Signup");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,6 +25,10 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
   const [verificationCode, setVerificationCode] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
+  // Password visibility states
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -39,6 +45,14 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
     }));
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -46,22 +60,22 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
 
     // Validation
     if (!formData.name || !formData.email || !formData.password) {
-      setError("Please fill in all required fields");
+      setError(`${tUp("fields")}`);
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
+      setError(`${tUp("pswd-mismatch")}`);
       return;
     }
 
     if (formData.password.length < 8) {
-      setError("Password must be at least 8 characters long");
+      setError(`${tUp("pswd-len")}`);
       return;
     }
 
     if (!formData.acceptedTerms || !formData.acceptedPrivacy) {
-      setError("You must accept the terms of use and privacy policy");
+      setError(`${tUp("accept")}`);
       return;
     }
 
@@ -88,10 +102,10 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
         setMessage(data.message);
         setShowVerification(true);
       } else {
-        setError(data.error || "An error occurred");
+        setError(data.error || `${tUp("error1")}`);
       }
     } catch (err) {
-      setError("Network error. Please try again.");
+      setError(`${tUp("error2")}`);
     } finally {
       setLoading(false);
     }
@@ -162,10 +176,10 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
           }
         }, 2000);
       } else {
-        setError(data.error || "Verification failed");
+        setError(data.error || `${tUp("verif-error")}`);
       }
     } catch (err) {
-      setError("Network error. Please try again.");
+      setError(`${tUp("error2")}`);
     } finally {
       setLoading(false);
     }
@@ -191,10 +205,10 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
       if (response.ok) {
         setMessage(data.message);
       } else {
-        setError(data.error || "Failed to resend code");
+        setError(data.error || `${tUp("failed-code")}`);
       }
     } catch (err) {
-      setError("Network error. Please try again.");
+      setError(`${tUp("error2")}`);
     } finally {
       setLoading(false);
     }
@@ -224,12 +238,61 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
   // Check if both terms and privacy policy are accepted
   const isConsentGiven = formData.acceptedTerms && formData.acceptedPrivacy;
 
+  // Eye icon components
+  const EyeIcon = ({
+    isVisible,
+    onClick,
+  }: {
+    isVisible: boolean;
+    onClick: () => void;
+  }) => (
+    <button
+      type="button"
+      onClick={onClick}
+      className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+    >
+      {isVisible ? (
+        <svg
+          className="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+          />
+        </svg>
+      ) : (
+        <svg
+          className="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"
+          />
+        </svg>
+      )}
+    </button>
+  );
+
   if (showVerification) {
     return (
       <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
-        <h2 className="mb-6 text-center text-2xl font-bold">
-          Verify Your Email
-        </h2>
+        <h2 className="mb-6 text-center text-2xl font-bold">{tUp("title")}</h2>
 
         {message && (
           <div className="mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
@@ -246,7 +309,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
         <form onSubmit={handleVerification}>
           <div className="mb-4">
             <label className="mb-2 block text-sm font-bold text-gray-700">
-              Enter 6-digit verification code sent to {formData.email}
+              {tUp("show-verif")} {formData.email}
             </label>
             <input
               type="text"
@@ -264,7 +327,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             disabled={loading}
             className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
           >
-            {loading ? "Verifying..." : "Verify Email"}
+            {loading ? `${tUp("verif-load")}` : `${tUp("verif-email")}`}
           </button>
         </form>
 
@@ -274,7 +337,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             disabled={loading}
             className="text-sm text-blue-600 hover:text-blue-800"
           >
-            Didn't receive the code? Resend
+            {tUp("resend-msg")}
           </button>
         </div>
       </div>
@@ -283,14 +346,11 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
 
   return (
     <div className="mx-auto max-w-[40rem] rounded-lg bg-white p-6 shadow-md xl:max-w-[clamp(40rem,20.8vw,80rem)] 2xl:max-w-[90rem]">
-      <h2 className="mb-6 text-center text-2xl font-bold">
-        Create Your Account
-      </h2>
+      <h2 className="mb-6 text-center text-2xl font-bold">{tUp("title")}</h2>
 
       {checkoutIntent && (
         <div className="mb-4 rounded border border-blue-400 bg-blue-100 p-3 text-blue-700">
-          After registration, you'll be redirected to complete your premium
-          purchase.
+          {tUp("after")}
         </div>
       )}
 
@@ -309,7 +369,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="mb-2 block text-sm font-bold text-gray-700">
-            Full Name *
+            {tUp("name")} <span className="text-error">*</span>
           </label>
           <input
             type="text"
@@ -323,7 +383,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
 
         <div className="mb-4">
           <label className="mb-2 block text-sm font-bold text-gray-700">
-            Email Address *
+            {tUp("email")} <span className="text-error">*</span>
           </label>
           <input
             type="email"
@@ -337,31 +397,43 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
 
         <div className="mb-4">
           <label className="mb-2 block text-sm font-bold text-gray-700">
-            Password *
+            {tUp("password")} <span className="text-error">*</span>
           </label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            minLength={8}
-            required
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              className="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              minLength={8}
+              required
+            />
+            <EyeIcon
+              isVisible={showPassword}
+              onClick={togglePasswordVisibility}
+            />
+          </div>
         </div>
 
         <div className="mb-6">
           <label className="mb-2 block text-sm font-bold text-gray-700">
-            Confirm Password *
+            {tUp("confirm")} <span className="text-error">*</span>
           </label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleInputChange}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            required
-          />
+          <div className="relative">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleInputChange}
+              className="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
+            />
+            <EyeIcon
+              isVisible={showConfirmPassword}
+              onClick={toggleConfirmPasswordVisibility}
+            />
+          </div>
         </div>
 
         {/* Consent Checkboxes */}
@@ -376,13 +448,13 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               required
             />
             <label className="text-sm text-gray-700">
-              I agree to the{" "}
+              {tUp("agree1")}{" "}
               <Link
                 href="/terms-of-use"
                 className="text-blue-600 hover:underline"
                 target="_blank"
               >
-                Terms of Use
+                {tUp("terms")}
               </Link>
             </label>
           </div>
@@ -397,13 +469,13 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               required
             />
             <label className="text-sm text-gray-700">
-              I agree to the{" "}
+              {tUp("agree2")}{" "}
               <Link
                 href="/privacy-policy"
                 className="text-blue-600 hover:underline"
                 target="_blank"
               >
-                Privacy Policy
+                {tUp("privacy")}
               </Link>
             </label>
           </div>
@@ -440,7 +512,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
             />
           </svg>
-          Continue with Google
+          {tUp("google")}
         </button>
 
         <div className="relative mb-4">
@@ -449,7 +521,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
           </div>
           <div className="relative flex justify-center text-sm">
             <span className="bg-white px-2 text-gray-500">
-              Or continue with email
+              {tUp("continue")}
             </span>
           </div>
         </div>
@@ -459,18 +531,18 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
           disabled={loading}
           className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
         >
-          {loading ? "Creating Account..." : "Create Account"}
+          {loading ? `${tUp("creating")}` : `${tUp("create")}`}
         </button>
       </form>
 
       <div className="mt-6 text-center">
         <p className="text-sm text-gray-600">
-          Already have an account?{" "}
+          {tUp("question")}{" "}
           <Link
             href={checkoutIntent ? "/signin?checkout=true" : "/signin"}
             className="text-blue-600 hover:underline"
           >
-            Sign in
+            {tUp("signin")}
           </Link>
         </p>
       </div>

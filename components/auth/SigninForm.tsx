@@ -4,18 +4,21 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 interface SigninFormProps {
   redirectUrl?: string;
 }
 
 export default function SigninForm({ redirectUrl }: SigninFormProps) {
+  const tIn = useTranslations("Signin");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -29,6 +32,10 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -79,7 +86,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
         }
       }
     } catch (err) {
-      setError("An error occurred. Please try again.");
+      setError(`${tIn("error1")}`);
     } finally {
       setLoading(false);
     }
@@ -100,9 +107,60 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
     }
   };
 
+  // Eye icon component
+  const EyeIcon = ({
+    isVisible,
+    onClick,
+  }: {
+    isVisible: boolean;
+    onClick: () => void;
+  }) => (
+    <button
+      type="button"
+      onClick={onClick}
+      className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+    >
+      {isVisible ? (
+        <svg
+          className="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+          />
+        </svg>
+      ) : (
+        <svg
+          className="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"
+          />
+        </svg>
+      )}
+    </button>
+  );
+
   return (
     <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
-      <h2 className="mb-6 text-center text-2xl font-bold">Sign In</h2>
+      <h2 className="mb-6 text-center text-2xl font-bold">{tIn("title")}</h2>
 
       {error && (
         <div className="mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
@@ -133,7 +191,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
             d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
           />
         </svg>
-        Continue with Google
+        {tIn("google")}
       </button>
 
       <div className="relative mb-4">
@@ -141,16 +199,14 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
           <div className="w-full border-t border-gray-300"></div>
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="bg-white px-2 text-gray-500">
-            Or continue with email
-          </span>
+          <span className="bg-white px-2 text-gray-500">{tIn("continue")}</span>
         </div>
       </div>
 
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="mb-2 block text-sm font-bold text-gray-700">
-            Email Address
+            {tIn("email")}
           </label>
           <input
             type="email"
@@ -164,16 +220,22 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
 
         <div className="mb-6">
           <label className="mb-2 block text-sm font-bold text-gray-700">
-            Password
+            {tIn("password")}
           </label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            required
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              className="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
+            />
+            <EyeIcon
+              isVisible={showPassword}
+              onClick={togglePasswordVisibility}
+            />
+          </div>
         </div>
 
         <button
@@ -181,7 +243,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
           disabled={loading}
           className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
         >
-          {loading ? "Signing In..." : "Sign In"}
+          {loading ? `${tIn("signing-in")}` : `${tIn("title")}`}
         </button>
       </form>
 
@@ -191,16 +253,16 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
             href="/auth/forgot-password"
             className="text-blue-600 hover:underline"
           >
-            Forgot your password?
+            {tIn("question1")}
           </Link>
         </p>
         <p className="text-sm text-gray-600">
-          Don't have an account?{" "}
+          {tIn("question2")}{" "}
           <Link
             href={checkoutIntent ? "/signup?checkout=true" : "/signup"}
             className="text-blue-600 hover:underline"
           >
-            Sign up
+            {tIn("signup")}
           </Link>
         </p>
       </div>
