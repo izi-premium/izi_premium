@@ -21,6 +21,22 @@ export function getServerStripe(): Stripe {
   return stripeInstance;
 }
 
+// Discount configuration interface
+export interface DiscountInfo {
+  isActive: boolean;
+  percentage: number;
+  couponId: string;
+  validUntil: Date;
+}
+
+// Launch discount configuration
+export const LAUNCH_DISCOUNT: DiscountInfo = {
+  isActive: true,
+  percentage: 50,
+  couponId: "LAUNCH50",
+  validUntil: new Date("2025-10-15T23:59:59Z"),
+};
+
 // Regional pricing configuration based on your Excel data
 export const regionalPricing = {
   EU: {
@@ -301,16 +317,52 @@ export function getUserRegion(
   return "US";
 }
 
-// Format price with currency symbol
+// Check if discount is currently active
+export function isDiscountActive(): boolean {
+  const now = new Date();
+  return LAUNCH_DISCOUNT.isActive && now <= LAUNCH_DISCOUNT.validUntil;
+}
+
+// Calculate discounted price
+export function calculateDiscountedPrice(originalPrice: number): number {
+  if (!isDiscountActive()) return originalPrice;
+  return originalPrice * (1 - LAUNCH_DISCOUNT.percentage / 100);
+}
+
+// Format price with currency symbol (hide .00 for whole numbers)
 export function formatPrice(region: keyof typeof regionalPricing): string {
   const config = regionalPricing[region];
+  const isWholeNumber = config.price % 1 === 0;
+
   return new Intl.NumberFormat(config.locale, {
     style: "currency",
     currency: config.currency,
+    minimumFractionDigits: isWholeNumber ? 0 : 2,
+    maximumFractionDigits: 2,
   }).format(config.price);
 }
 
-// Get price info for frontend display
+// Format any price with smart decimal handling (no space between symbol and number)
+function formatPriceAmount(
+  amount: number,
+  currency: string,
+  locale: string
+): string {
+  const isWholeNumber = amount % 1 === 0;
+
+  const formatted = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+    minimumFractionDigits: isWholeNumber ? 0 : 2,
+    maximumFractionDigits: 2,
+    currencyDisplay: "symbol",
+  }).format(amount);
+
+  // Remove any spaces between currency symbol and number
+  return formatted.replace(/(\$|€|£|¥|₡|₲|S\/|C\$|A\$|RD\$|\$U)\s+/, "$1");
+}
+
+// Get price info for frontend display (original function)
 export function getPriceInfo(region: keyof typeof regionalPricing) {
   const config = regionalPricing[region];
   return {
@@ -318,5 +370,48 @@ export function getPriceInfo(region: keyof typeof regionalPricing) {
     currency: config.currency.toUpperCase(),
     symbol: config.symbol,
     formatted: formatPrice(region),
+  };
+}
+
+// Get price info with discount applied
+export function getPriceInfoWithDiscount(region: keyof typeof regionalPricing) {
+  const config = regionalPricing[region];
+  const originalPrice = config.price;
+  const isDiscount = isDiscountActive();
+  const finalPrice = isDiscount
+    ? calculateDiscountedPrice(originalPrice)
+    : originalPrice;
+
+  return {
+    original: {
+      amount: originalPrice,
+      currency: config.currency.toUpperCase(),
+      symbol: config.symbol,
+      formatted: formatPriceAmount(
+        originalPrice,
+        config.currency,
+        config.locale
+      ),
+    },
+    final: {
+      amount: finalPrice,
+      currency: config.currency.toUpperCase(),
+      symbol: config.symbol,
+      formatted: formatPriceAmount(finalPrice, config.currency, config.locale),
+    },
+    discount: isDiscount
+      ? {
+          isActive: true,
+          percentage: LAUNCH_DISCOUNT.percentage,
+          savings: originalPrice - finalPrice,
+          savingsFormatted: formatPriceAmount(
+            originalPrice - finalPrice,
+            config.currency,
+            config.locale
+          ),
+          couponId: LAUNCH_DISCOUNT.couponId,
+          validUntil: LAUNCH_DISCOUNT.validUntil,
+        }
+      : null,
   };
 }

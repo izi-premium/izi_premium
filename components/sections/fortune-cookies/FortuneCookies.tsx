@@ -10,7 +10,7 @@ const FortuneCookies = () => {
   return (
     <section
       id="cookies"
-      className="flex-start-col xl:container-wrapper w-full px-[1.2rem] py-10 md:px-[3.2rem] lg:px-[5rem] lg:py-20"
+      className="flex-start-col xl:container-wrapper w-full scroll-mt-20 px-[1.2rem] py-10 md:px-[3.2rem] lg:px-[5rem] lg:py-20"
     >
       <div className="flex-start-col border-primary-text-200 w-full gap-10 rounded-[2rem] border border-solid bg-white px-[1.2rem] py-10 md:px-[3.2rem] lg:px-[5rem] lg:py-20">
         <div className="flex-center-col w-full gap-4">

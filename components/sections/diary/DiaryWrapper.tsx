@@ -4,7 +4,10 @@ import { DiaryTabs } from "./DiaryTabs";
 
 const DiaryWrapper = () => {
   return (
-    <div className="flex-start-col w-full gap-[20rem] py-[8rem] lg:py-[10rem]">
+    <div
+      id="diary"
+      className="flex-start-col w-full scroll-mt-20 gap-[20rem] py-[8rem] lg:py-[10rem]"
+    >
       <DiaryMain />
       <DiaryTabs />
     </div>

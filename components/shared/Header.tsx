@@ -129,7 +129,7 @@ export default function Header() {
                       ) : (
                         <SheetClose asChild>
                           <Link
-                            href="#"
+                            href="#premium-plan"
                             className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
                           >
                             <span className="paragraph-24-medium text-secondary-text-500">
@@ -173,7 +173,7 @@ export default function Header() {
                   </Link>
 
                   <Link
-                    href="/"
+                    href="#premium-plan"
                     className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
                   >
                     <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">
@@ -183,7 +183,7 @@ export default function Header() {
                 </>
               ) : (
                 <Link
-                  href="/"
+                  href="#premium-plan"
                   className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
                 >
                   <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">

@@ -1,14 +1,29 @@
 "use client";
 
 import React from "react";
+import { useMemo, useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import imageData from "@/data/uploadedImages.json";
+import { getUserRegion, getPriceInfoWithDiscount } from "@/lib/stripe";
 
 const Card2 = () => {
   const tPrice = useTranslations("Pricing");
   const { data: session, status } = useSession();
+  const [pricingInfo, setPricingInfo] = useState<any>(null);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    const userRegion = getUserRegion(
+      undefined, // countryCode - you can implement geolocation if needed
+      Intl.DateTimeFormat().resolvedOptions().timeZone,
+      undefined // currency
+    );
+    const pricing = getPriceInfoWithDiscount(userRegion);
+    setPricingInfo(pricing);
+  }, []);
 
   const handlePremiumClick = async () => {
     if (status === "loading") return;
@@ -50,20 +65,62 @@ const Card2 = () => {
   };
 
   return (
-    <div className="border-base-800 h-full w-full flex-1 rounded-[3.2rem] border border-solid bg-white p-2 md:p-6 lg:min-h-[100%]">
+    <div
+      id="premium-plan"
+      className="border-base-800 h-full w-full flex-1 scroll-mt-24 rounded-[3.2rem] border border-solid bg-white p-2 md:p-6 lg:min-h-[100%]"
+    >
       <div className="border-base-800 flex-begin-col h-full justify-between gap-10 rounded-[1.6rem] border border-solid bg-linear-to-b from-white from-0% to-[#F5F5F5] to-[85%] p-4 md:gap-[6.4rem] md:p-12 xl:gap-[clamp(4rem,2.1vw,8rem)]">
         <div className="flex-begin-col gap-[5.6rem]">
           {/* Head */}
-          <div className="flex-begin-col gap-4">
+          <div className="flex-begin-col w-full gap-4">
             <h3 className="subtitle-medium lg:h2-medium text-primary-text-700">
               {tPrice("premium-plan-title")}
             </h3>
-            <p className="h1-small md:h1-big lg:h1-xxl text-primary-text-700">
-              {tPrice("premium-plan-price")}
-            </p>
-            <p className="paragraph-24-normal text-primary-text-500">
-              {tPrice("premium-plan-text")}
-            </p>
+
+            {/* Pricing with discount */}
+            <div className="flex-center w-full gap-2">
+              {isClient && pricingInfo ? (
+                <>
+                  {pricingInfo.discount ? (
+                    <div className="flex-start-col w-full gap-2 md:flex-row md:items-end">
+                      {/* Discounted price */}
+                      <div className="flex items-baseline gap-2">
+                        <p className="h1-small md:h1-big lg:h1-xxl text-primary-text-700">
+                          {pricingInfo.final.formatted}
+                        </p>
+                      </div>
+
+                      {/* Original price crossed out */}
+                      <div className="flex-start-col w-full items-end md:items-start">
+                        <div className="relative inline-block">
+                          <p className="paragraph-24-normal md:subtitle-normal text-primary-text-400">
+                            {pricingInfo.original.formatted}
+                          </p>
+                          <span className="bg-error absolute top-1/2 left-0 h-[3px] w-full -rotate-12 rounded-full"></span>
+                        </div>
+                        <div className="flex w-full flex-nowrap items-center justify-end gap-1 md:mt-[-1.6rem] md:justify-start">
+                          <p className="paragraph-24-normal md:subtitle-normal text-primary-text-700 whitespace-nowrap">
+                            {pricingInfo.original.currency}
+                          </p>
+                          <p className="paragraph-24-normal md:subtitle-normal text-primary-text-700 whitespace-nowrap">
+                            / Month
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="h1-small md:h1-big lg:h1-xxl text-primary-text-700">
+                      {pricingInfo.final.formatted}
+                    </p>
+                  )}
+                </>
+              ) : (
+                // Loading state to prevent hydration mismatch
+                <div className="h1-small md:h1-big lg:h1-xxl text-primary-text-700">
+                  <div className="h-8 w-24 animate-pulse rounded bg-gray-200"></div>
+                </div>
+              )}
+            </div>
           </div>
           {/* Bullet Points */}
           <ul className="flex-begin-col w-full gap-8 xl:gap-[clamp(3.2rem,1.7vw,6.4rem)]">

@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { regionalPricing, getUserRegion, getServerStripe } from "@/lib/stripe";
+import {
+  regionalPricing,
+  getUserRegion,
+  getServerStripe,
+  isDiscountActive,
+  LAUNCH_DISCOUNT,
+} from "@/lib/stripe";
 import { getAdminDb } from "@/lib/firebase-admin";
 
 export async function POST(request: NextRequest) {
@@ -48,12 +54,14 @@ export async function POST(request: NextRequest) {
       "Creating subscription checkout for user:",
       session.user.email,
       "Region:",
-      userRegion
+      userRegion,
+      "Discount active:",
+      isDiscountActive()
     );
 
     // Create Stripe checkout session for subscription
     const checkoutSession = await getServerStripe().checkout.sessions.create({
-      mode: "subscription", // Changed from "payment" to "subscription"
+      mode: "subscription",
       payment_method_types: ["card"],
       line_items: [
         {
@@ -61,6 +69,14 @@ export async function POST(request: NextRequest) {
           quantity: 1,
         },
       ],
+      // Apply discount if active
+      ...(isDiscountActive() && {
+        discounts: [
+          {
+            coupon: LAUNCH_DISCOUNT.couponId,
+          },
+        ],
+      }),
       customer_email: session.user.email,
       metadata: {
         userId: session.user.id,
@@ -96,6 +112,8 @@ export async function POST(request: NextRequest) {
         currency: pricingConfig.currency,
         status: "pending",
         type: "subscription",
+        discountApplied: isDiscountActive(),
+        couponId: isDiscountActive() ? LAUNCH_DISCOUNT.couponId : null,
         createdAt: new Date(),
       });
 
