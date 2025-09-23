@@ -291,84 +291,90 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
 
   if (showVerification) {
     return (
-      <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
-        <h2 className="mb-6 text-center text-2xl font-bold">{tUp("title")}</h2>
+      <div className="flex-center-col w-full py-12 pt-[12rem]">
+        <div className="flex-center-col mx-auto w-fit max-w-[clamp(40rem,20.8vw,80rem)] gap-4 rounded-lg bg-gray-50 px-8 py-12 shadow-sm">
+          <h2 className="paragraph-24-medium md:subtitle-medium mb-2 font-bold text-gray-900">
+            {tUp("title")}
+          </h2>
 
-        {message && (
-          <div className="mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
-            {message}
+          {message && (
+            <div className="paragraph-14-normal 2xl:paragraph-18-normal mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
+              {message}
+            </div>
+          )}
+
+          {error && (
+            <div className="paragraph-14-normal 2xl:paragraph-18-normal mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleVerification}>
+            <div className="flex-start-col mb-8 w-fit gap-1">
+              <label className="paragraph-14-normal 2xl:paragraph-18-medium mb-2 font-medium text-gray-700">
+                {tUp("show-verif")} {formData.email}
+              </label>
+              <input
+                type="text"
+                value={verificationCode}
+                onChange={(e) => setVerificationCode(e.target.value)}
+                className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                placeholder="000000"
+                maxLength={6}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="paragraph-14-normal md:paragraph-18-medium w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+            >
+              {loading ? `${tUp("verif-load")}` : `${tUp("verif-email")}`}
+            </button>
+          </form>
+
+          <div className="mt-4 text-center">
+            <button
+              onClick={handleResendOTP}
+              disabled={loading}
+              className="paragraph-14-normal md:paragraph-18-medium text-sm font-medium text-blue-600 hover:text-blue-800"
+            >
+              {tUp("resend-msg")}
+            </button>
           </div>
-        )}
-
-        {error && (
-          <div className="mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
-            {error}
-          </div>
-        )}
-
-        <form onSubmit={handleVerification}>
-          <div className="mb-4">
-            <label className="mb-2 block text-sm font-bold text-gray-700">
-              {tUp("show-verif")} {formData.email}
-            </label>
-            <input
-              type="text"
-              value={verificationCode}
-              onChange={(e) => setVerificationCode(e.target.value)}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              placeholder="000000"
-              maxLength={6}
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
-          >
-            {loading ? `${tUp("verif-load")}` : `${tUp("verif-email")}`}
-          </button>
-        </form>
-
-        <div className="mt-4 text-center">
-          <button
-            onClick={handleResendOTP}
-            disabled={loading}
-            className="text-sm text-blue-600 hover:text-blue-800"
-          >
-            {tUp("resend-msg")}
-          </button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto max-w-[40rem] rounded-lg bg-white p-6 shadow-md xl:max-w-[clamp(40rem,20.8vw,80rem)] 2xl:max-w-[90rem]">
-      <h2 className="mb-6 text-center text-2xl font-bold">{tUp("title")}</h2>
+    <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm">
+      <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
+        {tUp("title")}
+      </h2>
 
       {checkoutIntent && (
-        <div className="mb-4 rounded border border-blue-400 bg-blue-100 p-3 text-blue-700">
+        <div className="paragraph-14-normal mb-4 rounded border border-blue-400 bg-blue-100 p-3 text-blue-700">
           {tUp("after")}
         </div>
       )}
 
       {message && (
-        <div className="mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
+        <div className="paragraph-14-normal mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
           {message}
         </div>
       )}
 
       {error && (
-        <div className="mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
+        <div className="paragraph-14-normal mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
           {error}
         </div>
       )}
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold text-gray-700">
+      <form onSubmit={handleSubmit} className="mt-8">
+        <div className="mb-4 w-full">
+          <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
             {tUp("name")} <span className="text-error">*</span>
           </label>
           <input
@@ -376,13 +382,13 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             name="name"
             value={formData.name}
             onChange={handleInputChange}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             required
           />
         </div>
 
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold text-gray-700">
+          <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
             {tUp("email")} <span className="text-error">*</span>
           </label>
           <input
@@ -390,13 +396,13 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             required
           />
         </div>
 
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-bold text-gray-700">
+          <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
             {tUp("password")} <span className="text-error">*</span>
           </label>
           <div className="relative">
@@ -405,7 +411,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               minLength={8}
               required
             />
@@ -416,8 +422,8 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
           </div>
         </div>
 
-        <div className="mb-6">
-          <label className="mb-2 block text-sm font-bold text-gray-700">
+        <div className="mb-4">
+          <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
             {tUp("confirm")} <span className="text-error">*</span>
           </label>
           <div className="relative">
@@ -426,7 +432,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleInputChange}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               required
             />
             <EyeIcon
@@ -438,7 +444,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
 
         {/* Consent Checkboxes */}
         <div className="mb-4 space-y-3">
-          <div className="flex items-start">
+          <div className="flex items-center">
             <input
               type="checkbox"
               name="acceptedTerms"
@@ -447,7 +453,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               className="mt-1 mr-2"
               required
             />
-            <label className="text-sm text-gray-700">
+            <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400">
               {tUp("agree1")}{" "}
               <Link
                 href="/terms-of-use"
@@ -468,7 +474,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               className="mt-1 mr-2"
               required
             />
-            <label className="text-sm text-gray-700">
+            <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400">
               {tUp("agree2")}{" "}
               <Link
                 href="/privacy-policy"
@@ -484,7 +490,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
         {/* Google Signup Button - Now positioned after consent checkboxes */}
         <button
           onClick={handleGoogleSignup}
-          className={`mb-4 flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+          className={`paragraph-14-normal 2xl:paragraph-18-medium mb-4 flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none ${
             isConsentGiven
               ? "cursor-pointer border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
               : "cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400"
@@ -520,7 +526,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             <div className="w-full border-t border-gray-300"></div>
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="bg-white px-2 text-gray-500">
+            <span className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400 bg-white px-2">
               {tUp("continue")}
             </span>
           </div>
@@ -529,14 +535,14 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+          className="paragraph-14-normal 2xl:paragraph-18-normal w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:cursor-pointer hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
         >
           {loading ? `${tUp("creating")}` : `${tUp("create")}`}
         </button>
       </form>
 
       <div className="mt-6 text-center">
-        <p className="text-sm text-gray-600">
+        <p className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400">
           {tUp("question")}{" "}
           <Link
             href={checkoutIntent ? "/signin?checkout=true" : "/signin"}
