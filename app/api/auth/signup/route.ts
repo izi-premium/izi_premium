@@ -69,7 +69,11 @@ export async function POST(request: NextRequest) {
       gender: "",
       useApodo: false,
       useDate: false,
-      isPremium: false, // Default to non-premium
+      isPremium: false,
+      birthDate: "",
+      genderToTalk: "",
+      idioma: "",
+      premiumEndsAt: null,
     });
 
     console.log("User document created, storing OTP..."); // Debug log

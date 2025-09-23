@@ -94,7 +94,11 @@ export const authOptions: NextAuthOptions = {
               useDate: false,
               emailVerified: true, // Google users are pre-verified
               isPremium: false,
-              // No password field for Google users
+
+              birthDate: "",
+              genderToTalk: "",
+              idioma: "",
+              premiumEndsAt: null,
             });
 
             // Update the user object with the generated uid
