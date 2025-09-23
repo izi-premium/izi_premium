@@ -83,112 +83,110 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8">
-        <div className="rounded-lg bg-white p-6 shadow-md">
-          <h2 className="mb-6 text-center text-2xl font-bold">
-            {step === "email" ? `${tForgot("forgot")}` : `${tForgot("reset")}`}
-          </h2>
+    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white">
+      <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm md:p-8">
+        <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
+          {step === "email" ? `${tForgot("forgot")}` : `${tForgot("reset")}`}
+        </h2>
 
-          {message && (
-            <div className="mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
-              {message}
-            </div>
-          )}
-
-          {error && (
-            <div className="mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
-              {error}
-            </div>
-          )}
-
-          {step === "email" ? (
-            <form onSubmit={handleSendReset}>
-              <div className="mb-4">
-                <label className="mb-2 block text-sm font-bold text-gray-700">
-                  {tForgot("email")}
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
-              >
-                {loading ? "Sending..." : "Send Reset Code"}
-              </button>
-            </form>
-          ) : (
-            <form onSubmit={handleResetPassword}>
-              <div className="mb-4">
-                <label className="mb-2 block text-sm font-bold text-gray-700">
-                  {tForgot("reset-code")} ({tForgot("direction")} {email})
-                </label>
-                <input
-                  type="text"
-                  value={resetCode}
-                  onChange={(e) => setResetCode(e.target.value)}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  placeholder="000000"
-                  maxLength={6}
-                  required
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="mb-2 block text-sm font-bold text-gray-700">
-                  {tForgot("new")}
-                </label>
-                <input
-                  type="password"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  minLength={8}
-                  required
-                />
-              </div>
-
-              <div className="mb-6">
-                <label className="mb-2 block text-sm font-bold text-gray-700">
-                  {tForgot("confirm-new")}
-                </label>
-                <input
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
-              >
-                {loading ? `${tForgot("resetting")}` : `${tForgot("reset")}`}
-              </button>
-            </form>
-          )}
-
-          <div className="mt-6 text-center">
-            <Link
-              href="/signin"
-              className="text-sm text-blue-600 hover:underline"
-            >
-              {tForgot("back")}
-            </Link>
+        {message && (
+          <div className="paragraph-14-normal mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
+            {message}
           </div>
+        )}
+
+        {error && (
+          <div className="paragraph-14-normal mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
+            {error}
+          </div>
+        )}
+
+        {step === "email" ? (
+          <form onSubmit={handleSendReset}>
+            <div className="mb-4">
+              <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
+                {tForgot("email")}
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="paragraph-14-normal 2xl:paragraph-18-normal w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:cursor-pointer hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+            >
+              {loading ? "Sending..." : "Send Reset Code"}
+            </button>
+          </form>
+        ) : (
+          <form onSubmit={handleResetPassword}>
+            <div className="mb-4">
+              <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
+                {tForgot("reset-code")} ({tForgot("direction")} {email})
+              </label>
+              <input
+                type="text"
+                value={resetCode}
+                onChange={(e) => setResetCode(e.target.value)}
+                className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                placeholder="000000"
+                maxLength={6}
+                required
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
+                {tForgot("new")}
+              </label>
+              <input
+                type="password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                minLength={8}
+                required
+              />
+            </div>
+
+            <div className="mb-6">
+              <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-500 mb-2">
+                {tForgot("confirm-new")}
+              </label>
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="paragraph-14-normal 2xl:paragraph-18-normal w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:cursor-pointer hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+            >
+              {loading ? `${tForgot("resetting")}` : `${tForgot("reset")}`}
+            </button>
+          </form>
+        )}
+
+        <div className="mt-6 text-center">
+          <Link
+            href="/signin"
+            className="paragraph-14-normal 2xl:paragraph-18-normal text-blue-600 hover:underline"
+          >
+            {tForgot("back")}
+          </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

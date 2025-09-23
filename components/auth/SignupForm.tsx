@@ -349,7 +349,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
   }
 
   return (
-    <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm">
+    <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 md:p-8 shadow-sm">
       <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
         {tUp("title")}
       </h2>
