@@ -76,17 +76,17 @@ export default function CancelPage() {
             {tCancel("title")}
           </h2>
 
-          <p className="paragraph-14-normal md:paragraph-18-normal xl:paragraph-24-normal mb-6 text-gray-600">
+          <p className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal mb-6 text-gray-600">
             {tCancel("subtitle")}
           </p>
 
           {/* Why upgrade section */}
           <div className="mb-6 rounded-lg bg-white p-6 text-left shadow-md">
-            <h3 className="paragraph-18-medium md:paragraph-24-medium xl:subtitle-medium mb-3 text-gray-900 xl:mb-8">
+            <h3 className="paragraph-18-medium md:paragraph-24-medium 2xl:subtitle-medium mb-3 text-gray-900 xl:mb-8">
               {tCancel("reasons-title")}
             </h3>
             <ul className="space-y- text-sm text-gray-600 xl:space-y-6">
-              <li className="paragraph-14-normal md:paragraph-18-normal xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
+              <li className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
                 <svg
                   className="mr-2 size-4 h-4 min-h-4 w-4 min-w-4 text-green-500 xl:size-6"
                   fill="currentColor"
@@ -100,7 +100,7 @@ export default function CancelPage() {
                 </svg>
                 {tCancel("reason1")}
               </li>
-              <li className="paragraph-14-normal md:paragraph-18-normal xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
+              <li className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
                 <svg
                   className="mr-2 size-4 h-4 min-h-4 w-4 min-w-4 text-green-500 xl:size-6"
                   fill="currentColor"
@@ -114,7 +114,7 @@ export default function CancelPage() {
                 </svg>
                 {tCancel("reason2")}
               </li>
-              <li className="paragraph-14-normal md:paragraph-18-normal xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
+              <li className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
                 <svg
                   className="mr-2 size-4 h-4 min-h-4 w-4 min-w-4 text-green-500 xl:size-6"
                   fill="currentColor"
@@ -128,7 +128,7 @@ export default function CancelPage() {
                 </svg>
                 {tCancel("reason3")}
               </li>
-              <li className="paragraph-14-normal md:paragraph-18-normal xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
+              <li className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
                 <svg
                   className="mr-2 size-4 h-4 min-h-4 w-4 min-w-4 text-green-500 xl:size-6"
                   fill="currentColor"
@@ -142,7 +142,7 @@ export default function CancelPage() {
                 </svg>
                 {tCancel("reason4")}
               </li>
-              <li className="paragraph-14-normal md:paragraph-18-normal xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
+              <li className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal text-primary-text-500 flex w-full items-center">
                 <svg
                   className="mr-2 size-4 h-4 min-h-4 w-4 min-w-4 text-green-500 xl:size-6"
                   fill="currentColor"

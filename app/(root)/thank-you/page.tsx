@@ -29,7 +29,7 @@ export default function ThankYouPage() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-green-50 to-blue-50">
+      <div className="flex min-h-screen w-full items-center justify-center bg-white">
         <div className="text-center">
           <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-green-600"></div>
           <p className="text-gray-600">{tThanks("processing")}</p>
@@ -39,8 +39,8 @@ export default function ThankYouPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-green-50 to-blue-50 px-4">
-      <div className="w-full max-w-md rounded-lg bg-white p-8 text-center shadow-lg">
+    <div className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper flex min-h-screen w-full items-center justify-center bg-gray-50 py-12 pt-[12rem]">
+      <div className="w-full max-w-[clamp(60rem,31.2vw,120rem)] space-y-8 rounded-[1.2rem] border border-solid border-green-200 bg-gradient-to-br from-green-50 to-blue-50 px-8 py-8 shadow-sm">
         {/* Success Icon */}
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
           <svg
@@ -59,25 +59,27 @@ export default function ThankYouPage() {
         </div>
 
         {/* Thank You Message */}
-        <h1 className="mb-4 text-2xl font-bold text-gray-900">
+        <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
           {tThanks("thank")}
-        </h1>
+        </h2>
 
-        <div className="mb-6 space-y-3">
-          <p className="text-gray-600">
+        <div className="mb-6 w-full space-y-3">
+          <p className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal mb-6 text-gray-600">
             {session?.user?.name
               ? `${tThanks("greet")} ${session.user.name}, ${tThanks("greetMin")}`
-              : `${tThanks("greetMay")}`}{" "}
-            ${tThanks("active")}
+              : `${tThanks("greetMay")}`}
+            {tThanks("active")}
           </p>
 
-          <p className="text-gray-600">{tThanks("msg")}</p>
+          <p className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal mb-6 text-gray-600">
+            {tThanks("msg")}
+          </p>
 
-          <div className="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-4">
-            <h3 className="mb-2 font-semibold text-blue-900">
+          <div className="bg-base-50 border-base-400 mt-4 rounded-lg border p-4">
+            <h3 className="paragraph-18-medium md:paragraph-24-medium xl:subtitle-medium mb-3 text-gray-900 xl:mb-8">
               {tThanks("question")}
             </h3>
-            <ul className="space-y-1 text-left text-sm text-blue-800">
+            <ul className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal text-primary-text-500 flex-start-col gap-3 lg:gap-6">
               <li>{tThanks("li1")}</li>
               <li>{tThanks("li2")}</li>
               <li>{tThanks("li3")}</li>
@@ -96,7 +98,7 @@ export default function ThankYouPage() {
           <p className="paragraph-18-medium md:paragraph-24-medium text-primary-text-700">
             {tThanks("download")}
           </p>
-          <div className="flex-center w-full gap-6">
+          <div className="flex-center-col w-full gap-3 md:flex-row md:gap-6">
             {/* App Store */}
             <Link
               href="/"
