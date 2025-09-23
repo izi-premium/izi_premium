@@ -14,7 +14,6 @@ export async function POST(request: NextRequest) {
   try {
     // Check if user is authenticated
     const session = await getServerSession(authOptions);
-
     if (!session?.user?.id) {
       return NextResponse.json(
         { error: "Authentication required", redirectTo: "/signin" },
@@ -59,6 +58,9 @@ export async function POST(request: NextRequest) {
       isDiscountActive()
     );
 
+    // Check if discount is active
+    const discountActive = isDiscountActive();
+
     // Create Stripe checkout session for subscription
     const checkoutSession = await getServerStripe().checkout.sessions.create({
       mode: "subscription",
@@ -69,14 +71,18 @@ export async function POST(request: NextRequest) {
           quantity: 1,
         },
       ],
-      // Apply discount if active
-      ...(isDiscountActive() && {
-        discounts: [
-          {
-            coupon: LAUNCH_DISCOUNT.couponId,
-          },
-        ],
-      }),
+      // Apply discount if active, otherwise allow promotion codes
+      ...(discountActive
+        ? {
+            discounts: [
+              {
+                coupon: LAUNCH_DISCOUNT.couponId,
+              },
+            ],
+          }
+        : {
+            allow_promotion_codes: true,
+          }),
       customer_email: session.user.email,
       metadata: {
         userId: session.user.id,
@@ -85,7 +91,6 @@ export async function POST(request: NextRequest) {
       },
       success_url: `${process.env.NEXTAUTH_URL}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXTAUTH_URL}/cancel`,
-      allow_promotion_codes: true,
       billing_address_collection: "auto",
       tax_id_collection: {
         enabled: true,
@@ -112,9 +117,9 @@ export async function POST(request: NextRequest) {
         currency: pricingConfig.currency,
         status: "pending",
         type: "subscription",
-        discountApplied: isDiscountActive(),
-        couponId: isDiscountActive() ? LAUNCH_DISCOUNT.couponId : null,
-        createdAt: new Date(),
+        discountApplied: discountActive,
+        couponId: discountActive ? LAUNCH_DISCOUNT.couponId : null,
+        createdAt: new Date(), // This is fine - Firestore handles Date objects
       });
 
     return NextResponse.json({
