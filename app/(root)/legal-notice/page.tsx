@@ -5,8 +5,10 @@ export default function LegalNotice() {
 
   return (
     <div className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper min-h-screen w-full bg-white py-[12rem]">
-      <div className="container mx-auto max-w-[clamp(140rem,73vw,280rem)] px-4 py-8">
-        <h1 className="h1-small text-primary-text-900 mb-8">{t("title")}</h1>
+      <div className="container mx-auto w-full max-w-[clamp(140rem,73vw,280rem)] py-8">
+        <h1 className="subtitle-medium md:h1-small text-primary-text-900 mb-8">
+          {t("title")}
+        </h1>
 
         <section className="mb-8">
           <h2 className="h2-medium text-primary-text-900 mb-4">

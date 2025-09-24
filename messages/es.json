@@ -159,7 +159,11 @@
   "Newsletter": {
     "title": "Mantente al día con I.Z.I",
     "text": "Recibe tips sobre cómo usar la aplicación al máximo. Entérate de las últimas novedades y actualizaciones en I.Z.I.",
-    "cta": "Únete a la Newsletter"
+    "cta": "Únete a la Newsletter",
+    "success": "¡Gracias por subscribirte a la Newsletter!",
+    "error1": "Fallo en la subscripción. Por favor intenta de nuevo.",
+    "error2": "Algo salió mal. Por favor intenta de nuevo más tarde.",
+    "subscribing": "Subscribiéndote..."
   },
   "Footer": {
     "question": "¿Te interesa el proyecto?",
@@ -210,7 +214,7 @@
     "terms": "Términos de Uso",
     "privacy": "Política de Privacidad",
     "google": "Continuar con Google",
-    "continue": "O continuar con correo electrónico",
+    "continue": "O continuar con Google",
     "creating": "Creando...",
     "create": "Crear Cuenta",
     "question": "¿Ya tienes una cuenta?",
@@ -227,7 +231,8 @@
     "verif-email": "Verificar Correo",
     "verif-load": "Verificando...",
     "resend-msg": "¿No recibiste el código? Reenviar",
-    "after": "Después del registor, serás redirigido para completar la compra del Plan Premium."
+    "after": "Después del registor, serás redirigido para completar la compra del Plan Premium.",
+    "newsletter": "Me gustaría recibir newsletters y actualizaciones sobre nuevas funciones y ofertas en IZI."
   },
   "Signin": {
     "title": "Iniciar Sesión",

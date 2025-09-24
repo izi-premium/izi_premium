@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -12,6 +12,7 @@ interface SignupFormProps {
 
 export default function SignupForm({ onSuccess }: SignupFormProps) {
   const tUp = useTranslations("Signup");
+  const { data: session, status } = useSession();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,6 +20,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
     confirmPassword: "",
     acceptedTerms: false,
     acceptedPrivacy: false,
+    subscribeNewsletter: false,
   });
   const [loading, setLoading] = useState(false);
   const [showVerification, setShowVerification] = useState(false);
@@ -36,6 +38,71 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
   // Get redirect URL from search params
   const redirectUrl = searchParams.get("redirect");
   const checkoutIntent = searchParams.get("checkout") === "true";
+
+  // Handle post-OAuth newsletter subscription
+  useEffect(() => {
+    async function handlePostOAuthNewsletter() {
+      if (status === "authenticated" && session?.user?.email) {
+        // Check if there's a newsletter preference stored
+        const shouldSubscribe = localStorage.getItem("google_oauth_newsletter");
+
+        if (shouldSubscribe === "true") {
+          console.log(
+            "Processing newsletter subscription for Google OAuth user:",
+            session.user.email
+          );
+
+          try {
+            const response = await fetch("/api/newsletter/subscribe", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: session.user.email,
+              }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+              setMessage(
+                "Account created and subscribed to newsletter successfully!"
+              );
+              console.log("Newsletter subscription successful for OAuth user");
+            } else {
+              console.warn(
+                "Newsletter subscription failed for OAuth user:",
+                result.message
+              );
+              setMessage(
+                "Account created successfully! Newsletter subscription failed, but you can subscribe later."
+              );
+            }
+          } catch (error) {
+            console.error(
+              "Error subscribing to newsletter after OAuth:",
+              error
+            );
+            setMessage(
+              "Account created successfully! Newsletter subscription failed, but you can subscribe later."
+            );
+          }
+
+          // Clean up stored preference
+          localStorage.removeItem("google_oauth_newsletter");
+
+          // Clear message after 5 seconds
+          setTimeout(() => setMessage(""), 5000);
+        }
+      }
+    }
+
+    // Only run once when user becomes authenticated
+    if (status === "authenticated" && !showVerification) {
+      handlePostOAuthNewsletter();
+    }
+  }, [session, status, showVerification]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -93,6 +160,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
           password: formData.password,
           acceptedTerms: formData.acceptedTerms,
           acceptedPrivacy: formData.acceptedPrivacy,
+          subscribeNewsletter: formData.subscribeNewsletter, // Include newsletter subscription
         }),
       });
 
@@ -220,6 +288,14 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
     // Check if both terms and privacy policy are accepted
     if (!formData.acceptedTerms || !formData.acceptedPrivacy) {
       return;
+    }
+
+    // Store newsletter preference in localStorage (more reliable than cookies for OAuth)
+    if (formData.subscribeNewsletter) {
+      localStorage.setItem("google_oauth_newsletter", "true");
+      console.log("Newsletter preference stored for Google OAuth");
+    } else {
+      localStorage.removeItem("google_oauth_newsletter");
     }
 
     // Construct callback URL based on redirect intent
@@ -487,9 +563,42 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               </Link>
             </label>
           </div>
+
+          {/* Newsletter Subscription Checkbox */}
+          <div className="flex items-start">
+            <input
+              type="checkbox"
+              name="subscribeNewsletter"
+              checked={formData.subscribeNewsletter}
+              onChange={handleInputChange}
+              className="mt-1 mr-2"
+            />
+            <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400">
+              {tUp("newsletter")}
+            </label>
+          </div>
         </div>
 
-        {/* Google Signup Button - Now positioned after consent checkboxes */}
+        {/* Create account + Google signup */}
+        <button
+          type="submit"
+          disabled={loading}
+          className="paragraph-14-normal 2xl:paragraph-18-normal mb-4 w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:cursor-pointer hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+        >
+          {loading ? `${tUp("creating")}` : `${tUp("create")}`}
+        </button>
+
+        <div className="relative mb-4">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-300"></div>
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400 bg-white px-2">
+              {tUp("continue")}
+            </span>
+          </div>
+        </div>
+
         <button
           onClick={handleGoogleSignup}
           className={`paragraph-14-normal 2xl:paragraph-18-medium mb-4 flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 font-medium hover:cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none ${
@@ -521,25 +630,6 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             />
           </svg>
           {tUp("google")}
-        </button>
-
-        <div className="relative mb-4">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300"></div>
-          </div>
-          <div className="relative flex justify-center text-sm">
-            <span className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400 bg-white px-2">
-              {tUp("continue")}
-            </span>
-          </div>
-        </div>
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="paragraph-14-normal 2xl:paragraph-18-normal w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:cursor-pointer hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
-        >
-          {loading ? `${tUp("creating")}` : `${tUp("create")}`}
         </button>
       </form>
 

@@ -159,7 +159,11 @@
   "Newsletter": {
     "title": "Be up to date with I.Z.I",
     "text": "Receive advice, tips on how to use the app, and get the latest news about future versions of I.Z.I.",
-    "cta": "Join our Newsletter"
+    "cta": "Join our Newsletter",
+    "success": "Successfully subscribed to our newsletter!",
+    "error1": "Failed to subscribe. Please try again.",
+    "error2": "Something went wrong. Please try again later.",
+    "subscribing": "Subscribing..."
   },
   "Footer": {
     "question": "Do you like what you see?",
@@ -210,7 +214,7 @@
     "terms": "Terms of Use",
     "privacy": "Privacy Policy",
     "google": "Continue with Google",
-    "continue": "Or continue with email",
+    "continue": "Or continue with Google",
     "create": "Create Account",
     "creating": "Creating...",
     "question": "Already have an account?",
@@ -227,7 +231,8 @@
     "verif-email": "Verify Email",
     "verif-load": "Verifying...",
     "resend-msg": "Didn't receive the code? Resend",
-    "after": "After registration, you'll be redirected to complete the Premium Plan purchase."
+    "after": "After registration, you'll be redirected to complete the Premium Plan purchase.",
+    "newsletter": "I would like to receive newsletters and updates about new features and special offers on IZI."
   },
   "Signin": {
     "title": "Sign In",

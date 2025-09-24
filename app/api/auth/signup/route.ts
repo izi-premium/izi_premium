@@ -3,12 +3,67 @@ import { getAdminDb } from "@/lib/firebase-admin";
 import bcrypt from "bcryptjs";
 import { Resend } from "resend";
 
+// Helper function to subscribe user to newsletter
+async function subscribeToNewsletter(email: string, name: string) {
+  try {
+    const apiKey = process.env.MAILCHIMP_API_KEY;
+    if (!apiKey) {
+      console.error("Mailchimp API key not found");
+      return { success: false, error: "Newsletter service unavailable" };
+    }
+
+    const dataCenter = apiKey.split("-").pop();
+    const url = `https://${dataCenter}.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}/members`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        email_address: email,
+        status: "subscribed",
+        merge_fields: {
+          FNAME: name.split(" ")[0] || name, // First name
+          LNAME: name.split(" ").slice(1).join(" ") || "", // Last name
+        },
+        tags: ["signup-registration"], // Tag to identify source
+      }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(`Successfully subscribed ${email} to newsletter`);
+      return { success: true, error: null };
+    } else {
+      // Don't fail the entire signup if newsletter subscription fails
+      console.error("Newsletter subscription failed:", data);
+      return {
+        success: false,
+        error: data.detail || "Newsletter subscription failed",
+      };
+    }
+  } catch (error) {
+    console.error("Newsletter subscription error:", error);
+    return { success: false, error: "Newsletter service error" };
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const { email, password, name, acceptedTerms, acceptedPrivacy } =
-      await request.json();
+    const {
+      email,
+      password,
+      name,
+      acceptedTerms,
+      acceptedPrivacy,
+      subscribeNewsletter,
+    } = await request.json();
 
     console.log("Signup attempt for:", email); // Debug log
+    console.log("Newsletter subscription requested:", subscribeNewsletter); // Debug log
 
     // Validation
     if (!email || !password || !name) {
@@ -64,6 +119,7 @@ export async function POST(request: NextRequest) {
       emailVerified: false,
       acceptedTerms: true,
       acceptedPrivacy: true,
+      subscribeNewsletter: subscribeNewsletter || false, // Store newsletter preference
       acceptedAt: new Date(),
       createdAt: new Date(),
       gender: "",
@@ -84,6 +140,20 @@ export async function POST(request: NextRequest) {
       userId: uid, // Use uid instead of userRef.id
       createdAt: new Date(),
     });
+
+    // Handle newsletter subscription if requested
+    let newsletterResult = { success: false, error: null };
+    if (subscribeNewsletter) {
+      console.log("Subscribing to newsletter..."); // Debug log
+      newsletterResult = await subscribeToNewsletter(email, name);
+
+      // Update user document with newsletter subscription status
+      await userRef.update({
+        newsletterSubscribed: newsletterResult.success,
+        newsletterSubscribedAt: newsletterResult.success ? new Date() : null,
+        newsletterError: newsletterResult.error,
+      });
+    }
 
     console.log("Sending OTP email..."); // Debug log
     // Send OTP email
@@ -109,6 +179,8 @@ export async function POST(request: NextRequest) {
               ${otp}
             </div>
             <p>This code will expire in 10 minutes.</p>
+            ${subscribeNewsletter && newsletterResult.success ? '<p style="color: #28a745;">✅ You have been subscribed to our newsletter!</p>' : ""}
+            ${subscribeNewsletter && !newsletterResult.success ? '<p style="color: #dc3545;">⚠️ Newsletter subscription failed, but your account was created successfully.</p>' : ""}
             <p>If you didn't create an account, please ignore this email.</p>
             <p>Best regards,<br>IZI World Team</p>
           </div>
@@ -131,11 +203,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({
+    // Return success response with newsletter status
+    const response: any = {
       message:
         "Account created successfully. Please check your email for verification code.",
       email,
-    });
+    };
+
+    // Add newsletter information to response
+    if (subscribeNewsletter) {
+      response.newsletterSubscribed = newsletterResult.success;
+      if (!newsletterResult.success) {
+        response.newsletterError =
+          "Newsletter subscription failed, but your account was created successfully.";
+      }
+    }
+
+    return NextResponse.json(response);
   } catch (error) {
     console.error("Signup error:", error);
     return NextResponse.json(

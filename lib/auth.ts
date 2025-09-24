@@ -3,6 +3,56 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { getAdminDb } from "@/lib/firebase-admin";
 import bcrypt from "bcryptjs";
+import { cookies } from "next/headers";
+
+// Helper function to subscribe user to newsletter
+async function subscribeToNewsletter(email: string, name: string) {
+  try {
+    const apiKey = process.env.MAILCHIMP_API_KEY;
+    if (!apiKey) {
+      console.error("Mailchimp API key not found");
+      return { success: false, error: "Newsletter service unavailable" };
+    }
+
+    const dataCenter = apiKey.split("-").pop();
+    const url = `https://${dataCenter}.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}/members`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        email_address: email,
+        status: "subscribed",
+        merge_fields: {
+          FNAME: name.split(" ")[0] || name, // First name
+          LNAME: name.split(" ").slice(1).join(" ") || "", // Last name
+        },
+        tags: ["google-oauth-signup"], // Tag to identify source
+      }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(
+        `Successfully subscribed ${email} to newsletter via Google OAuth`
+      );
+      return { success: true };
+    } else {
+      console.error("Newsletter subscription failed:", data);
+      return {
+        success: false,
+        error: data.detail || "Newsletter subscription failed",
+      };
+    }
+  } catch (error) {
+    console.error("Newsletter subscription error:", error);
+    return { success: false, error: "Newsletter service error" };
+  }
+}
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -67,7 +117,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile }) {
+    async signIn({ user, account, profile, email, credentials }) {
       if (account?.provider === "google") {
         try {
           // Check if user already exists
@@ -77,10 +127,14 @@ export const authOptions: NextAuthOptions = {
             .limit(1)
             .get();
 
+          let isNewUser = false;
+          let userDoc;
+
           if (existingUserQuery.empty) {
             // Generate a unique uid for the new user
             const newUserRef = getAdminDb().collection("users").doc();
             const uid = newUserRef.id;
+            isNewUser = true;
 
             // Create new user with your existing schema
             await newUserRef.set({
@@ -94,15 +148,18 @@ export const authOptions: NextAuthOptions = {
               useDate: false,
               emailVerified: true, // Google users are pre-verified
               isPremium: false,
-
               birthDate: "",
               genderToTalk: "",
               idioma: "",
               premiumEndsAt: null,
+              subscribeNewsletter: false, // Default to false, will be updated if needed
+              newsletterSubscribed: false,
+              newsletterSubscribedAt: null,
             });
 
             // Update the user object with the generated uid
             user.id = uid;
+            userDoc = newUserRef;
           } else {
             // Update existing user as verified and get their uid
             const existingUser = existingUserQuery.docs[0];
@@ -115,6 +172,17 @@ export const authOptions: NextAuthOptions = {
 
             // Use the existing user's uid
             user.id = userData.uid;
+            userDoc = existingUser.ref;
+          }
+
+          // Check if user opted for newsletter during Google signup
+          // This will be set by the frontend cookie before initiating Google OAuth
+          if (isNewUser) {
+            // Note: We can't read cookies directly in NextAuth callbacks
+            // Instead, we'll handle this in a separate API route that gets called after OAuth
+            console.log(
+              "New Google OAuth user created, will check for newsletter preference"
+            );
           }
         } catch (error) {
           console.error("Error handling Google signin:", error);
