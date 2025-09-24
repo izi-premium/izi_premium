@@ -5,7 +5,8 @@
     "cookies": "Fortune Cookies",
     "register": "Register",
     "cta": "Get Premium Access",
-    "toggle": "Toggle navigation menu"
+    "toggle": "Toggle navigation menu",
+    "logout": "Log out"
   },
   "Hero": {
     "title": "Your Mental Health, Your Privacy, Your Peace",

@@ -5,7 +5,8 @@
     "cookies": "Galletas de la Fortuna",
     "register": "Registro",
     "cta": "Obtén Acceso Premium",
-    "toggle": "Selector del menú de navegación"
+    "toggle": "Selector del menú de navegación",
+    "logout": "Cerrar sesión"
   },
   "Hero": {
     "title": "Tu Salud Mental, Tu Privacidad,<br />Tu Paz",

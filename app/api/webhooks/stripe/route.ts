@@ -427,7 +427,7 @@ async function sendWelcomeEmail(email: string, name: string) {
       body: JSON.stringify({
         from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
         to: email,
-        subject: "Welcome to IziWorld Premium!",
+        subject: "Welcome to IZI World Premium!",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h2>Welcome to IZI World Premium!</h2>
