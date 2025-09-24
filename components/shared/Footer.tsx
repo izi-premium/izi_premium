@@ -176,7 +176,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/content/report"
+                    href="/dsa-compliance"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-4")}
@@ -188,6 +188,14 @@ export default function Footer() {
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-5")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/legal-notice"
+                    className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
+                  >
+                    {tFoot("legal-6")}
                   </Link>
                 </li>
               </ul>

@@ -183,7 +183,8 @@
     "legal-2": "Política de Privacidad",
     "legal-3": "Subcontratistas",
     "legal-4": "Reporte de Contenido (DSA)",
-    "legal-5": "Reglas de la Comunidad"
+    "legal-5": "Reglas de la Comunidad",
+    "legal-6": "Aviso Legal"
   },
   "Cancel": {
     "title": "Pago Cancelado",
@@ -280,5 +281,1481 @@
     "title": "Página no encontrada",
     "subtitle": "Oops! La página que estabas buscando no existe. Puede ser que halla sido eliminada, o capaz pusiste la URL incorrecta.",
     "cta": "Volver a la Página Principal"
+  },
+
+  "legalNotice": {
+    "title": "Aviso Legal",
+    "section1": {
+      "title": "1) Identificación del titular",
+      "content": {
+        "company": "Titular: OasysNest S.L.U",
+        "nif": "NIF: B22913834",
+        "address": "Domicilio: Camí Terminal 6A, 07009, Palma de Mallorca, España",
+        "emailGeneral": "Email general: info@iziworld.app",
+        "emailPrivacy": "Email privacidad: privacy@iziworld.app",
+        "domain": "Dominio: iziworld.app",
+        "registryData": "Datos registrales: En trámite de inscripción en el Registro Mercantil de Palma de Mallorca."
+      }
+    },
+    "section2": {
+      "title": "2) Delegado de Protección de Datos (DPO)",
+      "content": {
+        "description": "En cumplimiento del artículo 37 del RGPD, OasysNest S.L. cuenta con un Delegado de Protección de Datos designado para supervisar el cumplimiento de la normativa de privacidad y actuar como punto de contacto con los usuarios y autoridades.",
+        "dpoEmail": "Correo del DPO: dpo@iziworld.app",
+        "dpoAddress": "Dirección postal: Camí Terminal 6A, 07009, Palma de Mallorca, España"
+      }
+    },
+    "section3": {
+      "title": "3) Objeto y ámbito",
+      "content": "Este Aviso regula el acceso y uso del sitio web, así como los procesos de prerregistro/registro de usuarios, contratación electrónica y comunicaciones. No regula el uso de la app móvil, que se rige por sus propios Términos."
+    },
+    "section4": {
+      "title": "4) Condiciones de uso",
+      "content": "El acceso implica aceptación de los Términos y Condiciones Web, la Política de Privacidad Web y la Política de Cookies. El usuario se compromete a un uso lícito y a abstenerse de actividades fraudulentas, intrusivas o dañinas. Se exige mayoría de edad para registrarse."
+    },
+    "section5": {
+      "title": "5) Propiedad intelectual e industrial",
+      "content": {
+        "description": "Todos los contenidos del sitio (textos, logotipos, gráficos, software, imágenes, vídeos, marcas y nombres comerciales) son propiedad de OasysNest S.L. o de terceros con licencia.",
+        "trademark": "Se prohíbe la reproducción, distribución, comunicación pública o transformación sin autorización previa y por escrito. La marca I.Z.I. se encuentra protegida y en proceso de registro."
+      }
+    },
+    "section6": {
+      "title": "6) Enlaces y servicios de terceros",
+      "content": "La web puede enlazar a servicios externos (Stripe, Google). OasysNest S.L. no controla su contenido ni condiciones y no responde de su disponibilidad o exactitud. El acceso se realiza bajo responsabilidad del usuario."
+    },
+    "section7": {
+      "title": "7) Exención de garantías y limitación de responsabilidad",
+      "content": {
+        "description": "El sitio se ofrece \"tal cual\" y \"según disponibilidad\". Pueden producirse interrupciones por mantenimiento, incidencias técnicas o causas ajenas al titular. En la medida permitida por la ley, OasysNest S.L. no responde por:",
+        "technicalFailures": "Fallos técnicos, incompatibilidades o pérdida de datos",
+        "misuse": "Uso indebido del sitio por terceros",
+        "userDecisions": "Decisiones adoptadas por el usuario basadas en información de la web",
+        "maxResponsibility": "La responsabilidad máxima se limita al importe efectivamente abonado por el usuario en los 12 meses previos al hecho que motive la reclamación"
+      }
+    },
+    "section8": {
+      "title": "8) Exclusión de servicios profesionales",
+      "content": "La web no presta asesoramiento médico, psicológico, psiquiátrico, jurídico ni de emergencia. Su finalidad es informativa y de contacto."
+    },
+    "section9": {
+      "title": "9) Datos personales y cookies",
+      "content": {
+        "navigation": "El tratamiento derivado de la navegación, formularios, prerregistro/registro y pagos se regula en la Política de Privacidad Web.",
+        "cookies": "El uso de cookies se gestiona conforme a la Política de Cookies, mediante banner de consentimiento granular (\"Aceptar\", \"Rechazar\", \"Configurar\")."
+      }
+    },
+    "section10": {
+      "title": "10) Contratación electrónica",
+      "content": {
+        "description": "Las contrataciones realizadas en la web se rigen por las Condiciones de Contratación y los Términos Web.",
+        "paymentMethods": "Métodos de pago: Stripe.",
+        "dataStorage": "OasysNest S.L. no almacena datos financieros.",
+        "receipt": "Se envía justificante electrónico tras cada transacción.",
+        "withdrawal": "En la UE, se aplica el derecho de desistimiento de 14 días, salvo inicio de prestación consentido.",
+        "refunds": "Reembolsos y cancelaciones se rigen por la política descrita en Términos Web."
+      }
+    },
+    "section11": {
+      "title": "11) Comunicaciones electrónicas",
+      "content": "Las comunicaciones podrán realizarse por email, avisos en cuenta o en la propia web. Los registros electrónicos y justificantes de pasarela constituyen prueba válida."
+    },
+    "section12": {
+      "title": "12) Seguridad",
+      "content": {
+        "description": "Se aplican medidas técnicas y organizativas proporcionales, incluyendo TLS 1.3 en tránsito, cifrado AES-256, control de accesos y monitorización activa."
+      }
+    },
+    "section13": {
+      "title": "13) Normativa aplicable y alcance internacional",
+      "content": {
+        "euUk": "España y UE/EEE: LSSI-CE, RGPD y ePrivacy.",
+        "usa": "Reino Unido: UK Data Protection Act 2018.",
+        "canada": "EE.UU.: CCPA/CPRA y demás leyes estatales aplicables.",
+        "australia": "Canadá: PIPEDA y normas provinciales.",
+        "latam": "Australia: Privacy Act 1988. LatAm: cumplimiento de leyes nacionales (México LFPDPPP, Brasil LGPD, Argentina Ley 25.326, Colombia Ley 1581, Chile Ley 19.628, Perú Ley 29733, Uruguay Ley 18.331, entre otras).",
+        "noSpecific": "En países sin normativa específica, se aplican los principios RGPD como estándar mínimo."
+      }
+    },
+    "section14": {
+      "title": "14) Jurisdicción y resolución de disputas",
+      "content": {
+        "euUkJurisdiction": "UE/EEE/Reino Unido: tribunales del domicilio del consumidor, o Palma de Mallorca de forma subsidiaria.",
+        "otherCountries": "Otros países: tribunales competentes según su normativa local.",
+        "mediation": "Cuando la ley lo permita, se podrá recurrir a mediación o arbitraje online.",
+        "ecPlatform": "Plataforma de resolución de litigios de la Comisión Europea: https://ec.europa.eu/consumers/odr/."
+      }
+    },
+    "section15": {
+      "title": "15) Nulidad parcial",
+      "content": "La nulidad de una cláusula no afectará al resto. Las disposiciones se interpretarán para mantener su validez y finalidad."
+    },
+    "section16": {
+      "title": "16) Modificaciones",
+      "content": "OasysNest S.L. podrá modificar este Aviso para reflejar cambios legales, técnicos o de servicio. La versión vigente indicará fecha de actualización y estará disponible en la web."
+    },
+    "section17": {
+      "title": "17. Contacto",
+      "content": {
+        "info": "Información: info@iziworld.app",
+        "support": "Soporte: support@iziworld.app",
+        "privacy": "Privacidad: privacy@iziworld.app",
+        "dpo": "DPO: dpo@iziworld.app",
+        "address": "Dirección postal: Camí Terminal 6A, 07009, Palma de Mallorca, España"
+      }
+    },
+    "lastUpdated": "Fecha de última actualización: 15/10/2025"
+  },
+  "dsaCompliance": {
+    "title": "Política de Cumplimiento DSA (EU) – I.Z.I.",
+    "version": "Versión:",
+    "date": "Fecha:",
+    "scope": "Ámbito:",
+    "scopeContent": "Unión Europea (Reglamento (UE) 2022/2065 – Digital Services Act)",
+    "serviceOwner": "Titular del servicio:",
+    "generalContact": "Contacto general:",
+    "dsaContact": "Contacto DSA/Autoridades:",
+    "relationshipOtherDocs": "Relación con otros documentos:",
+    "relationshipContent": "Esta Política complementa y desarrolla los Términos y Condiciones y la Política de Privacidad de I.Z.I., que siguen aplicando en todo lo no previsto aquí.",
+    "section0": {
+      "title": "0) Naturaleza del servicio y alcance DSA",
+      "classification": "Clasificación DSA:",
+      "classificationContent": "I.Z.I. es un servicio de alojamiento y plataforma en línea que permite a los usuarios intercambiar mensajes y contenidos (texto, audio, imagen) en chats privados y crear diarios personales. No es un mercado en línea ni un motor de búsqueda.",
+      "coverage": "Cobertura:",
+      "coverageContent": "Se aplican las obligaciones para plataformas en línea que alojan contenidos de usuarios. Las obligaciones reforzadas para VLOPs (Very Large Online Platforms) no aplican en el lanzamiento. Ver §17 para el plan de escalado si el umbral se alcanzara."
+    },
+    "section1": {
+      "title": "1) Puntos de contacto y representación",
+      "singleContact": "Punto único de contacto para autoridades y DSCs (EU):",
+      "userContact": "Punto de contacto para usuarios:",
+      "rightsContact": "Punto de ejercicio de derechos:",
+      "contactLanguage": "Idioma de contacto:",
+      "euRepresentative": "Representante en la UE:",
+      "euRepresentativeContent": "No aplica si el responsable está establecido en la UE. Si no lo estuviera, se designará conforme al art. 13 DSA."
+    },
+    "section2": {
+      "title": "2) Definiciones operativas",
+      "notice": "Aviso/Notificación (Notice):",
+      "noticeContent": "Comunicación que identifica contenido presuntamente ilegal o infractor de Términos.",
+      "action": "Acción (Action):",
+      "actionContent": "Medida tomada por I.Z.I. sobre un contenido o cuenta (retiro, bloqueo, limitación, desmonetización, etc.).",
+      "motivation": "Motivación/\"Statement of Reasons\":",
+      "motivationContent": "Comunicación estandarizada al usuario afectado explicando la decisión de moderación."
+    },
+    "section3": {
+      "title": "3) Sistema de \"notice & action\" (notificación y actuación)",
+      "subsection1": {
+        "title": "3.1 Canal de notificación",
+        "content": "I.Z.I. habilita un formulario accesible dentro de la app y en la web: [iziworld.app/legal/notice]. También se aceptará notificación por email a dsa-legal@iziworld.app cuando el formulario no sea razonablemente accesible."
+      },
+      "subsection2": {
+        "title": "3.2 Requisitos mínimos de la notificación",
+        "content": "El formulario solicita, como mínimo:",
+        "requirements": {
+          "a": "Localización exacta del contenido (ID de chat y marca temporal o URL interna),",
+          "b": "Descripción de la ilicitud y base jurídica aplicable (si se conoce),",
+          "c": "Datos de contacto del notificante,",
+          "d": "Declaración de buena fe."
+        }
+      },
+      "subsection3": {
+        "title": "3.3 Acuse y tramitación",
+        "acknowledgment": "Se emite acuse de recibo automático.",
+        "slaClassification": "SLA de clasificación inicial: ≤ 24 h hábiles.",
+        "slaResolution": "SLA de resolución ordinaria: ≤ 72 h hábiles, salvo casos complejos.",
+        "prioritization": "Priorización para \"trusted flaggers\" (§7)."
+      },
+      "subsection4": {
+        "title": "3.4 Actuaciones posibles",
+        "content": "Retirada del contenido, bloqueo de subida, limitación de funcionalidades, restricción geográfica, suspensión temporal de cuenta, preservación para autoridad.",
+        "conservation": "Conservación mínima de evidencias y logs conforme a la ley y a la Política de Privacidad."
+      },
+      "subsection5": {
+        "title": "3.5 Prevención de abusos",
+        "content": "Avisos manifiestamente infundados o abusivos podrán conllevar limitaciones a quienes los emiten repetidamente (§8)."
+      }
+    },
+    "section4": {
+      "title": "4) Decisiones de moderación y \"Statement of Reasons\"",
+      "content": "Cada vez que I.Z.I. adopte una medida que afecte a contenido o cuenta, emitirá al usuario afectado una motivación estandarizada, que incluirá:",
+      "requirements": {
+        "a": "si la decisión deriva de Términos o de ilicitud legal;",
+        "b": "la regla infringida;",
+        "c": "los hechos esenciales y, en su caso, el uso de sistemas automatizados;",
+        "d": "el ámbito de la medida (qué, dónde y por cuánto tiempo);",
+        "e": "los recursos disponibles: sistema interno de reclamaciones (§5), ADR (§6) y autoridad competente."
+      }
+    },
+    "section5": {
+      "title": "5) Sistema interno de reclamaciones (apelaciones)",
+      "channel": "Canal:",
+      "channelContent": "desde el propio aviso de decisión y en Cuenta > Soporte > Reclamaciones.",
+      "deadline": "Plazo para reclamar:",
+      "deadlineContent": "6 meses desde la decisión.",
+      "sla": "SLA de resolución:",
+      "slaContent": "≤ 14 días naturales.",
+      "review": "Revisión:",
+      "reviewContent": "por equipo humano distinto del que adoptó la decisión.",
+      "result": "Resultado:",
+      "resultContent": "motivado y restitución si procede."
+    },
+    "section6": {
+      "title": "6) Solución extrajudicial de controversias (ADR)",
+      "content": "I.Z.I. reconocerá organismos de resolución extrajudicial certificados por autoridades competentes en la UE. El usuario podrá someter la disputa a dichos organismos una vez agotado el sistema interno. I.Z.I. cooperará de buena fe y cumplirá las resoluciones no contrarias a Derecho. Mientras no existan organismos certificados accesibles, I.Z.I. ofrece mediación ODR voluntaria."
+    },
+    "section7": {
+      "title": "7) \"Trusted Flaggers\" y cooperación",
+      "content": "I.Z.I. dará trato prioritario a avisos de entidades designadas como trusted flaggers por las DSCs nacionales.",
+      "registry": "Se mantendrá un registro de tales entidades y un canal de alta disponibilidad.",
+      "metrics": "Se reportarán métricas específicas en el informe de transparencia (§13)."
+    },
+    "section8": {
+      "title": "8) Medidas contra el uso indebido (abuso)",
+      "content": "Usuarios o notificantes que, de manera reiterada, emitan contenidos ilícitos/violatorios o avisos manifiestamente infundados podrán ser suspendidos temporalmente o ver limitadas sus funcionalidades.",
+      "period": "El periodo y alcance se comunicarán en el statement of reasons.",
+      "appeal": "Existirá vía de reclamación (§5)."
+    },
+    "section9": {
+      "title": "9) Transparencia sobre moderación y automatización",
+      "hybrid": "La plataforma emplea moderación híbrida (IA + revisión humana) para detectar desnudos, violencia, acoso, spam y riesgos.",
+      "automated": "Las herramientas automatizadas pueden impedir temporalmente la visualización o subida hasta revisión.",
+      "humanReview": "El usuario conserva el derecho a revisión humana cuando una decisión le afecte significativamente.",
+      "logic": "La lógica general de los sistemas y sus límites se describen públicamente en esta Política y se amplían en la Política de Privacidad."
+    },
+    "section10": {
+      "title": "10) Recomendadores y parámetros principales",
+      "systems": "I.Z.I. utiliza sistemas de emparejamiento y priorización para:",
+      "uses": {
+        "matchmaking": "Matchmaking de chat,",
+        "content": "Orden de contenidos propios (p. ej., galletas),",
+        "suggestions": "Sugerencias operativas."
+      },
+      "parameters": "Parámetros principales:",
+      "parametersContent": "señales declaradas por el usuario (intención, etiquetas emocionales, idioma, preferencia de conexión), señales de seguridad y calidad (historial de valoraciones positivas/negativas, flags), y señales contextuales (disponibilidad, latencia).",
+      "noProfiling": "Opción sin perfilado:",
+      "noProfilingContent": "I.Z.I. ofrecerá, como mínimo, una opción alternativa que no se base en perfilado individual para el emparejamiento general dentro de la UE (p. ej., orden aleatorio con filtros básicos de seguridad y compatibilidad lingüística).",
+      "userControls": "Controles del usuario:",
+      "userControlsContent": "en Ajustes > Experiencia, el usuario podrá ver y modificar parámetros significativos."
+    },
+    "section11": {
+      "title": "11) Publicidad y comunicaciones comerciales",
+      "launch": "En el lanzamiento, I.Z.I. no muestra publicidad de terceros. Si se introdujera publicidad en la UE:",
+      "ifAdvertising": "Si se introdujera publicidad en la UE:",
+      "requirements": {
+        "labeling": "Se etiquetarán claramente los anuncios y se indicará el promotor.",
+        "parameters": "Se explicarán los principales parámetros de presentación y cómo modificarlos."
+      },
+      "prohibitions": "Prohibiciones:",
+      "prohibitionsContent": "no targeting a menores, ni uso de categorías especiales de datos; no dark patterns.",
+      "archive": "Se mantendrá, si aplica, un archivo público de anuncios servidos en la UE."
+    },
+    "section12": {
+      "title": "12) Protección de menores",
+      "exclusive": "Servicio exclusivo para mayores de 18 años.",
+      "verification": "Verificación por fecha de nacimiento y controles reforzados cuando la ley lo exija.",
+      "sensitive": "Contenidos sensibles desactivados por defecto y política de tolerancia cero con explotación sexual infantil, con notificación inmediata a autoridades competentes."
+    },
+    "section13": {
+      "title": "13) Informe anual de transparencia",
+      "content": "I.Z.I. publicará, al menos anualmente, un informe con:",
+      "items": {
+        "notices": "número de avisos recibidos (por tipo, origen: usuarios, trusted flaggers, autoridades),",
+        "actions": "acciones adoptadas (retiros, bloqueos, suspensiones) y tiempos medios de resolución,",
+        "proactive": "medidas proactivas y volumen de decisiones automatizadas vs. humanas,",
+        "appeals": "reclamaciones internas y resultados,",
+        "requests": "solicitudes y órdenes de autoridades y su cumplimiento,",
+        "abuse": "medidas contra abusos,",
+        "changes": "descripción de cambios relevantes en los sistemas de recomendación y moderación."
+      },
+      "format": "Formato:",
+      "formatContent": "PDF y dataset abierto (CSV/JSON). Ubicación: iziworld.app/transparency."
+    },
+    "section14": {
+      "title": "14) Publicación de receptores activos (MAU-UE)",
+      "content": "Dos veces al año, I.Z.I. publicará el número de receptores activos medios mensuales del servicio en la UE, junto con una metodología reproducible."
+    },
+    "section15": {
+      "title": "15) Trazabilidad de comerciantes (si aplica)",
+      "content": "I.Z.I. no ofrece funcionalidades de compraventa entre usuarios. Si en el futuro se habilitan, se implementará \"Know Your Business Customer\" antes de permitir ofrecer productos/servicios, conforme a DSA."
+    },
+    "section16": {
+      "title": "16) Diseño de interfaz y prohibición de prácticas engañosas",
+      "content": "I.Z.I. se compromete a evitar patrones de diseño engañosos que manipulen o distorsionen elecciones de los usuarios, en especial en consentimiento, cierre de cuenta, cancelación de suscripciones y privacidad."
+    },
+    "section17": {
+      "title": "17) Obligaciones VLOP (plan de escalado)",
+      "content": "Si I.Z.I. alcanzara el umbral VLOP en la UE, activará en ≤ 4 meses:",
+      "items": {
+        "risks": "Evaluaciones de riesgos sistémicos y mitigaciones;",
+        "audit": "Auditoría independiente anual;",
+        "repository": "Repositorio reforzado de anuncios;",
+        "dataAccess": "Data access para investigadores validados;",
+        "crisis": "Crisis response cuando la Comisión lo requiera."
+      },
+      "threshold": "Mientras no se alcance el umbral, estas obligaciones no aplican."
+    },
+    "section18": {
+      "title": "18) Gobernanza, roles y control interno",
+      "responsible": "Responsable DSA interno:",
+      "responsibleContent": "Responsable Legal de OasysNest S.L.",
+      "legalSupport": "Soporte legal y DPO:",
+      "security": "Seguridad:",
+      "securityContent": "conforme a las Medidas Técnicas y Organizativas vigentes (TLS 1.3, cifrado en reposo, control de accesos, registros y DRP).",
+      "review": "Revisión de esta Política:",
+      "reviewContent": "anual o ante cambios regulatorios/funcionales."
+    },
+    "section19": {
+      "title": "19) Conservación y cooperación",
+      "conservation": "Conservación mínima de datos y evidencias necesaria para cumplir el DSA, la ley y defensa de reclamaciones, alineada con la Política de Privacidad.",
+      "cooperation": "Cooperación diligente con autoridades y DSCs.",
+      "reports": "Informes estadísticos anonimizados en el §13."
+    },
+    "section20": {
+      "title": "20) Entrada en vigor y modificaciones",
+      "content": "Esta Política entra en vigor en la fecha indicada y podrá actualizarse. Los cambios sustanciales se comunicarán in-app y/o por email, y podrán requerir aceptación expresa."
+    },
+    "annexA": {
+      "title": "ANEXO A – Campos del formulario de notificación (plantilla)",
+      "identification": "Identificación del contenido: [ID/URL interna]",
+      "reason": "Motivo y base jurídica: [texto]",
+      "description": "Descripción de hechos: [texto]",
+      "country": "País/ámbito afectado: [texto]",
+      "contact": "Datos de contacto del notificante: [nombre, email]",
+      "declaration": "Declaración de buena fe: [checkbox]",
+      "documentation": "Documentación anexa: [adjuntos]"
+    },
+    "annexB": {
+      "title": "ANEXO B – Estructura del \"Statement of Reasons\"",
+      "rule": "Regla infringida (Términos/ley)",
+      "facts": "Hechos y contexto",
+      "automation": "Uso de automatización: sí/no y alcance",
+      "measure": "Medida adoptada y duración",
+      "resources": "Recursos disponibles (reclamación interna, ADR, autoridad)"
+    },
+    "annexC": {
+      "title": "ANEXO C – Métricas del Informe de Transparencia",
+      "noticesByCategory": "Avisos por categoría",
+      "actionsByResult": "Acciones por resultado",
+      "averageTimes": "Tiempos medios (p50/p95)",
+      "automatedVsHuman": "% automatizado vs. humano",
+      "appeals": "Reclamaciones y tasa de revocación",
+      "trustedFlaggers": "Trusted flaggers: volumen y tasa de acierto",
+      "authorityRequests": "Solicitudes de autoridades",
+      "modelChanges": "Cambios en modelos/umbrales de moderación"
+    }
+  },
+  "privacyPolicy": {
+    "title": "Políticas de Privacidad I.Z.I web",
+    "section1": {
+      "title": "1. Introducción",
+      "subsection1": {
+        "title": "1.1 Objeto y alcance",
+        "content": "Esta política aplica solo al sitio web iziworld.app y sus subdominios. Cubre la navegación web, formularios, analítica y pagos realizados en la web. No regula el uso de las apps móviles de I.Z.I; para eso rige la \"Política de Privacidad de la App\"."
+      },
+      "subsection2": {
+        "title": "1.2 Responsable del tratamiento",
+        "address": "Domicilio: Camí Terminal 6A, 07009, Palma de Mallorca, España",
+        "email": "Email privacidad:",
+        "website": "Sitio oficial:"
+      },
+      "subsection3": {
+        "title": "1.3 Cómo contactarnos",
+        "content": "Para derechos de protección de datos o consultas: privacy@iziworld.app o la dirección postal anterior. Plazos de respuesta según la normativa aplicable."
+      },
+      "subsection4": {
+        "title": "1.4 Ámbito territorial",
+        "content": "Esta política se aplica a usuarios que acceden a la web desde la UE/EEE y Reino Unido, EE. UU., Canadá, Australia y LatAm. La interpretación concreta por región se detalla en el apartado de Legislación aplicable."
+      },
+      "subsection5": {
+        "title": "1.5 Relación con otras políticas",
+        "appPolicy": "Política de Privacidad de la App:",
+        "appPolicyContent": "regula datos tratados dentro de las apps móviles.",
+        "cookiePolicy": "Política de Cookies Web:",
+        "cookiePolicyContent": "integra el banner y la gestión de consentimiento en la web.",
+        "terms": "Términos y Condiciones Web:",
+        "termsContent": "regulan el uso del sitio y, si procede, compras en la web.",
+        "conflict": "En caso de conflicto entre documentos web, prevalece la opción más garantista para el usuario."
+      },
+      "subsection6": {
+        "title": "1.6 Definiciones mínimas",
+        "website": "Sitio Web:",
+        "websiteContent": "páginas y servicios accesibles bajo iziworld.app y subdominios.",
+        "webUser": "Usuario Web:",
+        "webUserContent": "persona que navega la web o usa sus formularios/pagos.",
+        "cookies": "Cookies/identificadores:",
+        "cookiesContent": "tecnologías de rastreo usadas en la web.",
+        "providers": "Proveedores:",
+        "providersContent": "terceros que prestan servicios (p. ej., Stripe, analítica)."
+      }
+    },
+    "section2": {
+      "title": "2. ¿Qué datos recopilamos en la Web?",
+      "intro": "Al utilizar el sitio web oficial de I.Z.I. (iziworld.app) podemos recopilar las siguientes categorías de datos:",
+      "subsection1": {
+        "title": "2.1 Datos de registro o prerregistro",
+        "content": {
+          "description": "Cuando el usuario se inscribe para crear o reservar una cuenta de acceso a la app:",
+          "name": "Nombre, apodo o seudónimo.",
+          "email": "Dirección de correo electrónico (obligatoria).",
+          "phone": "Número de teléfono (opcional, para funciones avanzadas o recuperación de cuenta).",
+          "country": "País de residencia y fecha de nacimiento (para verificar mayoría de edad)."
+        }
+      },
+      "subsection2": {
+        "title": "2.2 Datos de contacto en formularios",
+        "content": {
+          "name": "Nombre.",
+          "email": "Dirección de correo electrónico.",
+          "message": "Mensaje o consulta enviada."
+        },
+        "purpose": "Estos datos se utilizan únicamente para dar respuesta a la solicitud del usuario."
+      },
+      "subsection3": {
+        "title": "2.3 Datos técnicos y de navegación",
+        "content": {
+          "ip": "Dirección IP y registros de conexión.",
+          "browser": "Navegador, dispositivo y sistema operativo.",
+          "cookies": "Cookies y tecnologías de seguimiento (véase apartado 4)."
+        }
+      },
+      "subsection4": {
+        "title": "2.4 Datos de pago y facturación (en caso de contratación vía web)",
+        "content": {
+          "billing": "Información de facturación (país, divisa, plan contratado).",
+          "transactions": "Identificadores de transacción y recibos de compra.",
+          "stripe": "Pagos procesados de forma segura mediante Stripe.",
+          "note": "Nota:",
+          "noteContent": "I.Z.I. no almacena datos completos de tarjetas."
+        }
+      },
+      "subsection5": {
+        "title": "2.5 Datos de analítica web",
+        "content": "Información sobre visitas, páginas vistas, duración de la sesión, clics e interacciones. Estos datos se recogen de forma agregada y anónima a través de herramientas como Google Analytics o Firebase Web, siempre con consentimiento previo para cookies analíticas."
+      }
+    },
+    "section3": {
+      "title": "3. Finalidad del Tratamiento en la Web",
+      "intro": "Los datos recopilados a través del sitio web iziworld.app se tratan con las siguientes finalidades legítimas:",
+      "subsection1": {
+        "title": "3.1 Registro y prerregistro de usuarios",
+        "content": {
+          "createAccount": "Permitir la creación de una cuenta inicial para el posterior acceso a la app.",
+          "verifyAge": "Verificar la mayoría de edad (18+).",
+          "communications": "Enviar comunicaciones necesarias para la activación de la cuenta, recordatorios o avisos previos al lanzamiento."
+        }
+      },
+      "subsection2": {
+        "title": "3.2 Gestión de formularios de contacto",
+        "content": {
+          "respond": "Atender consultas, solicitudes de información o reclamaciones enviadas por el usuario.",
+          "support": "Ofrecer soporte básico antes de la descarga y uso de la app."
+        }
+      },
+      "subsection3": {
+        "title": "3.3 Pagos y contratación de servicios vía web",
+        "content": {
+          "processPayments": "Procesar cobros de planes premium u ofertas previas al lanzamiento.",
+          "issueInvoices": "Emitir facturas y comprobantes de compra.",
+          "manageRequests": "Gestionar solicitudes de cancelación o reembolso según la normativa aplicable."
+        }
+      },
+      "subsection4": {
+        "title": "3.4 Seguridad y prevención de fraudes",
+        "content": {
+          "protectIntegrity": "Proteger la integridad del sitio web mediante controles de seguridad, registros técnicos y monitorización de accesos.",
+          "detectFraud": "Detectar accesos indebidos o intentos de fraude en pagos y registros."
+        }
+      },
+      "subsection5": {
+        "title": "3.5 Analítica y mejoras del sitio web",
+        "content": {
+          "analyzeUsage": "Analizar de forma anónima cómo se utiliza la web para mejorar su usabilidad, contenido y seguridad.",
+          "evaluateCampaigns": "Evaluar campañas de marketing digital y optimizar la experiencia del usuario."
+        }
+      },
+      "subsection6": {
+        "title": "3.6 Cumplimiento de obligaciones legales",
+        "content": {
+          "authorities": "Atender requerimientos de autoridades competentes en materia de protección de datos, consumo o fiscalidad.",
+          "records": "Mantener registros de facturación conforme a la normativa fiscal."
+        }
+      }
+    },
+    "section4": {
+      "title": "4. Cookies y Tecnologías de Seguimiento en la Web",
+      "intro": "El sitio web iziworld.app utiliza cookies y tecnologías similares para garantizar el funcionamiento básico, mejorar la experiencia de usuario y, en su caso, personalizar contenidos y anuncios.",
+      "subsection1": {
+        "title": "4.1 Tipos de cookies utilizadas",
+        "technical": {
+          "title": "Cookies técnicas o necesarias",
+          "description": "Imprescindibles para el funcionamiento básico de la web (gestión de sesión, seguridad, selección de idioma).",
+          "consent": "No requieren consentimiento, solo información previa."
+        },
+        "personalization": {
+          "title": "Cookies de personalización",
+          "description": "Guardan las preferencias del usuario (idioma, región, configuraciones recurrentes).",
+          "consent": "Requieren consentimiento."
+        },
+        "analytics": {
+          "title": "Cookies analíticas",
+          "description": "Permiten comprender cómo los usuarios interactúan con la web (visitas, tiempo de navegación, errores).",
+          "tools": "Herramientas: Google Analytics, Firebase Web.",
+          "consent": "Requieren consentimiento expreso."
+        },
+        "advertising": {
+          "title": "Cookies publicitarias y de seguimiento",
+          "description": "Utilizadas para mostrar anuncios adaptados a intereses del usuario y medir la eficacia de campañas.",
+          "consent": "Solo se activan con consentimiento previo, libre e informado."
+        }
+      },
+      "subsection2": {
+        "title": "4.2 Consentimiento y gestión de cookies",
+        "banner": "Al acceder por primera vez, el usuario verá un banner de consentimiento con opciones: \"Aceptar todas\", \"Rechazar todas\" y \"Configurar\".",
+        "granular": "El consentimiento es granular, pudiendo elegir qué categorías aceptar.",
+        "withdraw": "El usuario puede retirar o modificar su consentimiento en cualquier momento desde el gestor habilitado en la web."
+      },
+      "subsection3": {
+        "title": "4.3 Conservación de cookies",
+        "session": "Cookies de sesión:",
+        "sessionContent": "se eliminan al cerrar el navegador.",
+        "persistent": "Cookies persistentes:",
+        "persistentContent": "permanecen en el dispositivo un máximo de 24 meses (según finalidad y proveedor)."
+      },
+      "subsection4": {
+        "title": "4.4 Responsables y terceros",
+        "content": "Algunas cookies son propias (control interno del sitio) y otras de terceros (Google, Meta, Stripe). En todos los casos se firman contratos de encargo de tratamiento (DPAs) y se aplican cláusulas contractuales tipo (SCCs) cuando hay transferencias internacionales."
+      },
+      "subsection5": {
+        "title": "4.5 Rechazo de cookies no esenciales",
+        "content": "Si el usuario rechaza las cookies analíticas o publicitarias, seguirá pudiendo acceder y navegar por la web, aunque con funcionalidades limitadas en personalización y publicidad."
+      }
+    },
+    "section5": {
+      "title": "5. Bases Legales del Tratamiento en la Web",
+      "intro": "El tratamiento de los datos recogidos en iziworld.app se fundamenta en las siguientes bases jurídicas, conforme al RGPD y demás normativas internacionales:",
+      "subsection1": {
+        "title": "5.1 Consentimiento expreso del usuario",
+        "content": {
+          "analytics": "Para el uso de cookies analíticas, de personalización y publicitarias.",
+          "registration": "Para el registro o prerregistro de cuenta, incluyendo comunicaciones previas al lanzamiento.",
+          "newsletters": "Para el uso del correo electrónico en boletines o comunicaciones comerciales opcionales."
+        }
+      },
+      "subsection2": {
+        "title": "5.2 Ejecución de un contrato",
+        "content": {
+          "payments": "Para procesar pagos y suscripciones contratados a través de la web.",
+          "registration": "Para gestionar el registro y acceso a una futura cuenta de la app.",
+          "invoices": "Para emitir facturas y comprobantes."
+        }
+      },
+      "subsection3": {
+        "title": "5.3 Cumplimiento de obligaciones legales",
+        "content": {
+          "authorities": "Para atender solicitudes de autoridades de protección de datos, consumo y tributarias.",
+          "billing": "Para conservar datos de facturación durante los plazos exigidos por normativa fiscal."
+        }
+      },
+      "subsection4": {
+        "title": "5.4 Interés legítimo",
+        "content": {
+          "security": "Para garantizar la seguridad técnica del sitio web y prevenir fraudes.",
+          "improvements": "Para realizar mejoras en el funcionamiento de la web mediante analítica agregada y anónima.",
+          "defense": "Para defenderse frente a reclamaciones legales."
+        }
+      }
+    },
+    "section6": {
+      "title": "6. Plazos de Conservación de los Datos en la Web",
+      "intro": "Los datos personales recopilados a través del sitio iziworld.app se conservarán únicamente durante el tiempo necesario para cumplir las finalidades informadas o las obligaciones legales aplicables.",
+      "subsection1": {
+        "title": "6.1 Datos de registro y prerregistro",
+        "conserved": "Conservados hasta que el usuario active su cuenta en la app o solicite su eliminación.",
+        "notActivated": "Si no se activa en un plazo máximo de 24 meses, los datos se eliminarán o anonimizarán."
+      },
+      "subsection2": {
+        "title": "6.2 Formularios de contacto",
+        "duration": "Conservados durante 12 meses desde la última comunicación.",
+        "early": "Eliminación anticipada si el usuario lo solicita."
+      },
+      "subsection3": {
+        "title": "6.3 Datos de facturación y pagos",
+        "duration": "Conservados durante 5 años conforme a normativa fiscal y contable.",
+        "identifiers": "Identificadores de transacción y facturas se conservan como justificante legal."
+      },
+      "subsection4": {
+        "title": "6.4 Cookies y analítica web",
+        "session": "Cookies de sesión:",
+        "sessionContent": "se eliminan al cerrar el navegador.",
+        "persistent": "Cookies persistentes:",
+        "persistentContent": "máximo 24 meses, salvo retirada previa de consentimiento.",
+        "analytics": "Datos de analítica:",
+        "analyticsContent": "conservados en formato agregado y anonimizado hasta 36 meses."
+      },
+      "subsection5": {
+        "title": "6.5 Datos de seguridad y logs técnicos",
+        "content": "Registros de acceso y seguridad (IP, errores, intentos de fraude): 90 días, prorrogables en caso de investigaciones."
+      }
+    },
+    "section7": {
+      "title": "7. Derechos de los Usuarios en la Web",
+      "intro": "Los usuarios de iziworld.app tienen garantizados los derechos que reconocen el RGPD, la CCPA/CPRA, la LGPD y demás normativas internacionales de privacidad.",
+      "subsection1": {
+        "title": "7.1 Derechos reconocidos",
+        "access": "Acceso:",
+        "accessContent": "obtener confirmación sobre si tratamos sus datos y acceder a ellos.",
+        "rectification": "Rectificación:",
+        "rectificationContent": "corregir datos inexactos o incompletos.",
+        "erasure": "Supresión (derecho al olvido):",
+        "erasureContent": "solicitar la eliminación de sus datos cuando ya no sean necesarios o se retire el consentimiento.",
+        "portability": "Portabilidad:",
+        "portabilityContent": "recibir sus datos en un formato estructurado y transmitirlos a otro responsable.",
+        "restriction": "Limitación:",
+        "restrictionContent": "solicitar que se restrinja temporalmente el uso de sus datos.",
+        "objection": "Oposición:",
+        "objectionContent": "rechazar el tratamiento de sus datos en determinadas circunstancias (ej. publicidad personalizada).",
+        "withdrawal": "Retirada del consentimiento:",
+        "withdrawalContent": "en cualquier momento, sin afectar a la licitud del tratamiento previo."
+      },
+      "subsection2": {
+        "title": "7.2 Ejercicio de derechos",
+        "contact": "Los usuarios pueden ejercer sus derechos de manera gratuita enviando una solicitud a:",
+        "requirements": "La solicitud debe indicar claramente:",
+        "requirementsList": {
+          "name": "Nombre y correo electrónico vinculados al uso de la web.",
+          "right": "Derecho que desea ejercer.",
+          "country": "País de residencia (para aplicar plazos legales según normativa local)."
+        }
+      },
+      "subsection3": {
+        "title": "7.3 Plazos de respuesta",
+        "euUk": "UE y Reino Unido (RGPD):",
+        "euUkContent": "30 días, prorrogables 60 días en casos complejos.",
+        "brazil": "Brasil (LGPD):",
+        "brazilContent": "15 días.",
+        "usa": "EE.UU. (CCPA/CPRA):",
+        "usaContent": "45 días, prorrogables 45 días adicionales.",
+        "others": "Otros países de LatAm y Canadá: plazos equivalentes según ley aplicable."
+      },
+      "subsection4": {
+        "title": "7.4 Autoridades de control",
+        "content": "Si considera que el tratamiento de sus datos vulnera la normativa aplicable, el usuario puede presentar reclamación ante la autoridad de control de su país (ej. AEPD en España, CNIL en Francia, ICO en Reino Unido, ANPD en Brasil, INAI en México)."
+      }
+    },
+    "section8": {
+      "title": "8. Transferencias Internacionales de Datos en la Web",
+      "intro": "El uso del sitio iziworld.app implica que algunos datos puedan transferirse fuera del país de residencia del usuario, debido a la infraestructura técnica y a los proveedores utilizados.",
+      "subsection1": {
+        "title": "8.1 Transferencias dentro y fuera del Espacio Económico Europeo (EEE)",
+        "content": {
+          "description": "Cuando los datos se transfieren desde la UE/EEE a países sin decisión de adecuación, se aplican Cláusulas Contractuales Tipo (SCCs) aprobadas por la Comisión Europea.",
+          "withinEEA": "Medidas adicionales:",
+          "withinEEAContent": "Se aplican medidas adicionales de seguridad como cifrado en tránsito (TLS 1.3) y en reposo (AES-256)."
+        }
+      },
+      "subsection2": {
+        "title": "8.2 Estados Unidos",
+        "content": {
+          "providers": "Algunos proveedores tienen sede en EE.UU. (ej. Google Analytics, Stripe).",
+          "measures": "Se asegura la firma de SCCs y la aplicación de medidas técnicas reforzadas."
+        }
+      },
+      "subsection3": {
+        "title": "8.3 Canadá y Australia",
+        "content": {
+          "canada": "En Canadá, las transferencias se rigen por la PIPEDA y normativas provinciales aplicables.",
+          "australia": "En Australia, por la Privacy Act 1988."
+        }
+      },
+      "subsection4": {
+        "title": "8.4 América Latina",
+        "content": "Países con leyes de protección de datos vigentes (México, Argentina, Brasil, Colombia, Chile, Perú, Uruguay, Paraguay, Ecuador, Panamá, Costa Rica, República Dominicana): las transferencias se realizan conforme a contratos y normas locales. En países sin legislación específica (Guatemala, El Salvador, Honduras, Nicaragua, Venezuela): se aplican principios del RGPD como estándar mínimo."
+      },
+      "subsection5": {
+        "title": "8.5 Proveedores y subencargados web",
+        "content": {
+          "main": "En el uso de la web, los principales proveedores externos que pueden implicar transferencia internacional de datos son:",
+          "stripe": "Stripe, Inc. – Procesamiento de pagos.",
+          "google": "Google LLC (Google Analytics / Firebase Web) – Analítica y rendimiento.",
+          "googleAds": "Google LLC (Google Ads) – Publicidad y seguimiento (solo si el usuario lo consiente).",
+          "hosting": "Hetzner / AWS / Firebase Hosting – Infraestructura de servidores y alojamiento."
+        }
+      },
+      "subsection6": {
+        "title": "8.6 Garantías adicionales",
+        "content": {
+          "dpas": "Contratos de encargo de tratamiento (DPAs) firmados con todos los proveedores.",
+          "certifications": "Certificaciones internacionales de seguridad (ISO 27001, PCI DSS).",
+          "assessments": "Evaluaciones de Impacto en Protección de Datos (DPIA/EIPD) en servicios críticos."
+        }
+      }
+    },
+    "section9": {
+      "title": "9. Seguridad de los Datos en la Web",
+      "intro": "En iziworld.app se aplican medidas técnicas y organizativas adecuadas para proteger los datos personales tratados a través del sitio web, siguiendo el principio de privacidad desde el diseño y por defecto (art. 25 RGPD).",
+      "subsection1": {
+        "title": "9.1 Cifrado y comunicaciones seguras",
+        "content": {
+          "tls": "TLS 1.3 en todas las conexiones entre el navegador del usuario y nuestros servidores.",
+          "aes": "Cifrado AES-256 en reposo para bases de datos y sistemas de almacenamiento.",
+          "backups": "Copias de seguridad cifradas con retención máxima de 30 días."
+        }
+      },
+      "subsection2": {
+        "title": "9.2 Control de accesos",
+        "content": {
+          "mfa": "Autenticación multifactor (2FA) para administradores y personal técnico.",
+          "roles": "Gestión de roles (legal, técnico, soporte) bajo el principio de mínimo privilegio.",
+          "revocation": "Revocación inmediata de accesos cuando finaliza una relación laboral o de colaboración."
+        }
+      },
+      "subsection3": {
+        "title": "9.3 Registro y monitorización",
+        "content": {
+          "logs": "Logs de seguridad de accesos y modificaciones críticas (retención: 90 días).",
+          "monitoring": "Monitorización activa del servidor y detección temprana de anomalías.",
+          "alerts": "Sistemas de alertas automáticas en caso de actividad sospechosa."
+        }
+      },
+      "subsection4": {
+        "title": "9.4 Continuidad y disponibilidad",
+        "content": {
+          "infrastructure": "Infraestructura web alojada en VPS cifrado y certificado ISO 27001.",
+          "recovery": "Plan de recuperación ante desastres (BCP/DRP) con restauración de servicios en menos de 24 horas.",
+          "redundancy": "Redundancia geográfica en centros de datos seguros."
+        }
+      },
+      "subsection5": {
+        "title": "9.5 Gobernanza y cumplimiento",
+        "content": {
+          "contracts": "Contratos de encargados de tratamiento (DPAs/SCCs) firmados con todos los proveedores web (ej. Stripe, Google, Hetzner).",
+          "training": "Formación periódica del personal en privacidad y seguridad.",
+          "review": "Revisión trimestral de medidas técnicas y organizativas."
+        }
+      },
+      "subsection6": {
+        "title": "9.6 Limitaciones específicas de la web",
+        "content": "El sitio web no trata datos sensibles como diarios o emociones (propios de la app). La web solo procesa datos identificativos, técnicos, de navegación y pagos, bajo las medidas anteriores."
+      }
+    },
+    "section10": {
+      "title": "10. Menores de Edad en la Web",
+      "subsection1": {
+        "title": "10.1 Restricción de uso",
+        "content": {
+          "restriction": "El sitio web iziworld.app no está dirigido a menores de 18 años.",
+          "requirement": "El prerregistro o creación de cuenta para la app requiere verificar la mayoría de edad."
+        }
+      },
+      "subsection2": {
+        "title": "10.2 Verificación de edad",
+        "content": {
+          "verification": "Durante el prerregistro, se podrá solicitar la fecha de nacimiento para garantizar que el usuario cumple la edad mínima.",
+          "purpose": "Este dato se utiliza únicamente para la verificación de mayoría de edad y no para otros fines."
+        }
+      },
+      "subsection3": {
+        "title": "10.3 Procedimiento en caso de detección de menores",
+        "content": {
+          "procedure": "Si se identifica que un usuario menor de 18 años se ha registrado o prerregistrado, sus datos serán eliminados de inmediato.",
+          "deadline": "El plazo máximo de eliminación será de 10 días hábiles desde la detección o notificación, salvo obligación legal de conservación.",
+          "blocking": "Durante ese tiempo, los datos se bloquearán para impedir su uso."
+        }
+      },
+      "subsection4": {
+        "title": "10.4 Contenido compartido por menores",
+        "content": "En caso de que un menor hubiera enviado datos mediante formularios de contacto, estos se eliminarán o anonimizarán en un plazo máximo de 30 días desde su detección."
+      },
+      "subsection5": {
+        "title": "10.5 Responsabilidad de tutores legales",
+        "content": "Padres, madres o tutores legales pueden notificar cualquier sospecha de uso indebido del sitio por parte de un menor a través de privacy@iziworld.app."
+      }
+    },
+    "section11": {
+      "title": "11. Actualizaciones y Cambios en la Política Web",
+      "subsection1": {
+        "title": "11.1 Inclusión de nuevas funciones o servicios",
+        "content": "La web de I.Z.I. puede incorporar nuevas funcionalidades (ej. pasarela de pagos adicional, nuevos formularios, sistema de comunidad). Cuando estas impliquen el tratamiento de nuevos datos personales, se actualizará la presente política garantizando transparencia y consentimiento previo si corresponde."
+      },
+      "subsection2": {
+        "title": "11.2 Procedimiento de notificación",
+        "content": {
+          "changes": "Cualquier cambio sustancial será comunicado al usuario mediante aviso visible en la web y, en su caso, por correo electrónico si el usuario está registrado.",
+          "cookies": "Los cambios que afecten al uso de cookies se notificarán a través del banner de consentimiento actualizado."
+        }
+      },
+      "subsection3": {
+        "title": "11.3 Vigencia y aceptación",
+        "content": {
+          "effective": "La versión vigente de esta política será aplicable desde la fecha de su publicación en la web.",
+          "continued": "El uso continuado del sitio tras la publicación de cambios implicará la aceptación de los mismos, salvo que la normativa aplicable exija consentimiento expreso.",
+          "disagreement": "En caso de no estar de acuerdo, el usuario podrá abstenerse de usar la web o solicitar la eliminación de sus datos."
+        }
+      }
+    },
+    "section12": {
+      "title": "12. Legislación Aplicable y Jurisdicción",
+      "intro": "El tratamiento de datos realizado a través del sitio web iziworld.app se rige por las siguientes normas, dependiendo del lugar de residencia del usuario:",
+      "subsection1": {
+        "title": "12.1 Unión Europea y Reino Unido",
+        "content": {
+          "gdpr": "Reglamento General de Protección de Datos (RGPD, UE 2016/679).",
+          "eprivacy": "Directiva ePrivacy (2002/58/CE).",
+          "ukdpa": "UK Data Protection Act 2018."
+        }
+      },
+      "subsection2": {
+        "title": "12.2 Estados Unidos",
+        "content": {
+          "ccpa": "California Consumer Privacy Act (CCPA/CPRA).",
+          "state": "Otras leyes estatales equivalentes (Virginia, Colorado, Texas, Florida, etc.)."
+        }
+      },
+      "subsection3": {
+        "title": "12.3 Canadá",
+        "content": "Personal Information Protection and Electronic Documents Act (PIPEDA). Normativas provinciales en Alberta, British Columbia y Quebec."
+      },
+      "subsection4": {
+        "title": "12.4 Australia",
+        "content": "Privacy Act 1988."
+      },
+      "subsection5": {
+        "title": "12.5 América Latina",
+        "content": "México: LFPDPPP. Argentina: Ley 25.326. Brasil: LGPD. Colombia: Ley 1581 de 2012. Chile: Ley 19.628. Perú: Ley 29733. Uruguay: Ley 18.331. Paraguay: Ley 6534/20. Ecuador: LOPDP 2021. Panamá: Ley 81/2019. Costa Rica: Ley 8968. República Dominicana: Ley 172-13. Países sin normativa específica (Guatemala, El Salvador, Honduras, Nicaragua, Venezuela): aplicación de principios del RGPD como estándar mínimo."
+      },
+      "subsection6": {
+        "title": "12.6 Jurisdicción",
+        "content": {
+          "resolution": "Cualquier conflicto derivado del uso del sitio web se someterá a los tribunales del país de residencia del usuario, salvo disposición imperativa en contrario.",
+          "mediation": "Cuando la normativa lo permita, se podrán utilizar mecanismos de resolución alternativa de disputas (mediación o arbitraje digital)."
+        }
+      }
+    },
+    "section13": {
+      "title": "13. Contacto y Reclamaciones",
+      "subsection1": {
+        "title": "13.1 Canales oficiales de contacto",
+        "content": {
+          "contact": "Los usuarios pueden ponerse en contacto con I.Z.I. para consultas, reclamaciones o ejercicio de derechos a través de:",
+          "privacy": "Privacidad:",
+          "support": "Soporte:",
+          "dpo": "DPO:",
+          "address": "Dirección:",
+          "website": "Página web:"
+        }
+      },
+      "subsection2": {
+        "title": "13.2 Procedimiento interno de reclamaciones",
+        "content": {
+          "deadline": "Todas las solicitudes serán atendidas en un plazo máximo de 30 días naturales.",
+          "complex": "En casos complejos, el plazo podrá ampliarse a 60 días, informando previamente al usuario.",
+          "channel": "Las respuestas se enviarán al mismo canal por el que se recibió la reclamación, salvo que el usuario solicite lo contrario."
+        }
+      },
+      "subsection3": {
+        "title": "13.3 Autoridades de supervisión",
+        "content": "Si el usuario considera que sus derechos no han sido respetados, podrá presentar reclamación ante la autoridad de protección de datos de su país de residencia (ej. AEPD en España, CNIL en Francia, ICO en Reino Unido, ANPD en Brasil, INAI en México)."
+      }
+    },
+    "section14": {
+      "title": "14. Fecha de última actualización",
+      "lastUpdated": "Las presentes Políticas de Privacidad Web de I.Z.I. han sido aprobadas y publicadas en fecha:",
+      "modification": "I.Z.I. se reserva el derecho de modificar este documento para reflejar cambios en el sitio web, en la normativa aplicable o en las prácticas de tratamiento de datos."
+    }
+  },
+  "communityRules": {
+    "title": "Reglas de la Comunidad – I.Z.I",
+    "intro": "En I.Z.I. tu diario es tu espacio íntimo. El chat es un añadido para conectar con otras personas de forma segura y respetuosa.",
+    "purpose": "Para que funcione, necesitamos que todos sigamos unas normas simples:",
+    "rule1": {
+      "title": "Respeto mutuo",
+      "content": "Hablar con alguien es un acto de confianza. No uses insultos, acoso ni amenazas. La empatía es la base de este espacio."
+    },
+    "rule2": {
+      "title": "Contenido seguro",
+      "content": "Nada de mensajes sexuales explícitos, violencia, imágenes perturbadoras o actividades ilegales. Queremos un lugar seguro."
+    },
+    "rule3": {
+      "title": "Uso adecuado del chat",
+      "content": "No spam, publicidad, cadenas ni suplantación de identidad."
+    },
+    "rule4": {
+      "title": "Privacidad",
+      "content": "No compartas datos personales tuyos ni de otros (teléfonos, direcciones, redes sociales). Tu seguridad es primero."
+    },
+    "rule5": {
+      "title": "Uso responsable",
+      "content": "Recuerda: I.Z.I. no sustituye médicos ni psicólogos. El Botón SOS conecta con líneas oficiales, no es una urgencia médica."
+    },
+    "consequences": {
+      "title": "Consecuencias si no cumples",
+      "note": "Las sanciones nunca afectan a tu diario ni a tus galletas de la fortuna. Solo aplican al chat.",
+      "warning": {
+        "title": "Advertencia",
+        "content": "Si algo no encaja, te avisamos y el mensaje se elimina."
+      },
+      "temporaryBlock": {
+        "title": "Bloqueo temporal",
+        "content": "Si reincides, perderás acceso al chat por unas horas (12–24h)."
+      },
+      "sevenDaySuspension": {
+        "title": "Suspensión de 7 días",
+        "content": "Para casos más graves como acoso repetido o spam."
+      },
+      "chatExpulsion": {
+        "title": "Expulsión del chat",
+        "content": "Para conductas muy serias (amenazas, contenido sexual o violento, riesgos de daño). Mantendrás tu diario, pero no podrás volver a usar el chat."
+      },
+      "seriousExceptions": {
+        "title": "Excepciones graves",
+        "content": "En casos de delitos evidentes (ej. pornografía infantil, amenazas terroristas, autolesiones graves) la cuenta completa puede ser suspendida y se aplicará cooperación con autoridades según ley."
+      }
+    },
+    "reminder": {
+      "title": "Tu diario es intocable.",
+      "content": "El chat es un regalo extra, úsalo con respeto para que siga siendo un espacio seguro para todos."
+    },
+    "contact": {
+      "title": "Contacto",
+      "abuse": "support@iziworld.app → para reportes de abusos/problemas en chat.",
+      "privacy": "privacy@iziworld.app → para dudas sobre datos moderados"
+    }
+  },
+  "subcontractors": {
+    "title": "Documento de Subcontratistas (Subprocesadores) – I.Z.I.",
+    "section1": {
+      "title": "1. Objeto",
+      "content": "Este documento identifica a los proveedores externos (subprocesadores) que colaboran con I.Z.I. en el tratamiento de datos personales, conforme al RGPD (art. 28), la LGPD, la CCPA y demás normativas internacionales. Todos los subprocesadores están sujetos a contratos de encargo de tratamiento (DPAs) o Cláusulas Contractuales Tipo (SCCs) y cumplen con estándares de seguridad y privacidad equivalentes."
+    },
+    "section2": {
+      "title": "2. Listado de Subprocesadores"
+    },
+    "table": {
+      "headers": {
+        "provider": "Proveedor",
+        "service": "Servicio prestado",
+        "data": "Datos tratados",
+        "location": "Ubicación / Región",
+        "guarantees": "Garantías de privacidad"
+      }
+    },
+    "providers": {
+      "firebase": {
+        "service": "Autenticación, base de datos, almacenamiento cifrado, notificaciones",
+        "data": "Datos identificativos, diarios, interacciones, logs técnicos",
+        "location": "UE/EE.UU.",
+        "guarantees": "SCCs + ISO 27001 + cifrado extremo a extremo"
+      },
+      "stripe": {
+        "service": "Procesamiento de pagos web",
+        "data": "Datos de facturación y transacción",
+        "location": "UE/EE.UU.",
+        "guarantees": "PCI DSS, SCCs, cifrado financiero"
+      },
+      "apple": {
+        "service": "Procesamiento de pagos in-app",
+        "data": "Datos de compra (no tarjetas)",
+        "location": "Global",
+        "guarantees": "Apple Privacy Policy, PCI DSS"
+      },
+      "googlePlay": {
+        "service": "Procesamiento de pagos in-app",
+        "data": "Datos de compra (no tarjetas)",
+        "location": "Global",
+        "guarantees": "Google Privacy Policy, PCI DSS"
+      },
+      "cloudVision": {
+        "service": "Análisis y moderación de imágenes",
+        "data": "Imágenes compartidas en chat/diario",
+        "location": "UE/EE.UU.",
+        "guarantees": "SCCs, ISO 27001, cifrado en tránsito y en reposo"
+      },
+      "perspective": {
+        "service": "Moderación de texto (toxicidad, acoso)",
+        "data": "Fragmentos de mensajes",
+        "location": "EE.UU.",
+        "guarantees": "API cifrada, límites de retención"
+      },
+      "hetzner": {
+        "service": "Infraestructura backend, cifrado y monitorización",
+        "data": "Datos técnicos y de seguridad",
+        "location": "UE",
+        "guarantees": "ISO 27001, GDPR compliance"
+      }
+    },
+    "section3": {
+      "title": "3. Actualizaciones del documento",
+      "content": {
+        "updates": "El listado se actualiza con cada alta o baja de subprocesadores.",
+        "notifications": "Los usuarios serán notificados en caso de incorporación de proveedores que impliquen tratamiento adicional o sensible.",
+        "currentVersion": "Versión actual:"
+      }
+    },
+    "section4": {
+      "title": "4. Contacto",
+      "content": {
+        "intro": "Para consultas sobre subprocesadores:",
+        "contact": "Contacto:",
+        "dpo": "DPO:",
+        "address": "Dirección:"
+      }
+    }
+  },
+  "termsConditions": {
+    "title": "Términos y condiciones I.Z.I web",
+    "section1": {
+      "title": "1. Introducción",
+      "subsection1": {
+        "title": "1.1 Objeto del documento",
+        "content": "Estos Términos y Condiciones (en adelante, los \"Términos\") regulan el acceso y uso del sitio web oficial de I.Z.I. (iziworld.app) y sus subdominios. Incluyen la navegación, el prerregistro y registro de cuentas, la contratación de servicios o suscripciones y el acceso a información corporativa, legal y promocional de I.Z.I."
+      },
+      "subsection2": {
+        "title": "1.2 Aceptación de los Términos",
+        "content": {
+          "acceptance": "El acceso o uso del sitio implica la lectura y aceptación plena de estos Términos. Si el usuario no está de acuerdo, deberá abstenerse de utilizar la web o proporcionar datos.",
+          "binding": "La aceptación de estos Términos constituye un acuerdo legalmente vinculante entre el usuario y el titular de la web."
+        }
+      },
+      "subsection3": {
+        "title": "1.3 Relación con otros documentos",
+        "content": {
+          "documents": "El uso del sitio también está sujeto a:",
+          "privacyPolicy": "La Política de Privacidad Web, relativa al tratamiento de datos en la navegación y prerregistro.",
+          "cookiePolicy": "La Política de Cookies, integrada como sección propia en este documento.",
+          "appTerms": "Los Términos y Condiciones de la App, que regirán de forma independiente el uso de la aplicación I.Z.I. tras su descarga.",
+          "conflict": "En caso de conflicto, prevalecerán estos Términos respecto de la navegación web y los de la App respecto de su uso en dispositivos móviles."
+        }
+      },
+      "subsection4": {
+        "title": "1.4 Ámbito territorial de aplicación",
+        "content": "Estos Términos se aplican a todos los visitantes y usuarios de la web, con independencia de su país de residencia. El cumplimiento normativo se adecua a las principales jurisdicciones en las que I.Z.I. opera (UE/EEE, Reino Unido, Estados Unidos, Canadá, Australia y América Latina). Las cláusulas se interpretarán conforme a la legislación local más protectora para el usuario."
+      },
+      "subsection5": {
+        "title": "1.5 Limitación de edad",
+        "content": {
+          "ageLimit": "El prerregistro y la creación de cuentas están limitados a mayores de 18 años. El proceso de registro incluirá un control de edad.",
+          "minors": "Los menores que accedan únicamente a la parte informativa de la web no podrán registrarse ni enviar datos personales."
+        }
+      },
+      "subsection6": {
+        "title": "1.6 Exclusión de servicios profesionales",
+        "content": {
+          "nature": "El sitio web tiene carácter informativo y de contacto. No constituye asesoramiento médico, psicológico, terapéutico ni jurídico.",
+          "noSubstitute": "La web no sustituye servicios profesionales y se limita a ofrecer información sobre la app, sus servicios y actualizaciones."
+        }
+      },
+      "subsection7": {
+        "title": "1.7 Disponibilidad y limitación de responsabilidad",
+        "content": {
+          "asIs": "La web se ofrece en modalidad \"tal cual\" y \"según disponibilidad\". Pueden producirse interrupciones por mantenimiento, incidencias técnicas o causas ajenas al titular.",
+          "noGuarantee": "Se excluye cualquier garantía de disponibilidad ininterrumpida o de ausencia total de errores, sin perjuicio de lo dispuesto en el apartado 9. Limitación de Responsabilidad."
+        }
+      },
+      "subsection8": {
+        "title": "1.8 Modificación de los Términos",
+        "content": {
+          "modifications": "I.Z.I. podrá modificar estos Términos por razones legales, técnicas o de servicio. Las modificaciones se publicarán en la web, indicando la fecha de última actualización.",
+          "notification": "Si los cambios afectan a usuarios prerregistrados, se notificará mediante el correo de contacto facilitado."
+        }
+      },
+      "subsection9": {
+        "title": "1.9 Idioma y prevalencia",
+        "content": {
+          "spanish": "La versión en español será la referencia principal. Podrán publicarse traducciones para comodidad de los usuarios.",
+          "translations": "En caso de discrepancia, prevalecerá la versión española."
+        }
+      }
+    },
+    "section2": {
+      "title": "2. Identidad del Titular y Datos de Contacto",
+      "subsection1": {
+        "title": "2.1 Datos de la entidad responsable",
+        "content": {
+          "compliance": "En cumplimiento de la normativa internacional aplicable, se informa que el titular y responsable del sitio web iziworld.app es:",
+          "company": "Nombre o Razón Social:",
+          "nif": "NIF:",
+          "address": "Domicilio Social:",
+          "email": "Correo electrónico de contacto:",
+          "privacy": "Correo electrónico para privacidad y protección de datos:",
+          "website": "Página web oficial:"
+        }
+      },
+      "subsection2": {
+        "title": "2.2 Representantes legales en otras jurisdicciones",
+        "content": "Cuando la normativa local lo exija, I.Z.I. designará representantes o responsables en distintas regiones: Unión Europea y Reino Unido: Representante RGPD (art. 27) y UK Data Protection Act. Estados Unidos: Responsable para el cumplimiento de CCPA/CPRA y normativas estatales. Canadá: Responsable conforme a PIPEDA y legislaciones provinciales. Australia: Responsable conforme a la Privacy Act 1988. América Latina: Representantes locales o legales en los países con normativa vigente. En países sin normativa específica, se aplican los principios rectores del RGPD como estándar mínimo."
+      },
+      "subsection3": {
+        "title": "2.3 Delegado de Protección de Datos (DPO)",
+        "content": {
+          "compliance": "En cumplimiento del artículo 37 del RGPD, OasysNest S.L. cuenta con un Delegado de Protección de Datos designado para supervisar el cumplimiento de la normativa de privacidad y actuar como punto de contacto con los usuarios y autoridades.",
+          "dpoEmail": "Correo del DPO:",
+          "dpoAddress": "Dirección postal del DPO:"
+        }
+      },
+      "subsection4": {
+        "title": "2.4 Autoridades de supervisión y plazos de respuesta",
+        "content": {
+          "authorities": "Los usuarios podrán presentar reclamaciones ante la autoridad de protección de datos de su país.",
+          "euUk": "UE/EEE y Reino Unido:",
+          "euUkDeadline": "plazo de respuesta 1 mes, prorrogable a 2 meses en casos complejos.",
+          "brazil": "Brasil:",
+          "brazilDeadline": "15 días hábiles (LGPD).",
+          "canada": "Canadá:",
+          "canadaDeadline": "30 días (PIPEDA).",
+          "usa": "EE.UU.:",
+          "usaDeadline": "45 días, prorrogables a 90 días (CCPA/CPRA).",
+          "others": "Otras jurisdicciones:",
+          "othersDeadline": "conforme a normativa local aplicable."
+        }
+      }
+    },
+    "section3": {
+      "title": "3. Condiciones de Uso del Sitio Web",
+      "intro": "El uso de iziworld.app está sujeto a las siguientes reglas básicas, destinadas a garantizar un entorno seguro, legal y transparente:",
+      "subsection1": {
+        "title": "3.1 Requisitos de edad",
+        "content": {
+          "ageLimit": "El acceso al sitio web con fines de prerregistro o contratación está limitado a personas mayores de 18 años.",
+          "minors": "Los menores pueden navegar por la parte informativa, pero no enviar formularios ni registrarse."
+        }
+      },
+      "subsection2": {
+        "title": "3.2 Registro y prerregistro de cuenta",
+        "content": {
+          "requirements": "Para crear o reservar una cuenta en la app, el usuario debe proporcionar datos veraces y completos (nombre o apodo, correo electrónico, país, edad mínima).",
+          "responsibility": "El usuario es responsable de mantener actualizada la información facilitada.",
+          "acceptance": "La creación de cuenta exige la aceptación de estos Términos Web y de la Política de Privacidad Web."
+        }
+      },
+      "subsection3": {
+        "title": "3.3 Uso correcto de la web",
+        "content": {
+          "commitment": "El usuario se compromete a:",
+          "legitimate": "Utilizar la web únicamente para fines personales y legítimos.",
+          "noFraud": "No realizar actividades fraudulentas, ataques técnicos (phishing, malware, scraping, spam) ni intentos de intrusión.",
+          "noCommercial": "No usar la web con fines comerciales no autorizados ni para suplantar identidades."
+        }
+      },
+      "subsection4": {
+        "title": "3.4 Propiedad intelectual",
+        "content": {
+          "ownership": "Todo el contenido publicado en la web (textos, gráficos, logotipos, código, imágenes, iconos, videos) pertenece a OasysNest S.L. o cuenta con licencias válidas.",
+          "prohibition": "Se prohíbe la reproducción, distribución, comunicación pública o transformación sin autorización previa y por escrito.",
+          "userRights": "El usuario solo tiene un derecho de uso personal, no transferible y limitado a la navegación dentro del sitio."
+        }
+      },
+      "subsection5": {
+        "title": "3.5 Suspensión o restricción de acceso",
+        "content": {
+          "technical": "I.Z.I. podrá suspender temporalmente el acceso a la web por motivos técnicos, de seguridad o mantenimiento.",
+          "blocking": "Podrá también bloquear a usuarios que incumplan estos Términos (ej. intentos de fraude, uso indebido de formularios o sistemas de pago)."
+        }
+      },
+      "subsection6": {
+        "title": "3.6 Limitación de responsabilidad en el uso",
+        "content": {
+          "responsibility": "El acceso y uso de la web se realiza bajo la propia responsabilidad del usuario.",
+          "noGuarantee": "I.Z.I. no garantiza que el sitio esté libre de interrupciones, errores o virus, aunque aplica medidas de seguridad razonables."
+        }
+      }
+    },
+    "section4": {
+      "title": "4. Registro y Prerregistro de Usuarios",
+      "intro": "El sitio web iziworld.app permite a los usuarios preregistrarse/registrarse para crear una cuenta que será utilizada posteriormente en la aplicación móvil.",
+      "subsection1": {
+        "title": "4.1 Creación de cuenta en la web",
+        "content": {
+          "creation": "El sitio web iziworld.app permite a los usuarios preregistrarse/registrarse para crear una cuenta que será utilizada posteriormente en la aplicación móvil.",
+          "requirements": "El prerregistro requiere: Nombre o apodo (nick), Dirección de correo electrónico válida, Fecha de nacimiento (para verificar mayoría de edad), País de residencia."
+        }
+      },
+      "subsection2": {
+        "title": "4.2 Exactitud y veracidad de los datos",
+        "content": {
+          "guarantee": "El usuario garantiza que la información proporcionada es real, actual y verificable.",
+          "rejection": "En caso de datos falsos o inexactos, I.Z.I. podrá rechazar, suspender o eliminar el registro."
+        }
+      },
+      "subsection3": {
+        "title": "4.3 Activación y acceso a la app",
+        "content": {
+          "immediate": "El prerregistro en la web no otorga acceso inmediato a las funcionalidades de la aplicación.",
+          "activation": "La cuenta se activará plenamente una vez el usuario descargue y acceda a la app móvil, aceptando los Términos y Condiciones de la App."
+        }
+      },
+      "subsection4": {
+        "title": "4.4 Credenciales de acceso",
+        "content": {
+          "responsibility": "El usuario es responsable de la custodia de su correo electrónico y contraseña, así como de las actividades realizadas con su cuenta.",
+          "recommendations": "I.Z.I. recomienda el uso de contraseñas robustas y únicas.",
+          "notification": "La pérdida o robo de credenciales debe comunicarse de inmediato a support@iziworld.app."
+        }
+      },
+      "subsection5": {
+        "title": "4.5 Cancelación voluntaria",
+        "content": {
+          "deletion": "El usuario puede solicitar la eliminación de sus datos de prerregistro en cualquier momento escribiendo a privacy@iziworld.app.",
+          "reregister": "La cancelación no impide que el usuario vuelva a registrarse en el futuro."
+        }
+      },
+      "subsection6": {
+        "title": "4.6 Derecho de suspensión por incumplimiento",
+        "content": {
+          "rights": "I.Z.I. se reserva el derecho de:",
+          "block": "Bloquear prerregistros que incumplan estos Términos.",
+          "delete": "Eliminar cuentas con indicios de fraude, suplantación o abuso."
+        }
+      }
+    },
+    "section5": {
+      "title": "5. Pagos y Contrataciones a través de la Web",
+      "subsection1": {
+        "title": "5.1 Métodos de pago aceptados",
+        "content": {
+          "methods": "Las contrataciones realizadas en la web iziworld.app se gestionan exclusivamente mediante pasarelas de pago seguras:",
+          "storage": "I.Z.I. no almacena datos bancarios ni de tarjetas; únicamente conserva identificadores de transacción y datos mínimos de facturación."
+        }
+      },
+      "subsection2": {
+        "title": "5.2 Seguridad en las transacciones",
+        "content": {
+          "standard": "Todas las operaciones cumplen el estándar internacional PCI DSS y se transmiten bajo TLS 1.3.",
+          "processing": "Los pagos son procesados directamente en los servidores de Stripe, que actúan como encargados de tratamiento.",
+          "controls": "Se aplican controles antifraude, AML (Anti-Money Laundering) y KYC (Know Your Customer) según la normativa vigente."
+        }
+      },
+      "subsection3": {
+        "title": "5.3 Facturación y comprobantes",
+        "content": {
+          "completion": "Al completar una compra, el usuario recibirá un correo de confirmación con el comprobante del pago.",
+          "subscriptions": "En caso de suscripciones, se emitirán facturas electrónicas conforme a la legislación fiscal aplicable."
+        }
+      },
+      "subsection4": {
+        "title": "5.4 Política de cancelación y reembolsos",
+        "content": {
+          "final": "Las compras efectuadas mediante Stripe en la web se consideran ventas definitivas y no reembolsables, salvo disposición legal en contrario.",
+          "eu": "Los usuarios de la Unión Europea disponen de un plazo de desistimiento de 14 días naturales, siempre que el servicio no se haya activado ni consumido.",
+          "execution": "Una vez iniciada la ejecución del servicio contratado (ej. activación de plan premium), el derecho de desistimiento quedará extinguido."
+        }
+      },
+      "subsection5": {
+        "title": "5.5 Renovaciones automáticas",
+        "content": {
+          "automatic": "Si un plan adquirido en la web incluye renovación automática, esta condición será comunicada claramente antes de la contratación.",
+          "deactivate": "El usuario podrá desactivar la renovación automática en cualquier momento desde su área de usuario o escribiendo a support@iziworld.app.",
+          "notification": "Se enviará notificación previa antes de cada renovación con la fecha e importe a cobrar."
+        }
+      },
+      "subsection6": {
+        "title": "5.6 Limitación de responsabilidad en pagos",
+        "content": "I.Z.I. no será responsable por incidencias técnicas, duplicidades, retrasos o fallos imputables directamente a Stripe u otros intermediarios de pago."
+      }
+    },
+    "section6": {
+      "title": "6. Cookies y Tecnologías de Seguimiento",
+      "intro": "El sitio iziworld.app utiliza cookies y tecnologías similares para garantizar el funcionamiento básico, mejorar la experiencia del usuario y, en su caso, personalizar contenidos y anuncios.",
+      "subsection1": {
+        "title": "6.1 Uso de cookies en la web",
+        "content": "El sitio iziworld.app utiliza cookies y tecnologías similares para garantizar el funcionamiento básico, mejorar la experiencia del usuario y, en su caso, personalizar contenidos y anuncios."
+      },
+      "subsection2": {
+        "title": "6.2 Tipos de cookies utilizadas",
+        "technical": {
+          "title": "Cookies técnicas o necesarias",
+          "description": "imprescindibles para la navegación y seguridad del sitio.",
+          "consent": "No requieren consentimiento."
+        },
+        "personalization": {
+          "title": "Cookies de personalización",
+          "description": "permiten recordar idioma, región o ajustes de usuario.",
+          "consent": "Requieren consentimiento."
+        },
+        "analytics": {
+          "title": "Cookies analíticas",
+          "description": "permiten analizar cómo los usuarios utilizan la web (visitas, tiempo de navegación, clics).",
+          "tools": "Herramientas: Google Analytics, Firebase Web.",
+          "consent": "Requieren consentimiento."
+        },
+        "advertising": {
+          "title": "Cookies publicitarias",
+          "description": "permiten mostrar anuncios adaptados a intereses del usuario y medir la eficacia de campañas.",
+          "consent": "Requieren consentimiento expreso."
+        }
+      },
+      "subsection3": {
+        "title": "6.3 Consentimiento y gestión",
+        "content": {
+          "banner": "Al acceder por primera vez, el usuario verá un banner de cookies con opciones: \"Aceptar todas\", \"Rechazar todas\" o \"Configurar\".",
+          "withdrawal": "El consentimiento puede retirarse en cualquier momento desde el gestor habilitado en la web."
+        }
+      },
+      "subsection4": {
+        "title": "6.4 Conservación y control",
+        "session": "Cookies de sesión:",
+        "sessionContent": "eliminadas al cerrar el navegador.",
+        "persistent": "Cookies persistentes:",
+        "persistentContent": "duración máxima de 24 meses salvo revocación del consentimiento.",
+        "analytics": "Datos de analítica:",
+        "analyticsContent": "conservados de forma agregada y anónima por un máximo de 36 meses."
+      },
+      "subsection5": {
+        "title": "6.5 Responsables y terceros",
+        "content": "Las cookies pueden ser propias o de terceros (Google, Stripe). En todos los casos se firman contratos de tratamiento y, en su caso, cláusulas contractuales tipo (SCCs) para transferencias internacionales."
+      },
+      "subsection6": {
+        "title": "6.6 Rechazo de cookies no esenciales",
+        "content": "El rechazo de cookies analíticas o publicitarias no impedirá el acceso y uso básico de la web, aunque limitará la personalización."
+      }
+    },
+    "section7": {
+      "title": "7. Limitación de Responsabilidad en el Sitio Web",
+      "subsection1": {
+        "title": "7.1 Uso bajo responsabilidad del usuario",
+        "content": {
+          "responsibility": "El acceso y uso de iziworld.app se realiza bajo la exclusiva responsabilidad del usuario.",
+          "asIs": "El sitio se ofrece \"tal cual\" y \"según disponibilidad\", sin garantías de continuidad absoluta, ausencia de errores o compatibilidad con todos los navegadores o dispositivos."
+        }
+      },
+      "subsection2": {
+        "title": "7.2 Disponibilidad y funcionamiento técnico",
+        "content": {
+          "measures": "Aunque se aplican medidas razonables de seguridad y monitorización, I.Z.I. no garantiza la disponibilidad ininterrumpida de la web ni la ausencia de fallos técnicos.",
+          "affected": "La web puede verse afectada por:",
+          "maintenance": "Mantenimiento programado.",
+          "incidents": "Incidencias en servidores o redes de terceros.",
+          "failures": "Fallos en pasarelas de pago o servicios externos.",
+          "forceMajeure": "Causas de fuerza mayor."
+        }
+      },
+      "subsection3": {
+        "title": "7.3 Contenido de terceros",
+        "content": {
+          "links": "El sitio puede incluir enlaces a páginas o recursos externos (ej. Stripe, PayPal, redes sociales).",
+          "responsibility": "I.Z.I. no controla ni responde del contenido, exactitud o fiabilidad de dichos sitios. El acceso es bajo responsabilidad del usuario."
+        }
+      },
+      "subsection4": {
+        "title": "7.4 Exclusión de servicios profesionales",
+        "content": {
+          "nature": "La web no ofrece servicios médicos, psicológicos, psiquiátricos, jurídicos ni de emergencia.",
+          "substitute": "La información publicada tiene carácter informativo y divulgativo, no sustituye en ningún caso la consulta con profesionales cualificados."
+        }
+      },
+      "subsection5": {
+        "title": "7.5 Limitación económica",
+        "content": "En la medida permitida por la legislación aplicable, la responsabilidad máxima de I.Z.I. derivada del uso de la web o de contrataciones realizadas en ella se limita al importe efectivamente abonado por el usuario en los 12 meses previos al hecho que motive la reclamación."
+      },
+      "subsection6": {
+        "title": "7.6 Exclusión de responsabilidad por terceros proveedores",
+        "content": {
+          "notResponsible": "I.Z.I. no será responsable por:",
+          "stripe": "Fallos imputables a pasarelas de pago (Stripe).",
+          "providers": "Interrupciones o errores de proveedores de hosting, redes o servicios de analítica.",
+          "errors": "Retrasos, duplicidades o errores técnicos ajenos al control directo de I.Z.I."
+        }
+      }
+    },
+    "section8": {
+      "title": "8. Modificaciones y Actualizaciones de los Términos Web",
+      "subsection1": {
+        "title": "8.1 Inclusión de nuevas funciones o servicios",
+        "content": {
+          "functions": "I.Z.I. podrá introducir nuevas funcionalidades en la web, como métodos de pago adicionales, sistemas de prerregistro ampliados o áreas de usuario.",
+          "updates": "Cuando estas novedades impliquen cambios en las condiciones de uso, se actualizarán los presentes Términos."
+        }
+      },
+      "subsection2": {
+        "title": "8.2 Procedimiento de notificación",
+        "content": {
+          "substantial": "Las modificaciones sustanciales se comunicarán mediante aviso destacado en la web.",
+          "direct": "Si el usuario ha facilitado un correo electrónico en el prerregistro, también podrá recibir notificación directa.",
+          "minor": "Cambios menores (ajustes técnicos o legales sin impacto relevante en el usuario) se publicarán directamente en esta página, indicando la fecha de actualización."
+        }
+      },
+      "subsection3": {
+        "title": "8.3 Vigencia y aceptación",
+        "content": {
+          "version": "La versión vigente de los Términos estará siempre disponible en la web.",
+          "continued": "El uso continuado de iziworld.app tras la publicación de cambios constituye aceptación de los mismos, salvo que la normativa exija consentimiento expreso.",
+          "nonAcceptance": "En caso de no aceptación, el usuario deberá abstenerse de usar la web y, en su caso, solicitar la baja de su prerregistro."
+        }
+      }
+    },
+    "section9": {
+      "title": "9. Legislación Aplicable y Jurisdicción",
+      "subsection1": {
+        "title": "9.1 Unión Europea y Reino Unido",
+        "content": {
+          "gdpr": "Reglamento General de Protección de Datos (RGPD, UE 2016/679).",
+          "eprivacy": "Directiva ePrivacy.",
+          "ukdpa": "UK Data Protection Act 2018.",
+          "resolution": "Conflictos legales se resolverán ante los tribunales del país de residencia del usuario dentro de la UE/EEE o Reino Unido."
+        }
+      },
+      "subsection2": {
+        "title": "9.2 Estados Unidos",
+        "content": {
+          "ccpa": "California Consumer Privacy Act (CCPA) y California Privacy Rights Act (CPRA).",
+          "state": "Otras leyes estatales equivalentes (Virginia, Colorado, Texas, Florida, etc.).",
+          "disputes": "Las disputas podrán someterse a tribunales estatales o federales competentes según el lugar de residencia del usuario."
+        }
+      },
+      "subsection3": {
+        "title": "9.3 Canadá",
+        "content": "Personal Information Protection and Electronic Documents Act (PIPEDA). Normas provinciales en Alberta, British Columbia y Quebec. Los conflictos podrán ser elevados a la Office of the Privacy Commissioner of Canada (OPC) o al organismo provincial competente."
+      },
+      "subsection4": {
+        "title": "9.4 Australia",
+        "content": "Privacy Act 1988, administrada por la Office of the Australian Information Commissioner (OAIC). Las controversias se resolverán conforme a la legislación federal y ante tribunales australianos competentes."
+      },
+      "subsection5": {
+        "title": "9.5 América Latina",
+        "content": "I.Z.I. se compromete a respetar la normativa local de protección de datos y comercio digital en cada país latinoamericano en que opere: México: LFPDPPP. Argentina: Ley 25.326. Colombia: Ley 1581 de 2012. Brasil: LGPD. Chile: Ley 19.628. Perú: Ley 29733. Uruguay: Ley 18.331. Paraguay: Ley 6534/20. Ecuador: LOPDP 2021. Panamá: Ley 81/2019. Costa Rica: Ley 8968. República Dominicana: Ley 172-13. En países sin legislación específica (Guatemala, El Salvador, Honduras, Nicaragua, Venezuela), se aplican los principios del RGPD como estándar mínimo."
+      },
+      "subsection6": {
+        "title": "9.6 Resolución de conflictos",
+        "content": {
+          "friendly": "I.Z.I. intentará resolver cualquier discrepancia con el usuario de forma amistosa y directa.",
+          "courts": "Si no fuera posible, las disputas se someterán a los tribunales competentes del país de residencia del usuario.",
+          "mediation": "Cuando la normativa lo permita, las partes podrán optar por mecanismos de mediación o arbitraje digital como solución alternativa."
+        }
+      }
+    },
+    "section10": {
+      "title": "10. Contacto y Reclamaciones",
+      "subsection1": {
+        "title": "10.1 Canales oficiales de contacto",
+        "content": {
+          "contact": "Los usuarios pueden contactar con I.Z.I. a través de los siguientes medios:",
+          "info": "Correo electronico de información:",
+          "support": "Correo electrónico de soporte:",
+          "privacy": "Correo para privacidad y datos personales:",
+          "dsa": "Correo delegado DSA:",
+          "address": "Dirección postal:",
+          "website": "Sitio web:"
+        }
+      },
+      "subsection2": {
+        "title": "10.2 Procedimiento interno de reclamaciones",
+        "content": {
+          "response": "I.Z.I. responderá a consultas o reclamaciones en un plazo máximo de 30 días naturales desde su recepción.",
+          "complex": "En casos complejos, el plazo podrá extenderse hasta 60 días, notificando previamente al usuario.",
+          "channel": "La respuesta se emitirá por el mismo canal en el que se recibió la reclamación, salvo que el usuario solicite lo contrario."
+        }
+      },
+      "subsection3": {
+        "title": "10.3 Autoridades competentes",
+        "content": "Si el usuario considera que sus derechos han sido vulnerados, puede presentar reclamación ante la autoridad de protección de datos o de consumo de su país de residencia. Ejemplos: AEPD (España), CNIL (Francia), ICO (Reino Unido), ANPD (Brasil), INAI (México), OPC (Canadá)."
+      }
+    },
+    "section11": {
+      "title": "11. Fecha de Última Actualización",
+      "content": {
+        "approval": "Los presentes Términos y Condiciones de Uso de la Web de I.Z.I. han sido aprobados y publicados en fecha:",
+        "modifications": "I.Z.I. se reserva el derecho de modificar este documento para reflejar cambios normativos, técnicos o en los servicios ofrecidos en la web.",
+        "availability": "La versión vigente estará siempre disponible en https://iziworld.app."
+      }
+    }
   }
 }
