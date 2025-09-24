@@ -163,7 +163,9 @@
     "success": "¡Gracias por subscribirte a la Newsletter!",
     "error1": "Fallo en la subscripción. Por favor intenta de nuevo.",
     "error2": "Algo salió mal. Por favor intenta de nuevo más tarde.",
-    "subscribing": "Subscribiéndote..."
+    "subscribing": "Subscribiéndote...",
+    "failed": "La subscripción a la Newsletter falló, pero puedes resuscribirte más tarde.",
+    "approved": "¡Subscripción realizada con éxito!"
   },
   "Footer": {
     "question": "¿Te interesa el proyecto?",

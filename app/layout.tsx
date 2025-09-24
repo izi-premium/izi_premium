@@ -8,6 +8,7 @@ import Footer from "@/components/shared/Footer";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import AuthProvider from "../components/providers/AuthProvider";
+import NewsletterOAuthHandler from "../components/auth/NewsletterOAuthHandler";
 
 const switzer = localFont({
   src: "../public/fonts/Switzer-Variable.woff2",
@@ -103,6 +104,7 @@ export default async function RootLayout({
           )}
         >
           <NextIntlClientProvider messages={messages}>
+            <NewsletterOAuthHandler />
             <Header />
             <main className="flex-center-col bg-secondary-text-50 relative min-h-screen w-screen">
               {children}

@@ -81,7 +81,7 @@ export default function Footer() {
                   {tFoot("question")}
                 </p>
                 <Link
-                  href="#"
+                  href="#newsletter"
                   className="hover:shadow-header bg-accent-500 relative flex items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer md:w-[30rem] xl:w-fit"
                 >
                   <span className="absolute right-[63px] bottom-[-17px] z-5 h-[5rem] w-[12rem] rounded-full bg-red-50 blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>

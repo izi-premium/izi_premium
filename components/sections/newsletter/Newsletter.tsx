@@ -62,7 +62,10 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-10 bg-white py-[8rem] lg:py-[10rem]">
+    <section
+      id="newsletter"
+      className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full scroll-mt-24 gap-10 bg-white py-[8rem] lg:py-[10rem]"
+    >
       <div className="flex-center-col gap-4">
         <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">
           {tNewsletter("title")}

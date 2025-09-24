@@ -12,7 +12,6 @@ interface SignupFormProps {
 
 export default function SignupForm({ onSuccess }: SignupFormProps) {
   const tUp = useTranslations("Signup");
-  const { data: session, status } = useSession();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,71 +37,6 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
   // Get redirect URL from search params
   const redirectUrl = searchParams.get("redirect");
   const checkoutIntent = searchParams.get("checkout") === "true";
-
-  // Handle post-OAuth newsletter subscription
-  useEffect(() => {
-    async function handlePostOAuthNewsletter() {
-      if (status === "authenticated" && session?.user?.email) {
-        // Check if there's a newsletter preference stored
-        const shouldSubscribe = localStorage.getItem("google_oauth_newsletter");
-
-        if (shouldSubscribe === "true") {
-          console.log(
-            "Processing newsletter subscription for Google OAuth user:",
-            session.user.email
-          );
-
-          try {
-            const response = await fetch("/api/newsletter/subscribe", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email: session.user.email,
-              }),
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-              setMessage(
-                "Account created and subscribed to newsletter successfully!"
-              );
-              console.log("Newsletter subscription successful for OAuth user");
-            } else {
-              console.warn(
-                "Newsletter subscription failed for OAuth user:",
-                result.message
-              );
-              setMessage(
-                "Account created successfully! Newsletter subscription failed, but you can subscribe later."
-              );
-            }
-          } catch (error) {
-            console.error(
-              "Error subscribing to newsletter after OAuth:",
-              error
-            );
-            setMessage(
-              "Account created successfully! Newsletter subscription failed, but you can subscribe later."
-            );
-          }
-
-          // Clean up stored preference
-          localStorage.removeItem("google_oauth_newsletter");
-
-          // Clear message after 5 seconds
-          setTimeout(() => setMessage(""), 5000);
-        }
-      }
-    }
-
-    // Only run once when user becomes authenticated
-    if (status === "authenticated" && !showVerification) {
-      handlePostOAuthNewsletter();
-    }
-  }, [session, status, showVerification]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -160,7 +94,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
           password: formData.password,
           acceptedTerms: formData.acceptedTerms,
           acceptedPrivacy: formData.acceptedPrivacy,
-          subscribeNewsletter: formData.subscribeNewsletter, // Include newsletter subscription
+          subscribeNewsletter: formData.subscribeNewsletter,
         }),
       });
 
@@ -236,11 +170,10 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             } else if (redirectUrl) {
               router.push(redirectUrl);
             } else {
-              router.push("/"); // Default: redirect to homepage
+              router.push("/");
             }
-          }, 1500); // Small delay to show success message
+          }, 1500);
         } else {
-          // If auto-login fails, redirect to signin
           setTimeout(() => {
             router.push("/signin");
           }, 2000);
@@ -290,10 +223,10 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
       return;
     }
 
-    // Store newsletter preference in localStorage (more reliable than cookies for OAuth)
+    // Store newsletter preference in localStorage (will be processed globally after OAuth)
     if (formData.subscribeNewsletter) {
       localStorage.setItem("google_oauth_newsletter", "true");
-      console.log("Newsletter preference stored for Google OAuth");
+      console.log("📧 Newsletter preference stored for Google OAuth");
     } else {
       localStorage.removeItem("google_oauth_newsletter");
     }

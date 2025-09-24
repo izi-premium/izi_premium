@@ -163,7 +163,9 @@
     "success": "Successfully subscribed to our newsletter!",
     "error1": "Failed to subscribe. Please try again.",
     "error2": "Something went wrong. Please try again later.",
-    "subscribing": "Subscribing..."
+    "subscribing": "Subscribing...",
+    "failed": "Newsletter subscription failed, but you can subscribe later.",
+    "approved": "Successfully subscribed to newsletter!"
   },
   "Footer": {
     "question": "Do you like what you see?",
