@@ -11,9 +11,8 @@ import {
 import { logout } from "@/lib/firebase-auth";
 import { User } from "firebase/auth";
 import { LogOut } from "lucide-react";
-import Image from "next/image";
-
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 interface UserAvatarProps {
   user: User;
@@ -22,6 +21,7 @@ interface UserAvatarProps {
 
 export function UserAvatar({ user, size = "md" }: UserAvatarProps) {
   const tClose = useTranslations("Navigation");
+  const tSubscription = useTranslations("Subscription");
 
   const sizeClasses = {
     sm: "w-8 h-8 text-sm",
@@ -68,7 +68,6 @@ export function UserAvatar({ user, size = "md" }: UserAvatarProps) {
           )}
         </button>
       </DropdownMenuTrigger>
-
       <DropdownMenuContent
         align="end"
         className="w-fit rounded-sm bg-white p-3"
@@ -83,9 +82,19 @@ export function UserAvatar({ user, size = "md" }: UserAvatarProps) {
             </p>
           </div>
         </DropdownMenuLabel>
-
         <DropdownMenuSeparator />
-
+        <DropdownMenuItem
+          asChild
+          className="paragraph-14-normal cursor-pointer hover:underline"
+        >
+          <Link href="/settings/subscription" className="flex items-center">
+            <Settings className="mr-2 h-4 w-4 lg:size-6" />
+            <span className="paragraph-14-normal">
+              {tSubscription("manageSubscription")}
+            </span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
         <DropdownMenuItem
           className="paragraph-14-normal cursor-pointer text-red-600 hover:underline focus:text-red-600"
           onClick={handleLogout}

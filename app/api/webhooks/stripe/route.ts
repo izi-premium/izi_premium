@@ -282,8 +282,11 @@ async function handleFailedSubscriptionPayment(
   }
 }
 
+// UPDATED: This is the key fix for the cancellation issue
 async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
   console.log("Processing subscription update:", subscription.id);
+  console.log("Subscription status:", subscription.status);
+  console.log("Cancel at period end:", subscription.cancel_at_period_end);
 
   try {
     // Find user by subscription ID
@@ -299,22 +302,53 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
     }
 
     const userDoc = userQuery.docs[0];
+    const currentUserData = userDoc.data();
 
     // Get period info from the first subscription item
     const subscriptionItem = subscription.items.data[0];
     const currentPeriodStart = subscriptionItem.current_period_start;
     const currentPeriodEnd = subscriptionItem.current_period_end;
 
+    // Determine the correct subscription status
+    let subscriptionStatus = subscription.status;
+
+    // IMPORTANT: If user has manually cancelled (has cancelAtPeriodEnd flag),
+    // don't override their cancellation status
+    if (currentUserData?.cancelAtPeriodEnd === true) {
+      subscriptionStatus = "canceled";
+      console.log(
+        "User has manually cancelled subscription, keeping status as canceled"
+      );
+    } else if (
+      subscription.cancel_at_period_end &&
+      subscription.status === "active"
+    ) {
+      // This handles cancellations that might come directly from Stripe
+      subscriptionStatus = "canceled";
+      console.log(
+        "Subscription is set to cancel at period end, setting status as canceled"
+      );
+    }
+
+    console.log("Final status to set:", subscriptionStatus);
+
     // Update subscription status and dates
-    await userDoc.ref.update({
-      subscriptionStatus: subscription.status,
+    const updateData: any = {
+      subscriptionStatus: subscriptionStatus,
       currentPeriodStart: new Date(currentPeriodStart * 1000),
       currentPeriodEnd: new Date(currentPeriodEnd * 1000),
       premiumEndsAt: new Date(currentPeriodEnd * 1000), // Keep premium end date synced
       updatedAt: new Date(),
-    });
+    };
 
-    console.log("Updated subscription status and premium end date");
+    // If the subscription is being set to cancel at period end, add the flag
+    if (subscription.cancel_at_period_end) {
+      updateData.cancelAtPeriodEnd = true;
+    }
+
+    await userDoc.ref.update(updateData);
+
+    console.log("Updated subscription status to:", subscriptionStatus);
   } catch (error) {
     console.error("Error handling subscription update:", error);
   }
@@ -348,7 +382,26 @@ async function handleSubscriptionCancelled(subscription: Stripe.Subscription) {
       updatedAt: new Date(),
     });
 
+    // Update subscription record if it exists
+    const subscriptionQuery = await getAdminDb()
+      .collection("subscriptions")
+      .where("stripeSubscriptionId", "==", subscription.id)
+      .limit(1)
+      .get();
+
+    if (!subscriptionQuery.empty) {
+      const subscriptionDoc = subscriptionQuery.docs[0];
+      await subscriptionDoc.ref.update({
+        status: "cancelled",
+        cancelledAt: new Date(),
+        updatedAt: new Date(),
+      });
+    }
+
     console.log("Cancelled premium access for user:", userData.email);
+
+    // Send subscription ended email
+    await sendSubscriptionEndedEmail(userData.email, userData.displayName);
   } catch (error) {
     console.error("Error handling subscription cancellation:", error);
   }
@@ -470,6 +523,39 @@ async function sendWelcomeEmail(
     }
   } catch (error) {
     console.error("Error sending premium welcome email:", error);
+  }
+}
+
+async function sendSubscriptionEndedEmail(email: string, name: string) {
+  try {
+    const emailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY!}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+        to: email,
+        subject: "Subscription Ended",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2>Your Subscription Has Ended</h2>
+            <p>Hi ${name},</p>
+            <p>Your premium subscription has ended and you no longer have access to premium features.</p>
+            <p>We'd love to have you back! You can reactivate your subscription anytime by visiting your account settings.</p>
+            <p>Thank you for being part of IZI World!</p>
+            <p>Best regards,<br>The IZI World Team</p>
+          </div>
+        `,
+      }),
+    });
+
+    if (!emailResponse.ok) {
+      console.error("Failed to send subscription ended email");
+    }
+  } catch (error) {
+    console.error("Error sending subscription ended email:", error);
   }
 }
 
