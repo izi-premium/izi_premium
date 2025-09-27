@@ -191,7 +191,8 @@
     "activatePremium": "Activar Premium",
     "loadingSubscription": "Cargando información de subscripción...",
     "errorFetchingData": "Error al cargar los datos de subscripción. Por favor, inténtalo de nuevo.",
-    "errorCancellingSubscription": "Error al cancelar la subscripción. Por favor, inténtalo de nuevo."
+    "errorCancellingSubscription": "Error al cancelar la subscripción. Por favor, inténtalo de nuevo.",
+    "statusCanceled": "Cancelada"
   },
   "Footer": {
     "question": "¿Te interesa el proyecto?",

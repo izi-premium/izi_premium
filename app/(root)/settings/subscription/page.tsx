@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -39,6 +39,7 @@ export default function SubscriptionManagement() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const t = useTranslations("Subscription");
+  const locale = useLocale(); // Get current locale from next-intl
   const [subscriptionData, setSubscriptionData] =
     useState<UserSubscriptionData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -147,15 +148,10 @@ export default function SubscriptionManagement() {
   const formatDate = (date: Date | string) => {
     const dateObj = typeof date === "string" ? new Date(date) : date;
 
-    // Get the current locale from next-intl
-    const locale =
-      typeof window !== "undefined"
-        ? window.navigator.language.startsWith("es")
-          ? "es"
-          : "en"
-        : "en";
+    // Use the proper locale from next-intl
+    const dateLocale = locale === "es" ? "es-ES" : "en-US";
 
-    return dateObj.toLocaleDateString(locale, {
+    return dateObj.toLocaleDateString(dateLocale, {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -168,7 +164,7 @@ export default function SubscriptionManagement() {
         return "default";
       case "past_due":
         return "destructive";
-      case "cancelled":
+      case "canceled": // Fixed: Use American spelling
         return "secondary";
       default:
         return "secondary";
@@ -181,8 +177,8 @@ export default function SubscriptionManagement() {
         return t("statusActive");
       case "past_due":
         return t("statusPastDue");
-      case "cancelled":
-        return t("statusCancelled");
+      case "canceled": // Fixed: Use American spelling
+        return t("statusCanceled");
       default:
         return t("statusInactive");
     }
@@ -247,7 +243,7 @@ export default function SubscriptionManagement() {
                     className={`paragraph-14-normal 2xl:paragraph-18-normal border border-solid px-6 ${
                       subscriptionData.subscriptionStatus === "active"
                         ? "border-green-300 bg-green-100"
-                        : subscriptionData.subscriptionStatus === "cancelled"
+                        : subscriptionData.subscriptionStatus === "canceled" // Fixed: Use American spelling
                           ? "border-yellow-300 bg-yellow-100"
                           : "border-gray-300 bg-gray-100"
                     }`}
@@ -256,7 +252,7 @@ export default function SubscriptionManagement() {
                       className={`paragraph-14-normal 2xl:paragraph-18-normal ${
                         subscriptionData.subscriptionStatus === "active"
                           ? "text-green-700"
-                          : subscriptionData.subscriptionStatus === "cancelled"
+                          : subscriptionData.subscriptionStatus === "canceled" // Fixed: Use American spelling
                             ? "text-yellow-700"
                             : "text-gray-700"
                       }`}
@@ -287,8 +283,13 @@ export default function SubscriptionManagement() {
                   <div className="border-t pt-4">
                     <AlertDialog>
                       <AlertDialogTrigger asChild>
-                        <Button className="bg-base-200 flex-center paragraph-14-normal 2xl:paragraph-18-medium h-fit w-full border border-solid border-red-700 py-3 text-red-700 hover:cursor-pointer">
-                          {t("cancelSubscription")}
+                        <Button
+                          asChild
+                          className="bg-base-200 flex-center h-fit w-full border border-solid border-red-700 py-3 hover:cursor-pointer"
+                        >
+                          <span className="paragraph-14-normal 2xl:paragraph-18-medium font-medium text-red-700">
+                            {t("cancelSubscription")}
+                          </span>
                         </Button>
                       </AlertDialogTrigger>
                       <AlertDialogContent className="w-full max-w-[clamp(50rem,20.8vw,100rem)] bg-white">
@@ -296,7 +297,7 @@ export default function SubscriptionManagement() {
                           <AlertDialogTitle className="paragraph-24-medium md:subtitle-medium text-center text-gray-900">
                             {t("confirmCancellation")}
                           </AlertDialogTitle>
-                          <AlertDialogDescription asChild className="w-full">
+                          <AlertDialogDescription className="w-full">
                             <p className="paragraph-14-normal 2xl:paragraph-18-normal mt-2 text-gray-700">
                               {t("cancellationDescription")}
                             </p>
@@ -304,7 +305,7 @@ export default function SubscriptionManagement() {
                         </AlertDialogHeader>
                         <AlertDialogFooter>
                           <AlertDialogCancel className="paragraph-14-normal 2xl:paragraph-18-normal border border-solid border-green-300 bg-green-100 px-2 hover:cursor-pointer">
-                            <span className="paragraph-14-normal 2xl:paragraph-18-normal h-full w-full text-green-700">
+                            <span className="paragraph-14-normal 2xl:paragraph-18-normal text-green-700">
                               {t("keepSubscription")}
                             </span>
                           </AlertDialogCancel>

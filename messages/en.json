@@ -191,7 +191,8 @@
     "activatePremium": "Activate Premium",
     "loadingSubscription": "Loading subscription information...",
     "errorFetchingData": "Error loading subscription data. Please try again.",
-    "errorCancellingSubscription": "Error cancelling subscription. Please try again."
+    "errorCancellingSubscription": "Error cancelling subscription. Please try again.",
+    "statusCanceled": "Cancelled"
   },
   "Footer": {
     "question": "Do you like what you see?",
