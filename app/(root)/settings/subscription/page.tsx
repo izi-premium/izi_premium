@@ -146,7 +146,16 @@ export default function SubscriptionManagement() {
 
   const formatDate = (date: Date | string) => {
     const dateObj = typeof date === "string" ? new Date(date) : date;
-    return dateObj.toLocaleDateString(undefined, {
+
+    // Get the current locale from next-intl
+    const locale =
+      typeof window !== "undefined"
+        ? window.navigator.language.startsWith("es")
+          ? "es"
+          : "en"
+        : "en";
+
+    return dateObj.toLocaleDateString(locale, {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -181,7 +190,7 @@ export default function SubscriptionManagement() {
 
   if (status === "loading" || loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
         <div className="flex min-h-[400px] items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin" />
         </div>
@@ -278,10 +287,8 @@ export default function SubscriptionManagement() {
                   <div className="border-t pt-4">
                     <AlertDialog>
                       <AlertDialogTrigger asChild>
-                        <Button className="bg-base-200 flex-center h-fit w-full border border-solid border-red-700 py-3 hover:cursor-pointer">
-                          <span className="paragraph-14-normal 2xl:paragraph-18-medium font-medium text-red-700">
-                            {t("cancelSubscription")}
-                          </span>
+                        <Button className="bg-base-200 flex-center paragraph-14-normal 2xl:paragraph-18-medium h-fit w-full border border-solid border-red-700 py-3 text-red-700 hover:cursor-pointer">
+                          {t("cancelSubscription")}
                         </Button>
                       </AlertDialogTrigger>
                       <AlertDialogContent className="w-full max-w-[clamp(50rem,20.8vw,100rem)] bg-white">
@@ -289,7 +296,7 @@ export default function SubscriptionManagement() {
                           <AlertDialogTitle className="paragraph-24-medium md:subtitle-medium text-center text-gray-900">
                             {t("confirmCancellation")}
                           </AlertDialogTitle>
-                          <AlertDialogDescription className="w-full">
+                          <AlertDialogDescription asChild className="w-full">
                             <p className="paragraph-14-normal 2xl:paragraph-18-normal mt-2 text-gray-700">
                               {t("cancellationDescription")}
                             </p>
@@ -297,7 +304,7 @@ export default function SubscriptionManagement() {
                         </AlertDialogHeader>
                         <AlertDialogFooter>
                           <AlertDialogCancel className="paragraph-14-normal 2xl:paragraph-18-normal border border-solid border-green-300 bg-green-100 px-2 hover:cursor-pointer">
-                            <span className="paragraph-14-normal 2xl:paragraph-18-normal text-green-700">
+                            <span className="paragraph-14-normal 2xl:paragraph-18-normal h-full w-full text-green-700">
                               {t("keepSubscription")}
                             </span>
                           </AlertDialogCancel>
@@ -347,7 +354,14 @@ export default function SubscriptionManagement() {
                 <span className="bg-primary-action-100 absolute bottom-[-26px] left-[52px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
                 <div className="border-elevated-surfaces-500 relative w-full rounded-[0.4rem] border border-solid px-8 py-3 xl:px-[clamp(32px,1.66vw)] xl:py-[clamp(1.2rem,0.625vw,2.4rem)]">
                   <p className="paragraph-18-medium md:paragraph-24-medium text-secondary-text-500 w-full text-center">
-                    {t("activatePremium")}
+                    {purchasing ? (
+                      <>
+                        <Loader2 className="mr-2 inline h-4 w-4 animate-spin" />
+                        {t("processing")}
+                      </>
+                    ) : (
+                      t("activatePremium")
+                    )}
                   </p>
                 </div>
               </button>
@@ -356,10 +370,10 @@ export default function SubscriptionManagement() {
         )
       ) : (
         // Loading state or error
-        <Card>
+        <Card className="w-full max-w-[clamp(40rem,20.8vw,80rem)] border-none">
           <CardContent className="py-8">
             <div className="text-center">
-              <p className="text-muted-foreground">
+              <p className="paragraph-18-normal 2xl:paragraph-24-normal text-gray-700">
                 {t("loadingSubscription")}
               </p>
             </div>

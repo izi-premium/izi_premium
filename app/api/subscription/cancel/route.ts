@@ -1,5 +1,3 @@
-// File: /app/api/subscription/cancel/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { getAdminDb } from "@/lib/firebase-admin";
@@ -55,11 +53,16 @@ export async function POST(request: NextRequest) {
         });
 
       console.log("Stripe subscription cancelled:", cancelledSubscription.id);
+      console.log(
+        "cancel_at_period_end:",
+        cancelledSubscription.cancel_at_period_end
+      );
       console.log("Updating Firebase for user:", session.user.email);
 
       // Update user in Firestore with better error handling
       const updateData = {
         subscriptionStatus: "cancelled",
+        cancelAtPeriodEnd: true, // Add this flag to track cancellation intent
         premiumCancelledAt: new Date(),
         updatedAt: new Date(),
         // Note: We don't set isPremium to false here because user keeps access until period ends
@@ -78,6 +81,10 @@ export async function POST(request: NextRequest) {
         console.log(
           "Updated subscription status:",
           updatedData?.subscriptionStatus
+        );
+        console.log(
+          "Updated cancelAtPeriodEnd:",
+          updatedData?.cancelAtPeriodEnd
         );
       } catch (firebaseError) {
         console.error("Firebase update error:", firebaseError);

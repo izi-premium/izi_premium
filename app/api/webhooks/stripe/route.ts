@@ -270,8 +270,11 @@ async function handleFailedSubscriptionPayment(
   }
 }
 
+// UPDATED: This is the key fix for the cancellation issue
 async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
   console.log("Processing subscription update:", subscription.id);
+  console.log("Subscription status:", subscription.status);
+  console.log("Cancel at period end:", subscription.cancel_at_period_end);
 
   try {
     // Find user by subscription ID
@@ -287,22 +290,53 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
     }
 
     const userDoc = userQuery.docs[0];
+    const currentUserData = userDoc.data();
 
     // Get period info from the first subscription item
     const subscriptionItem = subscription.items.data[0];
     const currentPeriodStart = subscriptionItem.current_period_start;
     const currentPeriodEnd = subscriptionItem.current_period_end;
 
+    // Determine the correct subscription status
+    let subscriptionStatus = subscription.status;
+
+    // IMPORTANT: If user has manually cancelled (has cancelAtPeriodEnd flag),
+    // don't override their cancellation status
+    if (currentUserData?.cancelAtPeriodEnd === true) {
+      subscriptionStatus = "canceled";
+      console.log(
+        "User has manually cancelled subscription, keeping status as canceled"
+      );
+    } else if (
+      subscription.cancel_at_period_end &&
+      subscription.status === "active"
+    ) {
+      // This handles cancellations that might come directly from Stripe
+      subscriptionStatus = "canceled";
+      console.log(
+        "Subscription is set to cancel at period end, setting status as canceled"
+      );
+    }
+
+    console.log("Final status to set:", subscriptionStatus);
+
     // Update subscription status and dates
-    await userDoc.ref.update({
-      subscriptionStatus: subscription.status,
+    const updateData: any = {
+      subscriptionStatus: subscriptionStatus,
       currentPeriodStart: new Date(currentPeriodStart * 1000),
       currentPeriodEnd: new Date(currentPeriodEnd * 1000),
       premiumEndsAt: new Date(currentPeriodEnd * 1000), // Keep premium end date synced
       updatedAt: new Date(),
-    });
+    };
 
-    console.log("Updated subscription status and premium end date");
+    // If the subscription is being set to cancel at period end, add the flag
+    if (subscription.cancel_at_period_end) {
+      updateData.cancelAtPeriodEnd = true;
+    }
+
+    await userDoc.ref.update(updateData);
+
+    console.log("Updated subscription status to:", subscriptionStatus);
   } catch (error) {
     console.error("Error handling subscription update:", error);
   }
