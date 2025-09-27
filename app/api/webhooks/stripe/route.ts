@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getServerStripe } from "@/lib/stripe";
 import { getAdminDb } from "@/lib/firebase-admin";
+import { getServerStripe } from "@/lib/stripe";
+import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
 // Extend Stripe Invoice interface to include subscription property
@@ -161,8 +161,15 @@ async function handleSubscriptionCheckout(session: Stripe.Checkout.Session) {
 
     console.log("Successfully activated subscription for user:", userEmail);
 
+    const userLanguage = userDoc.data().idioma || "es";
+    const userName =
+      userDoc.data().displayName ||
+      userDoc.data().name ||
+      userDoc.data().nickname ||
+      "Usuario";
+
     // Send welcome email
-    await sendWelcomeEmail(userEmail!, userDoc.data().displayName);
+    await sendWelcomeEmail(userEmail!, userName, userLanguage);
   } catch (error) {
     console.error("Error handling subscription checkout:", error);
   }
@@ -263,8 +270,13 @@ async function handleFailedSubscriptionPayment(
       updatedAt: new Date(),
     });
 
+    // Get user language for email
+    const userLanguage = userData.idioma || "es";
+    const userName =
+      userData.displayName || userData.name || userData.nickname || "Usuario";
+
     // Send payment failed email
-    await sendPaymentFailedEmail(userData.email, userData.displayName);
+    await sendPaymentFailedEmail(userData.email, userName, userLanguage);
   } catch (error) {
     console.error("Error handling failed subscription payment:", error);
   }
@@ -409,15 +421,34 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
 
     console.log("Successfully updated user to premium:", userEmail);
 
+    // Get user language for email
+    const userLanguage = userDoc.data().idioma || "es";
+    const userName =
+      userDoc.data().displayName ||
+      userDoc.data().name ||
+      userDoc.data().nickname ||
+      "Usuario";
+
     // Optional: Send welcome email
-    await sendWelcomeEmail(userEmail!, userDoc.data().displayName);
+    await sendWelcomeEmail(userEmail!, userName, userLanguage);
   } catch (error) {
     console.error("Error updating user to premium:", error);
   }
 }
 
-async function sendWelcomeEmail(email: string, name: string) {
+async function sendWelcomeEmail(
+  email: string,
+  name: string,
+  language: string = "es"
+) {
   try {
+    const { getPremiumWelcomeEmailTemplate } = await import(
+      "@/lib/email-templates"
+    );
+
+    // Get email template based on language
+    const emailTemplate = getPremiumWelcomeEmailTemplate(name, language);
+
     const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -427,30 +458,34 @@ async function sendWelcomeEmail(email: string, name: string) {
       body: JSON.stringify({
         from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
         to: email,
-        subject: "Welcome to IZI World Premium!",
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2>Welcome to IZI World Premium!</h2>
-            <p>Hi ${name},</p>
-            <p>Your premium subscription is now active! You now have access to all premium features.</p>
-            <p>Your subscription will renew monthly, and you can manage it anytime in your account settings.</p>
-            <p>Thank you for supporting IziWorld!</p>
-            <p>Best regards,<br>The IZI World Team</p>
-          </div>
-        `,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html,
       }),
     });
 
     if (!emailResponse.ok) {
-      console.error("Failed to send welcome email");
+      console.error("Failed to send premium welcome email");
+    } else {
+      console.log("Premium welcome email sent successfully to:", email);
     }
   } catch (error) {
-    console.error("Error sending welcome email:", error);
+    console.error("Error sending premium welcome email:", error);
   }
 }
 
-async function sendPaymentFailedEmail(email: string, name: string) {
+async function sendPaymentFailedEmail(
+  email: string,
+  name: string,
+  language: string = "es"
+) {
   try {
+    const { getPaymentFailedEmailTemplate } = await import(
+      "@/lib/email-templates"
+    );
+
+    // Get email template based on language
+    const emailTemplate = getPaymentFailedEmailTemplate(name, language);
+
     const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -460,18 +495,16 @@ async function sendPaymentFailedEmail(email: string, name: string) {
       body: JSON.stringify({
         from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
         to: email,
-        subject: "Payment Failed - Action Required",
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2>Payment Failed</h2>
-            <p>Hi ${name},</p>
-            <p>We couldn't process your subscription payment. Please update your payment method to continue your premium access.</p>
-            <p>Visit your account settings to update your payment information.</p>
-            <p>Best regards,<br>The IZI World Team</p>
-          </div>
-        `,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html,
       }),
     });
+
+    if (!emailResponse.ok) {
+      console.error("Failed to send payment failed email");
+    } else {
+      console.log("Payment failed email sent successfully to:", email);
+    }
   } catch (error) {
     console.error("Error sending payment failed email:", error);
   }

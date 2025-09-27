@@ -1,10 +1,11 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import React, { useState } from "react";
-import { useTranslations } from "next-intl";
 
 const Newsletter = () => {
   const tNewsletter = useTranslations("Newsletter");
+  const locale = useLocale();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -34,7 +35,7 @@ const Newsletter = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, language: locale }),
       });
 
       const data = await response.json();

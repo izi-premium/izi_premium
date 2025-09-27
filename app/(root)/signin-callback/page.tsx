@@ -1,18 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/providers/FirebaseAuthProvider";
 import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 export default function SigninCallbackPage() {
-  const { data: session, status } = useSession();
+  const { user, loading } = useAuth();
   const searchParams = useSearchParams();
   const checkoutIntent = searchParams.get("checkout") === "true";
 
   useEffect(() => {
-    if (status === "loading") return; // Still loading, wait
+    if (loading) return; // Still loading, wait
 
-    if (status === "authenticated" && session?.user && checkoutIntent) {
+    if (!loading && user && checkoutIntent) {
       // User is authenticated and came from checkout flow
       // Initiate Stripe checkout
       const initiateCheckout = async () => {
@@ -47,14 +47,14 @@ export default function SigninCallbackPage() {
       };
 
       initiateCheckout();
-    } else if (status === "authenticated" && session?.user) {
+    } else if (!loading && user) {
       // User is authenticated but no checkout intent, redirect to home
       window.location.href = "/";
-    } else if (status === "unauthenticated") {
+    } else if (!loading && !user) {
       // User is not authenticated, redirect to signin
       window.location.href = "/signin";
     }
-  }, [session, status, checkoutIntent]);
+  }, [user, loading, checkoutIntent]);
 
   return (
     <div className="flex min-h-screen items-center justify-center">

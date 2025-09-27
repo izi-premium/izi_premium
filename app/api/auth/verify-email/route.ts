@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
 import { getAdminDb } from "@/lib/firebase-admin";
-import { signIn } from "next-auth/react";
+import { NextRequest, NextResponse } from "next/server";
+// Removed NextAuth import - using Firebase Auth now
 
 export async function POST(request: NextRequest) {
   try {

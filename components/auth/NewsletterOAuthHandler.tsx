@@ -1,24 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/providers/FirebaseAuthProvider";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 export default function NewsletterOAuthHandler() {
   const tNewsletter = useTranslations("Newsletter");
-  const { data: session, status } = useSession();
+  const { user, loading } = useAuth();
   const [processed, setProcessed] = useState(false);
 
   useEffect(() => {
     async function handleOAuthNewsletter() {
       // Only run once when authenticated and not already processed
-      if (status === "authenticated" && session?.user?.email && !processed) {
+      if (!loading && user?.email && !processed) {
         const shouldSubscribe = localStorage.getItem("google_oauth_newsletter");
 
         if (shouldSubscribe === "true") {
           console.log(
             "🔄 Processing newsletter subscription for OAuth user:",
-            session.user.email
+            user.email
           );
 
           try {
@@ -28,7 +28,8 @@ export default function NewsletterOAuthHandler() {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                email: session.user.email,
+                email: user.email,
+                language: "es",
               }),
             });
 
@@ -65,7 +66,7 @@ export default function NewsletterOAuthHandler() {
     }
 
     handleOAuthNewsletter();
-  }, [session, status, processed]);
+  }, [user, loading, processed]);
 
   return null; // This component doesn't render anything visible
 }

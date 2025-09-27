@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Menu } from "lucide-react";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/providers/FirebaseAuthProvider";
 import {
   Sheet,
   SheetClose,
@@ -10,16 +8,18 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
+import Link from "next/link";
 
-import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/language/LanguageSwitcher";
-import Image from "next/image";
 import imageData from "@/data/uploadedImages.json";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { UserAvatar } from "./UserAvatar";
 
 export default function Header() {
   const tNav = useTranslations("Navigation");
-  const { data: session } = useSession();
+  const { user } = useAuth();
 
   const navLinks = [
     { href: "#chat", label: `${tNav("chat")}` },
@@ -54,7 +54,7 @@ export default function Header() {
           {/* Mobile */}
           <div className="flex-center gap-3 xl:hidden">
             <LanguageSwitcher />
-            {session?.user && <UserAvatar user={session.user} />}
+            {user && <UserAvatar user={user} />}
 
             <Sheet>
               <SheetTrigger asChild className="size-[4.4rem]">
@@ -102,7 +102,7 @@ export default function Header() {
                     </div>
                     {/* CTA Buttons */}
                     <div className="flex-center-col gap-4">
-                      {!session?.user ? (
+                      {!user ? (
                         <>
                           <SheetClose asChild>
                             <Link
@@ -157,11 +157,11 @@ export default function Header() {
               </Link>
             ))}
             <LanguageSwitcher />
-            {session?.user && <UserAvatar user={session.user} />}
+            {user && <UserAvatar user={user} />}
 
             {/* CTA Buttons */}
             <div className="flex-center gap-4">
-              {!session?.user ? (
+              {!user ? (
                 <>
                   <Link
                     href="/signup?redirect=/"

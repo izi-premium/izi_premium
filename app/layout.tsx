@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import "./globals.css";
-import { cn } from "@/lib/utils";
-import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import Header from "@/components/shared/Header";
+import { cn } from "@/lib/utils";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
-import AuthProvider from "../components/providers/AuthProvider";
+import localFont from "next/font/local";
 import NewsletterOAuthHandler from "../components/auth/NewsletterOAuthHandler";
+import { FirebaseAuthProvider } from "../components/providers/FirebaseAuthProvider";
+import "./globals.css";
 
 const switzer = localFont({
   src: "../public/fonts/Switzer-Variable.woff2",
@@ -82,7 +82,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <AuthProvider>
+    <FirebaseAuthProvider>
       <html lang={locale} suppressHydrationWarning>
         <head>
           {/* Preconnect to external sites if any */}
@@ -102,6 +102,7 @@ export default async function RootLayout({
             switzer.variable,
             parisienne.variable
           )}
+          suppressHydrationWarning={true}
         >
           <NextIntlClientProvider messages={messages}>
             <NewsletterOAuthHandler />
@@ -114,6 +115,6 @@ export default async function RootLayout({
           <SpeedInsights />
         </body>
       </html>
-    </AuthProvider>
+    </FirebaseAuthProvider>
   );
 }
