@@ -283,10 +283,7 @@ export default function SubscriptionManagement() {
                   <div className="border-t pt-4">
                     <AlertDialog>
                       <AlertDialogTrigger asChild>
-                        <Button
-                          asChild
-                          className="bg-base-200 flex-center h-fit w-full border border-solid border-red-700 py-3 hover:cursor-pointer"
-                        >
+                        <Button className="bg-base-200 flex-center h-fit w-full border border-solid border-red-700 py-3 hover:cursor-pointer">
                           <span className="paragraph-14-normal 2xl:paragraph-18-medium font-medium text-red-700">
                             {t("cancelSubscription")}
                           </span>
@@ -297,10 +294,8 @@ export default function SubscriptionManagement() {
                           <AlertDialogTitle className="paragraph-24-medium md:subtitle-medium text-center text-gray-900">
                             {t("confirmCancellation")}
                           </AlertDialogTitle>
-                          <AlertDialogDescription className="w-full">
-                            <p className="paragraph-14-normal 2xl:paragraph-18-normal mt-2 text-gray-700">
-                              {t("cancellationDescription")}
-                            </p>
+                          <AlertDialogDescription className="paragraph-14-normal 2xl:paragraph-18-normal mt-2 w-full text-gray-700">
+                            {t("cancellationDescription")}
                           </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
@@ -355,14 +350,7 @@ export default function SubscriptionManagement() {
                 <span className="bg-primary-action-100 absolute bottom-[-26px] left-[52px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
                 <div className="border-elevated-surfaces-500 relative w-full rounded-[0.4rem] border border-solid px-8 py-3 xl:px-[clamp(32px,1.66vw)] xl:py-[clamp(1.2rem,0.625vw,2.4rem)]">
                   <p className="paragraph-18-medium md:paragraph-24-medium text-secondary-text-500 w-full text-center">
-                    {purchasing ? (
-                      <>
-                        <Loader2 className="mr-2 inline h-4 w-4 animate-spin" />
-                        {t("processing")}
-                      </>
-                    ) : (
-                      t("activatePremium")
-                    )}
+                    {t("activatePremium")}
                   </p>
                 </div>
               </button>
