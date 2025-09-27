@@ -10,9 +10,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { logout } from "@/lib/firebase-auth";
 import { User } from "firebase/auth";
-import { LogOut } from "lucide-react";
+import { LogOut, Settings } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 
 interface UserAvatarProps {
   user: User;
