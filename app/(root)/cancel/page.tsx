@@ -1,19 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/providers/FirebaseAuthProvider";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function CancelPage() {
   const tCancel = useTranslations("Cancel");
-  const { data: session, status } = useSession();
+  const { user, loading: authLoading } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const handleTryAgain = async () => {
-    if (status === "loading") return;
+    if (loading) return;
 
-    if (!session?.user) {
+    if (!user) {
       // User is not logged in, redirect to signup with checkout intent
       window.location.href = "/signup?checkout=true";
       return;

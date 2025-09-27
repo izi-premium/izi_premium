@@ -1,5 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { getResendOtpEmailTemplate } from "@/lib/email-templates";
 import { getAdminDb } from "@/lib/firebase-admin";
+import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 export async function POST(request: NextRequest) {
@@ -41,25 +42,24 @@ export async function POST(request: NextRequest) {
       createdAt: new Date(),
     });
 
+    // Get user language from Firestore
+    const userLanguage = userData.idioma || "es";
+    const userName = userData.name || userData.nickname || "Usuario";
+
+    // Get email template based on language
+    const emailTemplate = getResendOtpEmailTemplate(
+      userName,
+      otp,
+      userLanguage
+    );
+
     // Send OTP email
     try {
       await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL!,
         to: email,
-        subject: "New verification code for your email",
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2>Email Verification</h2>
-            <p>Hi ${userData.name},</p>
-            <p>Here's your new verification code:</p>
-            <div style="background-color: #f5f5f5; padding: 20px; text-align: center; font-size: 24px; font-weight: bold; letter-spacing: 2px; margin: 20px 0;">
-              ${otp}
-            </div>
-            <p>This code will expire in 10 minutes.</p>
-            <p>If you didn't request this code, please ignore this email.</p>
-            <p>Best regards,<br>IZI World  Team</p>
-          </div>
-        `,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html,
       });
     } catch (emailError) {
       console.error("Error sending email:", emailError);

@@ -2,17 +2,17 @@
 
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/providers/FirebaseAuthProvider";
+import imageData from "@/data/uploadedImages.json";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import imageData from "@/data/uploadedImages.json";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function ThankYouPage() {
   const tThanks = useTranslations("Thanks");
-  const { data: session } = useSession();
+  const { user } = useAuth();
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
   const [loading, setLoading] = useState(true);
@@ -65,8 +65,8 @@ export default function ThankYouPage() {
 
         <div className="mb-6 w-full space-y-3">
           <p className="paragraph-14-normal md:paragraph-18-normal 2xl:paragraph-24-normal mb-6 text-gray-600">
-            {session?.user?.name
-              ? `${tThanks("greet")} ${session.user.name}, ${tThanks("greetMin")}`
+            {user?.displayName
+              ? `${tThanks("greet")} ${user.displayName}, ${tThanks("greetMin")}`
               : `${tThanks("greetMay")}`}
             {tThanks("active")}
           </p>

@@ -1,9 +1,9 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,15 +16,14 @@ const compat = new FlatCompat({
 const eslintConfig = [
   // Base JavaScript recommended rules
   js.configs.recommended,
-  
+
   // Next.js configurations (includes React, React Hooks, and Next.js rules)
   ...compat.extends(
     "next/core-web-vitals", // Includes react, react-hooks, next plugins
-    "next/typescript",      // TypeScript-specific Next.js rules
-    "standard",             // Your existing standard config
-    "prettier"              // Keep prettier last to override conflicting rules
+    "next/typescript", // TypeScript-specific Next.js rules
+    "prettier" // Keep prettier last to override conflicting rules
   ),
-  
+
   // TypeScript files configuration
   {
     files: ["**/*.{ts,tsx}"],
@@ -56,18 +55,18 @@ const eslintConfig = [
       "@typescript-eslint/prefer-const": "error",
       "@typescript-eslint/consistent-type-imports": [
         "error",
-        { 
+        {
           prefer: "type-imports",
-          fixStyle: "separate-type-imports" 
+          fixStyle: "separate-type-imports",
         },
       ],
       "@typescript-eslint/no-import-type-side-effects": "error",
-      
+
       // Override Next.js defaults if needed
       "no-console": ["warn", { allow: ["warn", "error"] }],
     },
   },
-  
+
   // JavaScript/JSX files configuration
   {
     files: ["**/*.{js,jsx}"],
