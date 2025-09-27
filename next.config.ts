@@ -52,14 +52,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
     scrollRestoration: true,
-    optimizePackageImports: [
-      "lucide-react",
-      "date-fns",
-      "embla-carousel-react",
-      "react-lite-youtube-embed",
-      "react",
-      "react-dom",
-    ],
+    optimizePackageImports: ["lucide-react", "date-fns", "react", "react-dom"],
   },
   // Enable compression
   compress: true,

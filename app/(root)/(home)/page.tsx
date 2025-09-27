@@ -1,10 +1,5 @@
 import { Suspense } from "react";
-// import FaqSection from "@/components/sections/FaqSection";
-// import CarouselSection from "@/components/sections/CarouselSection";
-// import TabsSection from "@/components/sections/TabsSection";
 import SkeletonCard from "@/components/shared/cards/SkeletonCard";
-// import ContactForm from "@/components/sections/ContactForm";
-// import TextWithImageSection from "@/components/sections/TextWithImageSection";
 import Hero from "@/components/sections/hero/Hero";
 import MainFeatures from "@/components/sections/features/MainFeatures";
 import { AnonymousChat } from "@/components/sections/chat/AnonymousChat";
