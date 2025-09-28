@@ -368,7 +368,8 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
           {loading ? `${tUp("creating")}` : `${tUp("create")}`}
         </button>
 
-        <div className="relative mb-4">
+        {/* Separador "O continúa con" - Comentado temporalmente */}
+        {/* <div className="relative mb-4">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-gray-300"></div>
           </div>
@@ -377,9 +378,10 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               {tUp("continue")}
             </span>
           </div>
-        </div>
+        </div> */}
 
-        <button
+        {/* Google Signup Button - Comentado temporalmente */}
+        {/* <button
           onClick={handleGoogleSignup}
           className={`paragraph-14-normal 2xl:paragraph-18-medium mb-4 flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 font-medium hover:cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none ${
             isConsentGiven
@@ -410,7 +412,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             />
           </svg>
           {tUp("google")}
-        </button>
+        </button> */}
       </form>
 
       <div className="mt-6 text-center">
