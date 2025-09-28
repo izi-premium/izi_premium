@@ -231,7 +231,8 @@ export default function FirebaseSigninForm({
               {loading ? "Iniciando sesión..." : tIn("signin")}
             </Button>
 
-            <div className="relative">
+            {/* Separador "O continúa con" - Comentado temporalmente */}
+            {/* <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t" />
               </div>
@@ -240,9 +241,10 @@ export default function FirebaseSigninForm({
                   O continúa con
                 </span>
               </div>
-            </div>
+            </div> */}
 
-            <Button
+            {/* Google Signin Button - Comentado temporalmente */}
+            {/* <Button
               type="button"
               variant="outline"
               onClick={handleGoogleSignin}
@@ -268,7 +270,7 @@ export default function FirebaseSigninForm({
                 />
               </svg>
               Continuar con Google
-            </Button>
+            </Button> */}
           </form>
         )}
       </CardContent>

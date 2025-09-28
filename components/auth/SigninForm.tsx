@@ -222,8 +222,8 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
         </div>
       )}
 
-      {/* Google Signin Button */}
-      <button
+      {/* Google Signin Button - Comentado temporalmente */}
+      {/* <button
         onClick={handleGoogleSignin}
         className="paragraph-14-normal 2xl:paragraph-18-medium mb-4 flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 hover:cursor-pointer hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
       >
@@ -246,9 +246,10 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
           />
         </svg>
         {tIn("google")}
-      </button>
+      </button> */}
 
-      <div className="relative mb-4">
+      {/* Separador "O continúa con" - Comentado temporalmente */}
+      {/* <div className="relative mb-4">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gray-300"></div>
         </div>
@@ -257,7 +258,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
             {tIn("continue")}
           </span>
         </div>
-      </div>
+      </div> */}
 
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
