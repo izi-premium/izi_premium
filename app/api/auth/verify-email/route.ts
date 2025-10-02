@@ -56,10 +56,16 @@ export async function POST(request: NextRequest) {
     const userDoc = userQuery.docs[0];
     const userData = userDoc.data();
 
-    // Update user as verified
+    // Update user as verified in Firestore
     await userDoc.ref.update({
       emailVerified: true,
       updatedAt: new Date(),
+    });
+
+    // Update user as verified in Firebase Authentication
+    const admin = require("firebase-admin");
+    await admin.auth().updateUser(otpData.userId, {
+      emailVerified: true,
     });
 
     // Clean up OTP

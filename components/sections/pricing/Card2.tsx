@@ -203,6 +203,7 @@ const Card2 = () => {
               u: (chunks: React.ReactNode) => <u>{chunks}</u>,
             })}
           </p>
+
           <button
             onClick={handlePremiumClick}
             disabled={loading}

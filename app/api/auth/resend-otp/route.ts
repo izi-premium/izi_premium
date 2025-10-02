@@ -11,19 +11,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
 
-    // Check if user exists and is not verified
+    // Check if user exists (regardless of verification status)
     const userQuery = await getAdminDb()
       .collection("users")
       .where("email", "==", email)
-      .where("emailVerified", "==", false)
       .limit(1)
       .get();
 
     if (userQuery.empty) {
-      return NextResponse.json(
-        { error: "User not found or already verified" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "User not found" }, { status: 400 });
     }
 
     const user = userQuery.docs[0];
@@ -40,6 +36,12 @@ export async function POST(request: NextRequest) {
       expiresAt: otpExpiry,
       userId: user.id,
       createdAt: new Date(),
+    });
+
+    // Reset emailVerified to false in Firestore to allow re-verification
+    await user.ref.update({
+      emailVerified: false,
+      updatedAt: new Date(),
     });
 
     // Get user language from Firestore
