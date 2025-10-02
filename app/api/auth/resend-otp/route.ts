@@ -1,5 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { getResendOtpEmailTemplate } from "@/lib/email-templates";
 import { getAdminDb } from "@/lib/firebase-admin";
+import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 export async function POST(request: NextRequest) {
@@ -10,19 +11,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
 
-    // Check if user exists and is not verified
+    // Check if user exists (regardless of verification status)
     const userQuery = await getAdminDb()
       .collection("users")
       .where("email", "==", email)
-      .where("emailVerified", "==", false)
       .limit(1)
       .get();
 
     if (userQuery.empty) {
-      return NextResponse.json(
-        { error: "User not found or already verified" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "User not found" }, { status: 400 });
     }
 
     const user = userQuery.docs[0];
@@ -41,25 +38,30 @@ export async function POST(request: NextRequest) {
       createdAt: new Date(),
     });
 
+    // Reset emailVerified to false in Firestore to allow re-verification
+    await user.ref.update({
+      emailVerified: false,
+      updatedAt: new Date(),
+    });
+
+    // Get user language from Firestore
+    const userLanguage = userData.idioma || "es";
+    const userName = userData.name || userData.nickname || "Usuario";
+
+    // Get email template based on language
+    const emailTemplate = getResendOtpEmailTemplate(
+      userName,
+      otp,
+      userLanguage
+    );
+
     // Send OTP email
     try {
       await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL!,
         to: email,
-        subject: "New verification code for your email",
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2>Email Verification</h2>
-            <p>Hi ${userData.name},</p>
-            <p>Here's your new verification code:</p>
-            <div style="background-color: #f5f5f5; padding: 20px; text-align: center; font-size: 24px; font-weight: bold; letter-spacing: 2px; margin: 20px 0;">
-              ${otp}
-            </div>
-            <p>This code will expire in 10 minutes.</p>
-            <p>If you didn't request this code, please ignore this email.</p>
-            <p>Best regards,<br>IZI World  Team</p>
-          </div>
-        `,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html,
       });
     } catch (emailError) {
       console.error("Error sending email:", emailError);

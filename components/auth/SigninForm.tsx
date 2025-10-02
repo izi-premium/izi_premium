@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { loginWithEmail, loginWithGoogle } from "@/lib/firebase-auth";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useState } from "react";
 
 interface SigninFormProps {
   redirectUrl?: string;
@@ -12,6 +12,7 @@ interface SigninFormProps {
 
 export default function SigninForm({ redirectUrl }: SigninFormProps) {
   const tIn = useTranslations("Signin");
+  const locale = useLocale();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -19,6 +20,10 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [emailNotVerified, setEmailNotVerified] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendMessage, setResendMessage] = useState("");
+  const [resetEmailSent, setResetEmailSent] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -44,15 +49,24 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
     setLoading(true);
 
     try {
-      const result = await signIn("credentials", {
-        email: formData.email,
-        password: formData.password,
-        redirect: false,
-      });
+      const {
+        user,
+        error: authError,
+        message,
+      } = await loginWithEmail(formData.email, formData.password, locale);
 
-      if (result?.error) {
-        setError(result.error);
-      } else if (result?.ok) {
+      if (authError) {
+        if (authError === "email-not-verified") {
+          setEmailNotVerified(true);
+          setError(
+            message ||
+              "Tu email no está verificado. Por favor, verifica tu email antes de iniciar sesión."
+          );
+        } else {
+          setEmailNotVerified(false);
+          setError(authError);
+        }
+      } else if (user) {
         if (checkoutIntent) {
           // If user came from checkout flow, initiate Stripe checkout
           try {
@@ -92,19 +106,73 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
     }
   };
 
-  const handleGoogleSignin = () => {
-    if (checkoutIntent) {
-      // If user came from checkout flow, redirect to a special callback that will handle checkout
-      signIn("google", {
-        callbackUrl: `/signin-callback?checkout=true`,
-        redirect: true,
-      });
-    } else {
-      signIn("google", {
-        callbackUrl: finalRedirectUrl,
-        redirect: true,
-      });
+  const handleGoogleSignin = async () => {
+    setError("");
+    setLoading(true);
+
+    try {
+      const { user, error: authError } = await loginWithGoogle();
+
+      if (authError) {
+        setError(authError);
+      } else if (user) {
+        if (checkoutIntent) {
+          router.push("/checkout");
+        } else {
+          router.push(finalRedirectUrl);
+        }
+      }
+    } catch (err) {
+      setError("Error de red. Por favor, inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const handleForgotPassword = () => {
+    if (!formData.email) {
+      // No email entered, redirect to forgot password page
+      router.push("/forgot-password");
+    } else {
+      // Email is entered, redirect to forgot password page with email pre-filled
+      router.push(
+        `/forgot-password?email=${encodeURIComponent(formData.email)}`
+      );
+    }
+  };
+
+  const handleResendCode = async () => {
+    setResendLoading(true);
+    setResendMessage("");
+    setError("");
+
+    try {
+      const response = await fetch("/api/auth/resend-otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Error al reenviar el código");
+      } else {
+        setResendMessage("Código de verificación reenviado. Revisa tu email.");
+      }
+    } catch (err) {
+      setError("Error de red. Por favor, inténtalo de nuevo.");
+    } finally {
+      setResendLoading(false);
+    }
+  };
+
+  const handleGoToVerification = () => {
+    router.push(`/verify-email?email=${encodeURIComponent(formData.email)}`);
   };
 
   // Eye icon component
@@ -158,6 +226,29 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
     </button>
   );
 
+  if (resetEmailSent) {
+    return (
+      <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm md:p-8">
+        <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
+          {tIn("title")}
+        </h2>
+
+        <div className="space-y-4 text-center">
+          <div className="text-green-600">✅ Email de recuperación enviado</div>
+          <p className="text-sm text-gray-600">
+            Revisa tu bandeja de entrada y sigue las instrucciones.
+          </p>
+          <button
+            onClick={() => setResetEmailSent(false)}
+            className="paragraph-14-normal 2xl:paragraph-18-normal rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 hover:cursor-pointer hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          >
+            Volver al login
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm md:p-8">
       <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
@@ -167,11 +258,59 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
       {error && (
         <div className="paragraph-14-normal mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
           {error}
+          {emailNotVerified && (
+            <div className="mt-3 space-y-2">
+              <button
+                onClick={async () => {
+                  setResendLoading(true);
+                  setResendMessage("");
+                  setError("");
+
+                  try {
+                    const response = await fetch("/api/auth/resend-otp", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        email: formData.email,
+                      }),
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                      setError(data.error || "Error al reenviar el código");
+                    } else {
+                      setResendMessage("Código enviado. Redirigiendo...");
+                      // Esperar un momento para que el usuario vea el mensaje
+                      setTimeout(() => {
+                        router.push(
+                          `/verify-email?email=${encodeURIComponent(formData.email)}`
+                        );
+                      }, 1000);
+                    }
+                  } catch (err) {
+                    setError("Error de red. Por favor, inténtalo de nuevo.");
+                  } finally {
+                    setResendLoading(false);
+                  }
+                }}
+                disabled={resendLoading}
+                className="paragraph-14-normal rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
+              >
+                {resendLoading ? "Enviando..." : "Verificar"}
+              </button>
+              {resendMessage && (
+                <div className="text-sm text-green-600">{resendMessage}</div>
+              )}
+            </div>
+          )}
         </div>
       )}
 
-      {/* Google Signin Button */}
-      <button
+      {/* Google Signin Button - Comentado temporalmente */}
+      {/* <button
         onClick={handleGoogleSignin}
         className="paragraph-14-normal 2xl:paragraph-18-medium mb-4 flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 hover:cursor-pointer hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
       >
@@ -194,9 +333,10 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
           />
         </svg>
         {tIn("google")}
-      </button>
+      </button> */}
 
-      <div className="relative mb-4">
+      {/* Separador "O continúa con" - Comentado temporalmente */}
+      {/* <div className="relative mb-4">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gray-300"></div>
         </div>
@@ -205,7 +345,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
             {tIn("continue")}
           </span>
         </div>
-      </div>
+      </div> */}
 
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -242,6 +382,17 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
           </div>
         </div>
 
+        <div className="mb-4">
+          <button
+            type="button"
+            onClick={handleForgotPassword}
+            className="paragraph-14-normal 2xl:paragraph-18-normal text-blue-600 hover:underline"
+            disabled={loading}
+          >
+            {tIn("question1")}
+          </button>
+        </div>
+
         <button
           type="submit"
           disabled={loading}
@@ -251,15 +402,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
         </button>
       </form>
 
-      <div className="mt-6 space-y-2 text-center">
-        <p className="text-sm text-gray-600">
-          <Link
-            href="/forgot-password"
-            className="paragraph-14-normal 2xl:paragraph-18-normal text-blue-600 hover:underline"
-          >
-            {tIn("question1")}
-          </Link>
-        </p>
+      <div className="mt-6 text-center">
         <p className="paragraph-14-normal 2xl:paragraph-18-normal text-gray-600">
           {tIn("question2")}{" "}
           <Link

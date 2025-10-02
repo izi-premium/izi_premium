@@ -1,20 +1,20 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
+import { getServerUser } from "@/lib/auth-server";
 import { getAdminDb } from "@/lib/firebase-admin";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
-    // Get the user session
-    const session = await getServerSession();
+    // Get the user from Firebase Auth
+    const user = await getServerUser();
 
-    if (!session?.user?.email) {
+    if (!user?.uid) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Find user in Firestore by email
+    // Find user in Firestore by uid
     const userQuery = await getAdminDb()
       .collection("users")
-      .where("email", "==", session.user.email)
+      .where("uid", "==", user.uid)
       .limit(1)
       .get();
 

@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { useTranslations } from "next-intl";
-import React from "react";
+import Link from "next/link";
 
 const Hero = () => {
   const tHero = useTranslations("Hero");

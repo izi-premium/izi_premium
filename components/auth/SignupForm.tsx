@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { signIn, useSession } from "next-auth/react";
+import { loginWithGoogle } from "@/lib/firebase-auth";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { useSearchParams, useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 interface SignupFormProps {
   onSuccess?: () => void;
@@ -12,6 +12,7 @@ interface SignupFormProps {
 
 export default function SignupForm({ onSuccess }: SignupFormProps) {
   const tUp = useTranslations("Signup");
+  const locale = useLocale();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,8 +23,6 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
     subscribeNewsletter: false,
   });
   const [loading, setLoading] = useState(false);
-  const [showVerification, setShowVerification] = useState(false);
-  const [verificationCode, setVerificationCode] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
@@ -89,22 +88,32 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: formData.name,
           email: formData.email,
           password: formData.password,
+          name: formData.name,
           acceptedTerms: formData.acceptedTerms,
           acceptedPrivacy: formData.acceptedPrivacy,
           subscribeNewsletter: formData.subscribeNewsletter,
+          language: locale,
         }),
       });
 
       const data = await response.json();
 
-      if (response.ok) {
-        setMessage(data.message);
-        setShowVerification(true);
+      console.log("API Response:", response);
+      console.log("API Data:", data);
+
+      if (!response.ok) {
+        setError(data.error || "Error al crear la cuenta");
       } else {
-        setError(data.error || `${tUp("error1")}`);
+        setMessage("Cuenta creada exitosamente. Por favor verifica tu email.");
+
+        // Redirect to email verification page
+        setTimeout(() => {
+          router.push(
+            "/verify-email?email=" + encodeURIComponent(formData.email)
+          );
+        }, 2000);
       }
     } catch (err) {
       setError(`${tUp("error2")}`);
@@ -113,137 +122,34 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
     }
   };
 
-  const handleVerification = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-
-    try {
-      const response = await fetch("/api/auth/verify-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          otp: verificationCode,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage(data.message);
-
-        // Auto-login the user after successful verification
-        const signInResult = await signIn("credentials", {
-          email: formData.email,
-          password: formData.password,
-          redirect: false,
-        });
-
-        if (signInResult?.ok) {
-          // Handle different redirect scenarios after auto-login
-          setTimeout(() => {
-            if (onSuccess) {
-              onSuccess();
-            } else if (checkoutIntent) {
-              // Handle checkout flow
-              fetch("/api/checkout", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  countryCode: undefined,
-                  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                  currency: undefined,
-                }),
-              })
-                .then((res) => res.json())
-                .then((checkoutData) => {
-                  if (checkoutData.checkoutUrl) {
-                    window.location.href = checkoutData.checkoutUrl;
-                  } else {
-                    router.push("/");
-                  }
-                })
-                .catch(() => router.push("/"));
-            } else if (redirectUrl) {
-              router.push(redirectUrl);
-            } else {
-              router.push("/");
-            }
-          }, 1500);
-        } else {
-          setTimeout(() => {
-            router.push("/signin");
-          }, 2000);
-        }
-      } else {
-        setError(data.error || "Verification failed");
-      }
-    } catch (err) {
-      setError("Network error. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleResendOTP = async () => {
-    setError("");
-    setLoading(true);
-
-    try {
-      const response = await fetch("/api/auth/resend-otp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage(data.message);
-      } else {
-        setError(data.error || `${tUp("failed-code")}`);
-      }
-    } catch (err) {
-      setError(`${tUp("error2")}`);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleGoogleSignup = () => {
+  const handleGoogleSignup = async () => {
     // Check if both terms and privacy policy are accepted
     if (!formData.acceptedTerms || !formData.acceptedPrivacy) {
       return;
     }
 
-    // Store newsletter preference in localStorage (will be processed globally after OAuth)
-    if (formData.subscribeNewsletter) {
-      localStorage.setItem("google_oauth_newsletter", "true");
-      console.log("📧 Newsletter preference stored for Google OAuth");
-    } else {
-      localStorage.removeItem("google_oauth_newsletter");
+    setError("");
+    setLoading(true);
+
+    try {
+      const { user, error: authError } = await loginWithGoogle();
+
+      if (authError) {
+        setError(authError);
+      } else if (user) {
+        if (checkoutIntent) {
+          router.push("/checkout");
+        } else if (redirectUrl) {
+          router.push(redirectUrl);
+        } else {
+          router.push("/");
+        }
+      }
+    } catch (err) {
+      setError("Error de red. Por favor, inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
     }
-
-    // Construct callback URL based on redirect intent
-    let callbackUrl = "/";
-
-    if (checkoutIntent) {
-      callbackUrl = "/checkout";
-    } else if (redirectUrl) {
-      callbackUrl = redirectUrl;
-    }
-
-    signIn("google", {
-      callbackUrl,
-      redirect: true,
-    });
   };
 
   // Check if both terms and privacy policy are accepted
@@ -299,65 +205,6 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
       )}
     </button>
   );
-
-  if (showVerification) {
-    return (
-      <div className="flex-center-col w-full py-12 pt-[12rem]">
-        <div className="flex-center-col mx-auto w-fit max-w-[clamp(40rem,20.8vw,80rem)] gap-4 rounded-lg bg-gray-50 px-8 py-12 shadow-sm">
-          <h2 className="paragraph-24-medium md:subtitle-medium mb-2 font-bold text-gray-900">
-            {tUp("title")}
-          </h2>
-
-          {message && (
-            <div className="paragraph-14-normal 2xl:paragraph-18-normal mb-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
-              {message}
-            </div>
-          )}
-
-          {error && (
-            <div className="paragraph-14-normal 2xl:paragraph-18-normal mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
-              {error}
-            </div>
-          )}
-
-          <form onSubmit={handleVerification}>
-            <div className="flex-start-col mb-8 w-fit gap-1">
-              <label className="paragraph-14-normal 2xl:paragraph-18-medium mb-2 font-medium text-gray-700">
-                {tUp("show-verif")} {formData.email}
-              </label>
-              <input
-                type="text"
-                value={verificationCode}
-                onChange={(e) => setVerificationCode(e.target.value)}
-                className="paragraph-18-normal w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="000000"
-                maxLength={6}
-                required
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="paragraph-14-normal md:paragraph-18-medium w-full rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:cursor-pointer hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
-            >
-              {loading ? `${tUp("verif-load")}` : `${tUp("verif-email")}`}
-            </button>
-          </form>
-
-          <div className="mt-4 text-center">
-            <button
-              onClick={handleResendOTP}
-              disabled={loading}
-              className="paragraph-14-normal md:paragraph-18-medium text-sm font-medium text-blue-600 hover:cursor-pointer hover:text-blue-800"
-            >
-              {tUp("resend-msg")}
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm md:p-8">
@@ -521,7 +368,8 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
           {loading ? `${tUp("creating")}` : `${tUp("create")}`}
         </button>
 
-        <div className="relative mb-4">
+        {/* Separador "O continúa con" - Comentado temporalmente */}
+        {/* <div className="relative mb-4">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-gray-300"></div>
           </div>
@@ -530,9 +378,10 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
               {tUp("continue")}
             </span>
           </div>
-        </div>
+        </div> */}
 
-        <button
+        {/* Google Signup Button - Comentado temporalmente */}
+        {/* <button
           onClick={handleGoogleSignup}
           className={`paragraph-14-normal 2xl:paragraph-18-medium mb-4 flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 font-medium hover:cursor-pointer focus:ring-2 focus:ring-blue-500 focus:outline-none ${
             isConsentGiven
@@ -563,7 +412,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             />
           </svg>
           {tUp("google")}
-        </button>
+        </button> */}
       </form>
 
       <div className="mt-6 text-center">

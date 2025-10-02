@@ -1,9 +1,5 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import { User } from "next-auth";
-import { signOut } from "next-auth/react";
-import { LogOut, Settings } from "lucide-react";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +8,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { logout } from "@/lib/firebase-auth";
+import { User } from "firebase/auth";
+import { LogOut, Settings } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
 
 interface UserAvatarProps {
   user: User;
@@ -40,10 +41,8 @@ export function UserAvatar({ user, size = "md" }: UserAvatarProps) {
 
   const handleLogout = async () => {
     try {
-      await signOut({
-        callbackUrl: "/", // Redirect to homepage after logout
-        redirect: true,
-      });
+      await logout();
+      window.location.href = "/";
     } catch (error) {
       console.error("Logout error:", error);
     }
@@ -55,17 +54,17 @@ export function UserAvatar({ user, size = "md" }: UserAvatarProps) {
         <button
           className={`${sizeClasses[size]} hover:cusor-pointer flex items-center justify-center overflow-hidden rounded-full border-2 border-gray-300 bg-gray-200 transition-all duration-200 hover:border-gray-400 hover:shadow-md focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none`}
         >
-          {user.image ? (
+          {user.photoURL ? (
             <Image
-              src={user.image}
-              alt={user.name || "User avatar"}
+              src={user.photoURL}
+              alt={user.displayName || "User avatar"}
               width={size === "sm" ? 32 : size === "md" ? 40 : 48}
               height={size === "sm" ? 32 : size === "md" ? 40 : 48}
               className="h-full w-full object-cover"
             />
           ) : (
             <span className="font-semibold text-gray-600">
-              {user.name ? getInitials(user.name) : "U"}
+              {user.displayName ? getInitials(user.displayName) : "U"}
             </span>
           )}
         </button>
@@ -77,7 +76,7 @@ export function UserAvatar({ user, size = "md" }: UserAvatarProps) {
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="paragraph-14-normal leading-none font-medium">
-              {user.name || "User"}
+              {user.displayName || "User"}
             </p>
             <p className="text-muted-foreground paragraph-14-normal leading-none">
               {user.email}

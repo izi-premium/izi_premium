@@ -1,20 +1,23 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { getServerUser } from "@/lib/auth-server";
+import { getAdminDb } from "@/lib/firebase-admin";
 import {
-  regionalPricing,
-  getUserRegion,
   getServerStripe,
+  getUserRegion,
   isDiscountActive,
   LAUNCH_DISCOUNT,
+  regionalPricing,
 } from "@/lib/stripe";
-import { getAdminDb } from "@/lib/firebase-admin";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
+    console.log("Checkout API called");
+
     // Check if user is authenticated
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.id) {
+    const user = await getServerUser();
+    console.log("User:", user?.uid ? "authenticated" : "not authenticated");
+
+    if (!user?.uid) {
       return NextResponse.json(
         { error: "Authentication required", redirectTo: "/signin" },
         { status: 401 }
@@ -24,7 +27,7 @@ export async function POST(request: NextRequest) {
     // Get user data from Firestore
     const userQuery = await getAdminDb()
       .collection("users")
-      .where("uid", "==", session.user.id)
+      .where("uid", "==", user.uid)
       .limit(1)
       .get();
 
@@ -47,11 +50,13 @@ export async function POST(request: NextRequest) {
 
     // Determine user's region for pricing
     const userRegion = getUserRegion(countryCode, timezone, currency);
+    console.log("User region:", userRegion);
     const pricingConfig = regionalPricing[userRegion];
+    console.log("Pricing config:", pricingConfig);
 
     console.log(
       "Creating subscription checkout for user:",
-      session.user.email,
+      user.email,
       "Region:",
       userRegion,
       "Discount active:",
@@ -60,6 +65,15 @@ export async function POST(request: NextRequest) {
 
     // Check if discount is active
     const discountActive = isDiscountActive();
+
+    // Build absolute base URL for Stripe redirects
+    const originHeader =
+      request.headers.get("origin") || process.env.NEXT_PUBLIC_APP_URL || "";
+    const baseUrl = originHeader.startsWith("http")
+      ? originHeader
+      : originHeader
+        ? `https://${originHeader}`
+        : "http://localhost:3000";
 
     // Create Stripe checkout session for subscription
     const checkoutSession = await getServerStripe().checkout.sessions.create({
@@ -83,14 +97,14 @@ export async function POST(request: NextRequest) {
         : {
             allow_promotion_codes: true,
           }),
-      customer_email: session.user.email,
+      customer_email: user.email,
       metadata: {
-        userId: session.user.id,
-        userEmail: session.user.email,
+        userId: user.uid,
+        userEmail: user.email,
         region: userRegion,
       },
-      success_url: `${process.env.NEXTAUTH_URL}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXTAUTH_URL}/cancel`,
+      success_url: `${baseUrl}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/cancel`,
       billing_address_collection: "auto",
       tax_id_collection: {
         enabled: true,
@@ -98,8 +112,8 @@ export async function POST(request: NextRequest) {
       // Subscription specific settings
       subscription_data: {
         metadata: {
-          userId: session.user.id,
-          userEmail: session.user.email,
+          userId: user.uid,
+          userEmail: user.email,
           region: userRegion,
         },
       },
@@ -110,8 +124,8 @@ export async function POST(request: NextRequest) {
       .collection("checkoutSessions")
       .doc(checkoutSession.id)
       .set({
-        userId: session.user.id,
-        userEmail: session.user.email,
+        userId: user.uid,
+        userEmail: user.email,
         region: userRegion,
         priceId: pricingConfig.priceId,
         currency: pricingConfig.currency,
@@ -128,6 +142,10 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Checkout error:", error);
+    console.error("Error details:", {
+      message: error instanceof Error ? error.message : "Unknown error",
+      stack: error instanceof Error ? error.stack : undefined,
+    });
     return NextResponse.json(
       { error: "Failed to create checkout session" },
       { status: 500 }
