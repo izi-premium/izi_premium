@@ -152,7 +152,7 @@ export default function Footer() {
               <ul className="flex-begin-col gap-4">
                 <li>
                   <Link
-                    href="/terms-of-use"
+                    href="/legal/terms-and-conditions"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-1")}
@@ -160,7 +160,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/privacy-policy"
+                    href="/legal/privacy-policy"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-2")}
@@ -168,7 +168,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/subcontractors"
+                    href="/legal/subcontractors"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-3")}
@@ -176,15 +176,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/dsa-compliance"
-                    className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
-                  >
-                    {tFoot("legal-4")}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/community-rules"
+                    href="/legal/community-rules"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-5")}
@@ -192,10 +184,26 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/legal-notice"
+                    href="/legal/legal-notice"
                     className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                   >
                     {tFoot("legal-6")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/legal/app-terms-and-conditions"
+                    className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
+                  >
+                    {tFoot("legal-7")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/legal/cookies"
+                    className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
+                  >
+                    Cookies
                   </Link>
                 </li>
               </ul>

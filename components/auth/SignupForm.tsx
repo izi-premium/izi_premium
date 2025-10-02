@@ -467,7 +467,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400">
               {tUp("agree1")}{" "}
               <Link
-                href="/terms-of-use"
+                href="/legal/terms-and-conditions"
                 className="text-blue-600 hover:underline"
                 target="_blank"
               >
@@ -488,7 +488,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
             <label className="paragraph-14-normal 2xl:paragraph-18-normal text-primary-text-400">
               {tUp("agree2")}{" "}
               <Link
-                href="/privacy-policy"
+                href="/legal/privacy-policy"
                 className="text-blue-600 hover:underline"
                 target="_blank"
               >

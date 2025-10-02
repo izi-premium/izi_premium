@@ -1,6 +1,18 @@
-// pages/subcontractors.tsx
 import { useTranslations } from "next-intl";
-import { GetStaticProps } from "next";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale, namespace: "subcontractors" });
+
+  return {
+    title: t("meta.title"),
+    description: t("meta.description"),
+  };
+}
 
 export default function Subcontractors() {
   const t = useTranslations("subcontractors");

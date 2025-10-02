@@ -212,12 +212,12 @@
     "nav-4": "Galletas de la Fortuna",
     "nav-5": "Preguntas Frecuentes",
     "legal-title": "Legal",
-    "legal-1": "Términos de Uso",
+    "legal-1": "Términos y Condiciones",
     "legal-2": "Política de Privacidad",
     "legal-3": "Subcontratistas",
-    "legal-4": "Reporte de Contenido (DSA)",
     "legal-5": "Reglas de la Comunidad",
-    "legal-6": "Aviso Legal"
+    "legal-6": "Aviso Legal",
+    "legal-7": "Términos y Condiciones de la App"
   },
   "Cancel": {
     "title": "Pago Cancelado",
@@ -318,886 +318,218 @@
   },
 
   "legalNotice": {
+    "meta": {
+      "title": "Aviso Legal",
+      "description": "Aviso legal de I.Z.I. Premium"
+    },
     "title": "Aviso Legal",
-    "section1": {
-      "title": "1) Identificación del titular",
-      "content": {
-        "company": "Titular: OasysNest S.L.U",
-        "nif": "NIF: B22913834",
-        "address": "Domicilio: Camí Terminal 6A, 07009, Palma de Mallorca, España",
-        "emailGeneral": "Email general: info@iziworld.app",
-        "emailPrivacy": "Email privacidad: privacy@iziworld.app",
-        "domain": "Dominio: iziworld.app",
-        "registryData": "Datos registrales: En trámite de inscripción en el Registro Mercantil de Palma de Mallorca."
-      }
-    },
-    "section2": {
-      "title": "2) Delegado de Protección de Datos (DPO)",
-      "content": {
-        "description": "En cumplimiento del artículo 37 del RGPD, OasysNest S.L. cuenta con un Delegado de Protección de Datos designado para supervisar el cumplimiento de la normativa de privacidad y actuar como punto de contacto con los usuarios y autoridades.",
-        "dpoEmail": "Correo del DPO: dpo@iziworld.app",
-        "dpoAddress": "Dirección postal: Camí Terminal 6A, 07009, Palma de Mallorca, España"
-      }
-    },
-    "section3": {
-      "title": "3) Objeto y ámbito",
-      "content": "Este Aviso regula el acceso y uso del sitio web, así como los procesos de prerregistro/registro de usuarios, contratación electrónica y comunicaciones. No regula el uso de la app móvil, que se rige por sus propios Términos."
-    },
-    "section4": {
-      "title": "4) Condiciones de uso",
-      "content": "El acceso implica aceptación de los Términos y Condiciones Web, la Política de Privacidad Web y la Política de Cookies. El usuario se compromete a un uso lícito y a abstenerse de actividades fraudulentas, intrusivas o dañinas. Se exige mayoría de edad para registrarse."
-    },
-    "section5": {
-      "title": "5) Propiedad intelectual e industrial",
-      "content": {
-        "description": "Todos los contenidos del sitio (textos, logotipos, gráficos, software, imágenes, vídeos, marcas y nombres comerciales) son propiedad de OasysNest S.L. o de terceros con licencia.",
-        "trademark": "Se prohíbe la reproducción, distribución, comunicación pública o transformación sin autorización previa y por escrito. La marca I.Z.I. se encuentra protegida y en proceso de registro."
-      }
-    },
-    "section6": {
-      "title": "6) Enlaces y servicios de terceros",
-      "content": "La web puede enlazar a servicios externos (Stripe, Google). OasysNest S.L. no controla su contenido ni condiciones y no responde de su disponibilidad o exactitud. El acceso se realiza bajo responsabilidad del usuario."
-    },
-    "section7": {
-      "title": "7) Exención de garantías y limitación de responsabilidad",
-      "content": {
-        "description": "El sitio se ofrece \"tal cual\" y \"según disponibilidad\". Pueden producirse interrupciones por mantenimiento, incidencias técnicas o causas ajenas al titular. En la medida permitida por la ley, OasysNest S.L. no responde por:",
-        "technicalFailures": "Fallos técnicos, incompatibilidades o pérdida de datos",
-        "misuse": "Uso indebido del sitio por terceros",
-        "userDecisions": "Decisiones adoptadas por el usuario basadas en información de la web",
-        "maxResponsibility": "La responsabilidad máxima se limita al importe efectivamente abonado por el usuario en los 12 meses previos al hecho que motive la reclamación"
-      }
-    },
-    "section8": {
-      "title": "8) Exclusión de servicios profesionales",
-      "content": "La web no presta asesoramiento médico, psicológico, psiquiátrico, jurídico ni de emergencia. Su finalidad es informativa y de contacto."
-    },
-    "section9": {
-      "title": "9) Datos personales y cookies",
-      "content": {
-        "navigation": "El tratamiento derivado de la navegación, formularios, prerregistro/registro y pagos se regula en la Política de Privacidad Web.",
-        "cookies": "El uso de cookies se gestiona conforme a la Política de Cookies, mediante banner de consentimiento granular (\"Aceptar\", \"Rechazar\", \"Configurar\")."
-      }
-    },
-    "section10": {
-      "title": "10) Contratación electrónica",
-      "content": {
-        "description": "Las contrataciones realizadas en la web se rigen por las Condiciones de Contratación y los Términos Web.",
-        "paymentMethods": "Métodos de pago: Stripe.",
-        "dataStorage": "OasysNest S.L. no almacena datos financieros.",
-        "receipt": "Se envía justificante electrónico tras cada transacción.",
-        "withdrawal": "En la UE, se aplica el derecho de desistimiento de 14 días, salvo inicio de prestación consentido.",
-        "refunds": "Reembolsos y cancelaciones se rigen por la política descrita en Términos Web."
-      }
-    },
-    "section11": {
-      "title": "11) Comunicaciones electrónicas",
-      "content": "Las comunicaciones podrán realizarse por email, avisos en cuenta o en la propia web. Los registros electrónicos y justificantes de pasarela constituyen prueba válida."
-    },
-    "section12": {
-      "title": "12) Seguridad",
-      "content": {
-        "description": "Se aplican medidas técnicas y organizativas proporcionales, incluyendo TLS 1.3 en tránsito, cifrado AES-256, control de accesos y monitorización activa."
-      }
-    },
-    "section13": {
-      "title": "13) Normativa aplicable y alcance internacional",
-      "content": {
-        "euUk": "España y UE/EEE: LSSI-CE, RGPD y ePrivacy.",
-        "usa": "Reino Unido: UK Data Protection Act 2018.",
-        "canada": "EE.UU.: CCPA/CPRA y demás leyes estatales aplicables.",
-        "australia": "Canadá: PIPEDA y normas provinciales.",
-        "latam": "Australia: Privacy Act 1988. LatAm: cumplimiento de leyes nacionales (México LFPDPPP, Brasil LGPD, Argentina Ley 25.326, Colombia Ley 1581, Chile Ley 19.628, Perú Ley 29733, Uruguay Ley 18.331, entre otras).",
-        "noSpecific": "En países sin normativa específica, se aplican los principios RGPD como estándar mínimo."
-      }
-    },
-    "section14": {
-      "title": "14) Jurisdicción y resolución de disputas",
-      "content": {
-        "euUkJurisdiction": "UE/EEE/Reino Unido: tribunales del domicilio del consumidor, o Palma de Mallorca de forma subsidiaria.",
-        "otherCountries": "Otros países: tribunales competentes según su normativa local.",
-        "mediation": "Cuando la ley lo permita, se podrá recurrir a mediación o arbitraje online.",
-        "ecPlatform": "Plataforma de resolución de litigios de la Comisión Europea: https://ec.europa.eu/consumers/odr/."
-      }
-    },
-    "section15": {
-      "title": "15) Nulidad parcial",
-      "content": "La nulidad de una cláusula no afectará al resto. Las disposiciones se interpretarán para mantener su validez y finalidad."
-    },
-    "section16": {
-      "title": "16) Modificaciones",
-      "content": "OasysNest S.L. podrá modificar este Aviso para reflejar cambios legales, técnicos o de servicio. La versión vigente indicará fecha de actualización y estará disponible en la web."
-    },
-    "section17": {
-      "title": "17. Contacto",
-      "content": {
-        "info": "Información: info@iziworld.app",
-        "support": "Soporte: support@iziworld.app",
-        "privacy": "Privacidad: privacy@iziworld.app",
-        "dpo": "DPO: dpo@iziworld.app",
-        "address": "Dirección postal: Camí Terminal 6A, 07009, Palma de Mallorca, España"
-      }
-    },
-    "lastUpdated": "Fecha de última actualización: 15/10/2025"
-  },
-  "dsaCompliance": {
-    "title": "Política de Cumplimiento DSA (EU) – I.Z.I.",
-    "version": "Versión:",
-    "date": "Fecha:",
-    "scope": "Ámbito:",
-    "scopeContent": "Unión Europea (Reglamento (UE) 2022/2065 – Digital Services Act)",
-    "serviceOwner": "Titular del servicio:",
-    "generalContact": "Contacto general:",
-    "dsaContact": "Contacto DSA/Autoridades:",
-    "relationshipOtherDocs": "Relación con otros documentos:",
-    "relationshipContent": "Esta Política complementa y desarrolla los Términos y Condiciones y la Política de Privacidad de I.Z.I., que siguen aplicando en todo lo no previsto aquí.",
-    "section0": {
-      "title": "0) Naturaleza del servicio y alcance DSA",
-      "classification": "Clasificación DSA:",
-      "classificationContent": "I.Z.I. es un servicio de alojamiento y plataforma en línea que permite a los usuarios intercambiar mensajes y contenidos (texto, audio, imagen) en chats privados y crear diarios personales. No es un mercado en línea ni un motor de búsqueda.",
-      "coverage": "Cobertura:",
-      "coverageContent": "Se aplican las obligaciones para plataformas en línea que alojan contenidos de usuarios. Las obligaciones reforzadas para VLOPs (Very Large Online Platforms) no aplican en el lanzamiento. Ver §17 para el plan de escalado si el umbral se alcanzara."
-    },
-    "section1": {
-      "title": "1) Puntos de contacto y representación",
-      "singleContact": "Punto único de contacto para autoridades y DSCs (EU):",
-      "userContact": "Punto de contacto para usuarios:",
-      "rightsContact": "Punto de ejercicio de derechos:",
-      "contactLanguage": "Idioma de contacto:",
-      "euRepresentative": "Representante en la UE:",
-      "euRepresentativeContent": "No aplica si el responsable está establecido en la UE. Si no lo estuviera, se designará conforme al art. 13 DSA."
-    },
-    "section2": {
-      "title": "2) Definiciones operativas",
-      "notice": "Aviso/Notificación (Notice):",
-      "noticeContent": "Comunicación que identifica contenido presuntamente ilegal o infractor de Términos.",
-      "action": "Acción (Action):",
-      "actionContent": "Medida tomada por I.Z.I. sobre un contenido o cuenta (retiro, bloqueo, limitación, desmonetización, etc.).",
-      "motivation": "Motivación/\"Statement of Reasons\":",
-      "motivationContent": "Comunicación estandarizada al usuario afectado explicando la decisión de moderación."
-    },
-    "section3": {
-      "title": "3) Sistema de \"notice & action\" (notificación y actuación)",
-      "subsection1": {
-        "title": "3.1 Canal de notificación",
-        "content": "I.Z.I. habilita un formulario accesible dentro de la app y en la web: [iziworld.app/legal/notice]. También se aceptará notificación por email a dsa-legal@iziworld.app cuando el formulario no sea razonablemente accesible."
+    "intro": "En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), el propietario de la web, le informa de lo siguiente:",
+    "company": {
+      "labels": {
+        "name": "Denominación social",
+        "nif": "NIF",
+        "address": "Domicilio"
       },
-      "subsection2": {
-        "title": "3.2 Requisitos mínimos de la notificación",
-        "content": "El formulario solicita, como mínimo:",
-        "requirements": {
-          "a": "Localización exacta del contenido (ID de chat y marca temporal o URL interna),",
-          "b": "Descripción de la ilicitud y base jurídica aplicable (si se conoce),",
-          "c": "Datos de contacto del notificante,",
-          "d": "Declaración de buena fe."
-        }
-      },
-      "subsection3": {
-        "title": "3.3 Acuse y tramitación",
-        "acknowledgment": "Se emite acuse de recibo automático.",
-        "slaClassification": "SLA de clasificación inicial: ≤ 24 h hábiles.",
-        "slaResolution": "SLA de resolución ordinaria: ≤ 72 h hábiles, salvo casos complejos.",
-        "prioritization": "Priorización para \"trusted flaggers\" (§7)."
-      },
-      "subsection4": {
-        "title": "3.4 Actuaciones posibles",
-        "content": "Retirada del contenido, bloqueo de subida, limitación de funcionalidades, restricción geográfica, suspensión temporal de cuenta, preservación para autoridad.",
-        "conservation": "Conservación mínima de evidencias y logs conforme a la ley y a la Política de Privacidad."
-      },
-      "subsection5": {
-        "title": "3.5 Prevención de abusos",
-        "content": "Avisos manifiestamente infundados o abusivos podrán conllevar limitaciones a quienes los emiten repetidamente (§8)."
-      }
+      "name": "OASYS NEST, S.L.U.",
+      "nif": "B22913834",
+      "address": "C/ Cami Terminal 6a, 07009 - Palma De Mallorca (Islas Baleares)",
+      "email": "dpo@iziworld.app"
     },
-    "section4": {
-      "title": "4) Decisiones de moderación y \"Statement of Reasons\"",
-      "content": "Cada vez que I.Z.I. adopte una medida que afecte a contenido o cuenta, emitirá al usuario afectado una motivación estandarizada, que incluirá:",
-      "requirements": {
-        "a": "si la decisión deriva de Términos o de ilicitud legal;",
-        "b": "la regla infringida;",
-        "c": "los hechos esenciales y, en su caso, el uso de sistemas automatizados;",
-        "d": "el ámbito de la medida (qué, dónde y por cuánto tiempo);",
-        "e": "los recursos disponibles: sistema interno de reclamaciones (§5), ADR (§6) y autoridad competente."
-      }
+    "responsibility": {
+      "title": "Responsabilidad",
+      "p1": "Con los límites establecidos en la ley, OASYS NEST, S.L.U. no asume ninguna responsabilidad derivada de la falta de veracidad, integridad, actualización y precisión de los datos o informaciones que contienen sus páginas web.",
+      "p2": "Los contenidos e información no vinculan a OASYS NEST, S.L.U. ni constituyen opiniones, consejos o asesoramiento legal de ningún tipo pues se trata meramente de un servicio ofrecido con carácter informativo y divulgativo."
     },
-    "section5": {
-      "title": "5) Sistema interno de reclamaciones (apelaciones)",
-      "channel": "Canal:",
-      "channelContent": "desde el propio aviso de decisión y en Cuenta > Soporte > Reclamaciones.",
-      "deadline": "Plazo para reclamar:",
-      "deadlineContent": "6 meses desde la decisión.",
-      "sla": "SLA de resolución:",
-      "slaContent": "≤ 14 días naturales.",
-      "review": "Revisión:",
-      "reviewContent": "por equipo humano distinto del que adoptó la decisión.",
-      "result": "Resultado:",
-      "resultContent": "motivado y restitución si procede."
+    "links": {
+      "title": "Enlaces a Terceros",
+      "content": "Las páginas de Internet de OASYS NEST, S.L.U. pueden contener enlaces (links) a otras páginas de terceras partes que OASYS NEST, S.L.U. no puede controlar. Por lo tanto, OASYS NEST, S.L.U. no puede asumir responsabilidades por el contenido que pueda aparecer en páginas de terceros."
     },
-    "section6": {
-      "title": "6) Solución extrajudicial de controversias (ADR)",
-      "content": "I.Z.I. reconocerá organismos de resolución extrajudicial certificados por autoridades competentes en la UE. El usuario podrá someter la disputa a dichos organismos una vez agotado el sistema interno. I.Z.I. cooperará de buena fe y cumplirá las resoluciones no contrarias a Derecho. Mientras no existan organismos certificados accesibles, I.Z.I. ofrece mediación ODR voluntaria."
+    "intellectualProperty": {
+      "title": "Propiedad Intelectual",
+      "p1": "Los textos, imágenes, sonidos, animaciones, software y el resto de contenidos incluidos en este website son propiedad exclusiva de OASYS NEST, S.L.U. o sus licenciantes. Cualquier acto de transmisión, distribución, cesión, reproducción, almacenamiento o comunicación pública total o parcial, deberá contar con el consentimiento expreso de OASYS NEST, S.L.U.",
+      "p2": "Asimismo, para acceder a algunos de los servicios que OASYS NEST, S.L.U. ofrece a través del sitio web, deberá proporcionar algunos datos de carácter personal. En cumplimiento de lo establecido en el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos le informamos que, mediante la cumplimentación de los presentes formularios, sus datos personales quedarán incorporados y serán tratados en los ficheros de OASYS NEST, S.L.U. con el fin de poderle prestar y ofrecer nuestros servicios así como para informarle de las mejoras del sitio Web."
     },
-    "section7": {
-      "title": "7) \"Trusted Flaggers\" y cooperación",
-      "content": "I.Z.I. dará trato prioritario a avisos de entidades designadas como trusted flaggers por las DSCs nacionales.",
-      "registry": "Se mantendrá un registro de tales entidades y un canal de alta disponibilidad.",
-      "metrics": "Se reportarán métricas específicas en el informe de transparencia (§13)."
-    },
-    "section8": {
-      "title": "8) Medidas contra el uso indebido (abuso)",
-      "content": "Usuarios o notificantes que, de manera reiterada, emitan contenidos ilícitos/violatorios o avisos manifiestamente infundados podrán ser suspendidos temporalmente o ver limitadas sus funcionalidades.",
-      "period": "El periodo y alcance se comunicarán en el statement of reasons.",
-      "appeal": "Existirá vía de reclamación (§5)."
-    },
-    "section9": {
-      "title": "9) Transparencia sobre moderación y automatización",
-      "hybrid": "La plataforma emplea moderación híbrida (IA + revisión humana) para detectar desnudos, violencia, acoso, spam y riesgos.",
-      "automated": "Las herramientas automatizadas pueden impedir temporalmente la visualización o subida hasta revisión.",
-      "humanReview": "El usuario conserva el derecho a revisión humana cuando una decisión le afecte significativamente.",
-      "logic": "La lógica general de los sistemas y sus límites se describen públicamente en esta Política y se amplían en la Política de Privacidad."
-    },
-    "section10": {
-      "title": "10) Recomendadores y parámetros principales",
-      "systems": "I.Z.I. utiliza sistemas de emparejamiento y priorización para:",
-      "uses": {
-        "matchmaking": "Matchmaking de chat,",
-        "content": "Orden de contenidos propios (p. ej., galletas),",
-        "suggestions": "Sugerencias operativas."
-      },
-      "parameters": "Parámetros principales:",
-      "parametersContent": "señales declaradas por el usuario (intención, etiquetas emocionales, idioma, preferencia de conexión), señales de seguridad y calidad (historial de valoraciones positivas/negativas, flags), y señales contextuales (disponibilidad, latencia).",
-      "noProfiling": "Opción sin perfilado:",
-      "noProfilingContent": "I.Z.I. ofrecerá, como mínimo, una opción alternativa que no se base en perfilado individual para el emparejamiento general dentro de la UE (p. ej., orden aleatorio con filtros básicos de seguridad y compatibilidad lingüística).",
-      "userControls": "Controles del usuario:",
-      "userControlsContent": "en Ajustes > Experiencia, el usuario podrá ver y modificar parámetros significativos."
-    },
-    "section11": {
-      "title": "11) Publicidad y comunicaciones comerciales",
-      "launch": "En el lanzamiento, I.Z.I. no muestra publicidad de terceros. Si se introdujera publicidad en la UE:",
-      "ifAdvertising": "Si se introdujera publicidad en la UE:",
-      "requirements": {
-        "labeling": "Se etiquetarán claramente los anuncios y se indicará el promotor.",
-        "parameters": "Se explicarán los principales parámetros de presentación y cómo modificarlos."
-      },
-      "prohibitions": "Prohibiciones:",
-      "prohibitionsContent": "no targeting a menores, ni uso de categorías especiales de datos; no dark patterns.",
-      "archive": "Se mantendrá, si aplica, un archivo público de anuncios servidos en la UE."
-    },
-    "section12": {
-      "title": "12) Protección de menores",
-      "exclusive": "Servicio exclusivo para mayores de 18 años.",
-      "verification": "Verificación por fecha de nacimiento y controles reforzados cuando la ley lo exija.",
-      "sensitive": "Contenidos sensibles desactivados por defecto y política de tolerancia cero con explotación sexual infantil, con notificación inmediata a autoridades competentes."
-    },
-    "section13": {
-      "title": "13) Informe anual de transparencia",
-      "content": "I.Z.I. publicará, al menos anualmente, un informe con:",
-      "items": {
-        "notices": "número de avisos recibidos (por tipo, origen: usuarios, trusted flaggers, autoridades),",
-        "actions": "acciones adoptadas (retiros, bloqueos, suspensiones) y tiempos medios de resolución,",
-        "proactive": "medidas proactivas y volumen de decisiones automatizadas vs. humanas,",
-        "appeals": "reclamaciones internas y resultados,",
-        "requests": "solicitudes y órdenes de autoridades y su cumplimiento,",
-        "abuse": "medidas contra abusos,",
-        "changes": "descripción de cambios relevantes en los sistemas de recomendación y moderación."
-      },
-      "format": "Formato:",
-      "formatContent": "PDF y dataset abierto (CSV/JSON). Ubicación: iziworld.app/transparency."
-    },
-    "section14": {
-      "title": "14) Publicación de receptores activos (MAU-UE)",
-      "content": "Dos veces al año, I.Z.I. publicará el número de receptores activos medios mensuales del servicio en la UE, junto con una metodología reproducible."
-    },
-    "section15": {
-      "title": "15) Trazabilidad de comerciantes (si aplica)",
-      "content": "I.Z.I. no ofrece funcionalidades de compraventa entre usuarios. Si en el futuro se habilitan, se implementará \"Know Your Business Customer\" antes de permitir ofrecer productos/servicios, conforme a DSA."
-    },
-    "section16": {
-      "title": "16) Diseño de interfaz y prohibición de prácticas engañosas",
-      "content": "I.Z.I. se compromete a evitar patrones de diseño engañosos que manipulen o distorsionen elecciones de los usuarios, en especial en consentimiento, cierre de cuenta, cancelación de suscripciones y privacidad."
-    },
-    "section17": {
-      "title": "17) Obligaciones VLOP (plan de escalado)",
-      "content": "Si I.Z.I. alcanzara el umbral VLOP en la UE, activará en ≤ 4 meses:",
-      "items": {
-        "risks": "Evaluaciones de riesgos sistémicos y mitigaciones;",
-        "audit": "Auditoría independiente anual;",
-        "repository": "Repositorio reforzado de anuncios;",
-        "dataAccess": "Data access para investigadores validados;",
-        "crisis": "Crisis response cuando la Comisión lo requiera."
-      },
-      "threshold": "Mientras no se alcance el umbral, estas obligaciones no aplican."
-    },
-    "section18": {
-      "title": "18) Gobernanza, roles y control interno",
-      "responsible": "Responsable DSA interno:",
-      "responsibleContent": "Responsable Legal de OasysNest S.L.",
-      "legalSupport": "Soporte legal y DPO:",
-      "security": "Seguridad:",
-      "securityContent": "conforme a las Medidas Técnicas y Organizativas vigentes (TLS 1.3, cifrado en reposo, control de accesos, registros y DRP).",
-      "review": "Revisión de esta Política:",
-      "reviewContent": "anual o ante cambios regulatorios/funcionales."
-    },
-    "section19": {
-      "title": "19) Conservación y cooperación",
-      "conservation": "Conservación mínima de datos y evidencias necesaria para cumplir el DSA, la ley y defensa de reclamaciones, alineada con la Política de Privacidad.",
-      "cooperation": "Cooperación diligente con autoridades y DSCs.",
-      "reports": "Informes estadísticos anonimizados en el §13."
-    },
-    "section20": {
-      "title": "20) Entrada en vigor y modificaciones",
-      "content": "Esta Política entra en vigor en la fecha indicada y podrá actualizarse. Los cambios sustanciales se comunicarán in-app y/o por email, y podrán requerir aceptación expresa."
-    },
-    "annexA": {
-      "title": "ANEXO A – Campos del formulario de notificación (plantilla)",
-      "identification": "Identificación del contenido: [ID/URL interna]",
-      "reason": "Motivo y base jurídica: [texto]",
-      "description": "Descripción de hechos: [texto]",
-      "country": "País/ámbito afectado: [texto]",
-      "contact": "Datos de contacto del notificante: [nombre, email]",
-      "declaration": "Declaración de buena fe: [checkbox]",
-      "documentation": "Documentación anexa: [adjuntos]"
-    },
-    "annexB": {
-      "title": "ANEXO B – Estructura del \"Statement of Reasons\"",
-      "rule": "Regla infringida (Términos/ley)",
-      "facts": "Hechos y contexto",
-      "automation": "Uso de automatización: sí/no y alcance",
-      "measure": "Medida adoptada y duración",
-      "resources": "Recursos disponibles (reclamación interna, ADR, autoridad)"
-    },
-    "annexC": {
-      "title": "ANEXO C – Métricas del Informe de Transparencia",
-      "noticesByCategory": "Avisos por categoría",
-      "actionsByResult": "Acciones por resultado",
-      "averageTimes": "Tiempos medios (p50/p95)",
-      "automatedVsHuman": "% automatizado vs. humano",
-      "appeals": "Reclamaciones y tasa de revocación",
-      "trustedFlaggers": "Trusted flaggers: volumen y tasa de acierto",
-      "authorityRequests": "Solicitudes de autoridades",
-      "modelChanges": "Cambios en modelos/umbrales de moderación"
+    "dataProtection": {
+      "title": "Protección de Datos",
+      "p1": "Le informamos también de que tendrá la posibilidad en todo momento de ejercer los derechos de acceso, rectificación, cancelación, oposición, limitación y portabilidad de sus datos de carácter personal, de manera gratuita mediante email a:",
+      "p2": "o en la dirección:",
+      "p2b": ""
     }
   },
   "privacyPolicy": {
-    "title": "Políticas de Privacidad I.Z.I web",
-    "section1": {
-      "title": "1. Introducción",
-      "subsection1": {
-        "title": "1.1 Objeto y alcance",
-        "content": "Esta política aplica solo al sitio web iziworld.app y sus subdominios. Cubre la navegación web, formularios, analítica y pagos realizados en la web. No regula el uso de las apps móviles de I.Z.I; para eso rige la \"Política de Privacidad de la App\"."
-      },
-      "subsection2": {
-        "title": "1.2 Responsable del tratamiento",
-        "address": "Domicilio: Camí Terminal 6A, 07009, Palma de Mallorca, España",
-        "email": "Email privacidad:",
-        "website": "Sitio oficial:"
-      },
-      "subsection3": {
-        "title": "1.3 Cómo contactarnos",
-        "content": "Para derechos de protección de datos o consultas: privacy@iziworld.app o la dirección postal anterior. Plazos de respuesta según la normativa aplicable."
-      },
-      "subsection4": {
-        "title": "1.4 Ámbito territorial",
-        "content": "Esta política se aplica a usuarios que acceden a la web desde la UE/EEE y Reino Unido, EE. UU., Canadá, Australia y LatAm. La interpretación concreta por región se detalla en el apartado de Legislación aplicable."
-      },
-      "subsection5": {
-        "title": "1.5 Relación con otras políticas",
-        "appPolicy": "Política de Privacidad de la App:",
-        "appPolicyContent": "regula datos tratados dentro de las apps móviles.",
-        "cookiePolicy": "Política de Cookies Web:",
-        "cookiePolicyContent": "integra el banner y la gestión de consentimiento en la web.",
-        "terms": "Términos y Condiciones Web:",
-        "termsContent": "regulan el uso del sitio y, si procede, compras en la web.",
-        "conflict": "En caso de conflicto entre documentos web, prevalece la opción más garantista para el usuario."
-      },
-      "subsection6": {
-        "title": "1.6 Definiciones mínimas",
-        "website": "Sitio Web:",
-        "websiteContent": "páginas y servicios accesibles bajo iziworld.app y subdominios.",
-        "webUser": "Usuario Web:",
-        "webUserContent": "persona que navega la web o usa sus formularios/pagos.",
-        "cookies": "Cookies/identificadores:",
-        "cookiesContent": "tecnologías de rastreo usadas en la web.",
-        "providers": "Proveedores:",
-        "providersContent": "terceros que prestan servicios (p. ej., Stripe, analítica)."
-      }
+    "meta": {
+      "title": "Política de Privacidad",
+      "description": "Política de privacidad y protección de datos de I.Z.I. Premium"
     },
-    "section2": {
-      "title": "2. ¿Qué datos recopilamos en la Web?",
+    "title": "Política de Privacidad",
+    "intro": "OASYS NEST, S.L.U., en aplicación de la normativa vigente en materia de protección de datos de carácter personal, informa que los datos personales que se recogen a través de los formularios del Sitio web: https://izi-premium.vercel.app, se incluyen en los ficheros automatizados específicos de usuarios de los servicios de OASYS NEST, S.L.U.",
+    "responsible": {
+      "title": "¿Quién es el responsable del tratamiento de sus datos personales?",
+      "intro": "OASYS NEST, S.L.U. es el responsable del tratamiento de los datos personales del usuario y le informa de que estos datos serán tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (RGPD), y la Ley Orgánica 3/2018, de 5 de diciembre (LOPDGDD), por lo que se le facilita la siguiente información del tratamiento:",
+      "company": "Responsable del tratamiento"
+    },
+    "purpose": {
+      "title": "¿Para qué tratamos sus datos personales?",
+      "intro": "La recogida y tratamiento automatizado de los datos de carácter personal tiene como finalidad el mantenimiento de la relación comercial y el desempeño de tareas de información, formación, asesoramiento y otras actividades propias de OASYS NEST, S.L.U. En concreto:",
+      "list": {
+        "1": "Dar cumplimiento de las obligaciones, comerciales, laborales, corporativas y contables de la empresa.",
+        "2": "La transmisión de datos a terceros con los cuales se hayan celebrado contratos con este objeto, para fines contractuales, administrativos y/o operativos.",
+        "3": "Con propósitos de seguridad o prevención de fraude.",
+        "4": "Prestar los servicios contratados por el usuario.",
+        "5": "Enviar información promocional vía electrónica.",
+        "6": "Permitir la descarga y acceso a la aplicación.",
+        "7": "Crear y mantener una cuenta de usuario inicial para el posterior acceso a la app.",
+        "8": "Verificar la mayoría de edad (18+).",
+        "9": "Procesar los cobros correspondientes a planes premium u ofertas previas al lanzamiento.",
+        "10": "Gestionar las solicitudes de contacto recibidas a través de los distintos canales habilitados en el sitio web.",
+        "11": "Gestionar su suscripción a nuestra newsletter."
+      },
+      "reminder": "Te recordamos que puedes oponerte al envío de comunicaciones comerciales por cualquier vía y en cualquier momento, remitiendo un correo electrónico a la dirección anteriormente indicada."
+    },
+    "dataCollected": {
+      "title": "¿Qué datos personales recabamos?",
       "intro": "Al utilizar el sitio web oficial de I.Z.I. (iziworld.app) podemos recopilar las siguientes categorías de datos:",
-      "subsection1": {
-        "title": "2.1 Datos de registro o prerregistro",
-        "content": {
-          "description": "Cuando el usuario se inscribe para crear o reservar una cuenta de acceso a la app:",
-          "name": "Nombre, apodo o seudónimo.",
-          "email": "Dirección de correo electrónico (obligatoria).",
-          "phone": "Número de teléfono (opcional, para funciones avanzadas o recuperación de cuenta).",
-          "country": "País de residencia y fecha de nacimiento (para verificar mayoría de edad)."
-        }
+      "registration": {
+        "title": "Datos de registro o prerregistro",
+        "items": [
+          "Nombre, apodo o seudónimo.",
+          "Dirección de correo electrónico (obligatoria).",
+          "Número de teléfono (opcional, para funciones avanzadas o recuperación de cuenta).",
+          "País de residencia y fecha de nacimiento (para verificar mayoría de edad)."
+        ]
       },
-      "subsection2": {
-        "title": "2.2 Datos de contacto en formularios",
-        "content": {
-          "name": "Nombre.",
-          "email": "Dirección de correo electrónico.",
-          "message": "Mensaje o consulta enviada."
+      "contact": {
+        "title": "Datos de contacto en formularios",
+        "items": [
+          "Nombre.",
+          "Dirección de correo electrónico.",
+          "Mensaje o consulta enviada."
+        ]
+      },
+      "technical": {
+        "title": "Datos técnicos y de navegación",
+        "items": [
+          "Dirección IP y registros de conexión.",
+          "Navegador, dispositivo y sistema operativo.",
+          "Cookies y tecnologías de seguimiento (véase apartado 4)."
+        ]
+      },
+      "payment": {
+        "title": "Datos de pago y facturación",
+        "items": [
+          "Información de facturación (país, divisa, plan contratado).",
+          "Identificadores de transacción y recibos de compra.",
+          "Pagos procesados de forma segura mediante Stripe. I.Z.I. no almacena datos completos de tarjetas."
+        ]
+      },
+      "analytics": {
+        "title": "Datos de analítica web",
+        "items": [
+          "Información sobre visitas, páginas vistas, duración de la sesión, clics e interacciones. Estos datos se recogen de forma agregada y anónima a través de herramientas como Google Analytics o Firebase Web, siempre con consentimiento previo para cookies analíticas."
+        ]
+      }
+    },
+    "retention": {
+      "title": "¿Por cuánto tiempo se conservan los datos personales recabados?",
+      "content": "Los datos personales proporcionados se conservarán mientras se mantenga la relación comercial o no solicites su supresión y durante el plazo por el cuál pudieran derivarse responsabilidades legales por los servicios prestados. Asimismo, los datos se conservarán mientras el interesado no se oponga al tratamiento, así como mientras no revoque el consentimiento otorgado para las finalidades específicas para las que fue prestado."
+    },
+    "legalBasis": {
+      "title": "Legitimación",
+      "intro": "El tratamiento de tus datos se realiza con las siguientes bases jurídicas que legitiman el mismo:",
+      "list": {
+        "1": "El cumplimiento de obligaciones legales que aplican a OASYS NEST, S.L.U.",
+        "2": "El interés legítimo para prevenir fraudes, mejorar el rendimiento del sistema, permitir la descarga de la app, acceso y creación de perfiles de usuarios, así como para la gestión de las solicitudes de contacto recibidas a través del sitio web.",
+        "3": "El consentimiento expreso del interesado, para la gestión de la suscripción a la newsletter.",
+        "4": "La suscripción o contratación de los servicios de OASYS NEST, S.L.U., cuyos términos y condiciones se pondrán a tu disposición en todo caso, de forma previa a una eventual contratación."
+      },
+      "note": "En caso de que no nos facilites tus datos o lo hagas de forma errónea o incompleta, no podremos atender tu solicitud, resultando del todo imposible proporcionarte la información solicitada o llevar a cabo la contratación de los servicios."
+    },
+    "dataOrigin": {
+      "title": "Origen de los datos y forma de obtención",
+      "content": "Los datos personales que tratamos han sido facilitados directamente por usted. En caso de que nos aporte datos pertenecientes a otras personas, usted garantiza que dispone de su consentimiento expreso y que les ha comunicado el contenido de esta Política. Asimismo, nos libera de cualquier responsabilidad derivada del incumplimiento de esta obligación."
+    },
+    "transfers": {
+      "title": "Transferencias internacionales de datos y Destinatarios",
+      "intro": "Para la prestación de los servicios, el responsable trabaja con terceros cuyos servicios se ubican fuera del Espacio Económico Europeo, en concreto a:",
+      "table": {
+        "provider": "Proveedor",
+        "service": "Servicio prestado",
+        "location": "Ubicación",
+        "guarantees": "Garantías de Privacidad"
+      },
+      "providers": {
+        "google": {
+          "name": "Google LLC",
+          "service": "Alojamiento/Análisis y moderación de imágenes/Procesamiento de pagos",
+          "location": "EEUU",
+          "guarantees": "Adherida al amparo del acuerdo EU-US Data Privacy Framework y cuenta con cláusulas contractuales tipo adoptadas por la Comisión Europea."
         },
-        "purpose": "Estos datos se utilizan únicamente para dar respuesta a la solicitud del usuario."
-      },
-      "subsection3": {
-        "title": "2.3 Datos técnicos y de navegación",
-        "content": {
-          "ip": "Dirección IP y registros de conexión.",
-          "browser": "Navegador, dispositivo y sistema operativo.",
-          "cookies": "Cookies y tecnologías de seguimiento (véase apartado 4)."
-        }
-      },
-      "subsection4": {
-        "title": "2.4 Datos de pago y facturación (en caso de contratación vía web)",
-        "content": {
-          "billing": "Información de facturación (país, divisa, plan contratado).",
-          "transactions": "Identificadores de transacción y recibos de compra.",
-          "stripe": "Pagos procesados de forma segura mediante Stripe.",
-          "note": "Nota:",
-          "noteContent": "I.Z.I. no almacena datos completos de tarjetas."
-        }
-      },
-      "subsection5": {
-        "title": "2.5 Datos de analítica web",
-        "content": "Información sobre visitas, páginas vistas, duración de la sesión, clics e interacciones. Estos datos se recogen de forma agregada y anónima a través de herramientas como Google Analytics o Firebase Web, siempre con consentimiento previo para cookies analíticas."
-      }
-    },
-    "section3": {
-      "title": "3. Finalidad del Tratamiento en la Web",
-      "intro": "Los datos recopilados a través del sitio web iziworld.app se tratan con las siguientes finalidades legítimas:",
-      "subsection1": {
-        "title": "3.1 Registro y prerregistro de usuarios",
-        "content": {
-          "createAccount": "Permitir la creación de una cuenta inicial para el posterior acceso a la app.",
-          "verifyAge": "Verificar la mayoría de edad (18+).",
-          "communications": "Enviar comunicaciones necesarias para la activación de la cuenta, recordatorios o avisos previos al lanzamiento."
-        }
-      },
-      "subsection2": {
-        "title": "3.2 Gestión de formularios de contacto",
-        "content": {
-          "respond": "Atender consultas, solicitudes de información o reclamaciones enviadas por el usuario.",
-          "support": "Ofrecer soporte básico antes de la descarga y uso de la app."
-        }
-      },
-      "subsection3": {
-        "title": "3.3 Pagos y contratación de servicios vía web",
-        "content": {
-          "processPayments": "Procesar cobros de planes premium u ofertas previas al lanzamiento.",
-          "issueInvoices": "Emitir facturas y comprobantes de compra.",
-          "manageRequests": "Gestionar solicitudes de cancelación o reembolso según la normativa aplicable."
-        }
-      },
-      "subsection4": {
-        "title": "3.4 Seguridad y prevención de fraudes",
-        "content": {
-          "protectIntegrity": "Proteger la integridad del sitio web mediante controles de seguridad, registros técnicos y monitorización de accesos.",
-          "detectFraud": "Detectar accesos indebidos o intentos de fraude en pagos y registros."
-        }
-      },
-      "subsection5": {
-        "title": "3.5 Analítica y mejoras del sitio web",
-        "content": {
-          "analyzeUsage": "Analizar de forma anónima cómo se utiliza la web para mejorar su usabilidad, contenido y seguridad.",
-          "evaluateCampaigns": "Evaluar campañas de marketing digital y optimizar la experiencia del usuario."
-        }
-      },
-      "subsection6": {
-        "title": "3.6 Cumplimiento de obligaciones legales",
-        "content": {
-          "authorities": "Atender requerimientos de autoridades competentes en materia de protección de datos, consumo o fiscalidad.",
-          "records": "Mantener registros de facturación conforme a la normativa fiscal."
-        }
-      }
-    },
-    "section4": {
-      "title": "4. Cookies y Tecnologías de Seguimiento en la Web",
-      "intro": "El sitio web iziworld.app utiliza cookies y tecnologías similares para garantizar el funcionamiento básico, mejorar la experiencia de usuario y, en su caso, personalizar contenidos y anuncios.",
-      "subsection1": {
-        "title": "4.1 Tipos de cookies utilizadas",
-        "technical": {
-          "title": "Cookies técnicas o necesarias",
-          "description": "Imprescindibles para el funcionamiento básico de la web (gestión de sesión, seguridad, selección de idioma).",
-          "consent": "No requieren consentimiento, solo información previa."
+        "stripe": {
+          "name": "Stripe Inc.",
+          "service": "Servicio de pasarela de pago",
+          "location": "EEUU",
+          "guarantees": "Adherida al amparo del acuerdo EU-US Data Privacy Framework. Cláusulas contractuales Tipo"
         },
-        "personalization": {
-          "title": "Cookies de personalización",
-          "description": "Guardan las preferencias del usuario (idioma, región, configuraciones recurrentes).",
-          "consent": "Requieren consentimiento."
-        },
-        "analytics": {
-          "title": "Cookies analíticas",
-          "description": "Permiten comprender cómo los usuarios interactúan con la web (visitas, tiempo de navegación, errores).",
-          "tools": "Herramientas: Google Analytics, Firebase Web.",
-          "consent": "Requieren consentimiento expreso."
-        },
-        "advertising": {
-          "title": "Cookies publicitarias y de seguimiento",
-          "description": "Utilizadas para mostrar anuncios adaptados a intereses del usuario y medir la eficacia de campañas.",
-          "consent": "Solo se activan con consentimiento previo, libre e informado."
+        "apple": {
+          "name": "Apple Inc.",
+          "service": "Procesamiento de pagos",
+          "location": "EEUU",
+          "guarantees": "Apple Privacy Policy, PCI DSS"
         }
       },
-      "subsection2": {
-        "title": "4.2 Consentimiento y gestión de cookies",
-        "banner": "Al acceder por primera vez, el usuario verá un banner de consentimiento con opciones: \"Aceptar todas\", \"Rechazar todas\" y \"Configurar\".",
-        "granular": "El consentimiento es granular, pudiendo elegir qué categorías aceptar.",
-        "withdraw": "El usuario puede retirar o modificar su consentimiento en cualquier momento desde el gestor habilitado en la web."
-      },
-      "subsection3": {
-        "title": "4.3 Conservación de cookies",
-        "session": "Cookies de sesión:",
-        "sessionContent": "se eliminan al cerrar el navegador.",
-        "persistent": "Cookies persistentes:",
-        "persistentContent": "permanecen en el dispositivo un máximo de 24 meses (según finalidad y proveedor)."
-      },
-      "subsection4": {
-        "title": "4.4 Responsables y terceros",
-        "content": "Algunas cookies son propias (control interno del sitio) y otras de terceros (Google, Meta, Stripe). En todos los casos se firman contratos de encargo de tratamiento (DPAs) y se aplican cláusulas contractuales tipo (SCCs) cuando hay transferencias internacionales."
-      },
-      "subsection5": {
-        "title": "4.5 Rechazo de cookies no esenciales",
-        "content": "Si el usuario rechaza las cookies analíticas o publicitarias, seguirá pudiendo acceder y navegar por la web, aunque con funcionalidades limitadas en personalización y publicidad."
-      }
+      "note": "Los datos no se comunicarán a ningún tercero adicional a OASYS NEST, S.L.U., salvo obligación legal."
     },
-    "section5": {
-      "title": "5. Bases Legales del Tratamiento en la Web",
-      "intro": "El tratamiento de los datos recogidos en iziworld.app se fundamenta en las siguientes bases jurídicas, conforme al RGPD y demás normativas internacionales:",
-      "subsection1": {
-        "title": "5.1 Consentimiento expreso del usuario",
-        "content": {
-          "analytics": "Para el uso de cookies analíticas, de personalización y publicitarias.",
-          "registration": "Para el registro o prerregistro de cuenta, incluyendo comunicaciones previas al lanzamiento.",
-          "newsletters": "Para el uso del correo electrónico en boletines o comunicaciones comerciales opcionales."
-        }
-      },
-      "subsection2": {
-        "title": "5.2 Ejecución de un contrato",
-        "content": {
-          "payments": "Para procesar pagos y suscripciones contratados a través de la web.",
-          "registration": "Para gestionar el registro y acceso a una futura cuenta de la app.",
-          "invoices": "Para emitir facturas y comprobantes."
-        }
-      },
-      "subsection3": {
-        "title": "5.3 Cumplimiento de obligaciones legales",
-        "content": {
-          "authorities": "Para atender solicitudes de autoridades de protección de datos, consumo y tributarias.",
-          "billing": "Para conservar datos de facturación durante los plazos exigidos por normativa fiscal."
-        }
-      },
-      "subsection4": {
-        "title": "5.4 Interés legítimo",
-        "content": {
-          "security": "Para garantizar la seguridad técnica del sitio web y prevenir fraudes.",
-          "improvements": "Para realizar mejoras en el funcionamiento de la web mediante analítica agregada y anónima.",
-          "defense": "Para defenderse frente a reclamaciones legales."
-        }
-      }
+    "accuracy": {
+      "title": "Exactitud de los datos personales",
+      "p1": "En caso de que no nos facilites tus datos o lo hagas de forma errónea o incompleta, no podremos atender tu solicitud, resultando del todo imposible proporcionarte la información solicitada o llevar a cabo la contratación de los servicios.",
+      "p2": "El titular de los datos garantiza que los datos facilitados son veraces, exactos, completos y actualizados. Nos informará de cualquier modificación de los datos facilitados a través de los canales indicados en el encabezado de esta política."
     },
-    "section6": {
-      "title": "6. Plazos de Conservación de los Datos en la Web",
-      "intro": "Los datos personales recopilados a través del sitio iziworld.app se conservarán únicamente durante el tiempo necesario para cumplir las finalidades informadas o las obligaciones legales aplicables.",
-      "subsection1": {
-        "title": "6.1 Datos de registro y prerregistro",
-        "conserved": "Conservados hasta que el usuario active su cuenta en la app o solicite su eliminación.",
-        "notActivated": "Si no se activa en un plazo máximo de 24 meses, los datos se eliminarán o anonimizarán."
-      },
-      "subsection2": {
-        "title": "6.2 Formularios de contacto",
-        "duration": "Conservados durante 12 meses desde la última comunicación.",
-        "early": "Eliminación anticipada si el usuario lo solicita."
-      },
-      "subsection3": {
-        "title": "6.3 Datos de facturación y pagos",
-        "duration": "Conservados durante 5 años conforme a normativa fiscal y contable.",
-        "identifiers": "Identificadores de transacción y facturas se conservan como justificante legal."
-      },
-      "subsection4": {
-        "title": "6.4 Cookies y analítica web",
-        "session": "Cookies de sesión:",
-        "sessionContent": "se eliminan al cerrar el navegador.",
-        "persistent": "Cookies persistentes:",
-        "persistentContent": "máximo 24 meses, salvo retirada previa de consentimiento.",
-        "analytics": "Datos de analítica:",
-        "analyticsContent": "conservados en formato agregado y anonimizado hasta 36 meses."
-      },
-      "subsection5": {
-        "title": "6.5 Datos de seguridad y logs técnicos",
-        "content": "Registros de acceso y seguridad (IP, errores, intentos de fraude): 90 días, prorrogables en caso de investigaciones."
-      }
+    "userData": {
+      "title": "Datos recopilados por usuarios de los servicios",
+      "content": "En los casos en que el usuario incluya ficheros con datos de carácter personal en los servidores de alojamiento compartido, OASYS NEST, S.L.U. no se hace responsable del incumplimiento por parte del usuario del RGPD."
     },
-    "section7": {
-      "title": "7. Derechos de los Usuarios en la Web",
-      "intro": "Los usuarios de iziworld.app tienen garantizados los derechos que reconocen el RGPD, la CCPA/CPRA, la LGPD y demás normativas internacionales de privacidad.",
-      "subsection1": {
-        "title": "7.1 Derechos reconocidos",
-        "access": "Acceso:",
-        "accessContent": "obtener confirmación sobre si tratamos sus datos y acceder a ellos.",
-        "rectification": "Rectificación:",
-        "rectificationContent": "corregir datos inexactos o incompletos.",
-        "erasure": "Supresión (derecho al olvido):",
-        "erasureContent": "solicitar la eliminación de sus datos cuando ya no sean necesarios o se retire el consentimiento.",
-        "portability": "Portabilidad:",
-        "portabilityContent": "recibir sus datos en un formato estructurado y transmitirlos a otro responsable.",
-        "restriction": "Limitación:",
-        "restrictionContent": "solicitar que se restrinja temporalmente el uso de sus datos.",
-        "objection": "Oposición:",
-        "objectionContent": "rechazar el tratamiento de sus datos en determinadas circunstancias (ej. publicidad personalizada).",
-        "withdrawal": "Retirada del consentimiento:",
-        "withdrawalContent": "en cualquier momento, sin afectar a la licitud del tratamiento previo."
-      },
-      "subsection2": {
-        "title": "7.2 Ejercicio de derechos",
-        "contact": "Los usuarios pueden ejercer sus derechos de manera gratuita enviando una solicitud a:",
-        "requirements": "La solicitud debe indicar claramente:",
-        "requirementsList": {
-          "name": "Nombre y correo electrónico vinculados al uso de la web.",
-          "right": "Derecho que desea ejercer.",
-          "country": "País de residencia (para aplicar plazos legales según normativa local)."
-        }
-      },
-      "subsection3": {
-        "title": "7.3 Plazos de respuesta",
-        "euUk": "UE y Reino Unido (RGPD):",
-        "euUkContent": "30 días, prorrogables 60 días en casos complejos.",
-        "brazil": "Brasil (LGPD):",
-        "brazilContent": "15 días.",
-        "usa": "EE.UU. (CCPA/CPRA):",
-        "usaContent": "45 días, prorrogables 45 días adicionales.",
-        "others": "Otros países de LatAm y Canadá: plazos equivalentes según ley aplicable."
-      },
-      "subsection4": {
-        "title": "7.4 Autoridades de control",
-        "content": "Si considera que el tratamiento de sus datos vulnera la normativa aplicable, el usuario puede presentar reclamación ante la autoridad de control de su país (ej. AEPD en España, CNIL en Francia, ICO en Reino Unido, ANPD en Brasil, INAI en México)."
-      }
+    "intellectualPropertyWeb": {
+      "title": "Derechos propiedad intelectual https://izi-premium.vercel.app",
+      "p1": "OASYS NEST, S.L.U. es titular de todos los derechos de autor, propiedad intelectual, industrial, \"know how\" y cuantos otros derechos guardan relación con los contenidos del sitio web https://izi-premium.vercel.app y los servicios ofertados en el mismo, así como de los programas necesarios para su implementación y la información relacionada.",
+      "p2": "No se permite la reproducción, publicación y/o uso no estrictamente privado de los contenidos, totales o parciales, del sitio web https://izi-premium.vercel.app sin el consentimiento previo y por escrito."
     },
-    "section8": {
-      "title": "8. Transferencias Internacionales de Datos en la Web",
-      "intro": "El uso del sitio iziworld.app implica que algunos datos puedan transferirse fuera del país de residencia del usuario, debido a la infraestructura técnica y a los proveedores utilizados.",
-      "subsection1": {
-        "title": "8.1 Transferencias dentro y fuera del Espacio Económico Europeo (EEE)",
-        "content": {
-          "description": "Cuando los datos se transfieren desde la UE/EEE a países sin decisión de adecuación, se aplican Cláusulas Contractuales Tipo (SCCs) aprobadas por la Comisión Europea.",
-          "withinEEA": "Medidas adicionales:",
-          "withinEEAContent": "Se aplican medidas adicionales de seguridad como cifrado en tránsito (TLS 1.3) y en reposo (AES-256)."
-        }
-      },
-      "subsection2": {
-        "title": "8.2 Estados Unidos",
-        "content": {
-          "providers": "Algunos proveedores tienen sede en EE.UU. (ej. Google Analytics, Stripe).",
-          "measures": "Se asegura la firma de SCCs y la aplicación de medidas técnicas reforzadas."
-        }
-      },
-      "subsection3": {
-        "title": "8.3 Canadá y Australia",
-        "content": {
-          "canada": "En Canadá, las transferencias se rigen por la PIPEDA y normativas provinciales aplicables.",
-          "australia": "En Australia, por la Privacy Act 1988."
-        }
-      },
-      "subsection4": {
-        "title": "8.4 América Latina",
-        "content": "Países con leyes de protección de datos vigentes (México, Argentina, Brasil, Colombia, Chile, Perú, Uruguay, Paraguay, Ecuador, Panamá, Costa Rica, República Dominicana): las transferencias se realizan conforme a contratos y normas locales. En países sin legislación específica (Guatemala, El Salvador, Honduras, Nicaragua, Venezuela): se aplican principios del RGPD como estándar mínimo."
-      },
-      "subsection5": {
-        "title": "8.5 Proveedores y subencargados web",
-        "content": {
-          "main": "En el uso de la web, los principales proveedores externos que pueden implicar transferencia internacional de datos son:",
-          "stripe": "Stripe, Inc. – Procesamiento de pagos.",
-          "google": "Google LLC (Google Analytics / Firebase Web) – Analítica y rendimiento.",
-          "googleAds": "Google LLC (Google Ads) – Publicidad y seguimiento (solo si el usuario lo consiente).",
-          "hosting": "Hetzner / AWS / Firebase Hosting – Infraestructura de servidores y alojamiento."
-        }
-      },
-      "subsection6": {
-        "title": "8.6 Garantías adicionales",
-        "content": {
-          "dpas": "Contratos de encargo de tratamiento (DPAs) firmados con todos los proveedores.",
-          "certifications": "Certificaciones internacionales de seguridad (ISO 27001, PCI DSS).",
-          "assessments": "Evaluaciones de Impacto en Protección de Datos (DPIA/EIPD) en servicios críticos."
-        }
-      }
+    "intellectualPropertySoftware": {
+      "title": "Propiedad intelectual del software",
+      "p1": "El usuario debe respetar los programas de terceros puestos a su disposición por OASYS NEST, S.L.U., aun siendo gratuitos y/o de disposición pública.",
+      "p2": "OASYS NEST, S.L.U. dispone de los derechos de explotación y propiedad intelectual necesarios del software.",
+      "p3": "El usuario no adquiere derecho alguno o licencia por el servicio contratado, sobre el software necesario para la prestación del servicio, ni tampoco sobre la información técnica de seguimiento del servicio, excepción hecha de los derechos y licencias necesarios para el cumplimiento de los servicios contratados y únicamente durante la duración de los mismos."
     },
-    "section9": {
-      "title": "9. Seguridad de los Datos en la Web",
-      "intro": "En iziworld.app se aplican medidas técnicas y organizativas adecuadas para proteger los datos personales tratados a través del sitio web, siguiendo el principio de privacidad desde el diseño y por defecto (art. 25 RGPD).",
-      "subsection1": {
-        "title": "9.1 Cifrado y comunicaciones seguras",
-        "content": {
-          "tls": "TLS 1.3 en todas las conexiones entre el navegador del usuario y nuestros servidores.",
-          "aes": "Cifrado AES-256 en reposo para bases de datos y sistemas de almacenamiento.",
-          "backups": "Copias de seguridad cifradas con retención máxima de 30 días."
-        }
+    "hostedContentIP": {
+      "title": "Propiedad intelectual de los contenidos alojados",
+      "intro": "Se prohíbe el uso contrario a la legislación sobre propiedad intelectual de los servicios prestados por OASYS NEST, S.L.U. y, en particular de:",
+      "prohibited": {
+        "1": "La utilización que resulte contraria a las leyes españolas o que infrinja los derechos de terceros.",
+        "2": "La publicación o la transmisión de cualquier contenido que, a juicio de OASYS NEST, S.L.U., resulte violento, obsceno, abusivo, ilegal, racial, xenófobo o difamatorio.",
+        "3": "Los cracks, números de serie de programas o cualquier otro contenido que vulnere derechos de la propiedad intelectual de terceros.",
+        "4": "La recogida y/o utilización de datos personales de otros usuarios sin su consentimiento expreso o contraviniendo lo dispuesto en el Reglamento (UE) 2016/679.",
+        "5": "La utilización del servidor de correo del dominio y de las direcciones de correo electrónico para el envío de correo masivo no deseado."
       },
-      "subsection2": {
-        "title": "9.2 Control de accesos",
-        "content": {
-          "mfa": "Autenticación multifactor (2FA) para administradores y personal técnico.",
-          "roles": "Gestión de roles (legal, técnico, soporte) bajo el principio de mínimo privilegio.",
-          "revocation": "Revocación inmediata de accesos cuando finaliza una relación laboral o de colaboración."
-        }
-      },
-      "subsection3": {
-        "title": "9.3 Registro y monitorización",
-        "content": {
-          "logs": "Logs de seguridad de accesos y modificaciones críticas (retención: 90 días).",
-          "monitoring": "Monitorización activa del servidor y detección temprana de anomalías.",
-          "alerts": "Sistemas de alertas automáticas en caso de actividad sospechosa."
-        }
-      },
-      "subsection4": {
-        "title": "9.4 Continuidad y disponibilidad",
-        "content": {
-          "infrastructure": "Infraestructura web alojada en VPS cifrado y certificado ISO 27001.",
-          "recovery": "Plan de recuperación ante desastres (BCP/DRP) con restauración de servicios en menos de 24 horas.",
-          "redundancy": "Redundancia geográfica en centros de datos seguros."
-        }
-      },
-      "subsection5": {
-        "title": "9.5 Gobernanza y cumplimiento",
-        "content": {
-          "contracts": "Contratos de encargados de tratamiento (DPAs/SCCs) firmados con todos los proveedores web (ej. Stripe, Google, Hetzner).",
-          "training": "Formación periódica del personal en privacidad y seguridad.",
-          "review": "Revisión trimestral de medidas técnicas y organizativas."
-        }
-      },
-      "subsection6": {
-        "title": "9.6 Limitaciones específicas de la web",
-        "content": "El sitio web no trata datos sensibles como diarios o emociones (propios de la app). La web solo procesa datos identificativos, técnicos, de navegación y pagos, bajo las medidas anteriores."
-      }
+      "userResponsibility": "El usuario tiene toda la responsabilidad sobre el contenido de su web, la información transmitida y almacenada, los enlaces de hipertexto, las reivindicaciones de terceros y las acciones legales en referencia a propiedad intelectual, derechos de terceros y protección de menores.",
+      "indemnity": "El usuario indemnizará a OASYS NEST, S.L.U. por los gastos que generara la imputación de OASYS NEST, S.L.U. en alguna causa cuya responsabilidad fuera atribuible al usuario, incluidos honorarios y gastos de defensa jurídica, incluso en el caso de una decisión judicial no definitiva."
     },
-    "section10": {
-      "title": "10. Menores de Edad en la Web",
-      "subsection1": {
-        "title": "10.1 Restricción de uso",
-        "content": {
-          "restriction": "El sitio web iziworld.app no está dirigido a menores de 18 años.",
-          "requirement": "El prerregistro o creación de cuenta para la app requiere verificar la mayoría de edad."
-        }
-      },
-      "subsection2": {
-        "title": "10.2 Verificación de edad",
-        "content": {
-          "verification": "Durante el prerregistro, se podrá solicitar la fecha de nacimiento para garantizar que el usuario cumple la edad mínima.",
-          "purpose": "Este dato se utiliza únicamente para la verificación de mayoría de edad y no para otros fines."
-        }
-      },
-      "subsection3": {
-        "title": "10.3 Procedimiento en caso de detección de menores",
-        "content": {
-          "procedure": "Si se identifica que un usuario menor de 18 años se ha registrado o prerregistrado, sus datos serán eliminados de inmediato.",
-          "deadline": "El plazo máximo de eliminación será de 10 días hábiles desde la detección o notificación, salvo obligación legal de conservación.",
-          "blocking": "Durante ese tiempo, los datos se bloquearán para impedir su uso."
-        }
-      },
-      "subsection4": {
-        "title": "10.4 Contenido compartido por menores",
-        "content": "En caso de que un menor hubiera enviado datos mediante formularios de contacto, estos se eliminarán o anonimizarán en un plazo máximo de 30 días desde su detección."
-      },
-      "subsection5": {
-        "title": "10.5 Responsabilidad de tutores legales",
-        "content": "Padres, madres o tutores legales pueden notificar cualquier sospecha de uso indebido del sitio por parte de un menor a través de privacy@iziworld.app."
-      }
+    "dataBackup": {
+      "title": "Protección de la información alojada",
+      "p1": "OASYS NEST, S.L.U. realiza copias de seguridad de los contenidos alojados en sus servidores, sin embargo no se responsabiliza de la pérdida o el borrado accidental de los datos por parte de los usuarios. De igual manera, no garantiza la reposición total de los datos borrados por los usuarios, ya que los citados datos podrían haber sido suprimidos y/o modificados durante el periodo del tiempo transcurrido desde la última copia de seguridad.",
+      "p2": "Los servicios ofertados, excepto los servicios específicos de backup, no incluyen la reposición de los contenidos conservados en las copias de seguridad realizadas por OASYS NEST, S.L.U., cuando esta pérdida sea imputable al usuario; en este caso, se determinará una tarifa acorde a la complejidad y volumen de la recuperación, siempre previa aceptación del usuario.",
+      "p3": "La reposición de datos borrados sólo está incluida en el precio del servicio cuando la pérdida del contenido sea debida a causas atribuibles a OASYS NEST, S.L.U."
     },
-    "section11": {
-      "title": "11. Actualizaciones y Cambios en la Política Web",
-      "subsection1": {
-        "title": "11.1 Inclusión de nuevas funciones o servicios",
-        "content": "La web de I.Z.I. puede incorporar nuevas funcionalidades (ej. pasarela de pagos adicional, nuevos formularios, sistema de comunidad). Cuando estas impliquen el tratamiento de nuevos datos personales, se actualizará la presente política garantizando transparencia y consentimiento previo si corresponde."
-      },
-      "subsection2": {
-        "title": "11.2 Procedimiento de notificación",
-        "content": {
-          "changes": "Cualquier cambio sustancial será comunicado al usuario mediante aviso visible en la web y, en su caso, por correo electrónico si el usuario está registrado.",
-          "cookies": "Los cambios que afecten al uso de cookies se notificarán a través del banner de consentimiento actualizado."
-        }
-      },
-      "subsection3": {
-        "title": "11.3 Vigencia y aceptación",
-        "content": {
-          "effective": "La versión vigente de esta política será aplicable desde la fecha de su publicación en la web.",
-          "continued": "El uso continuado del sitio tras la publicación de cambios implicará la aceptación de los mismos, salvo que la normativa aplicable exija consentimiento expreso.",
-          "disagreement": "En caso de no estar de acuerdo, el usuario podrá abstenerse de usar la web o solicitar la eliminación de sus datos."
-        }
-      }
-    },
-    "section12": {
-      "title": "12. Legislación Aplicable y Jurisdicción",
-      "intro": "El tratamiento de datos realizado a través del sitio web iziworld.app se rige por las siguientes normas, dependiendo del lugar de residencia del usuario:",
-      "subsection1": {
-        "title": "12.1 Unión Europea y Reino Unido",
-        "content": {
-          "gdpr": "Reglamento General de Protección de Datos (RGPD, UE 2016/679).",
-          "eprivacy": "Directiva ePrivacy (2002/58/CE).",
-          "ukdpa": "UK Data Protection Act 2018."
-        }
-      },
-      "subsection2": {
-        "title": "12.2 Estados Unidos",
-        "content": {
-          "ccpa": "California Consumer Privacy Act (CCPA/CPRA).",
-          "state": "Otras leyes estatales equivalentes (Virginia, Colorado, Texas, Florida, etc.)."
-        }
-      },
-      "subsection3": {
-        "title": "12.3 Canadá",
-        "content": "Personal Information Protection and Electronic Documents Act (PIPEDA). Normativas provinciales en Alberta, British Columbia y Quebec."
-      },
-      "subsection4": {
-        "title": "12.4 Australia",
-        "content": "Privacy Act 1988."
-      },
-      "subsection5": {
-        "title": "12.5 América Latina",
-        "content": "México: LFPDPPP. Argentina: Ley 25.326. Brasil: LGPD. Colombia: Ley 1581 de 2012. Chile: Ley 19.628. Perú: Ley 29733. Uruguay: Ley 18.331. Paraguay: Ley 6534/20. Ecuador: LOPDP 2021. Panamá: Ley 81/2019. Costa Rica: Ley 8968. República Dominicana: Ley 172-13. Países sin normativa específica (Guatemala, El Salvador, Honduras, Nicaragua, Venezuela): aplicación de principios del RGPD como estándar mínimo."
-      },
-      "subsection6": {
-        "title": "12.6 Jurisdicción",
-        "content": {
-          "resolution": "Cualquier conflicto derivado del uso del sitio web se someterá a los tribunales del país de residencia del usuario, salvo disposición imperativa en contrario.",
-          "mediation": "Cuando la normativa lo permita, se podrán utilizar mecanismos de resolución alternativa de disputas (mediación o arbitraje digital)."
-        }
-      }
-    },
-    "section13": {
-      "title": "13. Contacto y Reclamaciones",
-      "subsection1": {
-        "title": "13.1 Canales oficiales de contacto",
-        "content": {
-          "contact": "Los usuarios pueden ponerse en contacto con I.Z.I. para consultas, reclamaciones o ejercicio de derechos a través de:",
-          "privacy": "Privacidad:",
-          "support": "Soporte:",
-          "dpo": "DPO:",
-          "address": "Dirección:",
-          "website": "Página web:"
-        }
-      },
-      "subsection2": {
-        "title": "13.2 Procedimiento interno de reclamaciones",
-        "content": {
-          "deadline": "Todas las solicitudes serán atendidas en un plazo máximo de 30 días naturales.",
-          "complex": "En casos complejos, el plazo podrá ampliarse a 60 días, informando previamente al usuario.",
-          "channel": "Las respuestas se enviarán al mismo canal por el que se recibió la reclamación, salvo que el usuario solicite lo contrario."
-        }
-      },
-      "subsection3": {
-        "title": "13.3 Autoridades de supervisión",
-        "content": "Si el usuario considera que sus derechos no han sido respetados, podrá presentar reclamación ante la autoridad de protección de datos de su país de residencia (ej. AEPD en España, CNIL en Francia, ICO en Reino Unido, ANPD en Brasil, INAI en México)."
-      }
-    },
-    "section14": {
-      "title": "14. Fecha de última actualización",
-      "lastUpdated": "Las presentes Políticas de Privacidad Web de I.Z.I. han sido aprobadas y publicadas en fecha:",
-      "modification": "I.Z.I. se reserva el derecho de modificar este documento para reflejar cambios en el sitio web, en la normativa aplicable o en las prácticas de tratamiento de datos."
+    "communications": {
+      "title": "Comunicaciones comerciales",
+      "p1": "En aplicación de la LSSI. OASYS NEST, S.L.U. no enviará comunicaciones publicitarias o promocionales por correo electrónico u otro medio de comunicación electrónica equivalente que previamente no hubieran sido solicitadas o expresamente autorizadas por los destinatarios de las mismas.",
+      "p2": "En el caso de usuarios con los que exista una relación contractual previa, OASYS NEST, S.L.U. sí está autorizado al envío de comunicaciones comerciales referentes a productos o servicios de OASYS NEST, S.L.U. que sean similares a los que inicialmente fueron objeto de contratación con el cliente.",
+      "p3": "En todo caso, el usuario, tras acreditar su identidad, podrá solicitar que no se le haga llegar más información comercial a través de los canales de Atención al Cliente."
     }
   },
   "communityRules": {
+    "meta": {
+      "title": "Reglas de la Comunidad",
+      "description": "Reglas de la comunidad de I.Z.I Premium"
+    },
     "title": "Reglas de la Comunidad – I.Z.I",
     "intro": "En I.Z.I. tu diario es tu espacio íntimo. El chat es un añadido para conectar con otras personas de forma segura y respetuosa.",
     "purpose": "Para que funcione, necesitamos que todos sigamos unas normas simples:",
@@ -1256,6 +588,10 @@
     }
   },
   "subcontractors": {
+    "meta": {
+      "title": "Subcontratistas",
+      "description": "Documento que habla sobre el uso de subcontratistas en I.Z.I Premium"
+    },
     "title": "Documento de Subcontratistas (Subprocesadores) – I.Z.I.",
     "section1": {
       "title": "1. Objeto",
@@ -1336,460 +672,493 @@
     }
   },
   "termsConditions": {
-    "title": "Términos y condiciones I.Z.I web",
-    "section1": {
-      "title": "1. Introducción",
-      "subsection1": {
-        "title": "1.1 Objeto del documento",
-        "content": "Estos Términos y Condiciones (en adelante, los \"Términos\") regulan el acceso y uso del sitio web oficial de I.Z.I. (iziworld.app) y sus subdominios. Incluyen la navegación, el prerregistro y registro de cuentas, la contratación de servicios o suscripciones y el acceso a información corporativa, legal y promocional de I.Z.I."
+    "meta": {
+      "title": "Términos y Condiciones",
+      "description": "Términos y condiciones del servicio de I.Z.I. Premium"
+    },
+    "title": "Términos y Condiciones del Servicio",
+    "provider": {
+      "title": "Identificador del Prestador",
+      "labels": {
+        "company": "Titular",
+        "address": "Domicilio social",
+        "cif": "CIF/NIF",
+        "phone": "Teléfono",
+        "email": "E-mail"
       },
-      "subsection2": {
-        "title": "1.2 Aceptación de los Términos",
-        "content": {
-          "acceptance": "El acceso o uso del sitio implica la lectura y aceptación plena de estos Términos. Si el usuario no está de acuerdo, deberá abstenerse de utilizar la web o proporcionar datos.",
-          "binding": "La aceptación de estos Términos constituye un acuerdo legalmente vinculante entre el usuario y el titular de la web."
+      "company": "OASYS NEST, S.L.U.",
+      "address": "C/ Cami Terminal 6a. - 07009 - Palma De Mallorca (Islas Baleares)",
+      "cif": "B22913834",
+      "phone": "667067712",
+      "email": "dpo@iziworld.app"
+    },
+    "object": {
+      "title": "Objeto",
+      "intro": "Mediante el presente texto ponemos a disposición de todos los usuarios y clientes las condiciones de uso y registro que son de aplicación a nuestra plataforma de servicios online y a los servicios que prestamos, quedando reflejados en éste todos los derechos y obligaciones que asisten a las partes.",
+      "acceptance": "Todos los usuarios que visitan o acceden a nuestra plataforma y/o que utilizan alguno de los servicios que ponemos a disposición, aceptan las condiciones de uso y la política de privacidad, así como las diferentes modificaciones y/o textos legales adicionales que sean incluidas en el futuro. En caso de no estar de acuerdo con alguna de las condiciones, puedes darte de baja del servicio en cualquier momento o en caso de no ser usuario registrado, abandonar la plataforma.",
+      "specific": "Junto a las presentes condiciones, cada uno de los servicios prestado puede quedar regulado por condiciones de uso y registro de carácter particular, siendo obligatorio en todo caso que el usuario acepte las mismas expresamente antes de su utilización y/o contratación."
+    },
+    "contracting": {
+      "title": "Contratación Electrónica de Servicios",
+      "priorInfo": {
+        "title": "1. Información Previa Aplicable a la Contratación Electrónica",
+        "p1": "De conformidad con lo dispuesto en el artículo 23 y siguientes de la Ley 34/2002 de servicios de la sociedad de la información y de comercio electrónico, los contratos celebrados por vía electrónica producirán todos los efectos previstos por el ordenamiento jurídico, siempre que concurra el consentimiento de ambas partes y éste pueda ser acreditado.",
+        "p2": "A estos efectos, se entenderá que el seguimiento de todas las fases del proceso de registro y en su caso, el abono de la cantidad económica correspondiente, implica necesariamente la prestación del consentimiento expreso requerido para la contratación del servicio.",
+        "p3": "Del mismo modo, y atendiendo a lo dispuesto en el artículo 27 de la Ley 34/2002 de servicios de la sociedad de la información y de comercio electrónico, se pone a disposición de los usuarios, de forma previa al inicio del procedimiento de contratación toda la información relativa al mismo."
+      },
+      "procedure": {
+        "title": "2. Procedimiento de Contratación",
+        "intro": "El procedimiento de contratación de los servicios se lleva a cabo de forma completamente electrónica a través de nuestra plataforma, sin que exista en ningún momento presencia física de las partes y/o transacción física externa.",
+        "access": "Cualquier persona con acceso a Internet puede llevar a cabo la contratación.",
+        "phases": "Las fases del procedimiento de contratación son visibles para los usuarios a lo largo de todo el procedimiento de contratación. Pueden diferenciarse 3 fases:",
+        "phaseList": {
+          "identification": "Identificación del usuario.",
+          "selection": "Selección del servicio y forma de pago.",
+          "confirmation": "Confirmación del servicio."
+        },
+        "p1": "El usuario únicamente debe seleccionar el servicio que desea adquirir y pulsar el botón de compra dispuesto al efecto. De esta forma, dará comienzo el procedimiento de contratación que seguirá siempre los pasos anteriormente indicados para todos los servicios disponibles.",
+        "p2": "Una vez seleccionado el servicio, la cantidad, los impuestos aplicables, el precio total y el medio de pago, la plataforma mostrará al usuario un resumen de la contratación realizada, junto a las condiciones de contratación aplicables, que en todo caso deberán ser expresamente aceptadas por el usuario para poder seguir el proceso de contratación.",
+        "p3": "Una vez marcada la casilla de aceptación de las condiciones de contratación, en caso de haber seleccionado como forma de pago alguno de los medios electrónicos, el usuario será directamente redireccionado a la plataforma de pago externa correspondiente para realizar el pago, sin que el prestador tenga posibilidad de acceder en ningún momento a los datos de tarjetas de crédito y/o sistemas de pago del usuario.",
+        "p4": "La seguridad del procedimiento de pago se encuentra garantizada por parte de la entidad financiera.",
+        "p5": "Una vez finalizada la contratación del servicio, se mostrará una pantalla resumen de la contratación realizada.",
+        "p6": "En caso de haberse seleccionado el pago mediante tarjeta de crédito, éste se llevará a cabo a través de la TPV del banco, plataforma completamente ajena e independiente del prestador.",
+        "p7": "En el plazo máximo de 24 horas, el contratante del servicio recibirá un correo electrónico en el que se mostrará toda la información relativa al servicio contratado. Este documento es la confirmación de que la contratación se ha realizado con éxito, siendo válida como medio de acreditación para cualquier tipo de reclamación, siempre y cuando se adjunte el justificante del pago correspondiente.",
+        "p8": "El prestador informa al usuario de que todas las contrataciones realizadas quedarán registradas en un fichero para el control y gestión de contrataciones, en el que quedarán reflejados junto a la información de los servicios contratados, información adicional para garantizar la seguridad y evidencia de la correcta realización del procedimiento.",
+        "p9": "El pago de los servicios contratados podrá realizarse mediante las siguientes opciones:",
+        "paymentMethods": {
+          "title": "Opciones de pago:",
+          "googlePay": "Google Pay: pago seguro utilizando la plataforma de Google.",
+          "applePay": "Apple Pay: pago seguro a través de la plataforma de Apple.",
+          "stripe": "Stripe: pago con tarjeta de crédito o débito gestionado mediante la pasarela de pago Stripe."
+        },
+        "security": "Todos los pagos se realizarán en condiciones de seguridad, utilizando los sistemas de encriptación y protección de datos aplicables para garantizar la confidencialidad de la información del usuario."
+      }
+    },
+    "withdrawal": {
+      "title": "3. Derecho de Desistimiento de la Contratación",
+      "intro": "De conformidad con lo dispuesto en el Real Decreto Legislativo 1/2007, de 16 de noviembre, por el que se aprueba el texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios y otras leyes complementarias, junto con el artículo 45 de la Ley 7/1996, del Comercio Minorista, el usuario tiene derecho a desistir del contrato durante el plazo de desde el momento en que se ha contratado el servicio.",
+      "howTo": "Para ejercer el derecho al desistimiento, el usuario simplemente deberá solicitarlo por escrito a cualquiera de las direcciones mencionadas a continuación, indicando expresamente su solicitud de ejercicio del derecho de desistimiento:",
+      "contact": {
+        "postal": "Dirección Postal",
+        "email": "Correo electrónico"
+      },
+      "proof": "En cualquier caso, corresponde al consumidor y usuario probar que ha ejercitado su derecho de desistimiento conforme a lo dispuesto en este capítulo.",
+      "refund": "Una vez recibida la solicitud de ejercicio del derecho de desistimiento, procederemos a restituir la cantidad económica abonada (sin que en ningún caso se incluyan los gastos de envío y de gestión que se hubieran podido abonar inicialmente) en el plazo máximo de 14 días naturales desde el momento de la recepción del desistimiento y siempre a través del medio utilizado para abonar el servicio, o en su defecto mediante transferencia bancaria.",
+      "condition": "El ejercicio del derecho de desistimiento requiere en todo momento que el usuario no haya consumido o disfrutado de ninguno de los servicios contratados. En caso de que hubiera consumido alguno de dichos servicios, no será posible ejercer el derecho de desistimiento."
+    },
+    "obligations": {
+      "title": "Obligaciones del Usuario",
+      "intro": "El usuario, se compromete durante la vigencia del presente contrato a:",
+      "list": {
+        "0": "No utilizar la plataforma o cualquiera de los elementos que la integren, para desarrollar operaciones de tiempo compartido, constituirse en proveedor de servicios de aplicaciones software en la medida en que estuvieren orientados a hacer posible el acceso de terceros a la plataforma o a cualquiera de sus componentes, a través de operaciones de alquiler, servicios administrativos o cualesquiera otros de análoga consideración, compartiéndolos o poniéndolos a disposición de terceros.",
+        "1": "No someter la plataforma o cualesquiera de sus elementos, a actividades encaminadas, directa o indirectamente a la descompilación de su software, que impliquen su sometimiento a operaciones de naturaleza inversa a las que determinaron su construcción o que, en último término, constituyan o puedan constituir operaciones de ingeniería inversa, descompilación o desensamblado. Ninguno de los apartados del presente contrato podrá entenderse como una autorización de acceso al código fuente de la plataforma.",
+        "2": "No publicar la plataforma, ni utilizarla como sistema de gestión e intercambio de información y/o documentación ilegal, contraria a la moral o al orden público, contraria a los derechos de autor y/o de propiedad industrial.",
+        "3": "No someter a la plataforma a cargas de trabajo orientadas a la desestabilización de la misma, encontrándose entre éstas, ataques de denegación de servicio (DDoS) o situaciones semejantes. En caso de detectarse este tipo de situaciones, el nivel de servicio acordado, no será de aplicación, siendo considerada una situación de emergencia, no asumiendo por tanto OASYS NEST, S.L.U. responsabilidad alguna por la falta de disponibilidad del servicio.",
+        "4": "No realizar actos de ingeniería inversa, toma de requisitos y demás actividades encaminadas a desarrollar una plataforma online idéntica o semejante a la puesta a disposición por parte del prestador, pudiendo ser considerada esta actividad como un acto de competencia desleal y vulneración de los derechos de propiedad intelectual e industrial que el prestador ostenta sobre la plataforma.",
+        "5": "No traducir, adaptar, mejorar, transformar, modificar ni corregir la plataforma o cualquiera de los elementos que la integren, no pudiendo incorporar la misma a otros software o portales propios o provistos por terceros.",
+        "6": "No retirar, suprimir, alterar, manipular ni en modo alguno modificar aquellas notas, leyendas, indicaciones o símbolos que el prestador, como legítimo titular de los derechos, incorpore a sus propiedades en materia de propiedad intelectual o industrial (como por ejemplo, copyright, ©, ® y TM, etc.) ya fuera en la propia plataforma como en el material asociado.",
+        "7": "Aceptar que el prestador pueda introducir publicidad contextualizada o no.",
+        "8": "Abonar las cantidades económicas expresamente indicadas en el presente contrato en tiempo y forma."
+      }
+    },
+    "guarantees": {
+      "title": "Garantías y Responsabilidades",
+      "intro": "Estamos profundamente comprometidos con que nuestros servicios funcionen correctamente y conforme a las condiciones acordadas con nuestros usuarios. No obstante, en ocasiones es posible que se produzcan, especialmente por la intervención de terceros mal intencionados, situaciones que pudieran provocar responsabilidades. En este sentido, a continuación os indicamos aquellas situaciones en las que no nos hacemos responsables de las actuaciones de los usuarios, asumiendo éstos todas las responsabilidades derivadas:",
+      "list": {
+        "0": "En caso de que aparezca publicada en la plataforma información que no hubiera sido alojada por nuestra parte o que en su caso hubiera sido publicada por un tercero ajeno a la organización.",
+        "1": "En caso de que la plataforma no se encuentre operativa por razones técnicas imputables a terceros o causas imprevisibles y/o de fuerza mayor.",
+        "2": "En caso de que el usuario almacene o cualquier tercero, difunda, publique o distribuya en la plataforma cualquier tipo de material difamatorio, injurioso, discriminatorio, que incite a la violencia o que vaya contra la moral, el orden público, los derechos fundamentales, las libertas públicas, el honor, la intimidad o la imagen de terceros.",
+        "3": "En caso de que el usuario o cualquier tercero utilice la plataforma para introducir datos, virus, código malicioso, hardware o cualquier otro instrumento o dispositivo electrónico o físico, y se causen daños a los sistemas de otros usuarios."
+      },
+      "thirdParty": "Los servicios puestos a disposición y comercializados a través del prestador son provistos por parte de terceras compañías ajenas y completamente independientes del prestador. Por ello, el prestador no se hace responsable en caso de los fallos puntuales en la continuidad del servicio o en su caso en la falta de disponibilidad puntual del mismo.",
+      "rescission": "En caso de que los servicios contratados por parte del usuario no se encuentren disponibles durante un plazo de más de 72 horas desde el momento de la notificación de la incidencia, el usuario queda facultado para solicitar al prestador la rescisión del presente contrato y la devolución de las cantidades económicas correspondientes a los servicios no disfrutados, que serán debidamente reembolsadas a través del mismo medio que hubiera sido realizado el pago inicial o en su caso mediante transferencia bancaria."
+    },
+    "intellectualProperty": {
+      "title": "Derechos de Propiedad Intelectual e Industrial",
+      "intro": "Estamos profundamente comprometidos con la protección de los derechos de propiedad intelectual. Es por ello que hemos establecido las siguientes condiciones y políticas:",
+      "platform": {
+        "title": "1. Relativos a la Plataforma Online",
+        "p1": "El prestador garantiza al usuario que es el legítimo propietario de la plataforma y que ésta no se encuentra inmersa en ningún tipo de disputa legal previa a la firma del presente contrato.",
+        "p2": "El usuario reconoce expresamente que el prestador ostenta todo derecho, título e interés sobre la plataforma y los desarrollos informáticos asociados al servicio, así como sobre todos sus módulos, modificaciones y actualizaciones y sobre cualquier elemento y/o funcionalidad que fuera desarrollada sobre la misma, con independencia de si éste ha sido solicitado por el usuario o no.",
+        "p3": "La estructura, características, códigos, métodos de trabajo, sistemas de información e intercambio de la misma, herramientas de desarrollo, know-how, metodologías, procesos, tecnologías o algoritmos que constituyan y/o puedan constituir la plataforma, son propiedad exclusiva del prestador, encontrándose debidamente protegidos por las leyes nacionales e internacionales de propiedad intelectual y/o industrial, no pudiendo ser objeto de ulterior modificación, copia, alteración, reproducción, adaptación o traducción por parte del usuario, sin que exista el previo consentimiento expreso por parte del prestador.",
+        "p4": "Del mismo modo, todos los manuales de uso, textos, dibujos gráficos, bases de datos, que complementan la plataforma y/o los materiales asociados a ésta, son propiedad del prestador, sin que pueda ser objeto de ulterior modificación, copia, alteración, reproducción, adaptación o traducción por parte del usuario.",
+        "p5": "La puesta a disposición en modo servicio de la plataforma o el mero acceso por parte del usuario no implica, en ningún caso, la cesión de su titularidad, ni la concesión de un derecho de uso a favor del usuario distinto del expresado en estas condiciones.",
+        "p6": "Con el fin de que el usuario pueda utilizar la plataforma, propiedad exclusiva del prestador, ésta cede en virtud del presente contrato una licencia de uso a favor del usuario de carácter no exclusivo, de ámbito temporal limitado a cada periodo de conexión, de ámbito espacial ilimitado en la medida en que puede accederse desde cualquier equipo con Internet, intransferible, revocable y no sublicenciable.",
+        "p7": "En cualquier caso, queda absolutamente prohibida cualquier tipo de reproducción, imitación, transmisión, traducción, modificación, elaboración de obra derivada y/o comunicación pública, con independencia del medio empleado para ello, asumiendo en caso contrario el usuario infractor todas las responsabilidades directas o derivadas que pudieran llegar a producirse."
+      },
+      "userContent": {
+        "title": "2. Relativos a los Contenidos e Información de los Usuarios",
+        "p1": "Todos los contenidos e informaciones publicadas o gestionados por parte de los usuarios en la plataforma son propiedad exclusiva de éste.",
+        "p2": "El prestador no recibe ningún tipo de derecho de propiedad intelectual por el hecho de que el usuario los aloje o gestione en su plataforma, por lo que en ningún caso podrá tratarlos para fines diferentes a los directamente relacionados con la prestación de los servicios efectivamente contratados."
+      }
+    },
+    "confidentiality": {
+      "title": "Confidencialidad y Protección de Datos",
+      "p1": "De conformidad con lo dispuesto por el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos, todos los datos de carácter personal facilitados durante la utilización de la plataforma y durante la prestación de los servicios serán tratados de conformidad con lo dispuesto en la Política de Privacidad, que todo usuario debe aceptar expresamente y de forma previa para poder registrarse.",
+      "p2": "Todo usuario que acepte las presentes condiciones de uso, aceptan de forma informada, expresa e inequívoca nuestra Política de Privacidad, asistiéndole en este sentido los derechos de acceso, rectificación, cancelación y oposición respecto a sus datos de carácter personal, pudiendo ejercerlos según se informa en la mencionada Política de Privacidad."
+    },
+    "temporal": {
+      "title": "Condiciones Temporales",
+      "duration": "Las presentes condiciones entrarán en vigor en la fecha de la contratación del servicio y tendrán una duración de un año, renovándose de forma tácita por períodos anuales.",
+      "termination": "Cualquiera de las partes podrá dar por finalizado el presente contrato mediante comunicación expresa y escrita a la otra parte, al menos con 30 días de antelación al inicio del período siguiente.",
+      "specific": "No obstante, aquellos servicios que sean de consumo y que sean contratados en paquetes o promociones, podrán tener una duración determinada y específica inferior a la indicada, que en todo caso será mostrada antes de proceder a la contratación."
+    },
+    "economic": {
+      "title": "Condiciones Económicas",
+      "p1": "Las tarifas aplicables a cada uno de los servicios ofrecidos a través de la plataforma serán única y exclusivamente aquellas que se encuentren publicadas en la plataforma online, siendo éstas las únicamente válidas, salvo error tipográfico o de transcripción, caso en el que el prestador se compromete a modificarlas inmediatamente.",
+      "p2": "En caso de que la modalidad de pago sea mediante domiciliación bancaria, el usuario acepta expresamente que el prestador realice periódicamente en los plazos indicados, los cargos económicos correspondientes en la cuenta bancaria del usuario.",
+      "p3": "El prestador se reserva el derecho a anular las contrataciones realizadas durante el plazo de 7 días desde el momento de su realización en caso de que detecte la existencia de errores tipográficos o de transcripción en el precio y/o los impuestos aplicados a la transacción.",
+      "p4": "El prestador se reserva el derecho a realizar cualquier tipo de modificación sobre las tarifas de cada servicio, comprometiéndose éste a publicarlas en la plataforma de forma visible para los usuarios. Salvo disposición en contrario, la modificación de tarifas no tendrá carácter retroactivo.",
+      "p5": "Todos los servicios contratados serán debidamente facturados y abonados de forma previa a la prestación de los servicios o a mes vencido, dependiendo de la modalidad de contratación empleada.",
+      "p6": "Todas las tarifas se verán incrementadas con el importe correspondiente a los impuestos vigentes en la fecha de emisión de la factura, quedando debidamente reflejados en el resumen de cada compra."
+    },
+    "customerService": {
+      "title": "Servicio de Atención al Usuario y Servicio Técnico",
+      "intro": "El prestador pone a disposición del usuario un servicio de atención al usuario y asistencia técnica conforme a las siguientes características:",
+      "emailLabel": "Email",
+      "language": "Salvo disposición particular en contrario, el servicio de atención al usuario será exclusivamente prestado en castellano."
+    },
+    "termination": {
+      "title": "Extinción del Contrato",
+      "intro": "El presente contrato puede ser extinguido siempre que se produzca alguna de las siguientes circunstancias:",
+      "reasons": {
+        "0": "Incumplimiento de las obligaciones dispuestas en el presente contrato.",
+        "1": "Por el transcurso de su plazo de duración, siempre que alguna de las partes hubiera manifestado expresamente con al menos 30 días de antelación su voluntad de no renovar automáticamente el contrato.",
+        "2": "La declaración de concurso de acreedores de la otra parte, o el inicio de cualquiera de dichos procedimientos o equivalente ante las autoridades competentes, y se incumplan reiteradamente las obligaciones por parte de ésta, ya fuera presentada por alguna de las partes o por parte de algún tercero.",
+        "3": "En caso de que no se abonen conforme a los plazos y forma acordados las cantidades económicas correspondientes. El servicio será automáticamente bloqueado el día siguiente al momento en que se produzca el impago. Para su reactivación únicamente será necesario realizar el abono de la cantidad económica que corresponda.",
+        "4": "La disolución, liquidación o pérdida de personalidad jurídica de alguna de las partes.",
+        "5": "Cualquier cambio o variación sustancial de las condiciones esenciales que fueron indicadas en el presente contrato para llevar a cabo la celebración del presente contrato."
+      },
+      "payment": "Del mismo modo, para que el contrato pueda ser rescindido plenamente, el usuario deberá abonar todas aquellas cantidades económicas que siguieran pendientes, sin que exista posibilidad de rescisión plena sin el cumplimiento de esta obligación considerada esencial.",
+      "unilateral": "En caso de que el contrato sea rescindido de forma unilateral por parte del usuario, sin causa debidamente probada y justificada, este renuncia a cualquier tipo de reclamación de las cantidades económicas abonadas hasta la fecha."
+    },
+    "disputes": {
+      "title": "Resolución Extrajudicial de Conflictos",
+      "content": "Asimismo, en los términos que se recogen en el artículo 14 del Reglamento UE 524/2013, sobre resolución de litigios en materia de consumo, se proporciona un enlace directo a la plataforma de resolución de litigios en línea:"
+    },
+    "law": {
+      "title": "Ley Aplicable y Jurisdicción",
+      "content": "Para cualquier controversia o conflicto que pudiera surgir, derivado de estos términos o condiciones, resultará de aplicación la Ley Española. La resolución de los conflictos judiciales se someterá a la competencia de los Juzgados y Tribunales del domicilio del usuario o cliente."
+    }
+  },
+  "appTerms": {
+    "meta": {
+      "title": "Términos y Condiciones de la App",
+      "description": "Términos y condiciones de uso de la aplicación móvil I.Z.I."
+    },
+    "title": "Términos y Condiciones de Uso de la Aplicación",
+    "intro": "Estos Términos y Condiciones regulan la descarga, acceso y utilización de la aplicación móvil I.Z.I (en adelante, la «APLICACIÓN»), que OASYS NEST, S.L.U. pone a disposición de los usuarios. El usuario adquiere esta condición con la descarga y uso de la misma. Esta versión de la APLICACIÓN está disponible de forma gratuita en Google Play y Apple Store, salvo que se suscriba a la suscripción de pago, el usuario reconoce y acepta cumplir con todos los términos y condiciones aplicables respecto a la obtención, descarga y actualización de la APLICACIÓN que estos stores respectivamente determinen.",
+    "purpose": {
+      "title": "1. Objeto",
+      "intro": "La APLICACIÓN tiene el objetivo de:",
+      "list": {
+        "1": "Dar cumplimiento de las obligaciones, comerciales, laborales, corporativas y contables.",
+        "2": "La transmisión de datos a terceros con los cuales se hayan celebrado contratos con este objeto, para fines contractuales, administrativos y/o operativos.",
+        "3": "Con propósitos de seguridad o prevención de fraude.",
+        "4": "Prestar los servicios contratados por el usuario.",
+        "5": "Enviar información promocional vía electrónica.",
+        "6": "Gestionar las solicitudes de contacto recibidas a través de los distintos canales habilitados en la APLICACIÓN.",
+        "7": "Creación y gestión de la cuenta de usuario (correo, contraseña, apodo).",
+        "8": "Acceso y uso de funcionalidades principales (diario, chat anónimo, galletas motivacionales, cartas y cápsulas, recordatorios).",
+        "9": "Gestionar la redirección a servicios oficiales de emergencia del país, como el Teléfono de la Esperanza, con el fin de facilitar asistencia inmediata, cuando el usuario marque el botón SOS.",
+        "10": "Moderación de contenido y detección de conductas de riesgo (IA de Google: imágenes y palabras sensibles).",
+        "11": "Gestión de pagos y suscripciones.",
+        "12": "Almacenamiento y hosting.",
+        "13": "Personalización del servicio y recomendaciones.",
+        "14": "Atención con psicólogos o coaches dentro de la app."
+      },
+      "beneficiaries": "Los colectivos que pueden beneficiarse de este proyecto son usuarios de la APLICACIÓN. En el diseño y desarrollo de esta APLICACIÓN han intervenido profesionales especialistas. La APLICACIÓN se pone a disposición de los usuarios para su uso personal (nunca empresarial). Funciona en un teléfono móvil con sistema operativo Android o IOS."
+    },
+    "permissions": {
+      "title": "2. Permisos",
+      "intro": "Para el correcto funcionamiento de la APLICACIÓN, esta puede solicitar acceso a ciertos elementos del dispositivo del usuario. Los permisos requeridos son los siguientes:",
+      "ip": {
+        "title": "Dirección IP",
+        "description": "se recopila automáticamente al utilizar la APLICACIÓN, con el fin de garantizar la seguridad, la autenticación de usuarios y la correcta prestación del servicio."
+      },
+      "camera": {
+        "title": "Cámara",
+        "description": "se solicita únicamente cuando el usuario realiza acciones que requieren capturar imágenes o vídeo dentro de la aplicación. Su uso se limita estrictamente a la funcionalidad necesaria de la APLICACIÓN."
+      },
+      "microphone": {
+        "title": "Micrófono",
+        "description": "se solicita únicamente cuando el usuario utiliza funciones de audio dentro de la APLICACIÓN. El acceso está limitado a las operaciones que el usuario autoriza explícitamente."
+      },
+      "compliance": "Todos los datos obtenidos mediante estos permisos se tratan conforme a la normativa vigente de protección de datos y únicamente para las finalidades indicadas, garantizando la privacidad y seguridad de la información del usuario."
+    },
+    "intellectualProperty": {
+      "title": "3. Derechos de Propiedad Intelectual e Industrial",
+      "p1": "Los derechos de propiedad intelectual e industrial sobre la APLICACIÓN son titularidad de OASYS NEST, S.L.U., correspondiéndole el ejercicio exclusivo de los derechos de explotación de los mismos en cualquier forma y, en especial, los derechos de reproducción, distribución, comunicación pública y transformación.",
+      "p2": "Los terceros titulares de derechos de propiedad intelectual e industrial sobre fotografías, logotipos, y cualesquiera otros símbolos o contenidos incluidos en la APLICACIÓN han concedido las correspondientes autorizaciones para su reproducción, distribución y puesta a disposición del público.",
+      "p3": "El usuario reconoce que la reproducción, modificación, distribución, comercialización, descompilación, desensamblado, utilización de técnicas de ingeniería inversa o de cualquier otro medio para obtener el código fuente, transformación o publicación de cualquier resultado de pruebas de referencias no autorizadas de cualquiera de los elementos y utilidades integradas dentro del desarrollo constituye una infracción de los derechos de propiedad intelectual de OASYS NEST, S.L.U, obligándose, en consecuencia, a no realizar ninguna de las acciones mencionadas."
+    },
+    "privacyPolicy": {
+      "title": "4. Política de Privacidad",
+      "responsible": {
+        "title": "¿Quién es el responsable del tratamiento de sus datos personales?",
+        "content": "OASYS NEST, S.L.U. es el responsable del tratamiento de los datos personales del usuario y le informa de que estos datos serán tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (RGPD), y la Ley Orgánica 3/2018, de 5 de diciembre (LOPDGDD), por lo que se le facilita la siguiente información del tratamiento."
+      },
+      "purposeSection": {
+        "title": "¿Para qué tratamos sus datos personales?",
+        "content": "Tratamos sus datos personales para las finalidades descritas en el apartado «1. OBJETO» de estos términos."
+      },
+      "legalBasis": {
+        "title": "¿Cuál es la base que legitima el tratamiento de sus datos personales?",
+        "table": {
+          "purpose": "Finalidad del tratamiento",
+          "basis": "Base jurídica aplicable"
+        },
+        "items": {
+          "obligations": {
+            "purpose": "Dar cumplimiento de las obligaciones, comerciales, laborales, corporativas y contables",
+            "basis": "Cumplimiento de obligaciones legales (art. 6.1.c RGPD)"
+          },
+          "fraud": {
+            "purpose": "Con propósitos de seguridad o prevención de fraude",
+            "basis": "Interés legítimo (art. 6.1.f RGPD)"
+          },
+          "serviceExecution": {
+            "purpose": "Prestar los servicios contratados por el usuario",
+            "basis": "Ejecución de un contrato (art. 6.1.b RGPD)"
+          },
+          "contact": {
+            "purpose": "Gestionar las solicitudes de contacto recibidas a través de los distintos canales habilitados en la APLICACIÓN",
+            "basis": "Interés legítimo (art. 6.1.f RGPD)"
+          },
+          "account": {
+            "purpose": "Creación y gestión de la cuenta de usuario (correo, contraseña, apodo)",
+            "basis": "Ejecución de un contrato (art. 6.1.b RGPD)"
+          },
+          "functionality": {
+            "purpose": "Acceso y uso de funcionalidades principales (diario, chat anónimo, galletas motivacionales, cartas y cápsulas, recordatorios)",
+            "basis": "Ejecución de un contrato (art. 6.1.b RGPD)"
+          },
+          "sos": {
+            "purpose": "Gestionar la redirección a servicios oficiales de emergencia del país, como el Teléfono de la Esperanza, con el fin de facilitar asistencia inmediata, cuando el usuario marque el botón SOS",
+            "basis": "Consentimiento (art. 6.1.a RGPD)"
+          },
+          "sensitiveData": {
+            "purpose": "Tratamiento de datos sensibles introducidos por el usuario (salud mental, emociones, pensamientos, voz, imagen)",
+            "basis": "Consentimiento explícito (art. 6.1.a y 9.2.a RGPD)"
+          },
+          "moderation": {
+            "purpose": "Moderación de contenido y detección de conductas de riesgo (IA de Google: imágenes y palabras sensibles)",
+            "basis": "Interés legítimo (art. 6.1.f RGPD)"
+          },
+          "payments": {
+            "purpose": "Gestión de pagos y suscripciones (Stripe, Apple, Getzner VPS)",
+            "basis": "Ejecución de un contrato (art. 6.1.b RGPD) + Cumplimiento de obligación legal (art. 6.1.c RGPD)"
+          },
+          "storage": {
+            "purpose": "Almacenamiento y hosting (Google Cloud, Getzner VPS)",
+            "basis": "Ejecución de un contrato (art. 6.1.b RGPD)"
+          },
+          "personalization": {
+            "purpose": "Personalización del servicio y recomendaciones (opt-in)",
+            "basis": "Consentimiento (art. 6.1.a RGPD)"
+          },
+          "metrics": {
+            "purpose": "Elaboración de métricas agregadas y análisis para mejorar el servicio",
+            "basis": "Interés legítimo (art. 6.1.f RGPD)"
+          },
+          "commercial": {
+            "purpose": "Envío de comunicaciones comerciales/newsletter",
+            "basis": "Consentimiento (art. 6.1.a RGPD) o, en su caso, interés legítimo (art. 6.1.f RGPD)"
+          },
+          "psychologists": {
+            "purpose": "Atención con psicólogos o coaches dentro de la app (in-app)",
+            "basis": "Ejecución de un contrato (art. 6.1.b RGPD) + Consentimiento explícito (art. 9.2.a RGPD)"
+          }
         }
       },
-      "subsection3": {
-        "title": "1.3 Relación con otros documentos",
-        "content": {
-          "documents": "El uso del sitio también está sujeto a:",
-          "privacyPolicy": "La Política de Privacidad Web, relativa al tratamiento de datos en la navegación y prerregistro.",
-          "cookiePolicy": "La Política de Cookies, integrada como sección propia en este documento.",
-          "appTerms": "Los Términos y Condiciones de la App, que regirán de forma independiente el uso de la aplicación I.Z.I. tras su descarga.",
-          "conflict": "En caso de conflicto, prevalecerán estos Términos respecto de la navegación web y los de la App respecto de su uso en dispositivos móviles."
-        }
+      "retention": {
+        "title": "¿Durante cuánto tiempo guardaremos sus datos personales?",
+        "content": "Conservaremos sus datos personales durante no más tiempo del necesario para mantener el fin del tratamiento, es decir, mientras dure la relación contractual objeto del uso de la APLICACIÓN (incluyendo la obligación de conservarlos durante los plazos de prescripción aplicables), y cuando ya no sean necesarios para tal fin, se suprimirán con medidas de seguridad adecuadas para garantizar la anonimización o la destrucción total de los mismos."
       },
-      "subsection4": {
-        "title": "1.4 Ámbito territorial de aplicación",
-        "content": "Estos Términos se aplican a todos los visitantes y usuarios de la web, con independencia de su país de residencia. El cumplimiento normativo se adecua a las principales jurisdicciones en las que I.Z.I. opera (UE/EEE, Reino Unido, Estados Unidos, Canadá, Australia y América Latina). Las cláusulas se interpretarán conforme a la legislación local más protectora para el usuario."
+      "recipients": {
+        "title": "¿A quién facilitamos sus datos personales?",
+        "p1": "Sus datos personales se comunicarán a:",
+        "list": {
+          "0": "Las Administraciones Públicas y otras entidades privadas para el cumplimiento de las obligaciones legales a las que OASYS NEST, S.L.U. está sujeto por sus actividades.",
+          "1": "Los proveedores que precisen acceder a los datos personales del usuario para la prestación de los servicios que OASYS NEST, S.L.U. les haya contratado, o que por el propio funcionamiento de los servicios electrónicos (aplicación, página web y correos electrónicos) puedan tener acceso a determinados datos personales. Con todos ellos OASYS NEST, S.L.U. tiene suscritos los contratos de confidencialidad y de encargo de tratamiento de datos personales necesarios y exigidos por la normativa para proteger su privacidad (artículo 28.3 RGPD)."
+        },
+        "firebase": "La aplicación utiliza Firebase Authentication, plataforma proporcionada por Google, para la creación y autenticación de cuentas de usuario y para el control seguro de sesiones. Los datos tratados incluyen correo electrónico, identificadores de usuario y credenciales cifradas, y se utilizan únicamente con la finalidad de gestionar la cuenta y el acceso al servicio. Firebase puede almacenar los datos en servidores ubicados fuera del Espacio Económico Europeo. Google garantiza la protección de los datos mediante cláusulas contractuales tipo y otras medidas de seguridad y, además se encuentra adherida al amparo del acuerdo EU-US Data Privacy Framework.",
+        "analytics": "La APLICACIÓN podrá recabar, almacenar o acumular determinada información de carácter no personal referente a su uso. Google Analytics se rige por las condiciones generales de Google accesibles en http://www.google.com/analytics/terms/es.html y las políticas de privacidad de Google accesibles en https://www.google.es/intl/es/policies/privacy/."
       },
-      "subsection5": {
-        "title": "1.5 Limitación de edad",
-        "content": {
-          "ageLimit": "El prerregistro y la creación de cuentas están limitados a mayores de 18 años. El proceso de registro incluirá un control de edad.",
-          "minors": "Los menores que accedan únicamente a la parte informativa de la web no podrán registrarse ni enviar datos personales."
-        }
-      },
-      "subsection6": {
-        "title": "1.6 Exclusión de servicios profesionales",
-        "content": {
-          "nature": "El sitio web tiene carácter informativo y de contacto. No constituye asesoramiento médico, psicológico, terapéutico ni jurídico.",
-          "noSubstitute": "La web no sustituye servicios profesionales y se limita a ofrecer información sobre la app, sus servicios y actualizaciones."
-        }
-      },
-      "subsection7": {
-        "title": "1.7 Disponibilidad y limitación de responsabilidad",
-        "content": {
-          "asIs": "La web se ofrece en modalidad \"tal cual\" y \"según disponibilidad\". Pueden producirse interrupciones por mantenimiento, incidencias técnicas o causas ajenas al titular.",
-          "noGuarantee": "Se excluye cualquier garantía de disponibilidad ininterrumpida o de ausencia total de errores, sin perjuicio de lo dispuesto en el apartado 9. Limitación de Responsabilidad."
-        }
-      },
-      "subsection8": {
-        "title": "1.8 Modificación de los Términos",
-        "content": {
-          "modifications": "I.Z.I. podrá modificar estos Términos por razones legales, técnicas o de servicio. Las modificaciones se publicarán en la web, indicando la fecha de última actualización.",
-          "notification": "Si los cambios afectan a usuarios prerregistrados, se notificará mediante el correo de contacto facilitado."
-        }
-      },
-      "subsection9": {
-        "title": "1.9 Idioma y prevalencia",
-        "content": {
-          "spanish": "La versión en español será la referencia principal. Podrán publicarse traducciones para comodidad de los usuarios.",
-          "translations": "En caso de discrepancia, prevalecerá la versión española."
+      "rights": {
+        "title": "¿Cuáles son los derechos que le asisten como usuario?",
+        "list": {
+          "withdrawal": "Derecho a retirar el consentimiento en cualquier momento.",
+          "access": "Derecho de acceso, rectificación, portabilidad y supresión de sus datos, y de limitación u oposición a su tratamiento.",
+          "complaint": "Derecho a presentar una reclamación ante la autoridad de control (www.aepd.es) si considera que el tratamiento no se ajusta a la normativa vigente."
+        },
+        "contact": {
+          "title": "Datos de contacto para ejercer sus derechos:"
         }
       }
     },
-    "section2": {
-      "title": "2. Identidad del Titular y Datos de Contacto",
-      "subsection1": {
-        "title": "2.1 Datos de la entidad responsable",
-        "content": {
-          "compliance": "En cumplimiento de la normativa internacional aplicable, se informa que el titular y responsable del sitio web iziworld.app es:",
-          "company": "Nombre o Razón Social:",
-          "nif": "NIF:",
-          "address": "Domicilio Social:",
-          "email": "Correo electrónico de contacto:",
-          "privacy": "Correo electrónico para privacidad y protección de datos:",
-          "website": "Página web oficial:"
-        }
-      },
-      "subsection2": {
-        "title": "2.2 Representantes legales en otras jurisdicciones",
-        "content": "Cuando la normativa local lo exija, I.Z.I. designará representantes o responsables en distintas regiones: Unión Europea y Reino Unido: Representante RGPD (art. 27) y UK Data Protection Act. Estados Unidos: Responsable para el cumplimiento de CCPA/CPRA y normativas estatales. Canadá: Responsable conforme a PIPEDA y legislaciones provinciales. Australia: Responsable conforme a la Privacy Act 1988. América Latina: Representantes locales o legales en los países con normativa vigente. En países sin normativa específica, se aplican los principios rectores del RGPD como estándar mínimo."
-      },
-      "subsection3": {
-        "title": "2.3 Delegado de Protección de Datos (DPO)",
-        "content": {
-          "compliance": "En cumplimiento del artículo 37 del RGPD, OasysNest S.L. cuenta con un Delegado de Protección de Datos designado para supervisar el cumplimiento de la normativa de privacidad y actuar como punto de contacto con los usuarios y autoridades.",
-          "dpoEmail": "Correo del DPO:",
-          "dpoAddress": "Dirección postal del DPO:"
-        }
-      },
-      "subsection4": {
-        "title": "2.4 Autoridades de supervisión y plazos de respuesta",
-        "content": {
-          "authorities": "Los usuarios podrán presentar reclamaciones ante la autoridad de protección de datos de su país.",
-          "euUk": "UE/EEE y Reino Unido:",
-          "euUkDeadline": "plazo de respuesta 1 mes, prorrogable a 2 meses en casos complejos.",
-          "brazil": "Brasil:",
-          "brazilDeadline": "15 días hábiles (LGPD).",
-          "canada": "Canadá:",
-          "canadaDeadline": "30 días (PIPEDA).",
-          "usa": "EE.UU.:",
-          "usaDeadline": "45 días, prorrogables a 90 días (CCPA/CPRA).",
-          "others": "Otras jurisdicciones:",
-          "othersDeadline": "conforme a normativa local aplicable."
-        }
-      }
+    "mandatoryInfo": {
+      "title": "5. Carácter Obligatorio o Facultativo de la Información Facilitada por el Usuario",
+      "p1": "Los usuarios, mediante la marcación de las casillas correspondientes y entrada de datos en los campos, marcados con un asterisco (*) en los formularios de la APLICACIÓN, aceptan expresamente y de forma libre e inequívoca que sus datos personales son necesarios para atender su petición, por parte del prestador, siendo voluntaria la inclusión de datos en los campos restantes. El usuario garantiza que los datos personales facilitados a OASYS NEST, S.L.U son veraces y se hace responsable de comunicar cualquier modificación de los mismos.",
+      "p2": "OASYS NEST, S.L.U informa de que todos los datos solicitados a través de la APLICACIÓN son obligatorios, ya que son necesarios para la prestación de un servicio óptimo al Usuario. En caso de que no se faciliten todos los datos, no se garantiza que la información y servicios facilitados sean completamente ajustados a sus necesidades."
     },
-    "section3": {
-      "title": "3. Condiciones de Uso del Sitio Web",
-      "intro": "El uso de iziworld.app está sujeto a las siguientes reglas básicas, destinadas a garantizar un entorno seguro, legal y transparente:",
-      "subsection1": {
-        "title": "3.1 Requisitos de edad",
-        "content": {
-          "ageLimit": "El acceso al sitio web con fines de prerregistro o contratación está limitado a personas mayores de 18 años.",
-          "minors": "Los menores pueden navegar por la parte informativa, pero no enviar formularios ni registrarse."
-        }
-      },
-      "subsection2": {
-        "title": "3.2 Registro y prerregistro de cuenta",
-        "content": {
-          "requirements": "Para crear o reservar una cuenta en la app, el usuario debe proporcionar datos veraces y completos (nombre o apodo, correo electrónico, país, edad mínima).",
-          "responsibility": "El usuario es responsable de mantener actualizada la información facilitada.",
-          "acceptance": "La creación de cuenta exige la aceptación de estos Términos Web y de la Política de Privacidad Web."
-        }
-      },
-      "subsection3": {
-        "title": "3.3 Uso correcto de la web",
-        "content": {
-          "commitment": "El usuario se compromete a:",
-          "legitimate": "Utilizar la web únicamente para fines personales y legítimos.",
-          "noFraud": "No realizar actividades fraudulentas, ataques técnicos (phishing, malware, scraping, spam) ni intentos de intrusión.",
-          "noCommercial": "No usar la web con fines comerciales no autorizados ni para suplantar identidades."
-        }
-      },
-      "subsection4": {
-        "title": "3.4 Propiedad intelectual",
-        "content": {
-          "ownership": "Todo el contenido publicado en la web (textos, gráficos, logotipos, código, imágenes, iconos, videos) pertenece a OasysNest S.L. o cuenta con licencias válidas.",
-          "prohibition": "Se prohíbe la reproducción, distribución, comunicación pública o transformación sin autorización previa y por escrito.",
-          "userRights": "El usuario solo tiene un derecho de uso personal, no transferible y limitado a la navegación dentro del sitio."
-        }
-      },
-      "subsection5": {
-        "title": "3.5 Suspensión o restricción de acceso",
-        "content": {
-          "technical": "I.Z.I. podrá suspender temporalmente el acceso a la web por motivos técnicos, de seguridad o mantenimiento.",
-          "blocking": "Podrá también bloquear a usuarios que incumplan estos Términos (ej. intentos de fraude, uso indebido de formularios o sistemas de pago)."
-        }
-      },
-      "subsection6": {
-        "title": "3.6 Limitación de responsabilidad en el uso",
-        "content": {
-          "responsibility": "El acceso y uso de la web se realiza bajo la propia responsabilidad del usuario.",
-          "noGuarantee": "I.Z.I. no garantiza que el sitio esté libre de interrupciones, errores o virus, aunque aplica medidas de seguridad razonables."
-        }
-      }
+    "security": {
+      "title": "6. Medidas de Seguridad",
+      "p1": "De conformidad con lo dispuesto en las normativas vigentes en protección de datos personales, el RESPONSABLE está cumpliendo con todas las disposiciones de las normativas RGPD y LOPDGDD para el tratamiento de los datos personales de su responsabilidad, y manifiestamente con los principios descritos en el artículo 5 del RGPD, por los cuales son tratados de manera lícita, leal y transparente en relación con el interesado y adecuados, pertinentes y limitados a lo necesario en relación con los fines para los que son tratados.",
+      "p2": "OASYS NEST, S.L.U garantiza que ha implementado políticas técnicas y organizativas apropiadas para aplicar las medidas de seguridad que establecen el RGPD y la LOPDGDD con el fin de proteger los derechos y libertades de los usuarios y les ha comunicado la información adecuada para que puedan ejercerlos.",
+      "p3": "Toda transferencia de información que la APLICACIÓN realiza con servidores en la nube (cloud), propios o de terceros, se realiza de manera cifrada y segura a través de un protocolo seguro de transferencia de hipertexto (HTTPS), que además garantiza que la información no pueda ser interceptada.",
+      "p4": "Para más información sobre las garantías de su privacidad, puede dirigirse a OASYS NEST, S.L.U a través de"
     },
-    "section4": {
-      "title": "4. Registro y Prerregistro de Usuarios",
-      "intro": "El sitio web iziworld.app permite a los usuarios preregistrarse/registrarse para crear una cuenta que será utilizada posteriormente en la aplicación móvil.",
-      "subsection1": {
-        "title": "4.1 Creación de cuenta en la web",
-        "content": {
-          "creation": "El sitio web iziworld.app permite a los usuarios preregistrarse/registrarse para crear una cuenta que será utilizada posteriormente en la aplicación móvil.",
-          "requirements": "El prerregistro requiere: Nombre o apodo (nick), Dirección de correo electrónico válida, Fecha de nacimiento (para verificar mayoría de edad), País de residencia."
-        }
-      },
-      "subsection2": {
-        "title": "4.2 Exactitud y veracidad de los datos",
-        "content": {
-          "guarantee": "El usuario garantiza que la información proporcionada es real, actual y verificable.",
-          "rejection": "En caso de datos falsos o inexactos, I.Z.I. podrá rechazar, suspender o eliminar el registro."
-        }
-      },
-      "subsection3": {
-        "title": "4.3 Activación y acceso a la app",
-        "content": {
-          "immediate": "El prerregistro en la web no otorga acceso inmediato a las funcionalidades de la aplicación.",
-          "activation": "La cuenta se activará plenamente una vez el usuario descargue y acceda a la app móvil, aceptando los Términos y Condiciones de la App."
-        }
-      },
-      "subsection4": {
-        "title": "4.4 Credenciales de acceso",
-        "content": {
-          "responsibility": "El usuario es responsable de la custodia de su correo electrónico y contraseña, así como de las actividades realizadas con su cuenta.",
-          "recommendations": "I.Z.I. recomienda el uso de contraseñas robustas y únicas.",
-          "notification": "La pérdida o robo de credenciales debe comunicarse de inmediato a support@iziworld.app."
-        }
-      },
-      "subsection5": {
-        "title": "4.5 Cancelación voluntaria",
-        "content": {
-          "deletion": "El usuario puede solicitar la eliminación de sus datos de prerregistro en cualquier momento escribiendo a privacy@iziworld.app.",
-          "reregister": "La cancelación no impide que el usuario vuelva a registrarse en el futuro."
-        }
-      },
-      "subsection6": {
-        "title": "4.6 Derecho de suspensión por incumplimiento",
-        "content": {
-          "rights": "I.Z.I. se reserva el derecho de:",
-          "block": "Bloquear prerregistros que incumplan estos Términos.",
-          "delete": "Eliminar cuentas con indicios de fraude, suplantación o abuso."
-        }
-      }
+    "liability": {
+      "title": "7. Exclusión de Responsabilidad",
+      "p1": "OASYS NEST, S.L.U se reserva el derecho de editar, actualizar, modificar, suspender, eliminar o finalizar los servicios ofrecidos por la APLICACIÓN, incluyendo todo o parte de su contenido, sin necesidad de previo aviso, así como de modificar la forma o tipo de acceso a esta. Las posibles causas de modificación pueden tener lugar por motivos tales como su adaptación a las posibles novedades legislativas y cambios en la propia APLICACIÓN, así como a las que se puedan derivar de los códigos tipos existentes en la materia o por motivos estratégicos o corporativos.",
+      "p2": "OASYS NEST, S.L.U no será responsable del uso de la APLICACIÓN por un menor de edad, siendo la descarga y uso de la APLICACIÓN exclusiva responsabilidad del usuario. La APLICACIÓN se presta «tal y como es» y sin ninguna clase de garantía. OASYS NEST, S.L.U no se hace responsable de la calidad final de la APLICACIÓN, ni de que esta sirva y cumpla con todos los objetivos de la misma. No obstante lo anterior, OASYS NEST, S.L.U se compromete en la medida de sus posibilidades a contribuir en la mejora de la calidad de la APLICACIÓN, pero no puede garantizar la precisión ni la actualidad del contenido de la misma.",
+      "p3": "La responsabilidad de uso de la APLICACIÓN corresponde solo al usuario. Salvo lo establecido en estos Términos y Condiciones, OASYS NEST, S.L.U no es responsable de ninguna pérdida o daño que se produzca en relación con la descarga o el uso de la APLICACIÓN, tales como los producidos a consecuencia de fallos, averías o bloqueos en el funcionamiento de la APLICACIÓN. Igualmente, OASYS NEST, S.L.U tampoco será responsable de los daños producidos a consecuencia de un uso indebido o inadecuado de la APLICACIÓN por parte de los usuarios."
     },
-    "section5": {
-      "title": "5. Pagos y Contrataciones a través de la Web",
-      "subsection1": {
-        "title": "5.1 Métodos de pago aceptados",
-        "content": {
-          "methods": "Las contrataciones realizadas en la web iziworld.app se gestionan exclusivamente mediante pasarelas de pago seguras:",
-          "storage": "I.Z.I. no almacena datos bancarios ni de tarjetas; únicamente conserva identificadores de transacción y datos mínimos de facturación."
-        }
-      },
-      "subsection2": {
-        "title": "5.2 Seguridad en las transacciones",
-        "content": {
-          "standard": "Todas las operaciones cumplen el estándar internacional PCI DSS y se transmiten bajo TLS 1.3.",
-          "processing": "Los pagos son procesados directamente en los servidores de Stripe, que actúan como encargados de tratamiento.",
-          "controls": "Se aplican controles antifraude, AML (Anti-Money Laundering) y KYC (Know Your Customer) según la normativa vigente."
-        }
-      },
-      "subsection3": {
-        "title": "5.3 Facturación y comprobantes",
-        "content": {
-          "completion": "Al completar una compra, el usuario recibirá un correo de confirmación con el comprobante del pago.",
-          "subscriptions": "En caso de suscripciones, se emitirán facturas electrónicas conforme a la legislación fiscal aplicable."
-        }
-      },
-      "subsection4": {
-        "title": "5.4 Política de cancelación y reembolsos",
-        "content": {
-          "final": "Las compras efectuadas mediante Stripe en la web se consideran ventas definitivas y no reembolsables, salvo disposición legal en contrario.",
-          "eu": "Los usuarios de la Unión Europea disponen de un plazo de desistimiento de 14 días naturales, siempre que el servicio no se haya activado ni consumido.",
-          "execution": "Una vez iniciada la ejecución del servicio contratado (ej. activación de plan premium), el derecho de desistimiento quedará extinguido."
-        }
-      },
-      "subsection5": {
-        "title": "5.5 Renovaciones automáticas",
-        "content": {
-          "automatic": "Si un plan adquirido en la web incluye renovación automática, esta condición será comunicada claramente antes de la contratación.",
-          "deactivate": "El usuario podrá desactivar la renovación automática en cualquier momento desde su área de usuario o escribiendo a support@iziworld.app.",
-          "notification": "Se enviará notificación previa antes de cada renovación con la fecha e importe a cobrar."
-        }
-      },
-      "subsection6": {
-        "title": "5.6 Limitación de responsabilidad en pagos",
-        "content": "I.Z.I. no será responsable por incidencias técnicas, duplicidades, retrasos o fallos imputables directamente a Stripe u otros intermediarios de pago."
-      }
+    "legislation": {
+      "title": "8. Legislación y Fuero",
+      "content": "El usuario acepta que la legislación aplicable y los Juzgados y Tribunales competentes para conocer de las divergencias derivadas de la interpretación o aplicación de este clausulado son los españoles, y se somete, con renuncia expresa a cualquier otro fuero, a los juzgados y tribunales más cercanos a la ciudad de Palma de Mallorca.",
+      "acceptance": "He leído y acepto las condiciones de uso de la APLICACIÓN."
+    }
+  },
+  "cookies": {
+    "meta": {
+      "title": "Política de Cookies",
+      "description": "Información sobre el uso de cookies en nuestra plataforma"
     },
-    "section6": {
-      "title": "6. Cookies y Tecnologías de Seguimiento",
-      "intro": "El sitio iziworld.app utiliza cookies y tecnologías similares para garantizar el funcionamiento básico, mejorar la experiencia del usuario y, en su caso, personalizar contenidos y anuncios.",
-      "subsection1": {
-        "title": "6.1 Uso de cookies en la web",
-        "content": "El sitio iziworld.app utiliza cookies y tecnologías similares para garantizar el funcionamiento básico, mejorar la experiencia del usuario y, en su caso, personalizar contenidos y anuncios."
+    "title": "Política de Cookies",
+    "intro": {
+      "company": "OASYS NEST, S.L.U. informa acerca del uso de las cookies en su página web:",
+      "url": "https://izipremium.vercel.app"
+    },
+    "whatAreCookies": {
+      "title": "¿Qué son las cookies?",
+      "description": "Las cookies son archivos que se pueden descargar en su equipo a través de las páginas web. Son herramientas que tienen un papel esencial para la prestación de numerosos servicios de la sociedad de la información. Entre otros, permiten a una página web almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información obtenida, se pueden utilizar para reconocer al usuario y mejorar el servicio ofrecido."
+    },
+    "typesOfCookies": {
+      "title": "Tipos de cookies",
+      "intro": "Según quien sea la entidad que gestione el dominio desde donde se envían las cookies y trate los datos que se obtengan se pueden distinguir dos tipos:",
+      "byEntity": {
+        "title": "Según la entidad que las gestione",
+        "own": {
+          "title": "Cookies propias",
+          "description": "Aquéllas que se envían al equipo terminal del usuario desde un equipo o dominio gestionado por el propio editor y desde el que se presta el servicio solicitado por el usuario."
+        },
+        "thirdParty": {
+          "title": "Cookies de terceros",
+          "description": "Aquéllas que se envían al equipo terminal del usuario desde un equipo o dominio que no es gestionado por el editor, sino por otra entidad que trata los datos obtenidos través de las cookies."
+        },
+        "note": "En el caso de que las cookies sean instaladas desde un equipo o dominio gestionado por el propio editor pero la información que se recoja mediante éstas sea gestionada por un tercero, no pueden ser consideradas como cookies propias."
       },
-      "subsection2": {
-        "title": "6.2 Tipos de cookies utilizadas",
+      "byDuration": {
+        "title": "Según el plazo de tiempo que permanecen almacenadas",
+        "session": {
+          "title": "Cookies de sesión",
+          "description": "Diseñadas para recabar y almacenar datos mientras el usuario accede a una página web. Se suelen emplear para almacenar información que solo interesa conservar para la prestación del servicio solicitado por el usuario en una sola ocasión (p.e. una lista de productos adquiridos)."
+        },
+        "persistent": {
+          "title": "Cookies persistentes",
+          "description": "Los datos siguen almacenados en el terminal y pueden ser accedidos y tratados durante un periodo definido por el responsable de la cookie, y que puede ir de unos minutos a varios años."
+        }
+      },
+      "byPurpose": {
+        "title": "Según la finalidad para la que se traten los datos",
         "technical": {
-          "title": "Cookies técnicas o necesarias",
-          "description": "imprescindibles para la navegación y seguridad del sitio.",
-          "consent": "No requieren consentimiento."
+          "title": "Cookies técnicas",
+          "description": "Aquellas que permiten al usuario la navegación a través de una página web, plataforma o aplicación y la utilización de las diferentes opciones o servicios que en ella existan como, por ejemplo, controlar el tráfico y la comunicación de datos, identificar la sesión, acceder a partes de acceso restringido, recordar los elementos que integran un pedido, realizar el proceso de compra de un pedido, realizar la solicitud de inscripción o participación en un evento, utilizar elementos de seguridad durante la navegación, almacenar contenidos para la difusión de vídeos o sonido o compartir contenidos a través de redes sociales."
         },
         "personalization": {
           "title": "Cookies de personalización",
-          "description": "permiten recordar idioma, región o ajustes de usuario.",
-          "consent": "Requieren consentimiento."
+          "description": "Permiten al usuario acceder al servicio con algunas características de carácter general predefinidas en función de una serie de criterios en el terminal del usuario como por ejemplo serian el idioma, el tipo de navegador a través del cual accede al servicio, la configuración regional desde donde accede al servicio, etc."
         },
         "analytics": {
-          "title": "Cookies analíticas",
-          "description": "permiten analizar cómo los usuarios utilizan la web (visitas, tiempo de navegación, clics).",
-          "tools": "Herramientas: Google Analytics, Firebase Web.",
-          "consent": "Requieren consentimiento."
+          "title": "Cookies de análisis",
+          "description": "Permiten al responsable de las mismas, el seguimiento y análisis del comportamiento de los usuarios de los sitios web a los que están vinculadas. La información recogida mediante este tipo de cookies se utiliza en la medición de la actividad de los sitios web, aplicación o plataforma y para la elaboración de perfiles de navegación de los usuarios de dichos sitios, aplicaciones y plataformas, con el fin de introducir mejoras en función del análisis de los datos de uso que hacen los usuarios del servicio."
         },
         "advertising": {
           "title": "Cookies publicitarias",
-          "description": "permiten mostrar anuncios adaptados a intereses del usuario y medir la eficacia de campañas.",
-          "consent": "Requieren consentimiento expreso."
-        }
-      },
-      "subsection3": {
-        "title": "6.3 Consentimiento y gestión",
-        "content": {
-          "banner": "Al acceder por primera vez, el usuario verá un banner de cookies con opciones: \"Aceptar todas\", \"Rechazar todas\" o \"Configurar\".",
-          "withdrawal": "El consentimiento puede retirarse en cualquier momento desde el gestor habilitado en la web."
-        }
-      },
-      "subsection4": {
-        "title": "6.4 Conservación y control",
-        "session": "Cookies de sesión:",
-        "sessionContent": "eliminadas al cerrar el navegador.",
-        "persistent": "Cookies persistentes:",
-        "persistentContent": "duración máxima de 24 meses salvo revocación del consentimiento.",
-        "analytics": "Datos de analítica:",
-        "analyticsContent": "conservados de forma agregada y anónima por un máximo de 36 meses."
-      },
-      "subsection5": {
-        "title": "6.5 Responsables y terceros",
-        "content": "Las cookies pueden ser propias o de terceros (Google, Stripe). En todos los casos se firman contratos de tratamiento y, en su caso, cláusulas contractuales tipo (SCCs) para transferencias internacionales."
-      },
-      "subsection6": {
-        "title": "6.6 Rechazo de cookies no esenciales",
-        "content": "El rechazo de cookies analíticas o publicitarias no impedirá el acceso y uso básico de la web, aunque limitará la personalización."
-      }
-    },
-    "section7": {
-      "title": "7. Limitación de Responsabilidad en el Sitio Web",
-      "subsection1": {
-        "title": "7.1 Uso bajo responsabilidad del usuario",
-        "content": {
-          "responsibility": "El acceso y uso de iziworld.app se realiza bajo la exclusiva responsabilidad del usuario.",
-          "asIs": "El sitio se ofrece \"tal cual\" y \"según disponibilidad\", sin garantías de continuidad absoluta, ausencia de errores o compatibilidad con todos los navegadores o dispositivos."
-        }
-      },
-      "subsection2": {
-        "title": "7.2 Disponibilidad y funcionamiento técnico",
-        "content": {
-          "measures": "Aunque se aplican medidas razonables de seguridad y monitorización, I.Z.I. no garantiza la disponibilidad ininterrumpida de la web ni la ausencia de fallos técnicos.",
-          "affected": "La web puede verse afectada por:",
-          "maintenance": "Mantenimiento programado.",
-          "incidents": "Incidencias en servidores o redes de terceros.",
-          "failures": "Fallos en pasarelas de pago o servicios externos.",
-          "forceMajeure": "Causas de fuerza mayor."
-        }
-      },
-      "subsection3": {
-        "title": "7.3 Contenido de terceros",
-        "content": {
-          "links": "El sitio puede incluir enlaces a páginas o recursos externos (ej. Stripe, PayPal, redes sociales).",
-          "responsibility": "I.Z.I. no controla ni responde del contenido, exactitud o fiabilidad de dichos sitios. El acceso es bajo responsabilidad del usuario."
-        }
-      },
-      "subsection4": {
-        "title": "7.4 Exclusión de servicios profesionales",
-        "content": {
-          "nature": "La web no ofrece servicios médicos, psicológicos, psiquiátricos, jurídicos ni de emergencia.",
-          "substitute": "La información publicada tiene carácter informativo y divulgativo, no sustituye en ningún caso la consulta con profesionales cualificados."
-        }
-      },
-      "subsection5": {
-        "title": "7.5 Limitación económica",
-        "content": "En la medida permitida por la legislación aplicable, la responsabilidad máxima de I.Z.I. derivada del uso de la web o de contrataciones realizadas en ella se limita al importe efectivamente abonado por el usuario en los 12 meses previos al hecho que motive la reclamación."
-      },
-      "subsection6": {
-        "title": "7.6 Exclusión de responsabilidad por terceros proveedores",
-        "content": {
-          "notResponsible": "I.Z.I. no será responsable por:",
-          "stripe": "Fallos imputables a pasarelas de pago (Stripe).",
-          "providers": "Interrupciones o errores de proveedores de hosting, redes o servicios de analítica.",
-          "errors": "Retrasos, duplicidades o errores técnicos ajenos al control directo de I.Z.I."
+          "description": "Permiten la gestión, de la forma más eficaz posible, de los espacios publicitarios."
+        },
+        "behavioral": {
+          "title": "Cookies de publicidad comportamental",
+          "description": "Almacenan información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar publicidad en función del mismo."
+        },
+        "socialMedia": {
+          "title": "Cookies de redes sociales externas",
+          "description": "Se utilizan para que los visitantes puedan interactuar con el contenido de diferentes plataformas sociales (facebook, youtube, twitter, linkedIn, etc..) y que se generen únicamente para los usuarios de dichas redes sociales. Las condiciones de utilización de estas cookies y la información recopilada se regula por la política de privacidad de la plataforma social correspondiente."
         }
       }
     },
-    "section8": {
-      "title": "8. Modificaciones y Actualizaciones de los Términos Web",
-      "subsection1": {
-        "title": "8.1 Inclusión de nuevas funciones o servicios",
-        "content": {
-          "functions": "I.Z.I. podrá introducir nuevas funcionalidades en la web, como métodos de pago adicionales, sistemas de prerregistro ampliados o áreas de usuario.",
-          "updates": "Cuando estas novedades impliquen cambios en las condiciones de uso, se actualizarán los presentes Términos."
-        }
+    "disableCookies": {
+      "title": "Desactivación y eliminación de cookies",
+      "intro": "Tienes la opción de permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones del navegador instalado en su equipo. Al desactivar cookies, algunos de los servicios disponibles podrían dejar de estar operativos. La forma de deshabilitar las cookies es diferente para cada navegador, pero normalmente puede hacerse desde el menú Herramientas u Opciones. También puede consultarse el menú de Ayuda del navegador dónde puedes encontrar instrucciones. El usuario podrá en cualquier momento elegir qué cookies quiere que funcionen en este sitio web.",
+      "description": "Puede usted permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su ordenador:",
+      "tools": "Además, también puede gestionar el almacén de cookies en su navegador a través de herramientas como las siguientes:"
+    },
+    "cookiesUsed": {
+      "title": "Cookies utilizadas en https://izi-premium.vercel.app",
+      "intro": "A continuación se identifican las cookies que están siendo utilizadas en este portal así como su tipología y función:",
+      "table": {
+        "cookie": "Cookie",
+        "type": "Tipo",
+        "duration": "Duración",
+        "description": "Descripción"
       },
-      "subsection2": {
-        "title": "8.2 Procedimiento de notificación",
-        "content": {
-          "substantial": "Las modificaciones sustanciales se comunicarán mediante aviso destacado en la web.",
-          "direct": "Si el usuario ha facilitado un correo electrónico en el prerregistro, también podrá recibir notificación directa.",
-          "minor": "Cambios menores (ajustes técnicos o legales sin impacto relevante en el usuario) se publicarán directamente en esta página, indicando la fecha de actualización."
-        }
-      },
-      "subsection3": {
-        "title": "8.3 Vigencia y aceptación",
-        "content": {
-          "version": "La versión vigente de los Términos estará siempre disponible en la web.",
-          "continued": "El uso continuado de iziworld.app tras la publicación de cambios constituye aceptación de los mismos, salvo que la normativa exija consentimiento expreso.",
-          "nonAcceptance": "En caso de no aceptación, el usuario deberá abstenerse de usar la web y, en su caso, solicitar la baja de su prerregistro."
+      "cookies": {
+        "stripeMid": {
+          "name": "__stripe_mid",
+          "type": "Técnica / Pago",
+          "duration": "1 año",
+          "description": "Cookie utilizada por Stripe para prevenir fraudes durante el procesamiento de pagos online. Identifica al usuario entre visitas."
+        },
+        "stripeSid": {
+          "name": "__stripe_sid",
+          "type": "Técnica / Pago",
+          "duration": "24 horas",
+          "description": "Cookie de Stripe que permite gestionar sesiones de pago de forma segura y prevenir el uso indebido."
+        },
+        "stripeM": {
+          "name": "m",
+          "type": "Técnica / Pago",
+          "duration": "Sesión",
+          "description": "Cookie de Stripe que se usa para vincular la sesión de pago con el usuario y garantizar la seguridad de las transacciones."
         }
       }
     },
-    "section9": {
-      "title": "9. Legislación Aplicable y Jurisdicción",
-      "subsection1": {
-        "title": "9.1 Unión Europea y Reino Unido",
-        "content": {
-          "gdpr": "Reglamento General de Protección de Datos (RGPD, UE 2016/679).",
-          "eprivacy": "Directiva ePrivacy.",
-          "ukdpa": "UK Data Protection Act 2018.",
-          "resolution": "Conflictos legales se resolverán ante los tribunales del país de residencia del usuario dentro de la UE/EEE o Reino Unido."
-        }
-      },
-      "subsection2": {
-        "title": "9.2 Estados Unidos",
-        "content": {
-          "ccpa": "California Consumer Privacy Act (CCPA) y California Privacy Rights Act (CPRA).",
-          "state": "Otras leyes estatales equivalentes (Virginia, Colorado, Texas, Florida, etc.).",
-          "disputes": "Las disputas podrán someterse a tribunales estatales o federales competentes según el lugar de residencia del usuario."
-        }
-      },
-      "subsection3": {
-        "title": "9.3 Canadá",
-        "content": "Personal Information Protection and Electronic Documents Act (PIPEDA). Normas provinciales en Alberta, British Columbia y Quebec. Los conflictos podrán ser elevados a la Office of the Privacy Commissioner of Canada (OPC) o al organismo provincial competente."
-      },
-      "subsection4": {
-        "title": "9.4 Australia",
-        "content": "Privacy Act 1988, administrada por la Office of the Australian Information Commissioner (OAIC). Las controversias se resolverán conforme a la legislación federal y ante tribunales australianos competentes."
-      },
-      "subsection5": {
-        "title": "9.5 América Latina",
-        "content": "I.Z.I. se compromete a respetar la normativa local de protección de datos y comercio digital en cada país latinoamericano en que opere: México: LFPDPPP. Argentina: Ley 25.326. Colombia: Ley 1581 de 2012. Brasil: LGPD. Chile: Ley 19.628. Perú: Ley 29733. Uruguay: Ley 18.331. Paraguay: Ley 6534/20. Ecuador: LOPDP 2021. Panamá: Ley 81/2019. Costa Rica: Ley 8968. República Dominicana: Ley 172-13. En países sin legislación específica (Guatemala, El Salvador, Honduras, Nicaragua, Venezuela), se aplican los principios del RGPD como estándar mínimo."
-      },
-      "subsection6": {
-        "title": "9.6 Resolución de conflictos",
-        "content": {
-          "friendly": "I.Z.I. intentará resolver cualquier discrepancia con el usuario de forma amistosa y directa.",
-          "courts": "Si no fuera posible, las disputas se someterán a los tribunales competentes del país de residencia del usuario.",
-          "mediation": "Cuando la normativa lo permita, las partes podrán optar por mecanismos de mediación o arbitraje digital como solución alternativa."
+    "footer": {
+      "title": "Información sobre cookies",
+      "info": "https://izi-premium.vercel.app muestra información sobre su Política de cookies en la parte inferior o superior de cualquier página del portal con cada inicio de sesión. Ante esta información es posible llevar a cabo las siguientes acciones:",
+      "actions": {
+        "accept": {
+          "title": "Aceptar cookies",
+          "description": "No se volverá a visualizar este aviso al acceder a cualquier página del portal durante la presente sesión."
+        },
+        "modify": {
+          "title": "Modificar/personalizar su configuración",
+          "description": "Podrá obtener más información sobre qué son las cookies, conocer la Política de cookies de: https://izi-premium.vercel.app y modificar la configuración de su navegador."
         }
       }
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Términos y Condiciones | I.Z.I. Premium",
+      "description": "Términos y condiciones del servicio de I.Z.I. Premium"
     },
-    "section10": {
-      "title": "10. Contacto y Reclamaciones",
-      "subsection1": {
-        "title": "10.1 Canales oficiales de contacto",
-        "content": {
-          "contact": "Los usuarios pueden contactar con I.Z.I. a través de los siguientes medios:",
-          "info": "Correo electronico de información:",
-          "support": "Correo electrónico de soporte:",
-          "privacy": "Correo para privacidad y datos personales:",
-          "dsa": "Correo delegado DSA:",
-          "address": "Dirección postal:",
-          "website": "Sitio web:"
-        }
-      },
-      "subsection2": {
-        "title": "10.2 Procedimiento interno de reclamaciones",
-        "content": {
-          "response": "I.Z.I. responderá a consultas o reclamaciones en un plazo máximo de 30 días naturales desde su recepción.",
-          "complex": "En casos complejos, el plazo podrá extenderse hasta 60 días, notificando previamente al usuario.",
-          "channel": "La respuesta se emitirá por el mismo canal en el que se recibió la reclamación, salvo que el usuario solicite lo contrario."
-        }
-      },
-      "subsection3": {
-        "title": "10.3 Autoridades competentes",
-        "content": "Si el usuario considera que sus derechos han sido vulnerados, puede presentar reclamación ante la autoridad de protección de datos o de consumo de su país de residencia. Ejemplos: AEPD (España), CNIL (Francia), ICO (Reino Unido), ANPD (Brasil), INAI (México), OPC (Canadá)."
-      }
+    "title": "Términos y Condiciones del Servicio",
+    "provider": {
+      "title": "Identificador del Prestador",
+      "company": "OASYS NEST, S.L.U.",
+      "address": "C/ Cami Terminal 6a. - 07009 - Palma De Mallorca (Islas Baleares)",
+      "cif": "B22913834",
+      "phone": "667067712",
+      "email": "dpo@iziworld.app"
     },
-    "section11": {
-      "title": "11. Fecha de Última Actualización",
-      "content": {
-        "approval": "Los presentes Términos y Condiciones de Uso de la Web de I.Z.I. han sido aprobados y publicados en fecha:",
-        "modifications": "I.Z.I. se reserva el derecho de modificar este documento para reflejar cambios normativos, técnicos o en los servicios ofrecidos en la web.",
-        "availability": "La versión vigente estará siempre disponible en https://iziworld.app."
-      }
+    "object": {
+      "title": "Objeto",
+      "description": "Mediante el presente texto ponemos a disposición de todos los usuarios y clientes las condiciones de uso y registro que son de aplicación a nuestra plataforma de servicios online y a los servicios que prestamos, quedando reflejados en éste todos los derechos y obligaciones que asisten a las partes.",
+      "acceptance": "Todos los usuarios que visitan o acceden a nuestra plataforma y/o que utilizan alguno de los servicios que ponemos a disposición, aceptan las condiciones de uso y la política de privacidad, así como las diferentes modificaciones y/o textos legales adicionales que sean incluidas en el futuro. En caso de no estar de acuerdo con alguna de las condiciones, puedes darte de baja del servicio en cualquier momento o en caso de no ser usuario registrado, abandonar la plataforma.",
+      "specific": "Junto a las presentes condiciones, cada uno de los servicios prestado puede quedar regulado por condiciones de uso y registro de carácter particular, siendo obligatorio en todo caso que el usuario acepte las mismas expresamente antes de su utilización y/o contratación."
     }
   }
 }
