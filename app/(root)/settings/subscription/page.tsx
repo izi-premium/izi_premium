@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/components/providers/FirebaseAuthProvider";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,7 +22,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Calendar, CreditCard, Crown, Loader2 } from "lucide-react";
-import { useSession } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -36,7 +36,7 @@ interface UserSubscriptionData {
 }
 
 export default function SubscriptionManagement() {
-  const { data: session, status } = useSession();
+  const { user, loading: authLoading } = useAuth();
   const router = useRouter();
   const t = useTranslations("Subscription");
   const locale = useLocale(); // Get current locale from next-intl
@@ -49,17 +49,17 @@ export default function SubscriptionManagement() {
 
   // Redirect to login if not authenticated
   useEffect(() => {
-    if (status === "unauthenticated") {
+    if (!authLoading && !user) {
       router.push("/auth/signin");
     }
-  }, [status, router]);
+  }, [authLoading, user, router]);
 
   // Fetch user subscription data
   useEffect(() => {
-    if (session?.user?.email) {
+    if (user?.email) {
       fetchSubscriptionData();
     }
-  }, [session]);
+  }, [user]);
 
   const fetchSubscriptionData = async () => {
     try {
@@ -105,9 +105,9 @@ export default function SubscriptionManagement() {
   };
 
   const handlePremiumClick = async () => {
-    if (status === "loading") return;
+    if (authLoading) return;
 
-    if (!session?.user) {
+    if (!user) {
       // User is not logged in, redirect to signup with checkout intent
       window.location.href = "/signup?checkout=true";
       return;
@@ -184,7 +184,7 @@ export default function SubscriptionManagement() {
     }
   };
 
-  if (status === "loading" || loading) {
+  if (authLoading || loading) {
     return (
       <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
         <div className="flex min-h-[400px] items-center justify-center">
@@ -194,7 +194,7 @@ export default function SubscriptionManagement() {
     );
   }
 
-  if (!session) {
+  if (!user) {
     return null; // Will redirect in useEffect
   }
 
