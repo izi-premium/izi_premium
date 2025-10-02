@@ -20,6 +20,9 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [emailNotVerified, setEmailNotVerified] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendMessage, setResendMessage] = useState("");
   const [resetEmailSent, setResetEmailSent] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -54,11 +57,13 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
 
       if (authError) {
         if (authError === "email-not-verified") {
+          setEmailNotVerified(true);
           setError(
             message ||
               "Tu email no está verificado. Por favor, verifica tu email antes de iniciar sesión."
           );
         } else {
+          setEmailNotVerified(false);
           setError(authError);
         }
       } else if (user) {
@@ -134,6 +139,40 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
         `/forgot-password?email=${encodeURIComponent(formData.email)}`
       );
     }
+  };
+
+  const handleResendCode = async () => {
+    setResendLoading(true);
+    setResendMessage("");
+    setError("");
+
+    try {
+      const response = await fetch("/api/auth/resend-otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Error al reenviar el código");
+      } else {
+        setResendMessage("Código de verificación reenviado. Revisa tu email.");
+      }
+    } catch (err) {
+      setError("Error de red. Por favor, inténtalo de nuevo.");
+    } finally {
+      setResendLoading(false);
+    }
+  };
+
+  const handleGoToVerification = () => {
+    router.push(`/verify-email?email=${encodeURIComponent(formData.email)}`);
   };
 
   // Eye icon component
@@ -219,6 +258,54 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
       {error && (
         <div className="paragraph-14-normal mb-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
           {error}
+          {emailNotVerified && (
+            <div className="mt-3 space-y-2">
+              <button
+                onClick={async () => {
+                  setResendLoading(true);
+                  setResendMessage("");
+                  setError("");
+
+                  try {
+                    const response = await fetch("/api/auth/resend-otp", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        email: formData.email,
+                      }),
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                      setError(data.error || "Error al reenviar el código");
+                    } else {
+                      setResendMessage("Código enviado. Redirigiendo...");
+                      // Esperar un momento para que el usuario vea el mensaje
+                      setTimeout(() => {
+                        router.push(
+                          `/verify-email?email=${encodeURIComponent(formData.email)}`
+                        );
+                      }, 1000);
+                    }
+                  } catch (err) {
+                    setError("Error de red. Por favor, inténtalo de nuevo.");
+                  } finally {
+                    setResendLoading(false);
+                  }
+                }}
+                disabled={resendLoading}
+                className="paragraph-14-normal rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
+              >
+                {resendLoading ? "Enviando..." : "Verificar"}
+              </button>
+              {resendMessage && (
+                <div className="text-sm text-green-600">{resendMessage}</div>
+              )}
+            </div>
+          )}
         </div>
       )}
 

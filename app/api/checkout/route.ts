@@ -11,8 +11,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
+    console.log("Checkout API called");
+
     // Check if user is authenticated
     const user = await getServerUser();
+    console.log("User:", user?.uid ? "authenticated" : "not authenticated");
+
     if (!user?.uid) {
       return NextResponse.json(
         { error: "Authentication required", redirectTo: "/signin" },
@@ -46,7 +50,9 @@ export async function POST(request: NextRequest) {
 
     // Determine user's region for pricing
     const userRegion = getUserRegion(countryCode, timezone, currency);
+    console.log("User region:", userRegion);
     const pricingConfig = regionalPricing[userRegion];
+    console.log("Pricing config:", pricingConfig);
 
     console.log(
       "Creating subscription checkout for user:",
@@ -59,6 +65,15 @@ export async function POST(request: NextRequest) {
 
     // Check if discount is active
     const discountActive = isDiscountActive();
+
+    // Build absolute base URL for Stripe redirects
+    const originHeader =
+      request.headers.get("origin") || process.env.NEXT_PUBLIC_APP_URL || "";
+    const baseUrl = originHeader.startsWith("http")
+      ? originHeader
+      : originHeader
+        ? `https://${originHeader}`
+        : "http://localhost:3000";
 
     // Create Stripe checkout session for subscription
     const checkoutSession = await getServerStripe().checkout.sessions.create({
@@ -88,8 +103,8 @@ export async function POST(request: NextRequest) {
         userEmail: user.email,
         region: userRegion,
       },
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/cancel`,
+      success_url: `${baseUrl}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/cancel`,
       billing_address_collection: "auto",
       tax_id_collection: {
         enabled: true,
@@ -127,6 +142,10 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Checkout error:", error);
+    console.error("Error details:", {
+      message: error instanceof Error ? error.message : "Unknown error",
+      stack: error instanceof Error ? error.stack : undefined,
+    });
     return NextResponse.json(
       { error: "Failed to create checkout session" },
       { status: 500 }

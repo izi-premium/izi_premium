@@ -1,22 +1,22 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
+import { getServerUser } from "@/lib/auth-server";
 import { getAdminDb } from "@/lib/firebase-admin";
 import { getServerStripe } from "@/lib/stripe";
+import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
 export async function POST(request: NextRequest) {
   try {
-    // Get the user session
-    const session = await getServerSession();
+    // Get the user from Firebase Auth
+    const user = await getServerUser();
 
-    if (!session?.user?.email) {
+    if (!user?.uid) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Find user in Firestore by email
+    // Find user in Firestore by uid
     const userQuery = await getAdminDb()
       .collection("users")
-      .where("email", "==", session.user.email)
+      .where("uid", "==", user.uid)
       .limit(1)
       .get();
 
@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
         "cancel_at_period_end:",
         cancelledSubscription.cancel_at_period_end
       );
-      console.log("Updating Firebase for user:", session.user.email);
+      console.log("Updating Firebase for user:", user.email);
 
       // Update user in Firestore with better error handling
       const updateData = {
@@ -93,14 +93,14 @@ export async function POST(request: NextRequest) {
 
       // Send cancellation confirmation email (optional)
       await sendCancellationEmail(
-        session.user.email,
-        userData.displayName || session.user.name
+        user.email,
+        userData.displayName || user.displayName
       );
 
       return NextResponse.json({
         success: true,
         message: "Subscription cancelled successfully",
-        subscriptionEndsAt: userData.premiumEndsAt?.toDate() || null,
+        subscriptionEndsAt: userData.currentPeriodEnd?.toDate() || null,
         newStatus: "cancelled", // Return the new status for frontend verification
       });
     } catch (stripeError) {
