@@ -1,12 +1,13 @@
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string };
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
 }) {
-  const t = await getTranslations({ locale, namespace: "privacyPolicy" });
+  const params = await props.params;
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "privacyPolicy",
+  });
 
   return {
     title: t("meta.title"),
@@ -14,8 +15,8 @@ export async function generateMetadata({
   };
 }
 
-export default function PrivacyPolicy() {
-  const t = useTranslations("privacyPolicy");
+export default async function PrivacyPolicy() {
+  const t = await getTranslations("privacyPolicy");
 
   const purposes = Array.from({ length: 11 }, (_, i) => i + 1);
   const dataCategories = [
