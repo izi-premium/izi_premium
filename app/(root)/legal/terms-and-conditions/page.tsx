@@ -1,13 +1,13 @@
-import { useTranslations } from "next-intl";
-import { GetStaticProps } from "next";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string };
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
 }) {
-  const t = await getTranslations({ locale, namespace: "termsConditions" });
+  const params = await props.params;
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "termsConditions",
+  });
 
   return {
     title: t("meta.title"),
@@ -15,8 +15,8 @@ export async function generateMetadata({
   };
 }
 
-export default function TermsConditions() {
-  const t = useTranslations("termsConditions");
+export default async function TermsConditions() {
+  const t = await getTranslations("termsConditions");
 
   return (
     <div className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper min-h-screen w-full bg-white py-[12rem]">

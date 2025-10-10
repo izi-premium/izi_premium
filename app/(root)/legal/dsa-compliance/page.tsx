@@ -1,9 +1,7 @@
-// pages/dsa-compliance.tsx
-import { useTranslations } from "next-intl";
-import { GetStaticProps } from "next";
+import { getTranslations } from "next-intl/server";
 
-export default function DSACompliance() {
-  const t = useTranslations("dsaCompliance");
+export default async function DSACompliance() {
+  const t = await getTranslations("dsaCompliance");
 
   return (
     <div className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper min-h-screen w-full bg-white py-[12rem]">

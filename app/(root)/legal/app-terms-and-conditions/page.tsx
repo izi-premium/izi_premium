@@ -1,12 +1,13 @@
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string };
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
 }) {
-  const t = await getTranslations({ locale, namespace: "appTerms" });
+  const params = await props.params;
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "appTerms",
+  });
 
   return {
     title: t("meta.title"),
@@ -14,8 +15,8 @@ export async function generateMetadata({
   };
 }
 
-export default function AppTermsPage() {
-  const t = useTranslations("appTerms");
+export default async function AppTermsPage() {
+  const t = await getTranslations("appTerms");
 
   const purposes = Array.from({ length: 14 }, (_, i) => i + 1);
   const permissions = ["ip", "camera", "microphone"];

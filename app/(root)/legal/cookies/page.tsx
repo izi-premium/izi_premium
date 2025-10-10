@@ -1,12 +1,13 @@
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string };
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
 }) {
-  const t = await getTranslations({ locale, namespace: "cookies" });
+  const params = await props.params;
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "cookies",
+  });
 
   return {
     title: t("meta.title"),
@@ -14,8 +15,8 @@ export async function generateMetadata({
   };
 }
 
-export default function CookiesPage() {
-  const t = useTranslations("cookies");
+export default async function CookiesPage() {
+  const t = await getTranslations("cookies");
 
   return (
     <div className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper min-h-screen w-full bg-white py-[12rem]">

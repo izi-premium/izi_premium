@@ -1,12 +1,13 @@
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string };
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
 }) {
-  const t = await getTranslations({ locale, namespace: "subcontractors" });
+  const params = await props.params;
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "subcontractors",
+  });
 
   return {
     title: t("meta.title"),
@@ -14,8 +15,8 @@ export async function generateMetadata({
   };
 }
 
-export default function Subcontractors() {
-  const t = useTranslations("subcontractors");
+export default async function Subcontractors() {
+  const t = await getTranslations("subcontractors");
 
   const subcontractors = [
     {
