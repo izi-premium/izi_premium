@@ -29,16 +29,16 @@
         "subtitle": "Tu Propio diario Privado",
         "text": "Escribe, habla y comparte tus pensamientos del día a día en un diario digital que te conoce cada vez más. <br /><br />",
         "image": {
-          "src": "Group 1",
-          "alt": "Imagen de chat anónimo"
+          "src": "diaries-features-esp",
+          "alt": "Diario Privado"
         }
       },
       {
         "subtitle": "Recibe Galletas de la Fortuna a Diario",
         "text": "Obtén nuevos mensajes todos los días con consejos, apoyo o motivación. Cada mensaje es único y está adaptado especialmente a tu situación actual.",
         "image": {
-          "src": "Group 1",
-          "alt": "Imagen de chat anónimo"
+          "src": "cookies-features",
+          "alt": "Galletas de la Fortuna"
         }
       }
     ]
@@ -95,16 +95,16 @@
   },
   "Cookies": {
     "title": "Galletas de la Fortuna Diarias",
-    "phrase1": "“Ona frase puede marcar tú día”",
+    "phrase1": "“Ona frase puede marcar tu día”",
     "phrase2": "“El mensaje corrrecto en el momento perfecto”",
     "phrase3": "“Pequeños recordatorios para ayudarte a seguir adelante”",
     "card1-title": "Acceso Gratuito a las Galletas de la Fortuna",
     "card1-text": "Recibe mensajes diarios personalizados exclisvamente para tí. Ya sean consejos o frases motivacionales, puedes decidir guardar estos mensajes en tu diario privado para que puedas acceder a ellas en todo momento.",
-    "card1-image": "src",
+    "card1-image": "free-fortune-cookies",
     "card1-alt": "galleta de la fortuna gratuita con mensaje motivacional",
     "card2-title": "Galletas de la Fortuna en su Versión Premium",
     "card2-text": "Recibe másn mensajes para trabajar en tí mismo y poder mejorar. <br /><br /> Con I.Z.I Premium desbloqueas galletas extra todos los días, incluyendo galletas doradas con mensajes exclusivos y desafíos para potenciar tu crecimiento y desarrollo personal",
-    "card2-image": "src",
+    "card2-image": "premium-fortune-cookies",
     "card2-alt": "galleta de la foruna premium con un mensaje motivacional"
   },
   "Pricing": {
@@ -1165,5 +1165,51 @@
     "message": "Usamos cookies necesarias para procesar pagos de forma segura a través de Stripe. Estas cookies permiten identificar la sesión del usuario, prevenir fraudes y garantizar que las transacciones se realicen correctamente. Usted puede aceptar y ver toda la información en nuestra",
     "link": "Política de Cookies",
     "accept": "Aceptar"
+  },
+  "termsCheckbox": {
+    "label": "He leído y acepto los",
+    "link": "Términos y Condiciones"
+  },
+  "Faqs": {
+    "meta": {
+      "title": "Preguntas Frecuentes | I.Z.I Premium",
+      "description": "Preguntas frecuentes sobre suscripciones, pagos y funcionalidades de I.Z.I Premium. Aprende cómo suscribirte, cancelar, solicitar reembolsos y más."
+    },
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Encuentra respuestas a las preguntas más comunes sobre I.Z.I Premium y sus funcionalidades.",
+    "items": [
+      {
+        "question": "¿Cómo puedo suscribirme a I.Z.I. Premium?",
+        "answer": "Puedes suscribirte a I.Z.I. Premium a través de tres métodos de pago: <br/><br/><strong>• Apple App Store:</strong> Para usuarios de iOS, la suscripción se gestiona directamente desde la App Store.<br/><strong>• Google Play:</strong> Para usuarios de Android, puedes suscribirte a través de Google Play Billing.<br/><strong>• Web (Stripe):</strong> Puedes suscribirte desde nuestra página web oficial utilizando tarjetas de crédito/débito o wallets compatibles."
+      },
+      {
+        "question": "¿Cómo cancelo mi suscripción?",
+        "answer": "La cancelación de tu suscripción depende de dónde realizaste la compra:<br/><br/><strong>• App Store:</strong> Ve a Configuración > [tu nombre] > Suscripciones, selecciona I.Z.I. Premium y cancela.<br/><strong>• Google Play:</strong> Abre Google Play Store > Menú > Suscripciones > I.Z.I. Premium > Cancelar suscripción.<br/><strong>• Web (Stripe):</strong> Accede al portal del cliente de Stripe desde tu cuenta o contacta con soporte para gestionar tu suscripción."
+      },
+      {
+        "question": "¿Cómo solicito un reembolso?",
+        "answer": "El proceso de reembolso varía según la plataforma de compra:<br/><br/><strong>• Compras en Apple:</strong> Visita <a href='https://reportaproblem.apple.com' target='_blank' rel='noopener noreferrer' class='text-secondary-action font-semibold hover:underline'>reportaproblem.apple.com</a> para solicitar un reembolso.<br/><strong>• Compras en Google:</strong> Ve a <a href='https://play.google.com/store/account' target='_blank' rel='noopener noreferrer' class='text-secondary-action font-semibold hover:underline'>play.google.com/store/account</a> y solicita el reembolso desde tu historial de compras.<br/><strong>• Compras en web (Stripe):</strong> Los reembolsos solo se procesan en casos legalmente obligatorios. Contacta con soporte a través de dpo@iziworld.app"
+      },
+      {
+        "question": "¿Puedo cambiar de plan o actualizar mi suscripción?",
+        "answer": "Sí, puedes cambiar o actualizar tu suscripción en cualquier momento. El cambio se aplicará en tu próxima renovación:<br/><br/><strong>• Desde App Store o Google Play:</strong> Ve a la sección de suscripciones en tu tienda de apps y selecciona el nuevo plan.<br/><strong>• Desde Stripe (web):</strong> Accede al portal del cliente para actualizar tu plan. Los cambios entrarán en vigor en el siguiente ciclo de facturación."
+      },
+      {
+        "question": "¿Los precios incluyen impuestos?",
+        "answer": "La inclusión de impuestos en el precio varía según tu ubicación:<br/><br/><strong>• Europa, Latinoamérica, Australia y Canadá:</strong> Los precios mostrados incluyen todos los impuestos aplicables.<br/><strong>• Estados Unidos:</strong> El impuesto sobre ventas se añade al finalizar la compra según las leyes de tu estado."
+      },
+      {
+        "question": "¿Recibiré una factura o comprobante de pago?",
+        "answer": "Sí, recibirás un comprobante de pago según la plataforma utilizada:<br/><br/><strong>• Apple y Google:</strong> Las facturas están disponibles en tu cuenta de App Store o Google Play, en el historial de compras.<br/><strong>• Stripe (web):</strong> Recibirás un recibo por email automáticamente después de cada pago. También puedes acceder a tus recibos en el portal del cliente de Stripe."
+      },
+      {
+        "question": "¿Qué pasa si falla un pago o mi tarjeta caduca?",
+        "answer": "Si un pago falla o tu tarjeta caduca, te notificaremos y tendrás tiempo para actualizar tu información de pago:<br/><br/><strong>• Stripe (web):</strong> Reintenta automáticamente el cobro y te envía un email de aviso. Puedes actualizar tu método de pago en el portal del cliente.<br/><strong>• Apple y Google:</strong> Recibirás notificaciones en tus plataformas respectivas solicitando que actualices tu información de pago.<br/><br/>Tu acceso premium se mantendrá activo durante un período de gracia mientras actualizas tu información."
+      },
+      {
+        "question": "¿Qué métodos de pago aceptan?",
+        "answer": "Aceptamos múltiples métodos de pago para tu conveniencia:<br/><br/><strong>• En la App (iOS):</strong> Apple Pay y métodos de pago configurados en tu cuenta de Apple.<br/><strong>• En la App (Android):</strong> Google Play Billing (tarjetas, PayPal, etc.).<br/><strong>• En la Web:</strong> Tarjetas de crédito y débito (Visa, Mastercard, American Express) y wallets digitales compatibles a través de Stripe."
+      }
+    ]
   }
 }

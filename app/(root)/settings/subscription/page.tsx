@@ -21,8 +21,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Calendar, CreditCard, Crown, Loader2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -39,12 +41,14 @@ export default function SubscriptionManagement() {
   const { user, loading: authLoading } = useAuth();
   const router = useRouter();
   const t = useTranslations("Subscription");
+  const tTerms = useTranslations("termsCheckbox");
   const locale = useLocale(); // Get current locale from next-intl
   const [subscriptionData, setSubscriptionData] =
     useState<UserSubscriptionData | null>(null);
   const [loading, setLoading] = useState(true);
   const [cancelling, setCancelling] = useState(false);
   const [purchasing, setPurchasing] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   // Redirect to login if not authenticated
@@ -341,16 +345,43 @@ export default function SubscriptionManagement() {
                 {t("noPremiumDescription")}
               </CardDescription>
             </CardHeader>
-            <CardContent className="text-center">
+            <CardContent className="flex-center-col gap-4">
+              {/* Terms and Conditions Checkbox */}
+              <div className="flex w-full items-start gap-3">
+                <Checkbox
+                  id="terms-subscription"
+                  checked={acceptedTerms}
+                  onCheckedChange={(checked) =>
+                    setAcceptedTerms(checked as boolean)
+                  }
+                  className="mt-1 hover:cursor-pointer"
+                />
+                <label
+                  htmlFor="terms-subscription"
+                  className="paragraph-14-normal md:paragraph-18-normal text-primary-text-600 cursor-pointer leading-tight select-none"
+                >
+                  {tTerms("label")}{" "}
+                  <Link
+                    href="/legal/terms-and-conditions"
+                    className="text-secondary-action decoration-secondary-action/30 hover:decoration-secondary-action font-semibold underline underline-offset-[0.3rem] transition-all"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {tTerms("link")}
+                  </Link>
+                </label>
+              </div>
+
               <button
                 onClick={handlePremiumClick}
-                className="hover:shadow-header bg-primary-action-900 relative flex w-full items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+                disabled={purchasing || !acceptedTerms}
+                className="hover:shadow-header bg-primary-action-900 relative flex w-full items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 disabled:grayscale"
               >
                 <span className="bg-primary-action-100 absolute right-[63px] bottom-[-17px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
                 <span className="bg-primary-action-100 absolute bottom-[-26px] left-[52px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
                 <div className="border-elevated-surfaces-500 relative w-full rounded-[0.4rem] border border-solid px-8 py-3 xl:px-[clamp(32px,1.66vw)] xl:py-[clamp(1.2rem,0.625vw,2.4rem)]">
                   <p className="paragraph-18-medium md:paragraph-24-medium text-secondary-text-500 w-full text-center">
-                    {t("activatePremium")}
+                    {purchasing ? "Loading..." : t("activatePremium")}
                   </p>
                 </div>
               </button>

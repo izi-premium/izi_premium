@@ -29,16 +29,16 @@
         "subtitle": "Private Diary for Yourself",
         "text": "Write, talk and share your daily thoughts in a digital diary that gets to know you better every day.",
         "image": {
-          "src": "Group 1",
-          "alt": "Anonymous Chat Image"
+          "src": "diaries-features-eng",
+          "alt": "Private Diary Image"
         }
       },
       {
         "subtitle": "Daily Fortune Cookies",
         "text": "Get daily messages that give you advice, support or motivation. Every message is unique and tailored to your situation.",
         "image": {
-          "src": "Group 1",
-          "alt": "Anonymous Chat Image"
+          "src": "cookies-features",
+          "alt": "Cookies Image"
         }
       }
     ]
@@ -100,11 +100,11 @@
     "phrase3": "“Small reminders to keep moving forwards”",
     "card1-title": "Free Access to Fortune Cookies",
     "card1-text": "Receive daily messages tailored for you. Pieces of advise or motivation that you can choose to keep in your private diary for easy access and to act as reminders.",
-    "card1-image": "src",
+    "card1-image": "free-fortune-cookies",
     "card1-alt": "free fortune cookie with motivational message",
     "card2-title": "Premium Fortune Cookies",
     "card2-text": "Get more messages to improve yourself. <br /><br /> With I.Z.I Premium you unlock new extra cookies every day, including golden cookies with exclusive messages and new challenges to drive your growth",
-    "card2-image": "src",
+    "card2-image": "premium-fortune-cookies",
     "card2-alt": "premium fortune cookie with motivational message"
   },
   "Pricing": {
@@ -1160,5 +1160,51 @@
     "message": "We use essential cookies to securely process payments through Stripe. These cookies allow us to identify your session, prevent fraud, and ensure transactions are completed correctly. You can accept and view all the information in our",
     "link": "Cookie Policy",
     "accept": "Accept"
+  },
+  "termsCheckbox": {
+    "label": "I have read and accept the",
+    "link": "Terms and Conditions"
+  },
+  "Faqs": {
+    "meta": {
+      "title": "FAQs | I.Z.I Premium",
+      "description": "Frequently asked questions about I.Z.I Premium subscriptions, payments, and features. Learn how to subscribe, cancel, request refunds, and more."
+    },
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to the most common questions about I.Z.I Premium and its features.",
+    "items": [
+      {
+        "question": "How can I subscribe to I.Z.I. Premium?",
+        "answer": "You can subscribe to I.Z.I. Premium through three payment methods: <br/><br/><strong>• Apple App Store:</strong> For iOS users, the subscription is managed directly from the App Store.<br/><strong>• Google Play:</strong> For Android users, you can subscribe through Google Play Billing.<br/><strong>• Web (Stripe):</strong> You can subscribe from our official website using credit/debit cards or compatible wallets."
+      },
+      {
+        "question": "How do I cancel my subscription?",
+        "answer": "Canceling your subscription depends on where you made the purchase:<br/><br/><strong>• App Store:</strong> Go to Settings > [your name] > Subscriptions, select I.Z.I. Premium and cancel.<br/><strong>• Google Play:</strong> Open Google Play Store > Menu > Subscriptions > I.Z.I. Premium > Cancel subscription.<br/><strong>• Web (Stripe):</strong> Access the Stripe customer portal from your account or contact support to manage your subscription."
+      },
+      {
+        "question": "How do I request a refund?",
+        "answer": "The refund process varies depending on the purchase platform:<br/><br/><strong>• Apple purchases:</strong> Visit <a href='https://reportaproblem.apple.com' target='_blank' rel='noopener noreferrer' class='text-secondary-action font-semibold hover:underline'>reportaproblem.apple.com</a> to request a refund.<br/><strong>• Google purchases:</strong> Go to <a href='https://play.google.com/store/account' target='_blank' rel='noopener noreferrer' class='text-secondary-action font-semibold hover:underline'>play.google.com/store/account</a> and request a refund from your purchase history.<br/><strong>• Web purchases (Stripe):</strong> Refunds are only processed in legally required cases. Contact support at dpo@iziworld.app"
+      },
+      {
+        "question": "Can I change or upgrade my subscription plan?",
+        "answer": "Yes, you can change or upgrade your subscription at any time. The change will apply at your next renewal:<br/><br/><strong>• From App Store or Google Play:</strong> Go to the subscriptions section in your app store and select the new plan.<br/><strong>• From Stripe (web):</strong> Access the customer portal to update your plan. Changes will take effect in the next billing cycle."
+      },
+      {
+        "question": "Do prices include taxes?",
+        "answer": "Tax inclusion in the price varies by location:<br/><br/><strong>• Europe, Latin America, Australia, and Canada:</strong> Displayed prices include all applicable taxes.<br/><strong>• United States:</strong> Sales tax is added at checkout according to your state's laws."
+      },
+      {
+        "question": "Will I receive an invoice or payment receipt?",
+        "answer": "Yes, you will receive a payment receipt depending on the platform used:<br/><br/><strong>• Apple and Google:</strong> Invoices are available in your App Store or Google Play account, in the purchase history.<br/><strong>• Stripe (web):</strong> You will receive a receipt via email automatically after each payment. You can also access your receipts in the Stripe customer portal."
+      },
+      {
+        "question": "What happens if a payment fails or my card expires?",
+        "answer": "If a payment fails or your card expires, we will notify you and give you time to update your payment information:<br/><br/><strong>• Stripe (web):</strong> Automatically retries the charge and sends you an email notification. You can update your payment method in the customer portal.<br/><strong>• Apple and Google:</strong> You will receive notifications on your respective platforms requesting that you update your payment information.<br/><br/>Your premium access will remain active during a grace period while you update your information."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept multiple payment methods for your convenience:<br/><br/><strong>• In the App (iOS):</strong> Apple Pay and payment methods configured in your Apple account.<br/><strong>• In the App (Android):</strong> Google Play Billing (cards, PayPal, etc.).<br/><strong>• On the Web:</strong> Credit and debit cards (Visa, Mastercard, American Express) and compatible digital wallets through Stripe."
+      }
+    ]
   }
 }
