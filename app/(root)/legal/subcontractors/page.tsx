@@ -61,13 +61,6 @@ export default async function Subcontractors() {
       location: t("providers.perspective.location"),
       guarantees: t("providers.perspective.guarantees"),
     },
-    {
-      provider: "VPS Hetzner (Germany/Finland)",
-      service: t("providers.hetzner.service"),
-      data: t("providers.hetzner.data"),
-      location: t("providers.hetzner.location"),
-      guarantees: t("providers.hetzner.guarantees"),
-    },
   ];
 
   return (

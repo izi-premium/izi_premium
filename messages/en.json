@@ -640,12 +640,6 @@
         "data": "Message fragments",
         "location": "USA",
         "guarantees": "Encrypted API, retention limits"
-      },
-      "hetzner": {
-        "service": "Backend infrastructure, encryption and monitoring",
-        "data": "Technical and security data",
-        "location": "EU",
-        "guarantees": "ISO 27001, GDPR compliance"
       }
     },
     "section3": {

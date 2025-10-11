@@ -645,12 +645,6 @@
         "data": "Fragmentos de mensajes",
         "location": "EE.UU.",
         "guarantees": "API cifrada, límites de retención"
-      },
-      "hetzner": {
-        "service": "Infraestructura backend, cifrado y monitorización",
-        "data": "Datos técnicos y de seguridad",
-        "location": "UE",
-        "guarantees": "ISO 27001, GDPR compliance"
       }
     },
     "section3": {
