@@ -1160,5 +1160,10 @@
       "acceptance": "Todos los usuarios que visitan o acceden a nuestra plataforma y/o que utilizan alguno de los servicios que ponemos a disposición, aceptan las condiciones de uso y la política de privacidad, así como las diferentes modificaciones y/o textos legales adicionales que sean incluidas en el futuro. En caso de no estar de acuerdo con alguna de las condiciones, puedes darte de baja del servicio en cualquier momento o en caso de no ser usuario registrado, abandonar la plataforma.",
       "specific": "Junto a las presentes condiciones, cada uno de los servicios prestado puede quedar regulado por condiciones de uso y registro de carácter particular, siendo obligatorio en todo caso que el usuario acepte las mismas expresamente antes de su utilización y/o contratación."
     }
+  },
+  "cookieConsent": {
+    "message": "Usamos cookies necesarias para procesar pagos de forma segura a través de Stripe. Estas cookies permiten identificar la sesión del usuario, prevenir fraudes y garantizar que las transacciones se realicen correctamente. Usted puede aceptar y ver toda la información en nuestra",
+    "link": "Política de Cookies",
+    "accept": "Aceptar"
   }
 }

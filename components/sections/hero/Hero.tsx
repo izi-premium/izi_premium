@@ -20,11 +20,11 @@ const Hero = () => {
         </div>
         <div className="flex w-full flex-col items-center justify-start gap-4 md:items-start">
           <div className="flex w-full flex-col items-start justify-start gap-1">
-            <div className="flex-start gap-[-1.75rem]">#Set of images</div>
+            {/* <div className="flex-start gap-[-1.75rem]">#Set of images</div> */}
             <div className="flex-start w-hug w-full gap-1 text-nowrap">
-              <span className="paragraph-18-medium text-primary-text-700 text-nowrap">
+              {/* <span className="paragraph-18-medium text-primary-text-700 text-nowrap">
                 + # de clientes viene de DB.
-              </span>
+              </span> */}
               <span className="paragraph-18-medium text-primary-text-700 text-nowrap">
                 {tHero("people")}
               </span>

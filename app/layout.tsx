@@ -1,3 +1,4 @@
+import CookieConsent from "@/components/CookieConsent";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import { cn } from "@/lib/utils";
@@ -105,6 +106,7 @@ export default async function RootLayout({
           suppressHydrationWarning={true}
         >
           <NextIntlClientProvider messages={messages}>
+            <CookieConsent />
             <NewsletterOAuthHandler />
             <Header />
             <main className="flex-center-col bg-secondary-text-50 relative min-h-screen w-screen">

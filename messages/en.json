@@ -1155,5 +1155,10 @@
       "acceptance": "All users who visit or access our platform and/or use any of the services we make available accept the terms of use and privacy policy, as well as any modifications and/or additional legal texts that may be included in the future. If you disagree with any of the conditions, you may unsubscribe from the service at any time or, if you are not a registered user, leave the platform.",
       "specific": "In addition to these conditions, each service provided may be regulated by specific terms of use and registration, and it is mandatory that the user expressly accepts them before use and/or contracting."
     }
+  },
+  "cookieConsent": {
+    "message": "We use essential cookies to securely process payments through Stripe. These cookies allow us to identify your session, prevent fraud, and ensure transactions are completed correctly. You can accept and view all the information in our",
+    "link": "Cookie Policy",
+    "accept": "Accept"
   }
 }
