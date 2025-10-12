@@ -1,5 +1,5 @@
 import { getAdminDb } from "@/lib/firebase-admin";
-import { getServerStripe } from "@/lib/stripe";
+import { getServerStripe, isDiscountActive } from "@/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -120,7 +120,26 @@ async function handleSubscriptionCheckout(session: Stripe.Checkout.Session) {
     const currentPeriodStart = subscriptionItem.current_period_start;
     const currentPeriodEnd = subscriptionItem.current_period_end;
 
-    // Update user to premium with subscription info
+    const isEarlyAdopter = isDiscountActive();
+
+    if (isEarlyAdopter) {
+      try {
+        await getServerStripe().subscriptions.update(subscription.id, {
+          discounts: [
+            {
+              coupon: "EARLY_ADOPTER",
+            },
+          ],
+        });
+        console.log(
+          "Applied EARLY_ADOPTER coupon to subscription:",
+          subscription.id
+        );
+      } catch (error) {
+        console.error("Failed to apply EARLY_ADOPTER coupon:", error);
+      }
+    }
+
     await userDoc.ref.update({
       isPremium: true,
       premiumActivatedAt: new Date(),
@@ -130,9 +149,10 @@ async function handleSubscriptionCheckout(session: Stripe.Checkout.Session) {
       subscriptionStatus: subscription.status,
       currentPeriodStart: new Date(currentPeriodStart * 1000),
       currentPeriodEnd: new Date(currentPeriodEnd * 1000),
-      premiumEndsAt: new Date(currentPeriodEnd * 1000), // Auto-updates every 30 days
+      premiumEndsAt: new Date(currentPeriodEnd * 1000),
       paymentMethod: "stripe",
       region: region,
+      isEarlyAdopter: isEarlyAdopter,
       updatedAt: new Date(),
     });
 
@@ -144,7 +164,6 @@ async function handleSubscriptionCheckout(session: Stripe.Checkout.Session) {
       stripeSubscriptionId: subscription.id,
     });
 
-    // Create subscription record
     await getAdminDb()
       .collection("subscriptions")
       .add({
@@ -168,7 +187,6 @@ async function handleSubscriptionCheckout(session: Stripe.Checkout.Session) {
       userDoc.data().nickname ||
       "Usuario";
 
-    // Send welcome email
     await sendWelcomeEmail(userEmail!, userName, userLanguage);
   } catch (error) {
     console.error("Error handling subscription checkout:", error);

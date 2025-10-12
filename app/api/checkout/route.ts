@@ -4,7 +4,6 @@ import {
   getServerStripe,
   getUserRegion,
   isDiscountActive,
-  LAUNCH_DISCOUNT,
   regionalPricing,
 } from "@/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
@@ -13,9 +12,7 @@ export async function POST(request: NextRequest) {
   try {
     console.log("Checkout API called");
 
-    // Check if user is authenticated
     const user = await getServerUser();
-    console.log("User:", user?.uid ? "authenticated" : "not authenticated");
 
     if (!user?.uid) {
       return NextResponse.json(
@@ -23,8 +20,6 @@ export async function POST(request: NextRequest) {
         { status: 401 }
       );
     }
-
-    // Get user data from Firestore
     const userQuery = await getAdminDb()
       .collection("users")
       .where("uid", "==", user.uid)
@@ -37,7 +32,6 @@ export async function POST(request: NextRequest) {
 
     const userData = userQuery.docs[0].data();
 
-    // Check if user is already premium
     if (userData.isPremium) {
       return NextResponse.json(
         { error: "User already has premium access", redirectTo: "/" },
@@ -45,28 +39,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Parse request body for region info
     const { countryCode, timezone, currency } = await request.json();
 
-    // Determine user's region for pricing
     const userRegion = getUserRegion(countryCode, timezone, currency);
-    console.log("User region:", userRegion);
     const pricingConfig = regionalPricing[userRegion];
-    console.log("Pricing config:", pricingConfig);
 
-    console.log(
-      "Creating subscription checkout for user:",
-      user.email,
-      "Region:",
-      userRegion,
-      "Discount active:",
-      isDiscountActive()
-    );
-
-    // Check if discount is active
     const discountActive = isDiscountActive();
-
-    // Build absolute base URL for Stripe redirects
     const originHeader =
       request.headers.get("origin") || process.env.NEXT_PUBLIC_APP_URL || "";
     const baseUrl = originHeader.startsWith("http")
@@ -74,8 +52,6 @@ export async function POST(request: NextRequest) {
       : originHeader
         ? `https://${originHeader}`
         : "http://localhost:3000";
-
-    // Create Stripe checkout session for subscription
     const checkoutSession = await getServerStripe().checkout.sessions.create({
       mode: "subscription",
       payment_method_types: ["card"],
@@ -85,18 +61,7 @@ export async function POST(request: NextRequest) {
           quantity: 1,
         },
       ],
-      // Apply discount if active, otherwise allow promotion codes
-      ...(discountActive
-        ? {
-            discounts: [
-              {
-                coupon: LAUNCH_DISCOUNT.couponId,
-              },
-            ],
-          }
-        : {
-            allow_promotion_codes: true,
-          }),
+      allow_promotion_codes: true,
       customer_email: user.email,
       metadata: {
         userId: user.uid,
@@ -109,7 +74,6 @@ export async function POST(request: NextRequest) {
       tax_id_collection: {
         enabled: true,
       },
-      // Subscription specific settings
       subscription_data: {
         metadata: {
           userId: user.uid,
@@ -119,7 +83,6 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Store checkout session info for reference
     await getAdminDb()
       .collection("checkoutSessions")
       .doc(checkoutSession.id)
@@ -132,8 +95,8 @@ export async function POST(request: NextRequest) {
         status: "pending",
         type: "subscription",
         discountApplied: discountActive,
-        couponId: discountActive ? LAUNCH_DISCOUNT.couponId : null,
-        createdAt: new Date(), // This is fine - Firestore handles Date objects
+        isEarlyAdopter: discountActive,
+        createdAt: new Date(),
       });
 
     return NextResponse.json({
@@ -142,10 +105,6 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Checkout error:", error);
-    console.error("Error details:", {
-      message: error instanceof Error ? error.message : "Unknown error",
-      stack: error instanceof Error ? error.stack : undefined,
-    });
     return NextResponse.json(
       { error: "Failed to create checkout session" },
       { status: 500 }
