@@ -1,5 +1,5 @@
-import Stripe from "stripe";
 import { loadStripe } from "@stripe/stripe-js";
+import Stripe from "stripe";
 
 // Lazy-load Stripe instance
 let stripeInstance: Stripe | null = null;
@@ -374,13 +374,51 @@ export function getPriceInfo(region: keyof typeof regionalPricing) {
 }
 
 // Get price info with discount applied
-export function getPriceInfoWithDiscount(region: keyof typeof regionalPricing) {
+export function getPriceInfoWithDiscount(
+  region: keyof typeof regionalPricing,
+  isEarlyAdopter: boolean = false
+) {
   const config = regionalPricing[region];
   const originalPrice = config.price;
-  const isDiscount = isDiscountActive();
-  const finalPrice = isDiscount
-    ? calculateDiscountedPrice(originalPrice)
-    : originalPrice;
+  const isLaunchDiscount = isDiscountActive();
+  const isEarlyAdopterDiscount = isEarlyAdopter;
+
+  let finalPrice = originalPrice;
+  let discountInfo = null;
+
+  if (isLaunchDiscount) {
+    // Launch discount takes priority
+    finalPrice = calculateDiscountedPrice(originalPrice);
+    discountInfo = {
+      isActive: true,
+      percentage: LAUNCH_DISCOUNT.percentage,
+      savings: originalPrice - finalPrice,
+      savingsFormatted: formatPriceAmount(
+        originalPrice - finalPrice,
+        config.currency,
+        config.locale
+      ),
+      couponId: LAUNCH_DISCOUNT.couponId,
+      validUntil: LAUNCH_DISCOUNT.validUntil,
+      type: "launch",
+    };
+  } else if (isEarlyAdopterDiscount) {
+    // Early adopter permanent discount
+    finalPrice = calculateDiscountedPrice(originalPrice);
+    discountInfo = {
+      isActive: true,
+      percentage: 50,
+      savings: originalPrice - finalPrice,
+      savingsFormatted: formatPriceAmount(
+        originalPrice - finalPrice,
+        config.currency,
+        config.locale
+      ),
+      couponId: "EARLY_ADOPTER",
+      validUntil: null, // Permanent discount
+      type: "early_adopter",
+    };
+  }
 
   return {
     original: {
@@ -399,19 +437,6 @@ export function getPriceInfoWithDiscount(region: keyof typeof regionalPricing) {
       symbol: config.symbol,
       formatted: formatPriceAmount(finalPrice, config.currency, config.locale),
     },
-    discount: isDiscount
-      ? {
-          isActive: true,
-          percentage: LAUNCH_DISCOUNT.percentage,
-          savings: originalPrice - finalPrice,
-          savingsFormatted: formatPriceAmount(
-            originalPrice - finalPrice,
-            config.currency,
-            config.locale
-          ),
-          couponId: LAUNCH_DISCOUNT.couponId,
-          validUntil: LAUNCH_DISCOUNT.validUntil,
-        }
-      : null,
+    discount: discountInfo,
   };
 }
