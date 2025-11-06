@@ -94,6 +94,20 @@ const Card1 = () => {
                 {tPrice("free-li5-text")}
               </p>
             </li>
+            <li className="flex-center w-full gap-2">
+              <Image
+                src={
+                  imageData[tPrice("free-li6-img") as keyof typeof imageData]
+                }
+                alt={tPrice("free-li6-alt")}
+                width={32}
+                height={32}
+                className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
+              />
+              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+                {tPrice("free-li6-text")}
+              </p>
+            </li>
           </ul>
         </div>
 
@@ -132,7 +146,7 @@ const Card1 = () => {
                 alt={tPrice("google-alt")}
                 width={32}
                 height={32}
-                className="size-[3.2rem] 2xl:size-[4.4rem]"
+                className="size-[3.2rem] stroke-[3px] 2xl:size-[4.4rem]"
               />
               <span className="paragraph-18-medium md:paragraph-24-medium flex-nowrap whitespace-nowrap text-black">
                 {tPrice("google")}

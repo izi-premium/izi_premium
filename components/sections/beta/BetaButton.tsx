@@ -61,18 +61,12 @@ export function BetaButton({
     <>
       <button
         onClick={handleOpenModal}
-        className={`${getButtonClasses()} ${getSizeClasses()}`}
+        className="hover:shadow-header bg-primary-action-900 relative flex w-full items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 md:max-w-[75%] lg:max-w-[60%]"
       >
-        <span className="bg-primary-action-100 absolute right-[63px] bottom-[-17px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px]"></span>
-        <span className="bg-primary-action-100 absolute bottom-[-26px] left-[52px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px]"></span>
-        <div className="border-elevated-surfaces-500 relative w-full rounded-[0.4rem] border border-solid px-4 py-2">
-          <p
-            className={`${getTextClasses()} text-center ${
-              variant === "primary"
-                ? "text-secondary-text-500"
-                : "text-primary-action-900"
-            }`}
-          >
+        <span className="bg-primary-action-100 absolute right-[63px] bottom-[-17px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
+        <span className="bg-primary-action-100 absolute bottom-[-26px] left-[52px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
+        <div className="border-elevated-surfaces-500 relative w-full rounded-[0.4rem] border border-solid px-8 py-3 xl:px-[clamp(32px,1.66vw)] xl:py-[clamp(1.2rem,0.625vw,2.4rem)]">
+          <p className="paragraph-18-medium md:paragraph-24-medium text-secondary-text-500 w-full text-center">
             {language === "es" ? "🚀 Únete a la Beta" : "🚀 Join the Beta"}
           </p>
         </div>
