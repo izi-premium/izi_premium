@@ -9,7 +9,7 @@ const AnonymousChat = () => {
   return (
     <section
       id="chat"
-      className="flex-start-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full scroll-mt-20 gap-[6.4rem] py-[8rem] lg:py-[10rem]"
+      className="flex-start-col px-mobile md:px-tablet lg:px-desktop w-full max-w-[180rem] scroll-mt-20 gap-[6.4rem] py-[8rem] lg:py-[10rem]"
     >
       <div className="w-full">
         <div className="special:grid-cols-2 grid items-start gap-10 md:gap-16">
@@ -92,7 +92,7 @@ const AnonymousChat = () => {
         <div className="flex-center-col border-primary-text-200 w-full gap-6 rounded-[1.6rem] border border-solid bg-linear-to-b from-white to-[#F5F5F5] to-[154.72%] p-4 xl:p-[clamp(1.6rem,1vw,4.4rem)]">
           <div className="flex-center-col special:flex-row h-fit w-full gap-10">
             {/* Card #1 */}
-            <div className="flex-begin-col shadow-chat-boxes special:min-h-[22.4rem] h-full w-full gap-6 rounded-[0.4rem] bg-white px-6 py-4 xl:h-[clamp(22.4rem,11.6vw,44.8rem)] xl:gap-[clamp-(2.4rem,1.75vw,6.8rem)]">
+            <div className="flex-begin-col shadow-chat-boxes special:min-h-[22.4rem] h-full w-full gap-6 rounded-[0.4rem] bg-white px-6 py-4 xl:gap-[clamp-(2.4rem,1.75vw,6.8rem)]">
               <h3 className="paragraph-24-medium md:subtitle-medium text-primary-text-700">
                 {tChat("free-chat-title")}
               </h3>
@@ -125,7 +125,7 @@ const AnonymousChat = () => {
             </div>
 
             {/* Card #2 */}
-            <div className="flex-begin-col shadow-chat-boxes special:min-h-[22.4rem] h-fit w-full gap-6 rounded-[0.4rem] bg-white px-6 py-4 xl:h-[clamp(22.4rem,11.6vw,44.8rem)]">
+            <div className="flex-begin-col shadow-chat-boxes special:min-h-[22.4rem] h-fit w-full gap-6 rounded-[0.4rem] bg-white px-6 py-4">
               <h3 className="paragraph-24-medium md:subtitle-medium text-primary-text-700 xl:gap-[clamp-(2.4rem,1.75vw,6.8rem)]">
                 {tChat("premium-chat-title")}
               </h3>

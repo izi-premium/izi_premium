@@ -81,7 +81,7 @@ const Card2 = () => {
             </h3>
 
             {/* Pricing with discount */}
-            <div className="flex-center w-full gap-2">
+            <div className="flex-start w-full gap-2">
               {isClient && pricingInfo ? (
                 <>
                   {pricingInfo.discount ? (

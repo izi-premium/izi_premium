@@ -95,7 +95,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white">
+    <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop h-fit min-h-[100vh] w-full gap-10 bg-white">
       <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm md:p-8">
         <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
           {step === "email" ? `${tForgot("forgot")}` : `${tForgot("reset")}`}

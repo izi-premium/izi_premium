@@ -9,7 +9,7 @@ const DiaryMain = () => {
   const tDiary = useTranslations("Diary");
   const phrases = [tDiary("phrase1"), tDiary("phrase2"), tDiary("phrase3")];
   return (
-    <section className="flex-begin-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-10 lg:flex-row-reverse">
+    <section className="flex-begin-col px-mobile md:px-tablet lg:px-desktop w-full gap-10 lg:flex-row-reverse">
       <div className="flex-begin-col special:min-h-[48rem] h-full w-full items-stretch">
         <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">
           {tDiary("title")}

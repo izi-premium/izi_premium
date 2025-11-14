@@ -160,7 +160,7 @@ const DiaryTabs = () => {
   };
 
   return (
-    <section className="flex-begin-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-10 bg-white py-[10rem]">
+    <section className="flex-begin-col px-mobile md:px-tablet lg:px-desktop w-full max-w-[180rem] gap-10 rounded-[1.2rem] bg-white py-[10rem] md:rounded-[1.6rem] lg:rounded-[2rem] xl:rounded-[2.4rem]">
       <Tabs
         defaultValue="free"
         value={activeTab}
@@ -206,7 +206,7 @@ const DiaryTabs = () => {
                     }}
                   />
                 </div>
-                <div className="relative flex aspect-[378/520] min-h-[42rem] w-full min-w-[28rem] items-center justify-center overflow-hidden rounded-[1.6rem] shadow-lg lg:h-[clamp(52rem,27vw,104rem)] lg:w-[clamp(37.8rem,19.6vw,75.6rem)] xl:max-w-[33vw]">
+                <div className="relative flex min-h-[42rem] w-full min-w-[28rem] items-center justify-center overflow-hidden rounded-[1.6rem] shadow-lg lg:h-[clamp(52rem,27vw,88rem)] lg:w-[(37.8rem,19.6vw,75.6rem)] xl:max-w-[33vw]">
                   <Image
                     src={imageData["diary-bg"]}
                     alt="image background with paper texture"
@@ -215,7 +215,7 @@ const DiaryTabs = () => {
                     className="size-full object-cover object-center"
                   />
 
-                  <div className="relative aspect-[300/400] w-[clamp(24rem,12.5vw,48rem)] xl:w-[clamp(30rem,15.6vw,60rem)]">
+                  <div className="relative aspect-[300/400] w-[clamp(24rem,12.5vw,48rem)] xl:w-[clamp(30rem,15.6vw,0rem)]">
                     <Image
                       src={
                         imageData[tTabs("tab1-image") as keyof typeof imageData]

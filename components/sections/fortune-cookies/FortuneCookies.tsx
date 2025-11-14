@@ -10,7 +10,7 @@ const FortuneCookies = () => {
   return (
     <section
       id="cookies"
-      className="flex-start-col xl:container-wrapper w-full scroll-mt-20 px-[1.2rem] py-10 md:px-[3.2rem] lg:px-[5rem] lg:py-20"
+      className="flex-start-col my-10 w-full max-w-[180rem] scroll-mt-20 px-[1.2rem] md:mx-[3.2rem] lg:mx-[5rem] lg:my-20"
     >
       <div className="flex-start-col border-primary-text-200 w-full gap-10 rounded-[2rem] border border-solid bg-white px-[1.2rem] py-10 md:px-[3.2rem] lg:px-[5rem] lg:py-20">
         <div className="flex-center-col w-full gap-4">
@@ -24,7 +24,7 @@ const FortuneCookies = () => {
         </div>
         <div className="flex-center-col w-full gap-10 lg:flex-row lg:items-stretch">
           {/* Card 1 */}
-          <div className="bg-elevated-surfaces-500 border-primary-text-200 flex-start-col special:w-[56rem] w-full justify-between gap-10 rounded-[1.6rem] border border-solid px-6 py-6 md:px-12 md:py-12 lg:w-fit xl:w-[clamp(56rem,29.16vw,112rem)]">
+          <div className="bg-elevated-surfaces-500 border-primary-text-200 flex-start-col special:w-[56rem] w-full justify-between gap-10 rounded-[1.6rem] border border-solid px-6 py-6 md:px-12 md:py-12 lg:w-fit">
             <div className="flex-start-col w-full gap-4">
               <h3 className="paragraph-24-medium md:subtitle-medium text-primary-text-700">
                 {tCookie("card1-title")}
@@ -47,7 +47,7 @@ const FortuneCookies = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-elevated-surfaces-500 border-primary-text-200 flex-start-col md:flex-reverse special:w-[56rem] w-full flex-col-reverse gap-10 rounded-[1.6rem] border border-solid px-6 py-6 md:px-12 md:py-12 lg:w-fit xl:w-[clamp(56rem,29.16vw,112rem)]">
+          <div className="bg-elevated-surfaces-500 border-primary-text-200 flex-start-col md:flex-reverse special:w-[56rem] w-full flex-col-reverse gap-10 rounded-[1.6rem] border border-solid px-6 py-6 md:px-12 md:py-12 lg:w-fit">
             <div className="flex-start-col w-full gap-4">
               <h3 className="paragraph-24-medium md:subtitle-medium text-primary-text-700">
                 {tCookie("card2-title")}

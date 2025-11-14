@@ -52,7 +52,7 @@ export default function CancelPage() {
   };
 
   return (
-    <div className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper flex min-h-screen w-full items-center justify-center bg-gray-50 py-12 pt-[12rem]">
+    <div className="px-mobile md:px-tablet lg:px-desktop flex min-h-screen w-full items-center justify-center bg-gray-50 py-12 pt-[12rem]">
       <div className="bg-secondary-text-50 w-full max-w-[clamp(60rem,31.2vw,120rem)] space-y-8 rounded-[1.2rem] px-8 py-8 shadow-sm">
         <div className="text-center">
           {/* Cancel Icon */}

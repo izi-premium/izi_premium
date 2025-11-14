@@ -190,7 +190,7 @@ export default function SubscriptionManagement() {
 
   if (authLoading || loading) {
     return (
-      <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
+      <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
         <div className="flex min-h-[400px] items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin" />
         </div>
@@ -203,7 +203,7 @@ export default function SubscriptionManagement() {
   }
 
   return (
-    <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
+    <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
       <div className="mb-8">
         <h1 className="subtitle-medium md:h2-medium text-center text-gray-900">
           {t("title")}

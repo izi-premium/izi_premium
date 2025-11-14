@@ -28,9 +28,9 @@ export default function Header() {
   ];
 
   return (
-    <header className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper fixed top-6 z-50 flex h-fit w-full items-center bg-transparent">
+    <header className="px-mobile md:px-tablet lg:px-desktop fixed top-6 z-50 flex h-fit w-full max-w-[180rem] items-center bg-transparent">
       <div className="from-elevated-surfaces-600 border-opacity-50 shadow-header w-full rounded-[1.6rem] border border-solid border-[#C4C6AA] bg-gradient-to-b to-[#303129]/25 p-[1px]">
-        <div className="bg-elevated-surfaces-500 flex w-full items-center justify-between rounded-[1.6rem] px-4 py-3 md:pl-8">
+        <div className="bg-elevated-surfaces-500 flex w-full items-center justify-between rounded-[1.6rem] px-4 py-3">
           <nav className="flex flex-row items-center gap-6 text-lg font-medium md:gap-5 md:text-sm lg:gap-6">
             <Link
               href="/"

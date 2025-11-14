@@ -29,7 +29,7 @@ export default async function PrivacyPolicy() {
   const providers = ["google", "stripe", "apple"];
 
   return (
-    <div className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper min-h-screen w-full bg-white py-[12rem]">
+    <div className="px-mobile md:px-tablet lg:px-desktop min-h-screen w-full bg-white py-[12rem]">
       <div className="flex-begin-col container mx-auto max-w-[clamp(140rem,73vw,280rem)] gap-8 px-4 py-8">
         <h1 className="subtitle-medium md:h1-small text-primary-text-900 mb-8">
           {t("title")}

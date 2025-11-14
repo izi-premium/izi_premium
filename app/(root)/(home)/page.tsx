@@ -34,7 +34,7 @@ export default function Home() {
 
 function BetaSection() {
   return (
-    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full gap-8 py-[4rem]">
+    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop w-full gap-8 py-[4rem]">
       <div className="flex-center-col gap-4">
         <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">
           ¿Quieres ser de los primeros?

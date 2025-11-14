@@ -39,7 +39,7 @@ export default function ThankYouPage() {
   }
 
   return (
-    <div className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper flex min-h-screen w-full items-center justify-center bg-gray-50 py-12 pt-[12rem]">
+    <div className="px-mobile md:px-tablet lg:px-desktop flex min-h-screen w-full items-center justify-center bg-gray-50 py-12 pt-[12rem]">
       <div className="w-full max-w-[clamp(60rem,31.2vw,120rem)] space-y-8 rounded-[1.2rem] border border-solid border-green-200 bg-gradient-to-br from-green-50 to-blue-50 px-8 py-8 shadow-sm">
         {/* Success Icon */}
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
