@@ -26,7 +26,7 @@ export default async function FAQsPage() {
   }));
 
   return (
-    <section className="px-mobile md:px-tablet lg:px-desktop flex-center-col min-h-[100vh] w-full bg-white py-12 pt-[12rem]">
+    <section className="px-mobile md:px-tablet lg:px-desktop flex-center-col min-h-[100vh] w-full bg-white py-12 pt-[12rem] 2xl:items-start 2xl:justify-start 2xl:pt-[20rem]">
       <div className="w-full">
         {/* Header */}
         <div className="flex-center-col mb-12 w-full space-y-4 text-center md:mb-16">

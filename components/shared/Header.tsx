@@ -22,9 +22,9 @@ export default function Header() {
   const { user } = useAuth();
 
   const navLinks = [
-    { href: "#chat", label: `${tNav("chat")}` },
-    { href: "#diary", label: `${tNav("diary")}` },
-    { href: "#cookies", label: `${tNav("cookies")}` },
+    { href: "/#chat", label: `${tNav("chat")}` },
+    { href: "/#diary", label: `${tNav("diary")}` },
+    { href: "/#cookies", label: `${tNav("cookies")}` },
   ];
 
   return (
@@ -69,7 +69,7 @@ export default function Header() {
               >
                 <SheetTitle className="flex-center w-full">
                   <Link
-                    href="#"
+                    href="/"
                     className="flex-center w-fit gap-2 text-lg font-semibold md:text-base"
                   >
                     <div className="flex-center relative size-[3.2rem]">
@@ -129,7 +129,7 @@ export default function Header() {
                       ) : (
                         <SheetClose asChild>
                           <Link
-                            href="#premium-plan"
+                            href="/#premium-plan"
                             className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
                           >
                             <span className="paragraph-24-medium text-secondary-text-500">
@@ -173,7 +173,7 @@ export default function Header() {
                   </Link>
 
                   <Link
-                    href="#premium-plan"
+                    href="/#premium-plan"
                     className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
                   >
                     <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">
@@ -183,7 +183,7 @@ export default function Header() {
                 </>
               ) : (
                 <Link
-                  href="#premium-plan"
+                  href="/#premium-plan"
                   className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
                 >
                   <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">

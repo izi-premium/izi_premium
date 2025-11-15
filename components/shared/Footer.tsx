@@ -15,7 +15,7 @@ export default function Footer() {
               <div className="flex-begin-col gap-8">
                 {/* Logo */}
                 <Link
-                  href="#"
+                  href="/"
                   className="flex-center w-fit gap-2 text-lg font-semibold md:text-base"
                 >
                   <div className="flex-center relative size-[4.4rem] lg:size-[5.6rem] 2xl:size-[6.4rem]">
@@ -82,7 +82,7 @@ export default function Footer() {
                     {tFoot("question")}
                   </p>
                   <Link
-                    href="#newsletter"
+                    href="/#newsletter"
                     className="hover:shadow-header bg-accent-500 relative flex items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer md:w-[30rem] xl:w-fit"
                   >
                     <span className="absolute right-[63px] bottom-[-17px] z-5 h-[5rem] w-[12rem] rounded-full bg-red-50 blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
@@ -106,7 +106,7 @@ export default function Footer() {
                 <ul className="flex-begin-col gap-4">
                   <li>
                     <Link
-                      href="#features"
+                      href="/#features"
                       className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                     >
                       {tFoot("nav-1")}
@@ -114,7 +114,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="#chat"
+                      href="/#chat"
                       className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                     >
                       {tFoot("nav-2")}
@@ -122,7 +122,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="#diary"
+                      href="/#diary"
                       className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                     >
                       {tFoot("nav-3")}
@@ -130,7 +130,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="#cookies"
+                      href="/#cookies"
                       className="paragraph-14-normal md:paragraph-18-normal text-black hover:cursor-pointer hover:underline"
                     >
                       {tFoot("nav-4")}

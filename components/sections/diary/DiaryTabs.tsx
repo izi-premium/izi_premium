@@ -160,12 +160,12 @@ const DiaryTabs = () => {
   };
 
   return (
-    <section className="flex-begin-col px-mobile md:px-tablet lg:px-desktop w-full max-w-[180rem] gap-10 rounded-[1.2rem] bg-white py-[10rem] md:rounded-[1.6rem] lg:rounded-[2rem] xl:rounded-[2.4rem]">
+    <section className="flex-begin-col bg-secondary-text-50 w-full gap-10">
       <Tabs
         defaultValue="free"
         value={activeTab}
         onValueChange={handleTabChange}
-        className="w-full"
+        className="px-mobile md:px-tablet lg:px-desktop w-full max-w-[180rem] rounded-[1.2rem] bg-white py-[10rem] md:rounded-[1.6rem] lg:rounded-[2rem] xl:rounded-[2.4rem]"
       >
         <TabsList className="grid h-auto w-full grid-cols-2 gap-2 rounded-[0.8rem] bg-[#D7D7D7] px-[0.4rem] py-1">
           <TabsTrigger

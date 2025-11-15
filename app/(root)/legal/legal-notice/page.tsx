@@ -19,8 +19,8 @@ export default async function LegalNotice() {
   const t = await getTranslations("legalNotice");
 
   return (
-    <div className="px-mobile md:px-tablet lg:px-desktop min-h-screen w-full bg-white py-[12rem]">
-      <div className="flex-begin-col container mx-auto max-w-[clamp(140rem,73vw,280rem)] gap-8 px-4 py-8">
+    <div className="min-h-screen w-full bg-white py-[12rem]">
+      <div className="flex-begin-col px-mobile md:px-tablet lg:px-desktoppy-8 container mx-auto max-w-[180rem] gap-8">
         <h1 className="subtitle-medium md:h1-small text-primary-text-900 mb-8">
           {t("title")}
         </h1>
