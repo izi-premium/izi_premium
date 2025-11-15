@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import imageData from "@/data/uploadedImages.json";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 
 const AnonymousChat = () => {
@@ -12,7 +11,7 @@ const AnonymousChat = () => {
       className="flex-start-col px-mobile md:px-tablet lg:px-desktop w-full max-w-[180rem] scroll-mt-20 gap-[6.4rem] py-[8rem] lg:py-[10rem]"
     >
       <div className="w-full">
-        <div className="special:grid-cols-2 grid items-start gap-10 md:gap-16">
+        <div className="special:grid-cols-2 grid items-stretch gap-10 md:gap-16">
           <div className="flex flex-col items-start justify-start gap-10 xl:gap-16">
             <div className="flex flex-col items-center gap-2 md:items-start">
               <h2 className="subtitle-medium md:h2-medium text-primary-text-700">
@@ -72,18 +71,16 @@ const AnonymousChat = () => {
               </p>
             </div>
           </div>
-          <div className="flex justify-center">
-            <AspectRatio
-              ratio={5 / 6}
-              className="overflow-hidden rounded-lg shadow-lg"
-            >
-              {/* <Image
-                src={imageData["chat-image"]}
+          <div className="relative flex h-full min-h-[500px] w-full justify-center">
+            <div className="shadow-cahtImage relative h-full w-full overflow-hidden rounded-[16px] border-[0.5px] border-solid border-[#C2C2B7] bg-[linear-gradient(142deg,_#F5F2DF_26.43%,_#DAEEFF_95.74%)]">
+              <Image
+                src={imageData[tChat("image") as keyof typeof imageData]}
                 alt={tChat("alt")}
                 fill
-                className="object-cover object-center"
-              /> */}
-            </AspectRatio>
+                sizes="(max-width: 768px) 80vw, (max-width: 2240px): 75vw, 25vw"
+                className="scale-90 object-contain object-center"
+              />
+            </div>
           </div>
         </div>
       </div>
