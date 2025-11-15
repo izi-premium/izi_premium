@@ -11,7 +11,7 @@ import { PricingWrapper } from "../../../components/sections/pricing/PricingWrap
 
 export default function Home() {
   return (
-    <div className="flex-center-col bg-white-50 min-h-screen w-full gap-[3.4rem] pt-24">
+    <div className="flex-center-col bg-white-50 min-h-screen w-full pt-24">
       <Hero />
       <MainFeatures />
       <AnonymousChat />
@@ -24,7 +24,9 @@ export default function Home() {
       <Suspense fallback={<SkeletonLoader />}>
         <PricingWrapper />
       </Suspense>
-      <BetaSection />
+      <Suspense fallback={<SkeletonLoader />}>
+        <BetaSection />
+      </Suspense>
       <Suspense fallback={<SkeletonLoader />}>
         <Newsletter />
       </Suspense>
@@ -34,7 +36,7 @@ export default function Home() {
 
 function BetaSection() {
   return (
-    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop w-full gap-8 py-[4rem]">
+    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop w-full gap-8 py-[6.4rem]">
       <div className="flex-center-col gap-4">
         <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">
           ¿Quieres ser de los primeros?

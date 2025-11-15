@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { FaAndroid, FaApple } from "react-icons/fa";
+import Image from "next/image";
+import imageData from "@/data/uploadedImages.json";
 
 interface BetaSignupModalProps {
   isOpen: boolean;
@@ -128,7 +130,7 @@ export function BetaSignupModal({
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={handleClose}
       />
-      <div className="relative mx-auto w-[320px] rounded-xl bg-white p-5 shadow-2xl md:p-6">
+      <div className="relative mx-auto w-[320px] rounded-xl bg-white p-5 shadow-2xl md:w-[36rem] md:p-6 lg:w-[48rem]">
         {/* Close button */}
         <button
           onClick={handleClose}
@@ -153,7 +155,15 @@ export function BetaSignupModal({
         {/* Header */}
         <div className="mb-5 text-center">
           <div className="mb-3 flex justify-center">
-            <span className="text-5xl">🚀</span>
+            <div className="flex-center relative size-[3.2rem] lg:size-[4rem] 2xl:size-[5.6rem]">
+              <Image
+                src={imageData["izi-logo"]}
+                alt="I.Z.I logo"
+                fill
+                sizes="(max-width: 1024px) 3.2rem, 4rem"
+                className="bg-no-repeat object-contain xl:object-cover"
+              />
+            </div>
           </div>
           <h2 className="subtitle-medium text-primary-text-700 mb-2">
             {language === "es" ? "Únete a la Beta" : "Join the Beta"}
@@ -198,14 +208,20 @@ export function BetaSignupModal({
                 type="button"
                 onClick={() => setPlatform("ios")}
                 disabled={isLoading}
-                className={`flex flex-col items-center rounded-lg border-2 p-3 transition-all ${
+                className={`flex flex-col items-center gap-2 rounded-lg border-2 p-3 transition-all ${
                   platform === "ios"
                     ? "border-primary-action-900 bg-primary-action-50"
                     : "border-gray-200 hover:border-gray-300"
                 } disabled:opacity-50`}
               >
-                <FaApple className="mb-2 h-8 w-8 text-gray-800" />
-                <span className="paragraph-18-medium text-primary-text-700 text-sm">
+                <Image
+                  src={imageData["apple-logo"]}
+                  alt="apple logo"
+                  width={24}
+                  height={24}
+                  className="h-[2.4rem] w-[2.4rem] md:size-[3.2rem] lg:size-[4.4rem]"
+                />
+                <span className="paragraph-18-medium text-primary-text-700">
                   iOS
                 </span>
               </button>
@@ -214,14 +230,20 @@ export function BetaSignupModal({
                 type="button"
                 onClick={() => setPlatform("android")}
                 disabled={isLoading}
-                className={`flex flex-col items-center rounded-lg border-2 p-3 transition-all ${
+                className={`flex flex-col items-center gap-2 rounded-lg border-2 p-3 transition-all ${
                   platform === "android"
                     ? "border-primary-action-900 bg-primary-action-50"
                     : "border-gray-200 hover:border-gray-300"
                 } disabled:opacity-50`}
               >
-                <FaAndroid className="mb-2 h-8 w-8 text-green-600" />
-                <span className="paragraph-18-medium text-primary-text-700 text-sm">
+                <Image
+                  src={imageData["android-logo"]}
+                  alt="apple logo"
+                  width={24}
+                  height={24}
+                  className="h-[2.4rem] w-[2.4rem] md:size-[3.2rem] lg:size-[4.4rem]"
+                />
+                <span className="paragraph-18-medium text-primary-text-700">
                   Android
                 </span>
               </button>
@@ -285,13 +307,13 @@ export function BetaSignupModal({
           </p>
           <ul className="grid grid-cols-1 gap-2 text-center">
             <li className="flex items-center justify-center gap-2">
-              <span className="text-green-500">✓</span>
+              <span className="paragraph-18-normal text-green-500">✓</span>
               <span className="paragraph-18-normal text-primary-text-600">
                 {language === "es" ? "Acceso anticipado" : "Early access"}
               </span>
             </li>
             <li className="flex items-center justify-center gap-2">
-              <span className="text-green-500">✓</span>
+              <span className="paragraph-18-normal text-green-500">✓</span>
               <span className="paragraph-18-normal text-primary-text-600">
                 {language === "es"
                   ? "Descuentos exclusivos"

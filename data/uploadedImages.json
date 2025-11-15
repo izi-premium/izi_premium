@@ -56,5 +56,8 @@
 
   "chat-eng": "https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com/chat-eng.avif",
   "chat-esp": "https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com/chat-esp.avif",
-  "izi-premium-phone-banner": "https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com/izi-premium-phone-banner.avif"
+  "izi-premium-phone-banner": "https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com/izi-premium-phone-banner.avif",
+
+  "android-logo": "https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com/android-logo.svg",
+  "apple-logo": "https://qbr8tbwo7jmtgyon.public.blob.vercel-storage.com/apple-logo.svg"
 }

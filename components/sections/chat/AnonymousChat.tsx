@@ -8,7 +8,7 @@ const AnonymousChat = () => {
   return (
     <section
       id="chat"
-      className="flex-start-col px-mobile md:px-tablet lg:px-desktop w-full max-w-[180rem] scroll-mt-20 gap-[6.4rem] py-[8rem] lg:py-[10rem]"
+      className="flex-start-col px-mobile md:px-tablet lg:px-desktop w-full max-w-[180rem] scroll-mt-20 gap-[6.4rem] py-[6.4rem]"
     >
       <div className="w-full">
         <div className="special:grid-cols-2 grid items-stretch gap-10 md:gap-16">

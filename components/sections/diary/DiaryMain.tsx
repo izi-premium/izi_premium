@@ -33,7 +33,7 @@ const DiaryMain = () => {
           sizes="(max-width: 768px) 80vw, (max-width: 2240px): 75vw, 25vw"
           className="size-full object-cover object-center"
         />
-        <AspectRatio ratio={1 / 1.1} className="overflow-hidden">
+        <AspectRatio ratio={4 / 3} className="overflow-hidden">
           <Image
             src={imageData[tDiary("image") as keyof typeof imageData]}
             alt={tDiary("alt")}
