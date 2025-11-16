@@ -52,26 +52,26 @@ export const metadata: Metadata = {
     description:
       "A companionship app that cares about your mental health and helps you improve and get better everyday.",
     siteName: "I.Z.I Premium",
-    images: "/opengraph-image.png", // Add your own opengraph image
+    images: "/izi-og-image.png",
   },
   twitter: {
     card: "summary_large_image",
     title: "Home | I.Z.I Premium",
     description:
       "A companionship app that cares about your mental health and helps you improve and get better everyday.",
-    images: "/twitter-image.png", // Add your own twitter image
+    images: "/izi-twitter-og-image.png",
   },
-  // robots: {
-  //   index: true,
-  //   follow: true,
-  //   googleBot: {
-  //     index: true,
-  //     follow: true,
-  //     "max-video-preview": -1,
-  //     "max-image-preview": "large",
-  //     "max-snippet": -1,
-  //   },
-  // },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default async function RootLayout({

@@ -4,6 +4,14 @@ import { useAuth } from "@/components/providers/FirebaseAuthProvider";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function CancelPage() {
   const tCancel = useTranslations("Cancel");
