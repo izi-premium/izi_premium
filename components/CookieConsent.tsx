@@ -68,7 +68,7 @@ export default function CookieConsent() {
           {/* Accept button */}
           <button
             onClick={acceptCookies}
-            className="paragraph-18-semibold bg-secondary-action text-elevated-surfaces-50 shadow-cta-header hover:bg-secondary-action/90 hover:shadow-hover-inner focus:ring-secondary-action/50 w-full rounded-[0.8rem] px-[4.8rem] py-[1.6rem] transition-all focus:ring-2 focus:ring-offset-2 focus:outline-none md:w-auto"
+            className="paragraph-18-semibold bg-secondary-action text-elevated-surfaces-50 shadow-cta-header hover:bg-secondary-action/90 hover:shadow-hover-inner focus:ring-secondary-action/50 w-full rounded-[0.8rem] px-[4.8rem] py-[1.6rem] transition-all hover:cursor-pointer focus:ring-2 focus:ring-offset-2 focus:outline-none md:w-auto"
             aria-label={t("accept")}
           >
             {t("accept")}
