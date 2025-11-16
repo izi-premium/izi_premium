@@ -72,11 +72,11 @@ const Card2 = () => {
       id="premium-plan"
       className="border-base-800 h-full w-full flex-1 scroll-mt-24 rounded-[3.2rem] border border-solid bg-white p-2 md:p-6 lg:min-h-[100%]"
     >
-      <div className="border-base-800 flex-begin-col h-full justify-between gap-10 rounded-[1.6rem] border border-solid bg-linear-to-b from-white from-0% to-[#F5F5F5] to-[85%] p-4 md:gap-[6.4rem] md:p-12 xl:gap-[clamp(4rem,2.1vw,8rem)]">
+      <div className="border-base-800 flex-begin-col h-full justify-between gap-10 rounded-[1.6rem] border border-solid bg-linear-to-b from-white from-0% to-[#F5F5F5] to-[85%] p-4 md:gap-[6.4rem] md:p-6 xl:gap-[clamp(4rem,2.1vw,8rem)] xl:p-12">
         <div className="flex-begin-col gap-[5.6rem]">
           {/* Head */}
           <div className="flex-begin-col w-full gap-4">
-            <h3 className="subtitle-medium lg:h2-medium text-primary-text-700">
+            <h3 className="subtitle-medium xl:h2-medium text-primary-text-700">
               {tPrice("premium-plan-title")}
             </h3>
 
@@ -88,7 +88,7 @@ const Card2 = () => {
                     <div className="flex-start-col w-full gap-2 md:flex-row md:items-end">
                       {/* Discounted price */}
                       <div className="flex items-baseline gap-2">
-                        <p className="h1-small md:h1-big lg:h1-xxl text-primary-text-700">
+                        <p className="h1-small xl:h1-big 2xl:h1-xxl text-primary-text-700">
                           {pricingInfo.final.formatted}
                         </p>
                       </div>
@@ -96,16 +96,16 @@ const Card2 = () => {
                       {/* Original price crossed out */}
                       <div className="flex-start-col w-full items-end md:items-start">
                         <div className="relative inline-block">
-                          <p className="paragraph-24-normal md:subtitle-normal text-primary-text-400">
+                          <p className="paragraph-24-normal xl:subtitle-normal text-primary-text-400">
                             {pricingInfo.original.formatted}
                           </p>
                           <span className="bg-error absolute top-1/2 left-0 h-[3px] w-full -rotate-12 rounded-full"></span>
                         </div>
                         <div className="flex w-full flex-nowrap items-center justify-end gap-1 md:mt-[-1.6rem] md:justify-start">
-                          <p className="paragraph-24-normal md:subtitle-normal text-primary-text-700 whitespace-nowrap">
+                          <p className="paragraph-24-normal xl:subtitle-normal text-primary-text-700 whitespace-nowrap">
                             {pricingInfo.original.currency}
                           </p>
-                          <p className="paragraph-24-normal md:subtitle-normal text-primary-text-700 whitespace-nowrap">
+                          <p className="paragraph-24-normal xl:subtitle-normal text-primary-text-700 whitespace-nowrap">
                             / Month
                           </p>
                         </div>
@@ -124,10 +124,12 @@ const Card2 = () => {
                 </div>
               )}
             </div>
+
+            <div className="h-[2rem] w-full"></div>
           </div>
           {/* Bullet Points */}
           <ul className="flex-begin-col w-full gap-8 xl:gap-[clamp(3.2rem,1.7vw,6.4rem)]">
-            <li className="flex-center w-full gap-2">
+            <li className="flex w-full items-center justify-start gap-2">
               <Image
                 src={
                   imageData[tPrice("premium-li1-img") as keyof typeof imageData]
@@ -141,7 +143,7 @@ const Card2 = () => {
                 {tPrice("premium-li1-text")}
               </p>
             </li>
-            <li className="flex-center w-full gap-2">
+            <li className="flex w-full items-center justify-start gap-2">
               <Image
                 src={
                   imageData[tPrice("premium-li2-img") as keyof typeof imageData]
@@ -155,7 +157,7 @@ const Card2 = () => {
                 {tPrice("premium-li2-text")}
               </p>
             </li>
-            <li className="flex-center w-full gap-2">
+            <li className="flex w-full items-center justify-start gap-2">
               <Image
                 src={
                   imageData[tPrice("premium-li3-img") as keyof typeof imageData]
@@ -169,7 +171,7 @@ const Card2 = () => {
                 {tPrice("premium-li3-text")}
               </p>
             </li>
-            <li className="flex-center w-full gap-2">
+            <li className="flex w-full items-center justify-start gap-2">
               <Image
                 src={
                   imageData[tPrice("premium-li4-img") as keyof typeof imageData]
@@ -183,7 +185,7 @@ const Card2 = () => {
                 {tPrice("premium-li4-text")}
               </p>
             </li>
-            <li className="flex-center w-full gap-2">
+            <li className="flex w-full items-center justify-start gap-2">
               <Image
                 src={
                   imageData[tPrice("premium-li5-img") as keyof typeof imageData]
@@ -242,7 +244,7 @@ const Card2 = () => {
             <span className="bg-primary-action-100 absolute right-[63px] bottom-[-17px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
             <span className="bg-primary-action-100 absolute bottom-[-26px] left-[52px] z-5 h-[5rem] w-[12rem] rounded-full blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
             <div className="border-elevated-surfaces-500 relative w-full rounded-[0.4rem] border border-solid px-8 py-3 xl:px-[clamp(32px,1.66vw)] xl:py-[clamp(1.2rem,0.625vw,2.4rem)]">
-              <p className="paragraph-18-medium md:paragraph-24-medium text-secondary-text-500 w-full text-center">
+              <p className="paragraph-18-medium xl:paragraph-24-medium text-secondary-text-500 w-full text-center">
                 {loading
                   ? "Loading..."
                   : !user

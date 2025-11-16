@@ -47,7 +47,7 @@ export default function CookieConsent() {
         aria-modal="true"
         aria-labelledby="cookie-consent-message"
       >
-        <div className="animate-fadeIn bg-elevated-surfaces-50 w-full max-w-[60rem] rounded-[1.6rem] p-[3.2rem] shadow-2xl md:p-[4.8rem]">
+        <div className="animate-fadeIn bg-primary-text-50 w-full max-w-[60rem] rounded-[1.6rem] p-[3.2rem] shadow-2xl md:p-[4.8rem]">
           {/* Content */}
           <div className="mb-[3.2rem]">
             <p
@@ -57,7 +57,7 @@ export default function CookieConsent() {
               {t("message")}{" "}
               <Link
                 href="/legal/cookies"
-                className="text-primary-action-700 decoration-secondary-action/30 hover:decoration-secondary-action font-semibold underline underline-offset-[0.4rem] transition-all"
+                className="text-primary-action-800 hover:decoration-secondary-action font-semibold underline underline-offset-[0.4rem] transition-all"
               >
                 {t("link")}
               </Link>
@@ -68,7 +68,7 @@ export default function CookieConsent() {
           {/* Accept button */}
           <button
             onClick={acceptCookies}
-            className="paragraph-18-semibold bg-primary-action-700 text-elevated-surfaces-50 shadow-cta-header hover:bg-primary-action-700/90 hover:shadow-hover-inner focus:ring-secondary-action/50 w-full rounded-[0.8rem] px-[4.8rem] py-[1.6rem] transition-all hover:cursor-pointer focus:ring-2 focus:ring-offset-2 focus:outline-none md:w-auto"
+            className="paragraph-18-semibold bg-primary-action-800 shadow-cta-header hover:bg-primary-action-800/90 hover:shadow-hover-inner focus:ring-secondary-action/50 w-full rounded-[0.8rem] px-[4.8rem] py-[1.6rem] text-white transition-all hover:cursor-pointer focus:ring-2 focus:ring-offset-2 focus:outline-none md:w-auto"
             aria-label={t("accept")}
           >
             {t("accept")}
