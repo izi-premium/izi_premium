@@ -34,7 +34,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li1-text")}
               </p>
             </li>
@@ -48,7 +48,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li2-text")}
               </p>
             </li>
@@ -62,7 +62,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li3-text")}
               </p>
             </li>
@@ -76,7 +76,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li4-text")}
               </p>
             </li>
@@ -90,7 +90,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li5-text")}
               </p>
             </li>

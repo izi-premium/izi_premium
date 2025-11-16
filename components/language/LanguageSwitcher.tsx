@@ -52,6 +52,7 @@ export function LanguageSwitcher() {
   return (
     <Select value={locale} onValueChange={handleLanguageChange}>
       <SelectTrigger className="flex-center group w-fit gap-1 border-none hover:cursor-pointer">
+        <SelectValue placeholder="Select a language option" />
         <div className="flex-center gap-1">
           <div className="flex-center gap-2">
             {/* Mobile: Show short name (EN/ES) */}

@@ -59,7 +59,10 @@ export default function Header() {
             <Sheet>
               <SheetTrigger asChild className="size-[4.4rem]">
                 <div className="flex-center size-[3.2rem]">
-                  <Menu className="h-6 w-6" />
+                  <Menu
+                    className="h-6 w-6"
+                    aria-label="togle navigation menu"
+                  />
                   <span className="sr-only">{tNav("toggle")}</span>
                 </div>
               </SheetTrigger>
