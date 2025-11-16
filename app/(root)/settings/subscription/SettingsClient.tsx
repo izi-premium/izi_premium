@@ -37,7 +37,7 @@ interface UserSubscriptionData {
   region?: string;
 }
 
-export default function SettingsClient() {
+export default function SubscriptionManagement() {
   const { user, loading: authLoading } = useAuth();
   const router = useRouter();
   const t = useTranslations("Subscription");
