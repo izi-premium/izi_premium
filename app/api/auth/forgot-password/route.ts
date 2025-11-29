@@ -28,15 +28,24 @@ export async function POST(request: NextRequest) {
     const user = userQuery.docs[0];
     const userData = user.data();
 
+    // Verificar que el usuario tenga un UID válido
+    if (!userData.uid) {
+      console.error("User does not have a uid:", email);
+      return NextResponse.json({
+        message:
+          "If an account with that email exists, we sent a password reset link.",
+      });
+    }
+
     // Generate reset code
     const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
     const resetExpiry = new Date(Date.now() + 30 * 60 * 1000); // 30 minutes
 
-    // Store reset code in Firestore
+    // Store reset code in Firestore - usar el UID de Firebase Auth, no el ID del documento
     await getAdminDb().collection("passwordResets").doc(email).set({
       resetCode,
       expiresAt: resetExpiry,
-      userId: user.id,
+      userId: userData.uid, // Usar el UID de Firebase Auth, no user.id (que es el doc ID)
       createdAt: new Date(),
     });
 

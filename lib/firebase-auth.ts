@@ -104,10 +104,42 @@ export async function loginWithEmail(
       };
     }
 
-    await createOrUpdateUserInFirestore(userCredential.user);
-    return { user: userCredential.user, error: null };
+    try {
+      await createOrUpdateUserInFirestore(userCredential.user);
+      return { user: userCredential.user, error: null };
+    } catch (firestoreError: any) {
+      // Si falla Firestore, hacemos signOut pero retornamos el error específico
+      await signOut(auth);
+
+      // Retornar error más descriptivo
+      const errorMessage =
+        firestoreError?.message ||
+        "Error al actualizar información del usuario";
+      return {
+        user: null,
+        error: `Error de base de datos: ${errorMessage}`,
+      };
+    }
   } catch (error: any) {
+    // Si el error no tiene código de Firebase, puede ser un error desconocido
+    if (!error.code) {
+      return {
+        user: null,
+        error:
+          error.message || "Ha ocurrido un error inesperado. Intenta de nuevo.",
+      };
+    }
+
     const friendlyMessage = getFirebaseErrorMessage(error.code);
+
+    // Para invalid-credential, dar más contexto
+    if (error.code === "auth/invalid-credential") {
+      return {
+        user: null,
+        error: `${friendlyMessage} Por favor, verifica que el email y la contraseña sean correctos. Si el problema persiste, intenta restablecer tu contraseña.`,
+      };
+    }
+
     return { user: null, error: friendlyMessage };
   }
 }
