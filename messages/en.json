@@ -194,7 +194,10 @@
     "loadingSubscription": "Loading subscription information...",
     "errorFetchingData": "Error loading subscription data. Please try again.",
     "errorCancellingSubscription": "Error cancelling subscription. Please try again.",
-    "statusCanceled": "Cancelled"
+    "statusCanceled": "Cancelled",
+    "deleteAccountTitle": "Delete account",
+    "deleteAccountDescription": "Permanently delete your account and all your data",
+    "deleteAccountLink": "Delete account"
   },
   "Footer": {
     "question": "Do you like what you see?",
@@ -1202,5 +1205,29 @@
         "answer": "We accept multiple payment methods for your convenience:<br/><br/><strong>• In the App (iOS):</strong> Apple Pay and payment methods configured in your Apple account.<br/><strong>• In the App (Android):</strong> Google Play Billing (cards, PayPal, etc.).<br/><strong>• On the Web:</strong> Credit and debit cards (Visa, Mastercard, American Express) and compatible digital wallets through Stripe."
       }
     ]
+  },
+  "DeleteAccount": {
+    "title": "Delete Account",
+    "description": "Request permanent deletion of your account and all associated data",
+    "warningTitle": "Warning: This action cannot be undone",
+    "warningDescription": "By deleting your account, all your data will be permanently deleted, including your profile, diary, conversations, and premium subscription.",
+    "whatWillBeDeleted": "The following will be deleted:",
+    "deleteItem1": "Your user profile and personal data",
+    "deleteItem2": "All your diary entries",
+    "deleteItem3": "All your saved conversations",
+    "deleteItem4": "Your premium subscription (if active)",
+    "deleteButton": "Delete my account",
+    "confirmTitle": "Are you sure?",
+    "confirmDescription": "This action will permanently delete your account and all your data. This action cannot be undone. If you have an active subscription, it will also be cancelled.",
+    "cancelButton": "Cancel",
+    "confirmDeleteButton": "Yes, delete my account",
+    "deleting": "Deleting...",
+    "notLoggedIn": "You must be logged in to delete your account",
+    "notLoggedInMessage": "To delete your account, you must first sign in.",
+    "signInButton": "Sign in",
+    "goHomeButton": "Go home",
+    "successTitle": "Account deleted",
+    "successMessage": "Your account has been successfully deleted. You will be redirected to the home page.",
+    "errorDeleting": "Error deleting account. Please try again."
   }
 }

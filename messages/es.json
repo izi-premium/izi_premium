@@ -194,7 +194,10 @@
     "loadingSubscription": "Cargando información de subscripción...",
     "errorFetchingData": "Error al cargar los datos de subscripción. Por favor, inténtalo de nuevo.",
     "errorCancellingSubscription": "Error al cancelar la subscripción. Por favor, inténtalo de nuevo.",
-    "statusCanceled": "Cancelada"
+    "statusCanceled": "Cancelada",
+    "deleteAccountTitle": "Eliminar cuenta",
+    "deleteAccountDescription": "Elimina permanentemente tu cuenta y todos tus datos",
+    "deleteAccountLink": "Eliminar cuenta"
   },
   "Footer": {
     "question": "¿Te interesa el proyecto?",
@@ -1207,5 +1210,29 @@
         "answer": "Aceptamos múltiples métodos de pago para tu conveniencia:<br/><br/><strong>• En la App (iOS):</strong> Apple Pay y métodos de pago configurados en tu cuenta de Apple.<br/><strong>• En la App (Android):</strong> Google Play Billing (tarjetas, PayPal, etc.).<br/><strong>• En la Web:</strong> Tarjetas de crédito y débito (Visa, Mastercard, American Express) y wallets digitales compatibles a través de Stripe."
       }
     ]
+  },
+  "DeleteAccount": {
+    "title": "Eliminar Cuenta",
+    "description": "Solicita la eliminación permanente de tu cuenta y todos tus datos asociados",
+    "warningTitle": "Advertencia: Esta acción no se puede deshacer",
+    "warningDescription": "Al eliminar tu cuenta, se eliminarán permanentemente todos tus datos, incluyendo tu perfil, diario, conversaciones y suscripción premium.",
+    "whatWillBeDeleted": "Se eliminará lo siguiente:",
+    "deleteItem1": "Tu perfil de usuario y datos personales",
+    "deleteItem2": "Todas tus entradas del diario",
+    "deleteItem3": "Todas tus conversaciones guardadas",
+    "deleteItem4": "Tu suscripción premium (si está activa)",
+    "deleteButton": "Eliminar mi cuenta",
+    "confirmTitle": "¿Estás seguro?",
+    "confirmDescription": "Esta acción eliminará permanentemente tu cuenta y todos tus datos. Esta acción no se puede deshacer. Si tienes una suscripción activa, también será cancelada.",
+    "cancelButton": "Cancelar",
+    "confirmDeleteButton": "Sí, eliminar mi cuenta",
+    "deleting": "Eliminando...",
+    "notLoggedIn": "Debes iniciar sesión para eliminar tu cuenta",
+    "notLoggedInMessage": "Para eliminar tu cuenta, primero debes iniciar sesión.",
+    "signInButton": "Iniciar sesión",
+    "goHomeButton": "Ir al inicio",
+    "successTitle": "Cuenta eliminada",
+    "successMessage": "Tu cuenta ha sido eliminada exitosamente. Serás redirigido a la página principal.",
+    "errorDeleting": "Error al eliminar la cuenta. Por favor, intenta de nuevo."
   }
 }

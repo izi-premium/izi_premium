@@ -1,6 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
 import { getAdminDb } from "@/lib/firebase-admin";
-import bcrypt from "bcryptjs";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
@@ -52,10 +51,73 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Hash new password
-    const hashedPassword = await bcrypt.hash(newPassword, 12);
+    // Inicializar Firebase Admin
+    const admin = require("firebase-admin");
 
-    // Update user password using uid
+    if (!admin.apps.length) {
+      admin.initializeApp({
+        credential: admin.credential.cert({
+          project_id: process.env.FIREBASE_PROJECT_ID,
+          client_email: process.env.FIREBASE_CLIENT_EMAIL,
+          private_key: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+        }),
+        projectId: process.env.FIREBASE_PROJECT_ID,
+      });
+    }
+
+    // CRÍTICO: Actualizar la contraseña en Firebase Auth (no en Firestore)
+    // Firebase Auth maneja las contraseñas directamente, no las almacena en Firestore
+    try {
+      await admin.auth().updateUser(resetData.userId, {
+        password: newPassword,
+      });
+    } catch (authError: any) {
+      // Si el usuario no tiene proveedor de email/password, intentar crear uno
+      if (
+        authError.code === "auth/invalid-provider-data" ||
+        authError.message?.includes("provider")
+      ) {
+        // Verificar si el usuario existe
+        try {
+          const userRecord = await admin.auth().getUser(resetData.userId);
+
+          // Si el usuario no tiene proveedor de email/password, crear uno
+          if (
+            !userRecord.providerData.some(
+              (p: any) => p.providerId === "password"
+            )
+          ) {
+            // Obtener el email del usuario
+            const emailToUse = userRecord.email || email;
+
+            // Crear el proveedor de email/password
+            await admin.auth().updateUser(resetData.userId, {
+              email: emailToUse,
+              password: newPassword,
+              emailVerified: userRecord.emailVerified || false,
+            });
+          }
+        } catch (getUserError: any) {
+          return NextResponse.json(
+            {
+              error:
+                "Error al actualizar la contraseña. Por favor, contacta al soporte.",
+            },
+            { status: 500 }
+          );
+        }
+      } else {
+        return NextResponse.json(
+          {
+            error:
+              "Error al actualizar la contraseña. Por favor, intenta de nuevo.",
+          },
+          { status: 500 }
+        );
+      }
+    }
+
+    // Actualizar Firestore (opcional, solo para referencia)
     const userQuery = await getAdminDb()
       .collection("users")
       .where("uid", "==", resetData.userId)
@@ -64,7 +126,6 @@ export async function POST(request: NextRequest) {
 
     if (!userQuery.empty) {
       await userQuery.docs[0].ref.update({
-        password: hashedPassword,
         updatedAt: new Date(),
       });
     }
@@ -76,10 +137,13 @@ export async function POST(request: NextRequest) {
       message:
         "Password reset successfully. You can now sign in with your new password.",
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Reset password error:", error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      {
+        error: "Internal server error",
+        message: error.message,
+      },
       { status: 500 }
     );
   }
