@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import imageData from "@/data/uploadedImages.json";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 
 const AnonymousChat = () => {
@@ -9,10 +8,10 @@ const AnonymousChat = () => {
   return (
     <section
       id="chat"
-      className="flex-start-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full scroll-mt-20 gap-[6.4rem] py-[8rem] lg:py-[10rem]"
+      className="flex-start-col px-mobile md:px-tablet lg:px-desktop w-full max-w-[180rem] scroll-mt-20 gap-[6.4rem] py-[6.4rem]"
     >
       <div className="w-full">
-        <div className="special:grid-cols-2 grid items-start gap-10 md:gap-16">
+        <div className="special:grid-cols-2 grid items-stretch gap-10 md:gap-16">
           <div className="flex flex-col items-start justify-start gap-10 xl:gap-16">
             <div className="flex flex-col items-center gap-2 md:items-start">
               <h2 className="subtitle-medium md:h2-medium text-primary-text-700">
@@ -72,18 +71,16 @@ const AnonymousChat = () => {
               </p>
             </div>
           </div>
-          <div className="flex justify-center">
-            <AspectRatio
-              ratio={5 / 6}
-              className="overflow-hidden rounded-lg shadow-lg"
-            >
-              {/* <Image
-                src={imageData["chat-image"]}
+          <div className="relative flex h-full min-h-[500px] w-full justify-center">
+            <div className="shadow-cahtImage relative h-full w-full overflow-hidden rounded-[16px] border-[0.5px] border-solid border-[#C2C2B7] bg-[linear-gradient(142deg,_#F5F2DF_26.43%,_#DAEEFF_95.74%)]">
+              <Image
+                src={imageData[tChat("image") as keyof typeof imageData]}
                 alt={tChat("alt")}
                 fill
-                className="object-cover object-center"
-              /> */}
-            </AspectRatio>
+                sizes="(max-width: 768px) 80vw, (max-width: 2240px): 75vw, 25vw"
+                className="scale-90 object-contain object-center"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -92,7 +89,7 @@ const AnonymousChat = () => {
         <div className="flex-center-col border-primary-text-200 w-full gap-6 rounded-[1.6rem] border border-solid bg-linear-to-b from-white to-[#F5F5F5] to-[154.72%] p-4 xl:p-[clamp(1.6rem,1vw,4.4rem)]">
           <div className="flex-center-col special:flex-row h-fit w-full gap-10">
             {/* Card #1 */}
-            <div className="flex-begin-col shadow-chat-boxes special:min-h-[22.4rem] h-full w-full gap-6 rounded-[0.4rem] bg-white px-6 py-4 xl:h-[clamp(22.4rem,11.6vw,44.8rem)] xl:gap-[clamp-(2.4rem,1.75vw,6.8rem)]">
+            <div className="flex-begin-col shadow-chat-boxes special:min-h-[22.4rem] h-full w-full gap-6 rounded-[0.4rem] bg-white px-6 py-4 xl:gap-[clamp-(2.4rem,1.75vw,6.8rem)]">
               <h3 className="paragraph-24-medium md:subtitle-medium text-primary-text-700">
                 {tChat("free-chat-title")}
               </h3>
@@ -125,7 +122,7 @@ const AnonymousChat = () => {
             </div>
 
             {/* Card #2 */}
-            <div className="flex-begin-col shadow-chat-boxes special:min-h-[22.4rem] h-fit w-full gap-6 rounded-[0.4rem] bg-white px-6 py-4 xl:h-[clamp(22.4rem,11.6vw,44.8rem)]">
+            <div className="flex-begin-col shadow-chat-boxes special:min-h-[22.4rem] h-fit w-full gap-6 rounded-[0.4rem] bg-white px-6 py-4">
               <h3 className="paragraph-24-medium md:subtitle-medium text-primary-text-700 xl:gap-[clamp-(2.4rem,1.75vw,6.8rem)]">
                 {tChat("premium-chat-title")}
               </h3>

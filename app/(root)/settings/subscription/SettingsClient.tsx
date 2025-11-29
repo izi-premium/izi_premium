@@ -22,7 +22,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Calendar, CreditCard, Crown, Loader2, Trash2 } from "lucide-react";
+import { Calendar, CreditCard, Crown, Loader2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -190,7 +190,7 @@ export default function SubscriptionManagement() {
 
   if (authLoading || loading) {
     return (
-      <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
+      <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
         <div className="flex min-h-[400px] items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin" />
         </div>
@@ -203,7 +203,7 @@ export default function SubscriptionManagement() {
   }
 
   return (
-    <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
+    <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop h-fit min-h-[100vh] w-full gap-10 bg-white py-12 pt-[12rem]">
       <div className="mb-8">
         <h1 className="subtitle-medium md:h2-medium text-center text-gray-900">
           {t("title")}
@@ -400,35 +400,6 @@ export default function SubscriptionManagement() {
           </CardContent>
         </Card>
       )}
-
-      {/* Delete Account Section */}
-      <Card className="w-full max-w-[clamp(40rem,20.8vw,80rem)] border border-red-200 bg-red-50/30">
-        <CardContent className="flex items-center justify-between p-6">
-          <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
-              <Trash2 className="h-5 w-5 text-red-600" />
-            </div>
-            <div className="flex flex-col">
-              <h3 className="paragraph-18-medium 2xl:paragraph-24-medium text-gray-900">
-                {t("deleteAccountTitle")}
-              </h3>
-              <p className="paragraph-14-normal 2xl:paragraph-18-normal text-gray-600">
-                {t("deleteAccountDescription")}
-              </p>
-            </div>
-          </div>
-          <Link
-            href="/delete-account"
-            className="group relative flex items-center justify-center gap-2 rounded-[0.8rem] bg-red-600 px-6 py-3 transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-red-700 hover:shadow-lg"
-          >
-            <Trash2 className="h-4 w-4 text-white transition-transform duration-300 group-hover:scale-110" />
-            <span className="paragraph-14-medium 2xl:paragraph-18-medium text-white">
-              {t("deleteAccountLink")}
-            </span>
-          </Link>
-        </CardContent>
-      </Card>
     </div>
   );
-
 }

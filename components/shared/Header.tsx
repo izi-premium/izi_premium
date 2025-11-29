@@ -22,15 +22,15 @@ export default function Header() {
   const { user } = useAuth();
 
   const navLinks = [
-    { href: "#chat", label: `${tNav("chat")}` },
-    { href: "#diary", label: `${tNav("diary")}` },
-    { href: "#cookies", label: `${tNav("cookies")}` },
+    { href: "/#chat", label: `${tNav("chat")}` },
+    { href: "/#diary", label: `${tNav("diary")}` },
+    { href: "/#cookies", label: `${tNav("cookies")}` },
   ];
 
   return (
-    <header className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper fixed top-6 z-50 flex h-fit w-full items-center bg-transparent">
+    <header className="px-mobile md:px-tablet lg:px-desktop fixed top-6 z-50 flex h-fit w-full max-w-[180rem] items-center bg-transparent">
       <div className="from-elevated-surfaces-600 border-opacity-50 shadow-header w-full rounded-[1.6rem] border border-solid border-[#C4C6AA] bg-gradient-to-b to-[#303129]/25 p-[1px]">
-        <div className="bg-elevated-surfaces-500 flex w-full items-center justify-between rounded-[1.6rem] px-4 py-3 md:pl-8">
+        <div className="bg-elevated-surfaces-500 flex w-full items-center justify-between rounded-[1.6rem] px-4 py-3">
           <nav className="flex flex-row items-center gap-6 text-lg font-medium md:gap-5 md:text-sm lg:gap-6">
             <Link
               href="/"
@@ -58,10 +58,10 @@ export default function Header() {
 
             <Sheet>
               <SheetTrigger asChild className="size-[4.4rem]">
-                <div className="flex-center size-[3.2rem]">
+                <button className="flex-center size-[3.2rem] border-none bg-transparent">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">{tNav("toggle")}</span>
-                </div>
+                </button>
               </SheetTrigger>
               <SheetContent
                 side="right"
@@ -69,7 +69,7 @@ export default function Header() {
               >
                 <SheetTitle className="flex-center w-full">
                   <Link
-                    href="#"
+                    href="/"
                     className="flex-center w-fit gap-2 text-lg font-semibold md:text-base"
                   >
                     <div className="flex-center relative size-[3.2rem]">
@@ -129,7 +129,7 @@ export default function Header() {
                       ) : (
                         <SheetClose asChild>
                           <Link
-                            href="#premium-plan"
+                            href="/#premium-plan"
                             className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
                           >
                             <span className="paragraph-24-medium text-secondary-text-500">
@@ -173,7 +173,7 @@ export default function Header() {
                   </Link>
 
                   <Link
-                    href="#premium-plan"
+                    href="/#premium-plan"
                     className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
                   >
                     <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">
@@ -183,7 +183,7 @@ export default function Header() {
                 </>
               ) : (
                 <Link
-                  href="#premium-plan"
+                  href="/#premium-plan"
                   className="bg-accent-900 hover:bg-accent-600 shadow-cta-header rounded-[0.8rem] px-6 py-2 transition-all duration-300 ease-in-out hover:cursor-pointer"
                 >
                   <span className="paragraph-18-medium text-secondary-text-500 lg:paragraph-24-medium">

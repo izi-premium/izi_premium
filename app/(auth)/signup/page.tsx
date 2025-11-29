@@ -1,9 +1,16 @@
 import SignupForm from "@/components/auth/SignupForm";
 import { Suspense } from "react";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 export default function SignupPage() {
   return (
-    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white">
+    <section className="flex-center-col px-mobile md:px-tablet lg:px-desktop bg-secondary-text-50 h-fit min-h-[100vh] w-full gap-10">
       <div className="w-full">
         <Suspense fallback={<div>Loading...</div>}>
           <SignupForm />

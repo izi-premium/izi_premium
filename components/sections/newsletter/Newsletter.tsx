@@ -65,7 +65,7 @@ const Newsletter = () => {
   return (
     <section
       id="newsletter"
-      className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full scroll-mt-24 gap-10 bg-white py-[8rem] lg:py-[10rem]"
+      className="flex-center-col px-mobile md:px-tablet lg:px-desktop w-full scroll-mt-24 gap-10 bg-white py-[6.4rem]"
     >
       <div className="flex-center-col gap-4">
         <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">
@@ -91,7 +91,7 @@ const Newsletter = () => {
         <button
           onClick={handleSubscribe}
           disabled={isLoading}
-          className="hover:shadow-header bg-accent-500 relative flex w-fit items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+          className="hover:shadow-header bg-accent-500 relative flex w-fit items-center justify-center rounded-[0.8rem] p-1 transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 xl:whitespace-nowrap"
         >
           <span className="absolute right-[63px] bottom-[-17px] z-5 h-[5rem] w-[12rem] rounded-full bg-red-50 blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>
           <span className="absolute bottom-[-26px] left-[52px] z-5 h-[5rem] w-[12rem] rounded-full bg-red-50 blur-[100px] xl:h-[clamp(5rem,2.6vw,9rem)] xl:w-[clamp(12rem,6.25vw,20rem)]"></span>

@@ -228,7 +228,7 @@ export default function SigninForm({ redirectUrl }: SigninFormProps) {
 
   if (resetEmailSent) {
     return (
-      <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-lg bg-white p-6 shadow-sm md:p-8">
+      <div className="mx-auto mt-[12rem] mb-12 max-w-[clamp(40rem,20.8vw,80rem)] rounded-2xl bg-white p-6 shadow-sm md:p-8">
         <h2 className="paragraph-24-medium md:subtitle-medium mb-2 w-full text-center text-gray-900">
           {tIn("title")}
         </h2>

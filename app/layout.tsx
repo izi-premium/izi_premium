@@ -9,6 +9,7 @@ import { getLocale, getMessages } from "next-intl/server";
 import localFont from "next/font/local";
 import NewsletterOAuthHandler from "../components/auth/NewsletterOAuthHandler";
 import { FirebaseAuthProvider } from "../components/providers/FirebaseAuthProvider";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const switzer = localFont({
@@ -28,7 +29,7 @@ const parisienne = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.com"), // Remember to change this to your domain
+  metadataBase: new URL("https://iziworld.app"),
   title: {
     default: "Home | I.Z.I Premium",
     template: "%s | I.Z.I Premium",
@@ -42,36 +43,36 @@ export const metadata: Metadata = {
     "Daily advise",
     "Anonymous chat with strangers",
   ],
-  authors: [{ name: "Esteban Santiago" }],
+  authors: [{ name: "Ricardo Guerrero" }],
   creator: "Esteban Santiago",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-domain.com", // Remember to change this to your domain
+    url: "https://iziworld.app",
     title: "Home | I.Z.I Premium",
     description:
       "A companionship app that cares about your mental health and helps you improve and get better everyday.",
     siteName: "I.Z.I Premium",
-    images: "/opengraph-image.png", // Add your own opengraph image
+    images: "/izi-og-image.png",
   },
   twitter: {
     card: "summary_large_image",
     title: "Home | I.Z.I Premium",
     description:
       "A companionship app that cares about your mental health and helps you improve and get better everyday.",
-    images: "/twitter-image.png", // Add your own twitter image
+    images: "/izi-twitter-og-image.png",
   },
-  // robots: {
-  //   index: true,
-  //   follow: true,
-  //   googleBot: {
-  //     index: true,
-  //     follow: true,
-  //     "max-video-preview": -1,
-  //     "max-image-preview": "large",
-  //     "max-snippet": -1,
-  //   },
-  // },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default async function RootLayout({
@@ -108,13 +109,14 @@ export default async function RootLayout({
           <NextIntlClientProvider messages={messages}>
             <CookieConsent />
             <NewsletterOAuthHandler />
-            <Header />
             <main className="flex-center-col bg-secondary-text-50 relative min-h-screen w-screen">
+              <Header />
               {children}
+              <Footer />
             </main>
-            <Footer />
           </NextIntlClientProvider>
           <SpeedInsights />
+          <Analytics />
         </body>
       </html>
     </FirebaseAuthProvider>

@@ -8,7 +8,7 @@ const PricingWrapper = () => {
   return (
     <section
       id="pricing"
-      className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper w-full scroll-mt-20 gap-10 py-[8rem]"
+      className="flex-center-col px-mobile md:px-tablet lg:px-desktop w-full max-w-[180rem] scroll-mt-20 gap-10 py-[6.4rem]"
     >
       <div className="flex-center-col w-fulll gap-4">
         <h2 className="subtitle-medium md:h2-medium text-primary-text-700 text-center">

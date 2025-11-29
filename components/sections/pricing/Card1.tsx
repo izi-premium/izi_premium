@@ -8,17 +8,17 @@ const Card1 = () => {
   const tPrice = useTranslations("Pricing");
   return (
     <div className="border-base-800 h-full w-full flex-1 rounded-[3.2rem] border border-solid bg-white p-2 md:p-6">
-      <div className="border-base-800 flex-begin-col gap-10 rounded-[1.6rem] border border-solid bg-linear-to-b from-white from-0% to-[#F5F5F5] to-[85%] p-4 md:gap-[6.4rem] md:p-12 xl:gap-[clamp(4rem,2.1vw,8rem)]">
+      <div className="border-base-800 flex-begin-col gap-10 rounded-[1.6rem] border border-solid bg-linear-to-b from-white from-0% to-[#F5F5F5] to-[85%] p-4 md:gap-[6.4rem] md:p-6 xl:gap-[clamp(4rem,2.1vw,8rem)]">
         <div className="flex-begin-col gap-[5.6rem]">
           {/* Head */}
           <div className="flex-begin-col gap-4">
-            <h3 className="subtitle-medium lg:h2-medium text-primary-text-700">
+            <h3 className="subtitle-medium xl:h2-medium text-primary-text-700">
               {tPrice("free-plan-title")}
             </h3>
-            <p className="h1-small md:h1-big lg:h1-xxl text-primary-text-700">
+            <p className="h1-small xl:h1-big 2xl:h1-xxl text-primary-text-700">
               {tPrice("free-plan-price")}
             </p>
-            <p className="paragraph-24-normal text-primary-text-500">
+            <p className="paragraph-18-normal xl:paragraph-24-normal text-primary-text-500">
               {tPrice("free-plan-text")}
             </p>
           </div>
@@ -34,7 +34,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li1-text")}
               </p>
             </li>
@@ -48,7 +48,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li2-text")}
               </p>
             </li>
@@ -62,7 +62,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li3-text")}
               </p>
             </li>
@@ -76,7 +76,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li4-text")}
               </p>
             </li>
@@ -90,7 +90,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[2.8rem] md:size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <p className="paragraph-18-normal text-primary-text-600 md:paragraph-24-normal w-full text-left">
+              <p className="paragraph-18-normal text-primary-text-600 xl:paragraph-24-normal w-full text-left">
                 {tPrice("free-li5-text")}
               </p>
             </li>
@@ -117,7 +117,7 @@ const Card1 = () => {
                 height={32}
                 className="size-[3.2rem] 2xl:size-[4.4rem]"
               />
-              <span className="paragraph-18-medium md:paragraph-24-medium flex-nowrap whitespace-nowrap text-black">
+              <span className="paragraph-18-medium xl:paragraph-24-medium flex-nowrap whitespace-nowrap text-black">
                 {tPrice("apple")}
               </span>
             </Link>
@@ -132,9 +132,9 @@ const Card1 = () => {
                 alt={tPrice("google-alt")}
                 width={32}
                 height={32}
-                className="size-[3.2rem] 2xl:size-[4.4rem]"
+                className="size-[3.2rem] stroke-[3px] 2xl:size-[4.4rem]"
               />
-              <span className="paragraph-18-medium md:paragraph-24-medium flex-nowrap whitespace-nowrap text-black">
+              <span className="paragraph-18-medium xl:paragraph-24-medium flex-nowrap whitespace-nowrap text-black">
                 {tPrice("google")}
               </span>
             </Link>

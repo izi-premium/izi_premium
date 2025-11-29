@@ -26,7 +26,7 @@ export default async function FAQsPage() {
   }));
 
   return (
-    <section className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper flex-center-col min-h-[100vh] w-full bg-white py-12 pt-[12rem]">
+    <section className="px-mobile md:px-tablet lg:px-desktop flex-center-col min-h-[100vh] w-full bg-white py-12 pt-[12rem] 2xl:items-start 2xl:justify-start 2xl:pt-[20rem]">
       <div className="w-full">
         {/* Header */}
         <div className="flex-center-col mb-12 w-full space-y-4 text-center md:mb-16">
@@ -34,7 +34,7 @@ export default async function FAQsPage() {
             <h1 className="h2-medium md:h1-small text-primary-text-700">
               {t("title")}
             </h1>
-            <p className="paragraph-18-normal md:paragraph-24-normal text-primary-text-600 mx-auto max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[160rem]">
+            <p className="paragraph-18-normal md:paragraph-24-normal text-primary-text-600 3xl:max-w-[160rem] mx-auto max-w-[90rem] 2xl:max-w-[120rem]">
               {t("subtitle")}
             </p>
           </div>
@@ -45,11 +45,11 @@ export default async function FAQsPage() {
           <Accordion
             type="single"
             collapsible
-            className="w-full max-w-[90rem] 2xl:max-w-[120rem] 3xl:max-w-[160rem]"
+            className="3xl:max-w-[160rem] w-full max-w-[90rem] 2xl:max-w-[120rem]"
           >
             {faqItems.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="paragraph-18-normal md:paragraph-24-normal text-primary-text-700 py-6 transition-all duration-300 ease-in-out hover:cursor-pointer hover:text-secondary-action xl:py-8 2xl:py-10 3xl:py-12">
+                <AccordionTrigger className="paragraph-18-normal md:paragraph-24-normal text-primary-text-700 hover:text-secondary-action 3xl:py-12 py-6 transition-all duration-300 ease-in-out hover:cursor-pointer xl:py-8 2xl:py-10">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="paragraph-14-normal md:paragraph-18-normal text-primary-text-600 pb-6">

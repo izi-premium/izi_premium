@@ -19,8 +19,8 @@ export default async function CommunityRules() {
   const t = await getTranslations("communityRules");
 
   return (
-    <div className="px-mobile md:px-tablet lg:px-desktop xl:container-wrapper min-h-screen w-full bg-white py-[12rem]">
-      <div className="container mx-auto w-full max-w-[clamp(140rem,73vw,280rem)] py-8">
+    <div className="min-h-screen w-full bg-white py-[12rem]">
+      <div className="px-mobile md:px-tablet lg:px-desktop container mx-auto w-full max-w-[180rem] py-8">
         <h1 className="subtitle-medium md:h1-small text-primary-text-900 mb-8">
           {t("title")}
         </h1>

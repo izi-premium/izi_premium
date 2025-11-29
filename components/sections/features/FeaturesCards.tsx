@@ -33,8 +33,8 @@ const FeaturesCards = () => {
               }}
             />
           </div>
-          <div className="border-primary-text-700 relative mt-auto flex h-[16rem] w-full min-w-full flex-shrink-0 items-end justify-end rounded-tl-[0.4rem] rounded-tr-[0.4rem] border border-b-0 border-solid bg-white md:h-[24rem] xl:h-[clamp(20rem,10.4vw,60rem)]">
-            <div className="relative h-[16rem] w-full md:h-[24rem] xl:h-[clamp(20rem,10.4vw,60rem)]">
+          <div className="border-primary-text-700 relative mt-auto flex h-[16rem] w-full min-w-full flex-shrink-0 items-end justify-end rounded-tl-[0.4rem] rounded-tr-[0.4rem] border border-b-0 border-solid bg-white md:h-[24rem] xl:h-[26rem]">
+            <div className="relative h-[16rem] w-full md:h-[24rem]">
               <Image
                 src={imageData[card.image.src as keyof typeof imageData]}
                 alt={card.image.alt}

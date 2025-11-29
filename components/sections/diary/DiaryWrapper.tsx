@@ -6,7 +6,7 @@ const DiaryWrapper = () => {
   return (
     <div
       id="diary"
-      className="flex-start-col w-full scroll-mt-20 gap-[20rem] py-[8rem] lg:py-[10rem]"
+      className="flex-start-col w-full max-w-[180rem] scroll-mt-20 gap-[20rem] py-[6.4rem]"
     >
       <DiaryMain />
       <DiaryTabs />

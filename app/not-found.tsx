@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 export default function NotFound() {
   const tFound = useTranslations("NotFound");
   return (
-    <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop xl:container-wrapper h-fit min-h-[100vh] w-full gap-10 bg-white">
+    <div className="flex-center-col px-mobile md:px-tablet lg:px-desktop h-fit min-h-[100vh] w-full gap-10 bg-white">
       <div className="w-full max-w-[clamp(50rem,20.8vw,80rem)] text-center">
         {/* 404 Number */}
         <div className="mb-8">
