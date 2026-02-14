@@ -46,7 +46,7 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-      <div className="3xl:w-[48rem] 3xl:h-[68rem] relative h-[49rem] w-full max-w-[56.8rem] md:w-[32rem] lg:w-[58rem] xl:h-[82.8rem]">
+      <div className="3xl:w-[48rem] 3xl:h-[68rem] relative h-[49rem] w-full max-w-[56.8rem] md:w-[32rem] lg:w-[36rem] xl:h-[52rem]">
         <Image
           src={imageData["izi-premium-phone-banner"]}
           alt={tHero("image-alt")}
